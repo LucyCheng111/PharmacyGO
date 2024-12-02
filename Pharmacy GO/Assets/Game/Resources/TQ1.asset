@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5362ee468e059bc4b82621f8ddd91ff0, type: 3}
+  m_Name: TQ1
+  m_EditorClassIdentifier: 
+  question: "It is an excited \u03B22-adrenergic receptor. What drug should you give
+    it to calm it? "
+  imgQuestion: {fileID: 0}
+  answers:
+  - Timolol
+  - Albuterol
+  - Brimonidine
+  - 'Metoprolol '
+  - Tetrahydrozoline
+  imgAnswers: []
+  correctAnswerIndex: 0
+  difficulty: 0
