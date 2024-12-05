@@ -65,7 +65,10 @@ public class DialogBox : MonoBehaviour
     {
         for (int i = 0; i < choices.Count; i++)
         {
-            choices[i].text = answers[i];
+            if (i < answers.Length)
+                choices[i].text = answers[i];
+            else
+                choices[i].text = "";
         }
     }
 }

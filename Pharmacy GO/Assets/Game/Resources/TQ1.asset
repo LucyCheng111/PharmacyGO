@@ -14,13 +14,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   question: "It is an excited \u03B22-adrenergic receptor. What drug should you give
     it to calm it? "
-  imgQuestion: {fileID: 0}
+  questionImg: {fileID: 0}
   answers:
   - Timolol
   - Albuterol
   - Brimonidine
   - 'Metoprolol '
   - Tetrahydrozoline
-  imgAnswers: []
+  answersImg: []
   correctAnswerIndex: 0
   difficulty: 0

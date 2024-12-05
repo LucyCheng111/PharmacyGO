@@ -29,8 +29,10 @@ public class BattleSystem : MonoBehaviour
     public IEnumerator SetupBattle()
     {
         StartCoroutine(questionSection.TypeQuestion(question));
+        dialogBox.SetAnswerTexts(question.Answers);
         yield return StartCoroutine(dialogBox.TypeDialog("A wild question appeared!"));
         yield return new WaitForSeconds(1f);
+        
         PlayerAction();
     }
 
@@ -52,8 +54,6 @@ public class BattleSystem : MonoBehaviour
             dialogBox.EnableActionSelector(false);
             dialogBox.EnableDialogText(false);
             dialogBox.EnableChoiceSelector(true);
-
-            dialogBox.SetAnswerTexts(question.Answers);
             HandleAnswer();
         }
     }
@@ -70,10 +70,9 @@ public class BattleSystem : MonoBehaviour
             if (currentAction > 0)
                 --currentAction;
         }
-       
+        
        if (Input.GetKeyDown(KeyCode.Z))
         {
-            Debug.Log("Current action: " + currentAction);
             if (currentAction == 0)
             {
                 // Answer the question
@@ -86,7 +85,6 @@ public class BattleSystem : MonoBehaviour
         }
         dialogBox.UpdateActionSelection(currentAction);
 
-        
     }
 
     void HandleAnswer()
@@ -128,10 +126,14 @@ public class BattleSystem : MonoBehaviour
     IEnumerator EndBattle(bool answerCorrect)
     {
         Debug.Log("answerCorrect: " + answerCorrect);
-            if (answerCorrect)
-                StartCoroutine(dialogBox.TypeDialog("Correct!"));
-            else
-                StartCoroutine(dialogBox.TypeDialog("Incorrect!"));
+            if (answerCorrect){
+                dialogBox.EnableDialogText(true);   
+                yield return StartCoroutine(dialogBox.TypeDialog("Correct!"));
+            }
+            else{
+                dialogBox.EnableDialogText(true); 
+                yield return StartCoroutine(dialogBox.TypeDialog("Incorrect!"));
+            }
         yield return new WaitForSeconds(5f);
         OnBattleOver(answerCorrect);
     }                                                                                                                                                                                                                            
