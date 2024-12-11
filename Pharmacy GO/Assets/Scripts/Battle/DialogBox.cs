@@ -25,7 +25,7 @@ public class DialogBox : MonoBehaviour
             yield return new WaitForSeconds(1f/letterPerSecond);
         }
     }
-
+    //
     public void EnableDialogText(bool enabled)
     {
         dialogText.enabled = enabled;
