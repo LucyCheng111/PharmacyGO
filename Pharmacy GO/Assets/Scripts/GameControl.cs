@@ -13,7 +13,18 @@ public class GameController : MonoBehaviour
         battleSystem.OnBattleOver += EndBattle;
         // playerControl.OnEnterDialogue += StartDialogue;
         // playerControl.OnEndDialogue += EndDialogue;
-        
+
+        DialogManager.Instance.OnShowDialog += () =>
+        {
+            state = GameState.Dialogue;
+        };
+
+        DialogManager.Instance.OnCloseDialog += () =>
+        {
+            if(state == GameState.Dialogue)
+                state = GameState.FreeRoam;
+        };
+
     }
     void StartBattle()
     {
@@ -41,6 +52,10 @@ public class GameController : MonoBehaviour
         else if (state == GameState.Battle)
         {
             battleSystem.HandleUpdate();
+        }
+        else if (state == GameState.Dialogue)
+        {
+            DialogManager.Instance.HandleUpdate();
         }
     }
 }
