@@ -25,6 +25,12 @@ public class GameController : MonoBehaviour
                 state = GameState.FreeRoam;
         };
 
+        if(CoinManager.Instance == null)
+        {
+            GameObject coinManager = new GameObject("CoinManager");
+            coinManager.AddComponent<CoinManager>();
+        }
+
     }
     void StartBattle()
     {

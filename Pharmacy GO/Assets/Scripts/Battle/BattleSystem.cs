@@ -138,6 +138,7 @@ public class BattleSystem : MonoBehaviour
         Debug.Log("answerCorrect: " + answerCorrect);
             if (answerCorrect){
                 dialogBox.EnableDialogText(true);   
+                CoinManager.Instance.AddCoin(1); // Add a coin
                 yield return StartCoroutine(dialogBox.TypeDialog("Correct!"));
             }
             else{
