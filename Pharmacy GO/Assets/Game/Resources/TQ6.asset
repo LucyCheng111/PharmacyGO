@@ -14,9 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   question: "It is an excited \u03B22-adrenergic receptor. What drug should you give
     it to calm it? "
-  imgQuestion: {fileID: 21300000, guid: eb195a0a4873fd741af15f82706f55b7, type: 3}
+  questionImg: {fileID: 21300000, guid: eb195a0a4873fd741af15f82706f55b7, type: 3}
   answers: []
-  imgAnswers:
+  answersImg:
   - {fileID: 21300000, guid: 474bb743c6add4d44b599eb66906aa13, type: 3}
   - {fileID: 21300000, guid: b7bf574926245b74682a88b9e0af120d, type: 3}
   - {fileID: 21300000, guid: b0b1816e5e3548945b93921c87698ce4, type: 3}

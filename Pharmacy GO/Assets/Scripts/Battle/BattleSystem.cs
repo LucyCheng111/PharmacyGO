@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Data.Common;
 using System;
 
-public enum BattleState { START, PLAYERACTION, PLAYERANSWER}
+public enum BattleState { START, PLAYERACTION, PLAYERANSWER, END}
 public class BattleSystem : MonoBehaviour
 {
     [SerializeField] private QuestionBase question;
@@ -19,18 +19,18 @@ public class BattleSystem : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     public void StartBattle()
     {
+        state = BattleState.START;
         StartCoroutine(SetupBattle());
-        dialogBox.EnableDialogText(true);
-        dialogBox.EnableActionSelector(false);
-        dialogBox.EnableChoiceSelector(false);
     }
 
     // Update is called once per frame
     public IEnumerator SetupBattle()
     {
         StartCoroutine(questionSection.TypeQuestion(question));
+        dialogBox.SetAnswerTexts(question.Answers);
         yield return StartCoroutine(dialogBox.TypeDialog("A wild question appeared!"));
         yield return new WaitForSeconds(1f);
+        
         PlayerAction();
     }
 
@@ -43,7 +43,14 @@ public class BattleSystem : MonoBehaviour
 
     public void HandleUpdate()
     {
-        if (state == BattleState.PLAYERACTION)
+        if (state == BattleState.START)
+        {
+            dialogBox.EnableDialogText(true);
+            dialogBox.EnableActionSelector(false);
+            dialogBox.EnableChoiceSelector(false);
+        }
+        
+        else if (state == BattleState.PLAYERACTION)
         {
             HandleAction();
         }
@@ -52,10 +59,15 @@ public class BattleSystem : MonoBehaviour
             dialogBox.EnableActionSelector(false);
             dialogBox.EnableDialogText(false);
             dialogBox.EnableChoiceSelector(true);
-
-            dialogBox.SetAnswerTexts(question.Answers);
             HandleAnswer();
         }
+        else if (state == BattleState.END)
+        {
+            dialogBox.EnableDialogText(true);
+            dialogBox.EnableActionSelector(false);
+            dialogBox.EnableChoiceSelector(false);
+        }
+
     }
 
     void HandleAction()
@@ -70,10 +82,9 @@ public class BattleSystem : MonoBehaviour
             if (currentAction > 0)
                 --currentAction;
         }
-       
+        
        if (Input.GetKeyDown(KeyCode.Z))
         {
-            Debug.Log("Current action: " + currentAction);
             if (currentAction == 0)
             {
                 // Answer the question
@@ -86,7 +97,6 @@ public class BattleSystem : MonoBehaviour
         }
         dialogBox.UpdateActionSelection(currentAction);
 
-        
     }
 
     void HandleAnswer()
@@ -117,10 +127,8 @@ public class BattleSystem : MonoBehaviour
 
        if (Input.GetKeyDown(KeyCode.Z))
         {
+            state = BattleState.END;
             Debug.Log("Current action: " + currentAnswer);
-            dialogBox.EnableDialogText(true);
-            dialogBox.EnableActionSelector(false);
-            dialogBox.EnableChoiceSelector(false);
             StartCoroutine(EndBattle(currentAnswer == question.CorrectAnswerIndex));
         }
         dialogBox.UpdateActionSelection(currentAnswer);
@@ -128,11 +136,15 @@ public class BattleSystem : MonoBehaviour
     IEnumerator EndBattle(bool answerCorrect)
     {
         Debug.Log("answerCorrect: " + answerCorrect);
-            if (answerCorrect)
-                StartCoroutine(dialogBox.TypeDialog("Correct!"));
-            else
-                StartCoroutine(dialogBox.TypeDialog("Incorrect!"));
-        yield return new WaitForSeconds(5f);
+            if (answerCorrect){
+                dialogBox.EnableDialogText(true);   
+                yield return StartCoroutine(dialogBox.TypeDialog("Correct!"));
+            }
+            else{
+                dialogBox.EnableDialogText(true); 
+                yield return StartCoroutine(dialogBox.TypeDialog("Incorrect!"));
+            }
+        yield return new WaitForSeconds(2.5f);
         OnBattleOver(answerCorrect);
     }                                                                                                                                                                                                                            
 
