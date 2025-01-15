@@ -22,12 +22,16 @@ public class BattleSystem : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     public void StartBattle()
     {
+
         this.state = BattleState.START;
         this.question = questionSelector.GetRandomQuestion();
+        currentAction = 0;
+        currentAnswer = 0;
         StartCoroutine(SetupBattle());
     }
 
     // Update is called once per frame
+    // filling the question and answer texts
     public IEnumerator SetupBattle()
     {
         StartCoroutine(questionSection.TypeQuestion(question));
@@ -134,14 +138,15 @@ public class BattleSystem : MonoBehaviour
 
        if (Input.GetKeyDown(KeyCode.Z))
         {
-            state = BattleState.END;
-            Debug.Log("Current action: " + currentAnswer);
-            StartCoroutine(EndBattle(currentAnswer == question.CorrectAnswerIndex));
+            bool isCorrect = dialogBox.DisplayAnswer(currentAnswer, question.CorrectAnswerIndex);
+            StartCoroutine(EndBattle(isCorrect));
         }
         dialogBox.UpdateActionSelection(currentAnswer);
     }
     IEnumerator EndBattle(bool answerCorrect)
     {
+        yield return new WaitForSeconds(2.5f);
+        state = BattleState.END;
         Debug.Log("answerCorrect: " + answerCorrect);
             if (answerCorrect){
                 dialogBox.EnableDialogText(true);   
@@ -153,6 +158,7 @@ public class BattleSystem : MonoBehaviour
                 yield return StartCoroutine(dialogBox.TypeDialog("Incorrect!"));
             }
         yield return new WaitForSeconds(2.5f);
+        dialogBox.ResetDalogBox();
         OnBattleOver(answerCorrect);
     }                                                                                                                                                                                                                            
 
