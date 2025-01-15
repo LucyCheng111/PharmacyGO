@@ -5,6 +5,7 @@ using System.Collections.Generic;
 public class DialogBox : MonoBehaviour
 {
     public int letterPerSecond = 30;
+    public bool answerSelected = false;
     [SerializeField] private Color highlightedColor;
     [SerializeField] private TMP_Text dialogText;
     [SerializeField] private GameObject actionSelector;
@@ -53,14 +54,20 @@ public class DialogBox : MonoBehaviour
     }
     public void UpdateChoiceSelection(int selectedChoice)
     {
-        for (int i = 0; i < choices.Count; i++)
+        if (answerSelected)
+            return;
+        else
         {
-            if (i == selectedChoice)
-                choices[i].color = Color.cyan;
-            else
-                choices[i].color = Color.black;
+            for (int i = 0; i < choices.Count; i++)
+            {
+                if (i == selectedChoice)
+                    choices[i].color = Color.cyan;
+                else
+                    choices[i].color = Color.black;
+            }
         }
     }
+    // fill in the answer texts into choices container
     public void SetAnswerTexts(string[] answers)
     {
         for (int i = 0; i < choices.Count; i++)
@@ -71,4 +78,29 @@ public class DialogBox : MonoBehaviour
                 choices[i].text = "";
         }
     }
+
+    // Display the Correct or Wrong answer
+    public bool DisplayAnswer(int selectedChoiceIndex, int correctAnswerIndex)
+    {
+        answerSelected = true;
+        Debug.Log("Selected choice : " + choices[selectedChoiceIndex].text);
+        if (selectedChoiceIndex == correctAnswerIndex){
+            choices[selectedChoiceIndex].color = Color.green;
+            return true;
+        }
+        else{
+            choices[selectedChoiceIndex].color = Color.red;
+            choices[correctAnswerIndex].color = Color.green;
+            return false;
+        }
+    } 
+
+    public void ResetDalogBox()
+    {
+        answerSelected = false;
+        dialogText.text = "";
+        EnableActionSelector(false);
+        EnableChoiceSelector(false);
+    }
+    
 }
