@@ -4,21 +4,21 @@ using TMPro;
 using System.Collections;
 public class QuestionSection : MonoBehaviour
 {
-    [SerializeField] TMP_Text qurestionText;
+    [SerializeField] TMP_Text questionText;
     [SerializeField] Sprite questionImage;
 
     public void SetQuestion(QuestionBase question)
     {
-        qurestionText.text = question.Question;
+        questionText.text = question.Question;
         // questionImage = question.QuestionImg;
     }
 
     public IEnumerator TypeQuestion(QuestionBase question)
     {
-        qurestionText.text = "";
+        questionText.text = "";
         foreach (var letter in question.Question.ToCharArray())
         {
-            qurestionText.text += letter;
+            questionText.text += letter;
             yield return new WaitForSeconds(1f/40);
         }
     }
