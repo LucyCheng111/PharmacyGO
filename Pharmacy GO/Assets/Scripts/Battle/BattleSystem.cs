@@ -7,19 +7,23 @@ using System;
 public enum BattleState { START, PLAYERACTION, PLAYERANSWER, END}
 public class BattleSystem : MonoBehaviour
 {
-    [SerializeField] private QuestionBase question;
+    [SerializeField] private MapArea questionSelector;
     [SerializeField] private QuestionSection questionSection;
     [SerializeField] private DialogBox dialogBox;
+    [SerializeField] private QuestionUnit questionUnit;
 
     public event Action<bool> OnBattleOver;
 
     BattleState state;
     int currentAction;
     int currentAnswer;
+    IEnumerator chooseAction;
+    QuestionBase question;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     public void StartBattle()
     {
-        state = BattleState.START;
+        this.state = BattleState.START;
+        this.question = questionSelector.GetRandomQuestion();
         StartCoroutine(SetupBattle());
     }
 
@@ -28,6 +32,7 @@ public class BattleSystem : MonoBehaviour
     {
         StartCoroutine(questionSection.TypeQuestion(question));
         dialogBox.SetAnswerTexts(question.Answers);
+        questionUnit.SetImage(question);
         yield return StartCoroutine(dialogBox.TypeDialog("A wild question appeared!"));
         yield return new WaitForSeconds(1f);
         
@@ -37,7 +42,8 @@ public class BattleSystem : MonoBehaviour
     void PlayerAction()
     {
         state = BattleState.PLAYERACTION;
-        StartCoroutine(dialogBox.TypeDialog("Choose an action!"));
+        chooseAction = dialogBox.TypeDialog("Choose an action!");
+        StartCoroutine(chooseAction);
         dialogBox.EnableActionSelector(true);
     }
 
@@ -85,6 +91,7 @@ public class BattleSystem : MonoBehaviour
         
        if (Input.GetKeyDown(KeyCode.Z))
         {
+            StopCoroutine(chooseAction);
             if (currentAction == 0)
             {
                 // Answer the question

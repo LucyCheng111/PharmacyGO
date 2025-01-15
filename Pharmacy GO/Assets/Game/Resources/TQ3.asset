@@ -10,17 +10,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5362ee468e059bc4b82621f8ddd91ff0, type: 3}
-  m_Name: TQ1
+  m_Name: TQ3
   m_EditorClassIdentifier: 
-  question: "It is an excited \u03B22-adrenergic receptor. What drug should you give
-    it to calm it? "
-  questionImg: {fileID: 21300000, guid: eb195a0a4873fd741af15f82706f55b7, type: 3}
+  question: "3.\tIt is a sleeping \uF0612-adrenergic receptor. What drug should you
+    give it to activate it?"
+  questionImg: {fileID: 21300000, guid: 85cc67f14cfe27a4f97b40d944ad56ae, type: 3}
   answers:
+  - Brimonidine
   - Timolol
   - Albuterol
-  - Brimonidine
   - 'Metoprolol '
-  - Tetrahydrozoline
+  - Tamsulosin
   answersImg: []
   correctAnswerIndex: 0
   difficulty: 0
