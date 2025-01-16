@@ -5,6 +5,10 @@ using System.Collections.Generic;
 public class DialogBox : MonoBehaviour
 {
     public int letterPerSecond = 30;
+<<<<<<< Updated upstream
+=======
+    private bool answerSelected = false;
+>>>>>>> Stashed changes
     [SerializeField] private Color highlightedColor;
     [SerializeField] private TMP_Text dialogText;
     [SerializeField] private GameObject actionSelector;
@@ -39,6 +43,16 @@ public class DialogBox : MonoBehaviour
     public void EnableChoiceSelector(bool enabled)
     {
         choiceSelector.SetActive(enabled);
+    }
+
+    public bool getAnswerSelected()
+    {
+        return answerSelected;
+    }
+
+    public void setAnswerSelected(bool selected)
+    {
+        answerSelected = selected;
     }
 
     public void UpdateActionSelection(int selectedAction)
