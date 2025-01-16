@@ -6,6 +6,10 @@ public class DialogBox : MonoBehaviour
 {
     public int letterPerSecond = 30;
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+=======
+    private bool answerSelected = false;
+>>>>>>> Stashed changes
 =======
     private bool answerSelected = false;
 >>>>>>> Stashed changes

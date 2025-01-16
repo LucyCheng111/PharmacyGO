@@ -34,6 +34,9 @@ public class BattleSystem : MonoBehaviour
         currentAction = 0;
         currentAnswer = 0;
         dialogBox.ResetDalogBox();
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
         StartCoroutine(SetupBattle());
     }
