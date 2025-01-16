@@ -5,7 +5,15 @@ using System.Collections.Generic;
 public class DialogBox : MonoBehaviour
 {
     public int letterPerSecond = 30;
-    public bool answerSelected = false;
+    private bool answerSelected = false;
+    public bool GetAnswerSelected()
+    { 
+        return answerSelected; 
+    }
+    public void SetAnswerSelected(bool value)
+    {
+        answerSelected = value;
+    }
     [SerializeField] private Color highlightedColor;
     [SerializeField] private TMP_Text dialogText;
     [SerializeField] private GameObject actionSelector;

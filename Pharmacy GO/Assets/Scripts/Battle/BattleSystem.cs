@@ -27,6 +27,7 @@ public class BattleSystem : MonoBehaviour
         this.question = questionSelector.GetRandomQuestion();
         currentAction = 0;
         currentAnswer = 0;
+        dialogBox.ResetDalogBox();
         StartCoroutine(SetupBattle());
     }
 
@@ -136,7 +137,7 @@ public class BattleSystem : MonoBehaviour
 
        dialogBox.UpdateChoiceSelection(currentAnswer);
 
-       if (Input.GetKeyDown(KeyCode.Z))
+       if (Input.GetKeyDown(KeyCode.Z) && !dialogBox.GetAnswerSelected())
         {
             bool isCorrect = dialogBox.DisplayAnswer(currentAnswer, question.CorrectAnswerIndex);
             StartCoroutine(EndBattle(isCorrect));
