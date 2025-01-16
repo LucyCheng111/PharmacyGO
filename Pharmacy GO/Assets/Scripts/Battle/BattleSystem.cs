@@ -16,28 +16,10 @@ public class BattleSystem : MonoBehaviour
     BattleState state;
     int currentAction;
     int currentAnswer;
-<<<<<<< Updated upstream
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     public void StartBattle()
     {
         state = BattleState.START;
-=======
-    IEnumerator chooseAction;
-    QuestionBase question;
-
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    public void StartBattle()
-    {
-
-        this.state = BattleState.START;
-        this.question = questionSelector.GetRandomQuestion();
-        currentAction = 0;
-        currentAnswer = 0;
-        dialogBox.ResetDalogBox();
-<<<<<<< Updated upstream
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
         StartCoroutine(SetupBattle());
     }
 
@@ -143,7 +125,7 @@ public class BattleSystem : MonoBehaviour
 
        dialogBox.UpdateChoiceSelection(currentAnswer);
 
-       if (Input.GetKeyDown(KeyCode.Z) && !dialogBox.getAnswerSelected())
+       if (Input.GetKeyDown(KeyCode.Z))
         {
             state = BattleState.END;
             Debug.Log("Current action: " + currentAnswer);
