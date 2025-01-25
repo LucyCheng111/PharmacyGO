@@ -15,10 +15,13 @@ public class BattleSystem : MonoBehaviour
     public event Action<bool> OnBattleOver;
 
     BattleState state;
-    int currentAction;
-    int currentAnswer;
+    int currentAction;  // store user selected action
+    int currentAnswer;  // store user selected answer
     IEnumerator chooseAction;
     QuestionBase question;
+
+    private string[] shuffleAnswersList;
+    private int shuffleAnswersIndex;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     public void StartBattle()
     {
@@ -26,7 +29,7 @@ public class BattleSystem : MonoBehaviour
         this.state = BattleState.START;
         this.question = questionSelector.GetRandomQuestion();
         currentAction = 0;
-        currentAnswer = 0;
+        currentAnswer = 0;      
         dialogBox.ResetDalogBox();
         StartCoroutine(SetupBattle());
     }
@@ -35,8 +38,11 @@ public class BattleSystem : MonoBehaviour
     // filling the question and answer texts
     public IEnumerator SetupBattle()
     {
+        shuffleAnswersList = question.Answers;
+        shuffleAnswersIndex = question.CorrectAnswerIndex;
+        ShuffleAnswers(shuffleAnswersList, ref shuffleAnswersIndex);
         StartCoroutine(questionSection.TypeQuestion(question));
-        dialogBox.SetAnswerTexts(question.Answers);
+        dialogBox.SetAnswerTexts(shuffleAnswersList);
         questionUnit.SetImage(question);
         yield return StartCoroutine(dialogBox.TypeDialog("A wild question appeared!"));
         yield return new WaitForSeconds(1f);
@@ -115,7 +121,7 @@ public class BattleSystem : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.D))
         {
-            if (currentAnswer < question.Answers.Length - 1)
+            if (currentAnswer < shuffleAnswersList.Length - 1)
                 ++currentAnswer;
         }
         else if (Input.GetKeyDown(KeyCode.A))
@@ -126,7 +132,7 @@ public class BattleSystem : MonoBehaviour
        
        if (Input.GetKeyDown(KeyCode.S))
        {
-              if (currentAnswer < question.Answers.Length - 2)
+              if (currentAnswer < shuffleAnswersList.Length - 2)
                 currentAnswer += 3;
          }
          else if (Input.GetKeyDown(KeyCode.W))
@@ -139,7 +145,7 @@ public class BattleSystem : MonoBehaviour
 
        if (Input.GetKeyDown(KeyCode.Z) && !dialogBox.GetAnswerSelected())
         {
-            bool isCorrect = dialogBox.DisplayAnswer(currentAnswer, question.CorrectAnswerIndex);
+            bool isCorrect = dialogBox.DisplayAnswer(currentAnswer, shuffleAnswersIndex);
             StartCoroutine(EndBattle(isCorrect));
         }
         dialogBox.UpdateActionSelection(currentAnswer);
@@ -163,4 +169,26 @@ public class BattleSystem : MonoBehaviour
         OnBattleOver(answerCorrect);
     }                                                                                                                                                                                                                            
 
+    private void ShuffleAnswers(string[] answerChoices, ref int correctAnswerIndex)
+    {
+        System.Random rng = new System.Random();
+        for (int i = 0; i < answerChoices.Length; i++)
+        {
+            int randomIndex = rng.Next(i, answerChoices.Length);
+
+            string temp = answerChoices[i];
+            answerChoices[i] = answerChoices[randomIndex];
+            answerChoices[randomIndex] = temp;
+
+            if (correctAnswerIndex == i)
+            {
+                correctAnswerIndex = randomIndex;
+            }
+            else if (correctAnswerIndex == randomIndex)
+            {
+                correctAnswerIndex = i;
+            }
+        }
+
+    }
 }
