@@ -7,10 +7,11 @@ using System;
 public enum BattleState { START, PLAYERACTION, PLAYERANSWER, END}
 public class BattleSystem : MonoBehaviour
 {
-    [SerializeField] private MapArea questionSelector;
+    [SerializeField] private MapArea mapData;
     [SerializeField] private QuestionSection questionSection;
     [SerializeField] private DialogBox dialogBox;
     [SerializeField] private QuestionUnit questionUnit;
+    [SerializeField] private HudController hudController;
 
     public event Action<bool> OnBattleOver;
 
@@ -27,10 +28,11 @@ public class BattleSystem : MonoBehaviour
     {
 
         this.state = BattleState.START;
-        this.question = questionSelector.GetRandomQuestion();
+        this.question = mapData.GetRandomQuestion();
         currentAction = 0;
         currentAnswer = 0;      
         dialogBox.ResetDalogBox();
+        hudController.TurnHudOff();
         StartCoroutine(SetupBattle());
     }
 
@@ -156,16 +158,20 @@ public class BattleSystem : MonoBehaviour
         state = BattleState.END;
         Debug.Log("answerCorrect: " + answerCorrect);
             if (answerCorrect){
-                dialogBox.EnableDialogText(true);   
+                dialogBox.EnableDialogText(true);
                 CoinManager.Instance.AddCoin(1); // Add a coin
+                ScoreManager.Instance.AddScore(mapData.GetCorrectStreak(), mapData.GetDifficulty()); // Increment score based on streak and difficulty
+                mapData.CorrectAnswer(1);
                 yield return StartCoroutine(dialogBox.TypeDialog("Correct!"));
             }
             else{
-                dialogBox.EnableDialogText(true); 
+                dialogBox.EnableDialogText(true);
+                mapData.CorrectAnswer(0);
                 yield return StartCoroutine(dialogBox.TypeDialog("Incorrect!"));
             }
         yield return new WaitForSeconds(2.5f);
         dialogBox.ResetDalogBox();
+        hudController.TurnHudOn();
         OnBattleOver(answerCorrect);
     }                                                                                                                                                                                                                            
 
