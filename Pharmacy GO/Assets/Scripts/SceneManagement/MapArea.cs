@@ -20,13 +20,16 @@ public class MapArea : MonoBehaviour
         // this is also very un-optimized
         validQuestion = false;
         var randomQuestion = randomQuestions[Random.Range(0, randomQuestions.Count)];
+        int wrongTries = 0;
 
         while (!validQuestion)
         {
             if ((difficulty <= 30) && (randomQuestion.Difficulty == QuestionType.easy)) { validQuestion = true;}
             else if ((difficulty > 30) && (difficulty < 70) && (randomQuestion.Difficulty == QuestionType.medium)) { validQuestion = true; }
             else if ((difficulty >= 70) && (randomQuestion.Difficulty == QuestionType.hard)) { validQuestion = true; }
+            else if (wrongTries >= 10) { validQuestion = true; }
             else { randomQuestion = randomQuestions[Random.Range(0, randomQuestions.Count)]; }
+            wrongTries++;
         }
         return randomQuestion;
     }
