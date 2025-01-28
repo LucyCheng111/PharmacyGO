@@ -1,10 +1,12 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 public enum GameState {FreeRoam, Battle, Dialogue}
 public class GameController : MonoBehaviour
 {
     [SerializeField] PlayerControl playerControl;
     [SerializeField] BattleSystem battleSystem;
     [SerializeField] Camera worldCamera;
+
 
     GameState state;
     private void Start()
@@ -51,6 +53,10 @@ public class GameController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+        Debug.Log($"Game State: {state}");
+
+
         if (state == GameState.FreeRoam)
         {
             playerControl.HandleUpdate();
@@ -63,5 +69,7 @@ public class GameController : MonoBehaviour
         {
             DialogManager.Instance.HandleUpdate();
         }
+
+
     }
 }

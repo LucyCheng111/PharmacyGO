@@ -1,7 +1,8 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using System;
 using UnityEngine;
+using Unity.VisualScripting;
 
 public class PlayerControl : MonoBehaviour
 {
@@ -16,6 +17,7 @@ public class PlayerControl : MonoBehaviour
     private Vector2 input;
 
     private Animator animator;
+
     private void Awake()
     {
         animator = GetComponent<Animator>();
@@ -98,4 +100,27 @@ public class PlayerControl : MonoBehaviour
             }
         }
     }
+
+
+    // New-map
+    public void StopMovement()
+    {
+        // Stop any running movement coroutine
+        StopAllCoroutines();
+
+        isMoving = false;
+        input = Vector2.zero;
+
+        // Force Unity's Input System to Clear
+        Input.ResetInputAxes();
+
+        // Force Stop the Animator
+        animator.SetFloat("moveX", 0);
+        animator.SetFloat("moveY", 0);
+        animator.SetBool("isMoving", false);
+    }
+
+
+
+
 }
