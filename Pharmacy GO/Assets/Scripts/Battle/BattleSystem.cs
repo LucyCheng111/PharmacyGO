@@ -40,7 +40,7 @@ public class BattleSystem : MonoBehaviour
     // filling the question and answer texts
     public IEnumerator SetupBattle()
     {
-        shuffleAnswersList = question.Answers;
+        shuffleAnswersList = (string[])question.Answers.Clone();
         shuffleAnswersIndex = question.CorrectAnswerIndex;
         ShuffleAnswers(shuffleAnswersList, ref shuffleAnswersIndex);
         StartCoroutine(questionSection.TypeQuestion(question));
