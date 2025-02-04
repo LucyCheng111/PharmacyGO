@@ -82,7 +82,7 @@ public class PlayerControl : MonoBehaviour
 
     private bool IsWalkable(Vector3 targetPos)
     {
-        if (Physics2D.OverlapCircle(targetPos, 0.2f, solidObjectsLayer | interactableLayer) != null)
+        if (Physics2D.OverlapCircle(targetPos, 0.0f, solidObjectsLayer | interactableLayer) != null)
         {
             return false;
         }
@@ -91,7 +91,7 @@ public class PlayerControl : MonoBehaviour
 
     private void CheckForEncounters()
     {
-        if (Physics2D.OverlapCircle(transform.position, 0.2f, grassLayer) != null)
+        if (Physics2D.OverlapCircle(transform.position, 0.0f, grassLayer) != null)
         {
             if (UnityEngine.Random.Range(1, 101) <= 50)
             {
