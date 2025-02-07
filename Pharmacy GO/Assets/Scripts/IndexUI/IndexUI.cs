@@ -58,10 +58,22 @@ public class IndexUI : MonoBehaviour
 
         foreach (Medication med in medications)
         {
-            CreateButton(med, Topic1ScrollRect);
-            CreateButton(med, Topic2ScrollRect);
-            CreateButton(med, Topic3ScrollRect);
-            CreateButton(med, Topic4ScrollRect);
+            if (med.level == "1")
+            {
+                CreateButton(med, Topic1ScrollRect);
+            }
+            else if (med.level == "2")
+            {
+                CreateButton(med, Topic2ScrollRect);
+            }
+            else if (med.level == "3")
+            {
+                CreateButton(med, Topic3ScrollRect);
+            }
+            else if (med.level == "4")
+            {
+                CreateButton(med, Topic4ScrollRect);
+            }
         }
     }
 
