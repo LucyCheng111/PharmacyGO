@@ -8,6 +8,16 @@ public class MedButton : MonoBehaviour
     [SerializeField] Image medImage;
     private Medication medication;
 
+    public GameObject medInfoPrefab; // Assign the MedInfoPage prefab in Inspector
+    public GameObject IndexUIPanel; // Assign the IndexUIPanel in Inspector
+    private void Awake()
+    {
+        if (IndexUIPanel == null)
+        {
+            IndexUIPanel = GameObject.Find("IndexUIPanel"); // Ensure correct name
+        }
+    }
+
     public void Initialize(Medication med)
     {
         medication = med;
@@ -17,8 +27,20 @@ public class MedButton : MonoBehaviour
 
     public void OnButtonClick()
     {
-        // Display medication details
-        Debug.Log($"Name: {medication.medicationName}\n");
-        // Implement additional logic to display details in the UI
+        MedInfoPage existingPage = IndexUIPanel.GetComponentInChildren<MedInfoPage>();
+        if (existingPage != null)
+        {
+            Destroy(existingPage.gameObject); // Destroy old page before creating a new one
+        }
+
+        GameObject medInfoObj = Instantiate(medInfoPrefab, IndexUIPanel.transform);
+        MedInfoPage medInfoPage = medInfoObj.GetComponent<MedInfoPage>();
+        medInfoPage.DisplayMedication(medication);
+
     }
+    public void SetIndexUIPanel(GameObject panel)
+    {
+        IndexUIPanel = panel;
+    }
+
 }
