@@ -56,7 +56,6 @@ public class GameController : MonoBehaviour
 
         //Debug.Log($"Game State: {state}");
 
-
         if (state == GameState.FreeRoam)
         {
             playerControl.HandleUpdate();
