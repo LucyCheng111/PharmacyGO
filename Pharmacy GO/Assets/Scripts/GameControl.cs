@@ -54,8 +54,7 @@ public class GameController : MonoBehaviour
     void Update()
     {
 
-        Debug.Log($"Game State: {state}");
-
+        //Debug.Log($"Game State: {state}");
 
         if (state == GameState.FreeRoam)
         {

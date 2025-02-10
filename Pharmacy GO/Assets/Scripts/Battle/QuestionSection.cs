@@ -5,7 +5,7 @@ using System.Collections;
 public class QuestionSection : MonoBehaviour
 {
     [SerializeField] TMP_Text questionText;
-    [SerializeField] Sprite questionImage;
+    //[SerializeField] Sprite questionImage;
 
     public void SetQuestion(QuestionBase question)
     {
