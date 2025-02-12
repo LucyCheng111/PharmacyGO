@@ -13,5 +13,6 @@ public class QuestionUnit : MonoBehaviour
     public void SetImage(QuestionBase question)
     {
         image.sprite = question.QuestionImg;
+        image.preserveAspect = true;
     }
 }
