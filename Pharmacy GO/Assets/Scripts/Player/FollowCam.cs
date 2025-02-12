@@ -7,7 +7,20 @@ public class FollowCam : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        // Automatically find the player in the scene
+        if (player == null)
+        {
+            player = GameObject.FindGameObjectWithTag("Player");
+
+            if (player == null)
+            {
+                Debug.LogError("FollowCam: Player NOT found in the scene!");
+            }
+            else
+            {
+                Debug.Log("FollowCam: Player found and assigned.");
+            }
+        }
     }
 
     // Update is called once per frame
