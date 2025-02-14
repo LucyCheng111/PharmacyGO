@@ -3,9 +3,13 @@ using System.Collections.Generic;
 using System;
 using UnityEngine;
 using Unity.VisualScripting;
+using UnityEngine.SceneManagement;
 
 public class PlayerControl : MonoBehaviour
 {
+
+    public static PlayerControl Instance { get; private set; }
+
     public float moveSpeed;
     public LayerMask solidObjectsLayer;
     public LayerMask interactableLayer;
@@ -21,6 +25,18 @@ public class PlayerControl : MonoBehaviour
     private void Awake()
     {
         animator = GetComponent<Animator>();
+
+        if (Instance != null && Instance != this)
+        {
+            Debug.LogWarning("Duplicate Player found! Destroying extra instance.");
+            Destroy(gameObject);
+        }
+        else
+        {
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        // DontDestroyOnLoad(gameObject);
     }
 
     public void HandleUpdate()
@@ -120,6 +136,7 @@ public class PlayerControl : MonoBehaviour
         animator.SetBool("isMoving", false);
     }
 
+    
 
 
 
