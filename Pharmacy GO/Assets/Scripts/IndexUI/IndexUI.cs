@@ -3,6 +3,7 @@ using UnityEngine.UI;
 
 public class IndexUI : MonoBehaviour
 {
+    [SerializeField] PlayerControl playerControl;
     [SerializeField] private Button Topic1Button;
     [SerializeField] private Button Topic2Button;
     [SerializeField] private Button Topic3Button;
@@ -21,6 +22,7 @@ public class IndexUI : MonoBehaviour
     public void Start()
     {
         IndexUIPanel.SetActive(true);
+        playerControl.gameObject.SetActive(false);
         // Create ScrollRects for Topics
         Topic1ScrollRect = CreateScrollRect();
         Topic2ScrollRect = CreateScrollRect();
@@ -143,5 +145,6 @@ public class IndexUI : MonoBehaviour
     public void CloseIndexUI()
     {
         IndexUIPanel.SetActive(false);
+        playerControl.gameObject.SetActive(true);
     }
 }
