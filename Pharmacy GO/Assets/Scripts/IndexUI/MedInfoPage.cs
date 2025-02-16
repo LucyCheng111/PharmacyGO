@@ -11,7 +11,6 @@ public class MedInfoPage : MonoBehaviour
     [SerializeField] private TMP_Text level;
     [SerializeField] private TMP_Text organ;
     [SerializeField] private TMP_Text information;
-    [SerializeField] private TMP_Text sideEffects;
     [SerializeField] private GameObject infoPanel; // Reference to infoPage
 
     public void DisplayMedication(Medication med)
@@ -20,8 +19,9 @@ public class MedInfoPage : MonoBehaviour
         medImage.sprite = med.image;
         level.text = med.level;
         organ.text = med.treatmentOrganList;
-        information.text = med.information;
-        sideEffects.text = med.sideEffects;
+        
+        // curently the string is fix to just Description and Side Effect, can make it dynamic later if there is a need
+        information.text = "Description: \n" + med.information + "\n\nSide Effect: \n" + med.sideEffects;
 
         infoPanel.SetActive(true); // Show MedInfoPage
     }
