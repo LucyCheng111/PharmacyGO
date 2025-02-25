@@ -155,7 +155,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -15.196, y: -110}
+  m_AnchoredPosition: {x: -15.196, y: -137}
   m_SizeDelta: {x: 210.7399, y: 37.8439}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &37094550
@@ -1001,8 +1001,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0.00000013801}
-  m_SizeDelta: {x: 0, y: 463.011}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 2908.2156}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &622141861
 MonoBehaviour:
@@ -1024,19 +1024,25 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Rules
-
-
-
-    Coins
-
-
-
-    How to advance levels
-
-
-
-    More content'
+  m_text: "Welcome to PharmacyGo!, the ultimate game for pharmacy students to test
+    their knowledge, sharpen their skills, and prepare for exams in a fun and interactive
+    way. Explore the map, answer pharmacy-related questions, and battle your way
+    to victory!\n\n\nExplore the Map\r\n\rMove your character through the game world
+    to discover different locations.\r\n\r\nInteract with NPCs (Non-Player Characters)
+    or objects to trigger \"fights\" (pharmacy questions).\r\n\r\nEngage in Fights\r\n\rWhen
+    you encounter a fight, you\u2019ll be presented with a pharmacy-related question.\r\n\r\nAnswer
+    the question correctly to earn a coin.\r\n\r\nIf you answer incorrectly, you\u2019ll
+    lose a small amount of health.\r\n\r\nEarn Coins\r\n\rCollect coins by answering
+    questions correctly.\r\n\r\nUse coins to unlock special items, hints, or save
+    points.\r\n\r\nLevel Up\r\n\rOnce you\u2019ve collected enough coins, you\u2019ll
+    unlock the Final Boss for that level.\r\n\r\nDefeat the boss by answering a series
+    of challenging questions to advance to the next level.\r\n\r\nDifficulty Adjustment\r\n\rThe
+    game adapts to your performance!\r\n\r\nIf you answer questions correctly, the
+    questions will gradually become harder.\r\n\r\nIf you answer too many questions
+    incorrectly, the game will adjust to provide easier questions.\r\n\r\r\n\r\nFinal
+    Boss\r\n\rEach level ends with a Final Boss fight.\r\n\r\nThe boss will ask a
+    more difficult questions. Answer them correctly to defeat the boss and move on
+    to the next level!"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1063,8 +1069,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 28
-  m_fontSizeBase: 28
+  m_fontSize: 26
+  m_fontSizeBase: 26
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -1101,7 +1107,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 20.968506, y: 17.334229, z: 0, w: -5.4849854}
+  m_margin: {x: 20.968506, y: 17.334229, z: 0, w: -4.3442383}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -1432,7 +1438,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 164133035}
   m_Direction: 2
   m_Value: 1
-  m_Size: 0.35170916
+  m_Size: 0.06345344
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -1512,8 +1518,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -15.1962, y: 0}
-  m_SizeDelta: {x: 403.8396, y: 162.8452}
+  m_AnchoredPosition: {x: -15.1962, y: -10.8455}
+  m_SizeDelta: {x: 403.8396, y: 184.5363}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1475331274
 MonoBehaviour:
