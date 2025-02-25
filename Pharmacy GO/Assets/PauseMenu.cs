@@ -1,7 +1,8 @@
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
-public class PauseMenu : MonoBehaviour
+    public class PauseMenu : MonoBehaviour
 {
     
     [SerializeField] GameObject pauseMenu;
@@ -53,5 +54,13 @@ public class PauseMenu : MonoBehaviour
         Time.timeScale = 1;
     }
 
-    
+    public void returnMain()
+    {
+        SceneManager.LoadSceneAsync(0);
+        // Scene name or scene build index
+        // Game scene is currently index 2 
+        // Main Menu 0, Instructions 1
+    }
+
+
 }
