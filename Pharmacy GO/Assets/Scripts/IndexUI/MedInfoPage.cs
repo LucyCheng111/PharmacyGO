@@ -11,19 +11,31 @@ public class MedInfoPage : MonoBehaviour
     [SerializeField] private TMP_Text level;
     [SerializeField] private TMP_Text organ;
     [SerializeField] private TMP_Text information;
-    [SerializeField] private GameObject infoPanel; // Reference to infoPage
+    [SerializeField] private GameObject infoPanel; // Reference to the panel that displays medication info
 
     public void DisplayMedication(Medication med)
     {
+        // Basic Info
         medName.text = med.medicationName;
         medImage.sprite = med.image;
         level.text = med.level;
-        organ.text = med.treatmentOrganList;
-        
-        // curently the string is fix to just Description and Side Effect, can make it dynamic later if there is a need
-        information.text = "Description: \n" + med.information + "\n\nSide Effect: \n" + med.sideEffects;
+        organ.text = med.treatmentOrgan;
 
-        infoPanel.SetActive(true); // Show MedInfoPage
+        // Build a descriptive text from the Medication fields
+        // Adjust format and labels to suit your needs
+        string descriptionText =
+            $"<b>Pharmacologic Class:</b> {med.pharmacologicClass}\n" +
+            $"<b>Mechanism of Action:</b> {med.mechanismOfAction}\n" +
+            $"<b>Therapeutic Uses:</b> {med.therapeuticUses}\n" +
+            $"<b>Side Effects:</b> {med.sideEffects}\n" +
+            $"<b>Major Drug Interactions:</b> {med.majorDrugInteractions}\n" +
+            $"<b>Fun Fact:</b> {med.funFact}";
+
+        // Assign to the UI text field
+        information.text = descriptionText;
+
+        // Show the MedInfoPage panel
+        infoPanel.SetActive(true);
     }
 
     public void CloseInfo()

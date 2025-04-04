@@ -1,8 +1,12 @@
 using UnityEngine;
 using UnityEngine.UI;
+using System.Linq;
+
 
 public class IndexUI : MonoBehaviour
 {
+    private CanvasGroup canvasGroup;
+    public static IndexUI instance;    
     [SerializeField] PlayerControl playerControl;
     [SerializeField] private Button Topic1Button;
     [SerializeField] private Button Topic2Button;
@@ -21,44 +25,54 @@ public class IndexUI : MonoBehaviour
 
     public void Start()
     {
-        IndexUIPanel.SetActive(true);
-        playerControl.gameObject.SetActive(false);
-        // Create ScrollRects for Topics
-        Topic1ScrollRect = CreateScrollRect();
-        Topic2ScrollRect = CreateScrollRect();
-        Topic3ScrollRect = CreateScrollRect();
-        Topic4ScrollRect = CreateScrollRect();
-
-        if (Topic1ScrollRect == null || Topic2ScrollRect == null || 
-            Topic3ScrollRect == null || Topic4ScrollRect == null)
-        {
-            Debug.LogError("One or more ScrollRects failed to instantiate!");
-            return;
-        }
-
-        // Assign Colors
-        SetScrollRectColor(Topic1ScrollRect, "#FF9FE3");
-        SetScrollRectColor(Topic2ScrollRect, "#8DE3AD");
-        SetScrollRectColor(Topic3ScrollRect, "#F8BE60");
-        SetScrollRectColor(Topic4ScrollRect, "#79E8F3");
-
-        // Show Topic 1 by default
-        ShowScrollRect(Topic1ScrollRect);
-        // Assign Button Clicks
-        Topic1Button.onClick.AddListener(() => ShowScrollRect(Topic1ScrollRect));
-        Topic2Button.onClick.AddListener(() => ShowScrollRect(Topic2ScrollRect));
-        Topic3Button.onClick.AddListener(() => ShowScrollRect(Topic3ScrollRect));
-        Topic4Button.onClick.AddListener(() => ShowScrollRect(Topic4ScrollRect));
+        // IndexUIPanel.SetActive(true);
+        // Set the canvas group to be visible and interactable
+        canvasGroup = GetComponent<CanvasGroup>();
+        canvasGroup.alpha = 0f;
+        canvasGroup.interactable = false;
+        canvasGroup.blocksRaycasts = false;
         
-        // Now Load Medications
-        LoadMedications();
+    }
+    /// This method is called when the IndexUI is opened and will keep the game object to the next scene 
+    void Awake()
+    {
+        if (instance == null)
+        {
+            instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            // If an instance already exists, destroy this duplicate
+            Destroy(gameObject);
+        }
     }
 
     private void LoadMedications()
     {
-        Medication[] medications = Resources.LoadAll<Medication>("Medications");
+        Medication[] allMedications = new Medication[0];
+        if(playerControl.HasTriggeredArea(1))
+        {
+            Medication[] medsLevel1 = Resources.LoadAll<Medication>("MedicationData/Level1");
+            allMedications = allMedications.Concat(medsLevel1).ToArray();
+        }
+        if(playerControl.HasTriggeredArea(2))
+        {
+            Medication[] medsLevel2 = Resources.LoadAll<Medication>("MedicationData/Level2");
+            allMedications = allMedications.Concat(medsLevel2).ToArray();
+        }
+        if(playerControl.HasTriggeredArea(3))
+        {
+            Medication[] medsLevel3 = Resources.LoadAll<Medication>("MedicationData/Level3");
+            allMedications = allMedications.Concat(medsLevel3).ToArray();
+        }
+        if(playerControl.HasTriggeredArea(4))
+        {
+            Medication[] medsLevel4 = Resources.LoadAll<Medication>("MedicationData/Level4");
+            allMedications = allMedications.Concat(medsLevel4).ToArray();
+        }
 
-        foreach (Medication med in medications)
+        foreach (Medication med in allMedications)
         {
             if (med.level == "1")
             {
@@ -144,7 +158,50 @@ public class IndexUI : MonoBehaviour
 
     public void CloseIndexUI()
     {
-        IndexUIPanel.SetActive(false);
+        // IndexUIPanel.SetActive(false);
+        canvasGroup.alpha = 0f;
         playerControl.gameObject.SetActive(true);
+        canvasGroup.interactable = false;
+        canvasGroup.blocksRaycasts = false;
+    }
+    public void OpenIndexUI()
+    {
+        // IndexUIPanel.SetActive(true);
+        canvasGroup.alpha = 1f;
+        playerControl.gameObject.SetActive(false);
+        canvasGroup.interactable = true;
+        canvasGroup.blocksRaycasts = true;
+
+        // playerControl.gameObject.SetActive(false);
+        // Create ScrollRects for Topics
+        Topic1ScrollRect = CreateScrollRect();
+        Topic2ScrollRect = CreateScrollRect();
+        Topic3ScrollRect = CreateScrollRect();
+        Topic4ScrollRect = CreateScrollRect();
+
+        if (Topic1ScrollRect == null || Topic2ScrollRect == null || 
+            Topic3ScrollRect == null || Topic4ScrollRect == null)
+        {
+            Debug.LogError("One or more ScrollRects failed to instantiate!");
+            return;
+        }
+
+        // Assign Colors
+        SetScrollRectColor(Topic1ScrollRect, "#FF9FE3");
+        SetScrollRectColor(Topic2ScrollRect, "#8DE3AD");
+        SetScrollRectColor(Topic3ScrollRect, "#F8BE60");
+        SetScrollRectColor(Topic4ScrollRect, "#79E8F3");
+
+        // Show Topic 1 by default
+        ShowScrollRect(Topic1ScrollRect);
+        // Assign Button Clicks
+        Topic1Button.onClick.AddListener(() => ShowScrollRect(Topic1ScrollRect));
+        Topic2Button.onClick.AddListener(() => ShowScrollRect(Topic2ScrollRect));
+        Topic3Button.onClick.AddListener(() => ShowScrollRect(Topic3ScrollRect));
+        Topic4Button.onClick.AddListener(() => ShowScrollRect(Topic4ScrollRect));
+        
+        // Now Load Medications
+        LoadMedications();
     }
 }
+

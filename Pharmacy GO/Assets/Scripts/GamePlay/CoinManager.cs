@@ -27,12 +27,16 @@ public class CoinManager : MonoBehaviour
     public void AddCoin(int amount)
     {
         coinCount += amount;
-        Debug.Log("Coins: " + coinCount);
     }
 
     public int GetCoinCount()
     {
         return coinCount;
+    }
+
+    public void RemoveCoin(int amount)
+    {
+        coinCount -= amount;
     }
 }
 

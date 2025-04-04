@@ -24,7 +24,10 @@ public class MapTransition : MonoBehaviour
     {
         if (collision.CompareTag("Player") && !isTransitioning) // Prevent multiple triggers
         {
+            Debug.Log("Player entered map transition.");
             StartCoroutine(TransitionPlayer(collision.gameObject));
+
+
         }
     }
 

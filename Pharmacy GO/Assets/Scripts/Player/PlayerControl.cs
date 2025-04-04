@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 
 public class PlayerControl : MonoBehaviour
 {
+    [SerializeField] private Joystick joystick;
 
     public static PlayerControl Instance { get; private set; }
 
@@ -15,15 +16,28 @@ public class PlayerControl : MonoBehaviour
     public LayerMask interactableLayer;
     public LayerMask grassLayer;
 
-    public event Action OnEncountered;
+    //public event Action OnEncountered;
+
+    public int numberOfAreas = 4;  // Adjust based on the number of areas
+
+    private Coroutine moveCoroutine;
+
+    private bool isInEncounter = false;
 
     private bool isMoving;
     private Vector2 input;
 
     private Animator animator;
 
+    private List<bool> areaTracker; // List of areas the player has triggered
+    
+    [SerializeField] private GameObject ExclamationMark;
+
+
     private void Awake()
     {
+        areaTracker = new List<bool>(new bool[numberOfAreas]);  // Initializes all to false
+   
         animator = GetComponent<Animator>();
 
         if (Instance != null && Instance != this)
@@ -37,14 +51,23 @@ public class PlayerControl : MonoBehaviour
             DontDestroyOnLoad(gameObject);
         }
         // DontDestroyOnLoad(gameObject);
+        if (ExclamationMark != null)
+        {
+            ExclamationMark.SetActive(false);
+        }
     }
 
     public void HandleUpdate()
     {
-        if (!isMoving){ 
+        if (!isMoving && !isInEncounter){ 
             // Get the input from the player
-            input.x = Input.GetAxisRaw("Horizontal");
-            input.y = Input.GetAxisRaw("Vertical");
+            float h = joystick.Horizontal;
+            float v = joystick.Vertical;
+
+            // If joystick is “centered,” read keyboard
+            input.x = Mathf.Abs(h) > 0.1f ? h : Input.GetAxisRaw("Horizontal");
+            input.y = Mathf.Abs(v) > 0.1f ? v : Input.GetAxisRaw("Vertical");
+
 
             if (input != Vector2.zero)
             {   
@@ -64,6 +87,12 @@ public class PlayerControl : MonoBehaviour
             {
                 Interact();
 
+            }
+
+            if (Input.GetKeyDown(KeyCode.L))
+            {
+                CoinManager.Instance.AddCoin(10);
+                Debug.Log("Cheat activated: 10 coins added.");
             }
         }
     }
@@ -85,7 +114,13 @@ public class PlayerControl : MonoBehaviour
     IEnumerator Move(Vector3 targetPos)
     {
         isMoving = true;
-        while ((targetPos - transform.position).sqrMagnitude > Mathf.Epsilon) // while the distance between the player and the target position is greater than 0
+        moveCoroutine = StartCoroutine(MoveCoroutine(targetPos)); // Store the coroutine reference
+        yield return moveCoroutine; // Wait for the coroutine to finish
+    }
+
+    private IEnumerator MoveCoroutine(Vector3 targetPos)
+    {
+        while ((targetPos - transform.position).sqrMagnitude > Mathf.Epsilon) 
         {
             transform.position = Vector3.MoveTowards(transform.position, targetPos, moveSpeed * Time.deltaTime);
             yield return null;
@@ -112,17 +147,50 @@ public class PlayerControl : MonoBehaviour
             if (UnityEngine.Random.Range(1, 101) <= 50)
             {
                 animator.SetBool("isMoving", false);
-                OnEncountered();
+                StartCoroutine(ShowExclamationAndEncounter());
+
             }
         }
     }
 
 
+    private IEnumerator ShowExclamationAndEncounter()
+    {
+        isInEncounter = true;  
+
+        ExclamationMark.SetActive(true); 
+
+        // Flashing effect
+        float flashDuration = 1.0f;  
+        float flashInterval = 0.1f;  
+        float timer = 0f; 
+
+        while (timer < flashDuration)
+        {
+            ExclamationMark.SetActive(!ExclamationMark.activeSelf); 
+            timer += flashInterval;
+            yield return new WaitForSeconds(flashInterval);
+        }
+
+
+        ExclamationMark.SetActive(true); 
+        yield return new WaitForSeconds(0.5f);  
+
+        Debug.Log("Hiding Exclamation Mark"); 
+        ExclamationMark.SetActive(false);  
+        GameController.Instance.StartBattle();  
+        isInEncounter = false;  
+    }
+
     // New-map
     public void StopMovement()
     {
         // Stop any running movement coroutine
-        StopAllCoroutines();
+        if (moveCoroutine != null)
+        {
+            StopCoroutine(moveCoroutine);  // Stop the specific movement coroutine
+            moveCoroutine = null;  // Reset the coroutine reference
+        }
 
         isMoving = false;
         input = Vector2.zero;
@@ -136,7 +204,19 @@ public class PlayerControl : MonoBehaviour
         animator.SetBool("isMoving", false);
     }
 
-    
+    public void SetAreaTracker(int areaIndex)
+    {
+        if (areaIndex >= 0 && areaIndex < areaTracker.Count)
+        {
+            areaTracker[areaIndex] = true;
+            Debug.Log("Player triggered area: " + areaIndex);
+        }
+    }
+
+    public bool HasTriggeredArea(int areaIndex)
+    {
+        return areaIndex >= 0 && areaIndex < areaTracker.Count && areaTracker[areaIndex];
+    }
 
 
 

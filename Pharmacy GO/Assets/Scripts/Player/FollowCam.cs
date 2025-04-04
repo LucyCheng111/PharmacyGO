@@ -26,6 +26,14 @@ public class FollowCam : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // Fix the bug that the player stuck when return to the town (Samplescene)
+        if (player == null)
+        {
+            player = GameObject.FindGameObjectWithTag("Player");
+            if (player == null)
+                return;
+        }
+
         transform.position = player.transform.position + offset;
     }
 }

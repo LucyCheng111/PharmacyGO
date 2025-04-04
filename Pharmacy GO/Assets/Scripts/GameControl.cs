@@ -9,9 +9,17 @@ public class GameController : MonoBehaviour
 
 
     GameState state;
+
+    public static GameController Instance { get; private set; }
+
+    public void Awake()
+    {
+        Instance = this;
+    }
+
     private void Start()
     {
-        playerControl.OnEncountered += StartBattle;
+        //playerControl.OnEncountered += StartBattle;
         battleSystem.OnBattleOver += EndBattle;
         // playerControl.OnEnterDialogue += StartDialogue;
         // playerControl.OnEndDialogue += EndDialogue;
@@ -21,7 +29,7 @@ public class GameController : MonoBehaviour
             state = GameState.Dialogue;
         };
 
-        DialogManager.Instance.OnCloseDialog += () =>
+        DialogManager.Instance.OnDialogFinished += () =>
         {
             if(state == GameState.Dialogue)
                 state = GameState.FreeRoam;
@@ -34,14 +42,41 @@ public class GameController : MonoBehaviour
         }
 
     }
-    void StartBattle()
+
+    public void StartBattle(bool isBoss = false, int maxQuestions = 1)
     {
+        MapArea localMapArea = FindObjectOfType<MapArea>();
+        if(localMapArea != null)
+        {
+            battleSystem.SetMapData(localMapArea);
+        }
+
+        HudController localHud = FindObjectOfType<HudController>();
+        if (localHud != null)
+        {
+            battleSystem.SetHudController(localHud);
+        }
+
+        Camera localCamera = Camera.main;
+        if(localCamera != null)
+        {
+            worldCamera = localCamera;
+        }
+
         state = GameState.Battle;
         battleSystem.gameObject.SetActive(true);
         playerControl.gameObject.SetActive(false);
         worldCamera.gameObject.SetActive(false);
-        battleSystem.StartBattle();
+        if (isBoss)
+        {
+            battleSystem.BossBattle(maxQuestions);
+        }
+        else
+        {
+            battleSystem.StartBattle();
+        }  
     }
+
     void EndBattle(bool playerWin)
     {
         state = GameState.FreeRoam;
