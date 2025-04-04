@@ -6485,6 +6485,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   coinCounter: {fileID: 659715141}
   scoreCounter: {fileID: 611642544}
+  toolUICanvas: {fileID: 2002701617}
+  joyStickCanvas: {fileID: 63671956}
 --- !u!114 &349222735
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9264,12 +9266,8 @@ RectTransform:
   m_Children:
   - {fileID: 27743202}
   - {fileID: 1092759357}
-  - {fileID: 78180434}
   - {fileID: 1868283551}
-  - {fileID: 686506156}
-  - {fileID: 1647116675}
   - {fileID: 1060705586}
-  - {fileID: 919670592}
   m_Father: {fileID: 2084762409}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -9666,9 +9664,8 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 1772039068}
-  m_Father: {fileID: 919670592}
+  m_Children: []
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
@@ -10868,7 +10865,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1656936823}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 1}
@@ -27812,7 +27809,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1838741890}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.48063898, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -27968,10 +27965,7 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 506452501}
-  - {fileID: 1656936823}
-  - {fileID: 1976601262}
+  m_Children: []
   m_Father: {fileID: 1137420380}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -28019,9 +28013,9 @@ MonoBehaviour:
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
   m_Interactable: 1
-  m_TargetGraphic: {fileID: 2036379190}
+  m_TargetGraphic: {fileID: 0}
   m_FillRect: {fileID: 1443345392}
-  m_HandleRect: {fileID: 2036379189}
+  m_HandleRect: {fileID: 0}
   m_Direction: 0
   m_MinValue: 0
   m_MaxValue: 1
@@ -29571,6 +29565,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pauseMenu: {fileID: 2084762408}
+  brightness: {fileID: 0}
+  brightLevel: {fileID: 0}
 --- !u!225 &2084762411
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -30166,6 +30162,10 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 519420031}
+    - target: {fileID: 8463730880880842406, guid: 057ce4e27e0024e4cac36b7159210f29, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -30198,3 +30198,5 @@ SceneRoots:
   - {fileID: 1249845502}
   - {fileID: 1300464858}
   - {fileID: 1707018829}
+  - {fileID: 1168586300}
+  - {fileID: 1443345392}
