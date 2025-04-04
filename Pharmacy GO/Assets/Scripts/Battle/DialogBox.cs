@@ -4,6 +4,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.UI;
 using UnityEngine.Networking;
+using Newtonsoft.Json.Linq;
+using System.Text;
+using System;
 
 public class DialogBox : MonoBehaviour
 {
@@ -30,7 +33,15 @@ public class DialogBox : MonoBehaviour
     [SerializeField] private List<TMP_Text> actionTexts;
     private RawImage[] optionImages;
     private TMP_Text[] optionStrings;
+    private Image[] optionOutlines;
     public AnswersType currentOptions = AnswersType.None;
+
+    private readonly Color SELECTED_COLOR = Color.black;
+    private readonly Color UNSELECTED_COLOR = Color.clear;
+    private readonly Color CORRECT_COLOR = Color.green;
+    private readonly Color INCORRECT_COLOR = Color.red;
+    private const float MAX_OPTION_WIDTH = 150f;
+    private const float MAX_OPTION_HEIGHT = 100f;
 
     public void SetDialog(string dialog)
     {
@@ -63,39 +74,19 @@ public class DialogBox : MonoBehaviour
         optionSelector.SetActive(enabled);
         optionImages = optionSelector.GetComponentsInChildren<RawImage>(true);
         optionStrings = optionSelector.GetComponentsInChildren<TMP_Text>(true);
+        optionOutlines = optionSelector.GetComponentsInChildren<Image>(true);
     }
 
     public void UpdateChoiceSelection(int selectedChoice)
     {
         if (answerSelected)
             return;
-        else
+
+        for (int i = 0; i < optionOutlines.Length; i++)
         {
-            for (int i = 0; i < optionImages.Length; i++)
-            {
-                if (i == selectedChoice)
-                {
-                    if (currentOptions == AnswersType.String)
-                    {
-                        optionStrings[i].color = Color.cyan;
-                    }
-                    else if (currentOptions == AnswersType.Image)
-                    {
-                        optionImages[i].gameObject.GetComponent<Outline>().effectColor = new Color(0, 0, 1, 1);
-                    }
-                }
-                else
-                {
-                    if (currentOptions == AnswersType.String)
-                    {
-                        optionStrings[i].color = Color.black;
-                    }
-                    else if (currentOptions == AnswersType.Image)
-                    {
-                        optionImages[i].gameObject.GetComponent<Outline>().effectColor = new Color(0, 0, 0, 0);
-                    }
-                }
-            }
+            bool selected = i == selectedChoice;
+            Color color = selected ? SELECTED_COLOR : UNSELECTED_COLOR;
+            optionOutlines[i].color = color;
         }
     }
 
@@ -149,10 +140,38 @@ public class DialogBox : MonoBehaviour
     {
         for (int i = 0; i < paths.Length; i++)
         {
-            UnityWebRequest texture = UnityWebRequestTexture.GetTexture ("https://tornquisterik.github.io/Webpage/images/" + paths[i]);
-            yield return texture.SendWebRequest ();
-            Texture2D option = DownloadHandlerTexture.GetContent (texture);
-            optionImages[i].texture = option;
+            UnityWebRequest request = UnityWebRequest.Get (paths[i]);
+            request.SetRequestHeader ("authorization", Database.MAIN_AUTH_TOKEN);
+
+            yield return request.SendWebRequest ();
+            
+            if (request.result == UnityWebRequest.Result.Success)
+            {
+                string responseText = request.downloadHandler.text;
+                JObject responseJson = JObject.Parse (responseText);                    // Convert text to json object
+                string base64Content = responseJson.GetValue ("content").ToString ();   // Get base64 from json
+                byte[] byteArrayContent = Convert.FromBase64String (base64Content);     // Convert base64 to byte array
+                string databaseContent = Encoding.UTF8.GetString (byteArrayContent);    // Convert byte array to string
+                databaseContent = databaseContent.Replace ("\"", "");
+                byteArrayContent = Convert.FromBase64String (databaseContent);     // Convert base64 to byte array
+
+
+                Texture2D newTexture = new Texture2D (1, 1);
+                newTexture.LoadImage (byteArrayContent);
+                newTexture.Apply ();
+                float widthDividend = newTexture.width / MAX_OPTION_WIDTH;
+                float heightDividend = newTexture.height / MAX_OPTION_HEIGHT;
+                float maxSize = Mathf.Max (widthDividend, heightDividend);
+                optionImages[i].texture = newTexture;
+
+                Vector2 size = new Vector2 (newTexture.width, newTexture.height) / maxSize;
+                size -= new Vector2 (5, 5);
+                optionImages[i].rectTransform.sizeDelta = size;
+            }
+            else
+            {
+                Debug.LogError ("Image Load Error: " + request.error);
+            }
         }
     }
 
@@ -160,29 +179,11 @@ public class DialogBox : MonoBehaviour
     public bool DisplayAnswer(int selectedChoiceIndex, int correctAnswerIndex)
     {
         answerSelected = true;
-        //Debug.Log("Selected choice : " + choices[selectedChoiceIndex].text);
-        if (currentOptions == AnswersType.String)
-        {
-            optionStrings[correctAnswerIndex].color = Color.green;
-        }
-        else if (currentOptions == AnswersType.Image)
-        {
-            optionImages[correctAnswerIndex].gameObject.GetComponent<Outline>().effectColor = new Color(0, 1, 0, 1);
-        }
 
-        if (selectedChoiceIndex != correctAnswerIndex)
-        {
-            if (currentOptions == AnswersType.String)
-            {
-                optionStrings[selectedChoiceIndex].color = Color.red;
-            }
-            else if (currentOptions == AnswersType.Image)
-            {
-                optionImages[selectedChoiceIndex].gameObject.GetComponent<Outline>().effectColor = new Color(1, 0, 0, 1);
-            }
-            return false;
-        }
-        return true;
+        // If the selected choice was correct, it will override the incorrect color with the correct color
+        optionOutlines[selectedChoiceIndex].color = INCORRECT_COLOR;
+        optionOutlines[correctAnswerIndex].color = CORRECT_COLOR;
+        return selectedChoiceIndex == correctAnswerIndex;
     }
     public void UpdateActionSelection(int selectedAction)
     {

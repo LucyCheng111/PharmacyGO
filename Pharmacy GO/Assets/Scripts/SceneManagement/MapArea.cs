@@ -28,7 +28,6 @@ public class MapArea : MonoBehaviour
 
     public Question GetRandomQuestion()
     {
-
         // difficulty based selection will need to be re-worked once we have more questions
         // more questions will be added once the database is operational
         // this is also very un-optimized
