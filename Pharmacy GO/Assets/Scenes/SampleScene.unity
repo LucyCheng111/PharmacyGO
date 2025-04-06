@@ -6067,6 +6067,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   coinCounter: {fileID: 659715141}
   scoreCounter: {fileID: 611642544}
+  toolUICanvas: {fileID: 2002701617}
+  joyStickCanvas: {fileID: 63671956}
 --- !u!114 &349222735
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7911,8 +7913,8 @@ Transform:
   m_Children:
   - {fileID: 1170942529}
   - {fileID: 956516905}
-  - {fileID: 1819210059}
   - {fileID: 1290836673}
+  - {fileID: 1819210059}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &819977971
@@ -29216,6 +29218,10 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 519420031}
+    - target: {fileID: 8463730880880842406, guid: 057ce4e27e0024e4cac36b7159210f29, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
