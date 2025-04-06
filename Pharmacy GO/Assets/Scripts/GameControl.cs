@@ -14,7 +14,15 @@ public class GameController : MonoBehaviour
 
     public void Awake()
     {
+        // Check if there already is an existing GameController
+        // Especially when returning to the Sample Scene
+        if(Instance != null & Instance != this )
+        {
+            Destroy( gameObject );
+            return;
+        }
         Instance = this;
+        DontDestroyOnLoad( gameObject );
     }
 
     private void Start()
