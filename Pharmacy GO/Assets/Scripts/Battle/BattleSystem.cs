@@ -28,6 +28,7 @@ public class BattleSystem : MonoBehaviour
     int bossQuestionsRight = 0;
 
 
+
     private Option[] shuffleAnswersList;
     private int shuffleAnswersIndex;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -232,24 +233,31 @@ public class BattleSystem : MonoBehaviour
     }
     public void OnClickAnswerButton(int answerIndex)
     {
-        Debug.Log("Answer button clicked: " + answerIndex);
-        currentAnswer = answerIndex;
-        dialogBox.UpdateChoiceSelection(currentAnswer);
-        bool hasImageAnswers = dialogBox.currentOptions == DialogBox.AnswersType.Image;
-        
-        bool isCorrect;
-        isCorrect = dialogBox.DisplayAnswer(currentAnswer, shuffleAnswersIndex);
-        StartCoroutine(EndBattle(isCorrect));
-
-        if (!hasImageAnswers)
+        if(dialogBox.GetAnswerSelected())
         {
-            dialogBox.UpdateActionSelection(currentAnswer);
+            return; // Prevents multiple clicks on the answer button
+        }
+        else
+        {
+            Debug.Log("Answer button clicked: " + answerIndex);
+            currentAnswer = answerIndex;
+            dialogBox.UpdateChoiceSelection(currentAnswer);
+            bool hasImageAnswers = dialogBox.currentOptions == DialogBox.AnswersType.Image;
+            
+            bool isCorrect;
+            isCorrect = dialogBox.DisplayAnswer(currentAnswer, shuffleAnswersIndex);
+            StartCoroutine(EndBattle(isCorrect));
+
+            if (!hasImageAnswers)
+            {
+                dialogBox.UpdateActionSelection(currentAnswer);
+            }
         }
         
     }
     IEnumerator EndBattle(bool answerCorrect)
     {
-        yield return new WaitForSeconds(2.5f);
+        yield return new WaitForSeconds(1.5f);
         state = BattleState.END;
         Debug.Log("answerCorrect: " + answerCorrect);
         dialogBox.EnableDialogText(true);
