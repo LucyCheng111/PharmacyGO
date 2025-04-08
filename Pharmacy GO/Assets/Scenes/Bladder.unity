@@ -257,6 +257,51 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 61017458}
   m_CullTransparentMesh: 1
+--- !u!1 &62565781
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 62565783}
+  - component: {fileID: 62565782}
+  m_Layer: 0
+  m_Name: SpawnPoint_HubToBladder
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &62565782
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 62565781}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fed96e364bf19804bbb7bd7c749f8fd7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawnPointID: HubToBladder
+--- !u!4 &62565783
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 62565781}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.05, y: 9.44, z: -0.16936731}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &138508376
 GameObject:
   m_ObjectHideFlags: 0
@@ -5413,7 +5458,7 @@ GameObject:
   - component: {fileID: 397975229}
   - component: {fileID: 397975228}
   m_Layer: 0
-  m_Name: Portal_EastRoute
+  m_Name: Portal_BladderToHub
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5431,8 +5476,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c6915ce22acd32144b720a9df478a1c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneBuildIndex: 3
-  targetSpawnPointID: EastRoute_from_Bladder
+  sceneBuildIndex: 7
+  targetSpawnPointID: BladderToHub
 --- !u!61 &397975229
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -6556,7 +6601,7 @@ TilemapRenderer:
   m_SortingLayer: 2
   m_SortingOrder: 0
   m_ChunkSize: {x: 32, y: 32, z: 32}
-  m_ChunkCullingBounds: {x: 0, y: 0.00054991245, z: 0}
+  m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
   m_MaxChunkCount: 16
   m_MaxFrameAge: 16
   m_SortOrder: 0
@@ -11731,6 +11776,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pauseMenu: {fileID: 2083542867}
+  brightness: {fileID: 0}
+  brightLevel: {fileID: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -11738,7 +11785,6 @@ SceneRoots:
   - {fileID: 901237804}
   - {fileID: 1337713896}
   - {fileID: 1844702839}
-  - {fileID: 397975230}
   - {fileID: 1989889798}
   - {fileID: 275248856}
   - {fileID: 1243683750}
@@ -11748,3 +11794,5 @@ SceneRoots:
   - {fileID: 1893944325}
   - {fileID: 1110061407}
   - {fileID: 543719472}
+  - {fileID: 397975230}
+  - {fileID: 62565783}

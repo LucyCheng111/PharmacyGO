@@ -498,51 +498,6 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
---- !u!1 &883684722
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 883684724}
-  - component: {fileID: 883684723}
-  m_Layer: 0
-  m_Name: SpawnPoint_FromEastRoute
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &883684723
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 883684722}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fed96e364bf19804bbb7bd7c749f8fd7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  spawnPointID: SpawnFromEastRoute_Lungs
---- !u!4 &883684724
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 883684722}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -9.39, y: 0.72, z: -0.16936715}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &968607604
 GameObject:
   m_ObjectHideFlags: 0
@@ -14786,6 +14741,51 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!1 &983911326
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 983911328}
+  - component: {fileID: 983911327}
+  m_Layer: 0
+  m_Name: SpawnPoint_HubToLungs
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &983911327
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 983911326}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fed96e364bf19804bbb7bd7c749f8fd7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawnPointID: HubToLungs
+--- !u!4 &983911328
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 983911326}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -8.56, y: -0.06, z: -0.16936731}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &997245214
 GameObject:
   m_ObjectHideFlags: 0
@@ -14798,7 +14798,7 @@ GameObject:
   - component: {fileID: 997245216}
   - component: {fileID: 997245215}
   m_Layer: 0
-  m_Name: Portal_East
+  m_Name: Portal_LungsToHub
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -14816,8 +14816,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c6915ce22acd32144b720a9df478a1c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneBuildIndex: 3
-  targetSpawnPointID: EastRoute_from_Lungs
+  sceneBuildIndex: 7
+  targetSpawnPointID: LungsToHub
 --- !u!61 &997245216
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -20297,6 +20297,6 @@ SceneRoots:
   - {fileID: 2085069549}
   - {fileID: 1694342038}
   - {fileID: 2143061116}
-  - {fileID: 997245217}
-  - {fileID: 883684724}
   - {fileID: 487265759}
+  - {fileID: 997245217}
+  - {fileID: 983911328}

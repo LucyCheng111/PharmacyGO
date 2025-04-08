@@ -28,6 +28,7 @@ public class BattleSystem : MonoBehaviour
     int bossQuestionsRight = 0;
 
 
+
     private Option[] shuffleAnswersList;
     private int shuffleAnswersIndex;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -101,7 +102,9 @@ public class BattleSystem : MonoBehaviour
         }
         yield return new WaitForSeconds(1f);
 
-        PlayerAction();
+        StartCoroutine(dialogBox.TypeDialog("Pick the choice!"));
+        yield return new WaitForSeconds(1f);
+        state = BattleState.PLAYERANSWER;
     }
 
     public void SetMapData(MapArea newMapData)
@@ -114,30 +117,15 @@ public class BattleSystem : MonoBehaviour
         this.hudController = newHudController;
     }
 
-    void PlayerAction()
-    {
-        state = BattleState.PLAYERACTION;
-        chooseAction = dialogBox.TypeDialog("Choose an action!");
-        StartCoroutine(chooseAction);
-        dialogBox.EnableActionSelector(true);
-    }
-
     public void HandleUpdate()
     {
         if (state == BattleState.START)
         {
             dialogBox.EnableDialogText(true);
-            dialogBox.EnableActionSelector(false);
             dialogBox.EnableOptionSelector(false);
-        }
-
-        else if (state == BattleState.PLAYERACTION)
-        {
-            HandleAction();
         }
         else if (state == BattleState.PLAYERANSWER)
         {
-            dialogBox.EnableActionSelector(false);
             dialogBox.EnableDialogText(false);
             dialogBox.EnableOptionSelector(true);
             HandleAnswer();
@@ -145,45 +133,9 @@ public class BattleSystem : MonoBehaviour
         else if (state == BattleState.END)
         {
             dialogBox.EnableDialogText(true);
-            dialogBox.EnableActionSelector(false);
             dialogBox.EnableOptionSelector(false);
         }
 
-    }
-
-    void HandleAction()
-    {
-        if (Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow))
-        {
-            if (currentAction < 1)
-                ++currentAction;
-        }
-        else if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow))
-        {
-            if (currentAction > 0)
-                --currentAction;
-        }
-        
-       if (Input.GetKeyDown(KeyCode.Z) || Input.GetKeyDown(KeyCode.Return))
-        {
-            StopCoroutine(chooseAction);
-            if (currentAction == 0)
-            {
-                // Answer the question
-                state = BattleState.PLAYERANSWER;
-            }
-            else if (currentAction == 1)
-            {
-                // Run
-            }
-        }
-        dialogBox.UpdateActionSelection(currentAction);
-
-    }
-    public void OnClickFightButton()
-    {
-        state = BattleState.PLAYERANSWER;
-        dialogBox.UpdateActionSelection(0);
     }
 
     void HandleAnswer()
@@ -232,24 +184,31 @@ public class BattleSystem : MonoBehaviour
     }
     public void OnClickAnswerButton(int answerIndex)
     {
-        Debug.Log("Answer button clicked: " + answerIndex);
-        currentAnswer = answerIndex;
-        dialogBox.UpdateChoiceSelection(currentAnswer);
-        bool hasImageAnswers = dialogBox.currentOptions == DialogBox.AnswersType.Image;
-        
-        bool isCorrect;
-        isCorrect = dialogBox.DisplayAnswer(currentAnswer, shuffleAnswersIndex);
-        StartCoroutine(EndBattle(isCorrect));
-
-        if (!hasImageAnswers)
+        if(dialogBox.GetAnswerSelected())
         {
-            dialogBox.UpdateActionSelection(currentAnswer);
+            return; // Prevents multiple clicks on the answer button
+        }
+        else
+        {
+            Debug.Log("Answer button clicked: " + answerIndex);
+            currentAnswer = answerIndex;
+            dialogBox.UpdateChoiceSelection(currentAnswer);
+            bool hasImageAnswers = dialogBox.currentOptions == DialogBox.AnswersType.Image;
+            
+            bool isCorrect;
+            isCorrect = dialogBox.DisplayAnswer(currentAnswer, shuffleAnswersIndex);
+            StartCoroutine(EndBattle(isCorrect));
+
+            if (!hasImageAnswers)
+            {
+                dialogBox.UpdateActionSelection(currentAnswer);
+            }
         }
         
     }
     IEnumerator EndBattle(bool answerCorrect)
     {
-        yield return new WaitForSeconds(2.5f);
+        yield return new WaitForSeconds(1.5f);
         state = BattleState.END;
         Debug.Log("answerCorrect: " + answerCorrect);
         dialogBox.EnableDialogText(true);
