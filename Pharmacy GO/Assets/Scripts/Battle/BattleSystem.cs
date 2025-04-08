@@ -143,12 +143,12 @@ public class BattleSystem : MonoBehaviour
         bool hasImageAnswers = dialogBox.currentOptions == DialogBox.AnswersType.Image;
         int maxAnswers = question.options.Count;
 
-        if (Input.GetKeyDown(KeyCode.D)) // Move Right
+        if (Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.RightArrow)) // Move Right
         {
             if (currentAnswer < maxAnswers - 1)
                 ++currentAnswer;
         }
-        else if (Input.GetKeyDown(KeyCode.A)) // Move Left
+        else if (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.LeftArrow)) // Move Left
         {
             if (currentAnswer > 0)
                 --currentAnswer;
@@ -169,7 +169,7 @@ public class BattleSystem : MonoBehaviour
         
         dialogBox.UpdateChoiceSelection(currentAnswer);
 
-        if (Input.GetKeyDown(KeyCode.Z) && !dialogBox.GetAnswerSelected())
+        if ((Input.GetKeyDown(KeyCode.Z) || Input.GetKeyDown(KeyCode.Return)) && !dialogBox.GetAnswerSelected())
         {
             bool isCorrect;
             isCorrect = dialogBox.DisplayAnswer(currentAnswer, shuffleAnswersIndex);
