@@ -7,6 +7,7 @@ using UnityEngine.Networking;
 
 public class DialogBox : MonoBehaviour
 {
+
     public enum AnswersType
     {
         None,
@@ -39,7 +40,6 @@ public class DialogBox : MonoBehaviour
 
     public IEnumerator TypeDialog(string dialog)
     {
-        //Debug.Log("This should go between the incorrect statements.");
         dialogText.text = "";
         foreach (var letter in dialog.ToCharArray())
         {
