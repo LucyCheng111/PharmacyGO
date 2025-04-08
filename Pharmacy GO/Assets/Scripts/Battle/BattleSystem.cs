@@ -102,7 +102,9 @@ public class BattleSystem : MonoBehaviour
         }
         yield return new WaitForSeconds(1f);
 
-        PlayerAction();
+        StartCoroutine(dialogBox.TypeDialog("Pick the choice!"));
+        yield return new WaitForSeconds(1f);
+        state = BattleState.PLAYERANSWER;
     }
 
     public void SetMapData(MapArea newMapData)
@@ -115,30 +117,15 @@ public class BattleSystem : MonoBehaviour
         this.hudController = newHudController;
     }
 
-    void PlayerAction()
-    {
-        state = BattleState.PLAYERACTION;
-        chooseAction = dialogBox.TypeDialog("Choose an action!");
-        StartCoroutine(chooseAction);
-        dialogBox.EnableActionSelector(true);
-    }
-
     public void HandleUpdate()
     {
         if (state == BattleState.START)
         {
             dialogBox.EnableDialogText(true);
-            dialogBox.EnableActionSelector(false);
             dialogBox.EnableOptionSelector(false);
-        }
-
-        else if (state == BattleState.PLAYERACTION)
-        {
-            HandleAction();
         }
         else if (state == BattleState.PLAYERANSWER)
         {
-            dialogBox.EnableActionSelector(false);
             dialogBox.EnableDialogText(false);
             dialogBox.EnableOptionSelector(true);
             HandleAnswer();
@@ -146,45 +133,9 @@ public class BattleSystem : MonoBehaviour
         else if (state == BattleState.END)
         {
             dialogBox.EnableDialogText(true);
-            dialogBox.EnableActionSelector(false);
             dialogBox.EnableOptionSelector(false);
         }
 
-    }
-
-    void HandleAction()
-    {
-        if (Input.GetKeyDown(KeyCode.S))
-        {
-            if (currentAction < 1)
-                ++currentAction;
-        }
-        else if (Input.GetKeyDown(KeyCode.W))
-        {
-            if (currentAction > 0)
-                --currentAction;
-        }
-        
-       if (Input.GetKeyDown(KeyCode.Z))
-        {
-            StopCoroutine(chooseAction);
-            if (currentAction == 0)
-            {
-                // Answer the question
-                state = BattleState.PLAYERANSWER;
-            }
-            else if (currentAction == 1)
-            {
-                // Run
-            }
-        }
-        dialogBox.UpdateActionSelection(currentAction);
-
-    }
-    public void OnClickFightButton()
-    {
-        state = BattleState.PLAYERANSWER;
-        dialogBox.UpdateActionSelection(0);
     }
 
     void HandleAnswer()
