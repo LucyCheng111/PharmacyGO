@@ -51,7 +51,7 @@ public class ChoiceBox : MonoBehaviour
             choiceTexts[i].SetSelected(i == currentChoice);
         }
 
-        if (Input.GetKeyDown(KeyCode.Z))
+        if (Input.GetKeyDown(KeyCode.Space))
             choiceSelected = true;
         
     }

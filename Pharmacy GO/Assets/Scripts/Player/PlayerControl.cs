@@ -83,7 +83,7 @@ public class PlayerControl : MonoBehaviour
             }
             animator.SetBool("isMoving", isMoving);
 
-            if(Input.GetKeyDown(KeyCode.Z))
+            if(Input.GetKeyDown(KeyCode.Space))
             {
                 Interact();
 

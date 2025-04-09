@@ -169,7 +169,7 @@ public class BattleSystem : MonoBehaviour
         
         dialogBox.UpdateChoiceSelection(currentAnswer);
 
-        if ((Input.GetKeyDown(KeyCode.Z) || Input.GetKeyDown(KeyCode.Return)) && !dialogBox.GetAnswerSelected())
+        if ((Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Return)) && !dialogBox.GetAnswerSelected())
         {
             bool isCorrect;
             isCorrect = dialogBox.DisplayAnswer(currentAnswer, shuffleAnswersIndex);

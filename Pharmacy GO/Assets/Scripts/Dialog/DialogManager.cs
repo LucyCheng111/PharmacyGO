@@ -42,7 +42,7 @@ public class DialogManager : MonoBehaviour
         yield return TypeDialog(text);
         if (waitForInput)
         {
-            yield return new WaitUntil(() => Input.GetKeyDown(KeyCode.Z));
+            yield return new WaitUntil(() => Input.GetKeyDown(KeyCode.Space));
         }
 
         if (choices != null && choices.Count > 1)
@@ -96,7 +96,7 @@ public class DialogManager : MonoBehaviour
         foreach(var line in dialog.Lines)
         {
             yield return TypeDialog(line);
-            yield return new WaitUntil(() => Input.GetKeyDown(KeyCode.Z));
+            yield return new WaitUntil(() => Input.GetKeyDown(KeyCode.Space));
         }
 
         if (choices != null && choices.Count > 1)
