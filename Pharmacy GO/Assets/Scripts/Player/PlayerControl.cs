@@ -68,7 +68,6 @@ public class PlayerControl : MonoBehaviour
             input.x = Mathf.Abs(h) > 0.1f ? h : Input.GetAxisRaw("Horizontal");
             input.y = Mathf.Abs(v) > 0.1f ? v : Input.GetAxisRaw("Vertical");
 
-
             if (input != Vector2.zero)
             {   
                 animator.SetFloat("moveX", input.x);
@@ -89,11 +88,13 @@ public class PlayerControl : MonoBehaviour
 
             }
 
+#if UNITY_EDITOR
             if (Input.GetKeyDown(KeyCode.L))
             {
                 CoinManager.Instance.AddCoin(10);
                 Debug.Log("Cheat activated: 10 coins added.");
             }
+#endif
         }
     }
 
