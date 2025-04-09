@@ -9,6 +9,19 @@ public class Portal : MonoBehaviour
     public string targetSpawnPointID; // The ID of the target spawn point
 
     private bool isTransitioning = false;
+    private Collider2D portalCollider;
+
+    private void Awake()
+    {
+        portalCollider = GetComponent<Collider2D>();
+    }
+
+    private IEnumerator Start()
+    {
+        portalCollider.enabled = false;
+        yield return new WaitForSeconds(2f);
+        portalCollider.enabled = true;
+    }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
