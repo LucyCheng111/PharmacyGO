@@ -15,7 +15,6 @@ public class Database
     public const string FILE_PATH = "https://api.github.com/repos/AlecDuval/gitDatabaseTest/contents";
     public const string DATABASE_PATH = FILE_PATH + "/jsonTest.json";
     public const string IMAGES_PATH = FILE_PATH + "/images";
-    public const string MAIN_AUTH_TOKEN = "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";
 
     public Database()
     {
@@ -25,7 +24,6 @@ public class Database
     public IEnumerator load()
     {
         UnityWebRequest request = UnityWebRequest.Get (DATABASE_PATH);
-        request.SetRequestHeader ("authorization", MAIN_AUTH_TOKEN);
 
         yield return request.SendWebRequest ();
 

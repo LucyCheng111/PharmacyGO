@@ -141,7 +141,6 @@ public class DialogBox : MonoBehaviour
         for (int i = 0; i < paths.Length; i++)
         {
             UnityWebRequest request = UnityWebRequest.Get (paths[i]);
-            request.SetRequestHeader ("authorization", Database.MAIN_AUTH_TOKEN);
 
             yield return request.SendWebRequest ();
             
