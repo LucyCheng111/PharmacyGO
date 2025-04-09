@@ -129,6 +129,7 @@ public class PlayerControl : MonoBehaviour
         isMoving = false;
 
         CheckForEncounters();
+        
     }
 
     private bool IsWalkable(Vector3 targetPos)
@@ -149,6 +150,14 @@ public class PlayerControl : MonoBehaviour
                 animator.SetBool("isMoving", false);
                 StartCoroutine(ShowExclamationAndEncounter());
 
+            }
+        }
+        else if (MapArea.i.IsDangerous())
+        {
+            if (UnityEngine.Random.Range(1, 101) <= 5)
+            {
+                animator.SetBool("isMoving", false);
+                StartCoroutine(ShowExclamationAndEncounter());
             }
         }
     }
@@ -217,6 +226,7 @@ public class PlayerControl : MonoBehaviour
     {
         return areaIndex >= 0 && areaIndex < areaTracker.Count && areaTracker[areaIndex];
     }
+
 
 
 

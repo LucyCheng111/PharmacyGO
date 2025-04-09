@@ -5,12 +5,20 @@ using UnityEngine;
 public class MapArea : MonoBehaviour
 {
     [SerializeField] List<Question> randomQuestions;
+    [SerializeField] bool dangerous; // should questions be encountered randomly
     [SerializeField] int correctAnswer; // how much to increase when supplying a correct answer
     [SerializeField] int wrongAnswer; // how much to decrease when supplying a wrong answer
 
     private int correctStreak;
     private int difficulty;
     private bool validQuestion;
+
+    public static MapArea i { get; private set; }
+
+    private void Awake()
+    {
+        i = this;
+    }
 
     void Start()
     {
@@ -73,5 +81,10 @@ public class MapArea : MonoBehaviour
             }
         }
         Debug.Log("Difficulty: " + difficulty);
+    }
+
+    public bool IsDangerous()
+    {
+        return dangerous;
     }
 }
