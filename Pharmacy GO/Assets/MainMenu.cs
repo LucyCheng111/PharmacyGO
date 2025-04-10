@@ -27,6 +27,14 @@ public class MainMenu : MonoBehaviour
         // Main Menu 0, Instructions 1
     }
 
+    public void LoadInstructions()
+    {
+        SceneManager.LoadSceneAsync(1);
+        // Scene name or scene build index
+        // Game scene is currently index 2 
+        // Main Menu 0, Instructions 1
+    }
+
     public void SetVolume (float sliderValue)
     {
         SaveVolume (sliderValue);
@@ -58,5 +66,9 @@ public class MainMenu : MonoBehaviour
         float savedVolume = PlayerPrefs.GetFloat (MASTER_VOLUME_KEY, DEfAULT_VOLUME_VALUE);
         volumeSlider.value = savedVolume;
         SetVolume (savedVolume);
+    }
+    public void Feedback()
+    {
+        Application.OpenURL("https://oregonstate.qualtrics.com/jfe/form/SV_en9DaOP3LPK12Qu");
     }
 }
