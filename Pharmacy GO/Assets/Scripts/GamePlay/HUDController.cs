@@ -16,18 +16,22 @@ public class HudController : MonoBehaviour
     {
         coinCounter.SetActive(true);
         scoreCounter.SetActive(true);
-        toolUICanvas.SetActive(true);
-        if (Application.isMobilePlatform)
-        {
+        // toolUICanvas.SetActive(true);
+        // if (Application.isMobilePlatform)
+        // {
+        //     joyStickCanvas.SetActive(true);
+        // }
+
+        if (toolUICanvas != null) toolUICanvas.SetActive(true);
+        if (Application.isMobilePlatform && joyStickCanvas != null)
             joyStickCanvas.SetActive(true);
-        }
     }
 
     public void TurnHudOff()
     {
         coinCounter.SetActive(false);
         scoreCounter.SetActive(false);
-        toolUICanvas.SetActive(false);
-        joyStickCanvas.SetActive(false);
+        // toolUICanvas.SetActive(false);
+        // joyStickCanvas.SetActive(false);
     }
 }
