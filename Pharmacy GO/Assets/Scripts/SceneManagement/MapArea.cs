@@ -15,6 +15,11 @@ public class MapArea : MonoBehaviour
 
     public static MapArea i { get; private set; }
 
+    public bool HasQuestions()
+    {
+        return randomQuestions != null && randomQuestions.Count > 0;
+    }
+
     private void Awake()
     {
         i = this;
