@@ -267,8 +267,8 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 24300002, guid: a7199a102d73e3c409476fd593b5cc08, type: 2}
-  m_audioClip: {fileID: 8300000, guid: 031640d15f51c914bb8b3d476b62644c, type: 3}
-  m_Resource: {fileID: 8300000, guid: 031640d15f51c914bb8b3d476b62644c, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 0877f20c2dac51349879b6d0f6f429f0, type: 3}
+  m_Resource: {fileID: 8300000, guid: 0877f20c2dac51349879b6d0f6f429f0, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -7409,7 +7409,7 @@ MonoBehaviour:
   heartbeatScale: 1
   scaleAmplitude: 0.15
   scaleWavelength: 0.4
-  heartbeatDowntime: 1
+  heartbeatDowntime: 0.5
 --- !u!1 &1934515282
 GameObject:
   m_ObjectHideFlags: 0
@@ -7448,7 +7448,6 @@ MonoBehaviour:
     buildIndex: 4
   - levelNumber: 3
     buildIndex: 5
-  maxLevel: 5
 --- !u!4 &1934515284
 Transform:
   m_ObjectHideFlags: 0
