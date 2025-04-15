@@ -169,10 +169,16 @@ public class PlayerControl : MonoBehaviour
             return false;
         }
         return true;
-    }
+    } 
 
     private void CheckForEncounters()
     {
+        // skip battle if no question in this area
+        var mapArea = FindFirstObjectByType<MapArea>();
+        if (mapArea != null || !mapArea.HasQuestions())
+        {
+            return;
+        }
         if (Physics2D.OverlapCircle(transform.position, 0.0f, grassLayer) != null)
         {
             if (UnityEngine.Random.Range(1, 101) <= 50)

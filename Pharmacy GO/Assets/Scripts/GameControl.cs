@@ -53,13 +53,13 @@ public class GameController : MonoBehaviour
 
     public void StartBattle(bool isBoss = false, int maxQuestions = 1)
     {
-        MapArea localMapArea = FindObjectOfType<MapArea>();
+        MapArea localMapArea = FindFirstObjectByType<MapArea>();
         if(localMapArea != null)
         {
             battleSystem.SetMapData(localMapArea);
         }
 
-        HudController localHud = FindObjectOfType<HudController>();
+        HudController localHud = FindFirstObjectByType<HudController>();
         if (localHud != null)
         {
             battleSystem.SetHudController(localHud);

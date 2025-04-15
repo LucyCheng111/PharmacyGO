@@ -17,6 +17,9 @@ public class CoinManager : MonoBehaviour
         {
             Instance = this;
             DontDestroyOnLoad(gameObject);
+
+            // Load saved coins
+            coinCount = PlayerPrefs.GetInt("CoinCount", 0);
         }
         else
         {
@@ -27,6 +30,10 @@ public class CoinManager : MonoBehaviour
     public void AddCoin(int amount)
     {
         coinCount += amount;
+
+        // Save earned coins
+        PlayerPrefs.SetInt("CoinCount", coinCount);
+        PlayerPrefs.Save();
     }
 
     public int GetCoinCount()
@@ -37,6 +44,10 @@ public class CoinManager : MonoBehaviour
     public void RemoveCoin(int amount)
     {
         coinCount -= amount;
+
+        // Saved spent coins
+        PlayerPrefs.SetInt("CoinCount", coinCount);
+        PlayerPrefs.Save();
     }
 }
 
