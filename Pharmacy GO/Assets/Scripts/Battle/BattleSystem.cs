@@ -262,6 +262,8 @@ public class BattleSystem : MonoBehaviour
                 {
                     yield return StartCoroutine(dialogBox.TypeDialog("You got them all right! You win!"));
 
+                    LevelManager.Instance.UnlockNextLevel();
+
                     dialogBox.ResetDalogBox();
                     if (levelCompletePanel != null)
                     {
