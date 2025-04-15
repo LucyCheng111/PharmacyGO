@@ -421,8 +421,8 @@ TilemapRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -1797134545
-  m_SortingLayer: 3
+  m_SortingLayerID: 1200602417
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
@@ -26646,7 +26646,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sceneBuildIndex: 7
+  levelNumber: 0
   targetSpawnPointID: LungsToHub
+  portalEffect: {fileID: 0}
 --- !u!61 &997245216
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -27085,7 +27087,7 @@ TilemapRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1797134545
-  m_SortingLayer: 3
+  m_SortingLayer: 4
   m_SortingOrder: 0
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
@@ -38123,7 +38125,7 @@ MonoBehaviour:
   m_Intensity: 1
   m_LightVolumeIntensity: 1
   m_LightVolumeEnabled: 0
-  m_ApplyToSortingLayers: 000000002374ac6869f27c803ba25704f3eb8746cf5dbb3b2fe7e194
+  m_ApplyToSortingLayers: 00000000f3eb8746cf5dbb3b2fe7e19431bd8f47
   m_LightCookieSprite: {fileID: 0}
   m_DeprecatedPointLightCookieSprite: {fileID: 0}
   m_LightOrder: 0
@@ -38319,7 +38321,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1797134545
-  m_SortingLayer: 3
+  m_SortingLayer: 4
   m_SortingOrder: 0
   m_Sprite: {fileID: -8922328891513336043, guid: aa31ccf4f58130f498d84db15606cb5e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
