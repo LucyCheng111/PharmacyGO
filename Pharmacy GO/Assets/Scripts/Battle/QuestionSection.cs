@@ -13,9 +13,11 @@ public class QuestionSection : MonoBehaviour
         questionID.text = "ID: 9999";
     }
 
-    public IEnumerator TypeQuestion(Question question)
+    public IEnumerator TypeQuestion(Question question, MapArea mapData)
     {
-        StartCoroutine(TypeID("ID: 9999"));
+        int id = 9999;
+        id = mapData.getQuestionID(question);
+        StartCoroutine(TypeID("ID: " + id));
         questionText.text = "";
         foreach (var letter in question.question.ToCharArray())
         {

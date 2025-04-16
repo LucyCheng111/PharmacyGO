@@ -9,6 +9,8 @@ public class MapArea : MonoBehaviour
     [SerializeField] int correctAnswer; // how much to increase when supplying a correct answer
     [SerializeField] int wrongAnswer; // how much to decrease when supplying a wrong answer
 
+    Database database;
+
     private int correctStreak;
     private int difficulty;
     private bool validQuestion;
@@ -28,10 +30,10 @@ public class MapArea : MonoBehaviour
 
     IEnumerator load()
     {   
-        Database db = new Database();
-        StartCoroutine(db.load());
-        yield return new WaitUntil(() => db.loaded);
-        randomQuestions = db.questionSet.questions;
+        database = new Database();
+        StartCoroutine(database.load());
+        yield return new WaitUntil(() => database.loaded);
+        randomQuestions = database.questionSet.questions;
     }
 
     public Question GetRandomQuestion()
@@ -86,5 +88,10 @@ public class MapArea : MonoBehaviour
     public bool IsDangerous()
     {
         return dangerous;
+    }
+
+    public int getQuestionID(Question question)
+    {
+        return database.questionSet.questions.IndexOf(question);
     }
 }

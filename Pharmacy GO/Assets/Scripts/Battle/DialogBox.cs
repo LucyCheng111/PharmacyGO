@@ -170,6 +170,7 @@ public class DialogBox : MonoBehaviour
             else
             {
                 Debug.LogError ("Image Load Error: " + request.error);
+                Debug.LogError ("Failed Image Path: " + paths[i]);
             }
         }
     }
