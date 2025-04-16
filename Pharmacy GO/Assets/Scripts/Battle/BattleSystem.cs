@@ -36,6 +36,14 @@ public class BattleSystem : MonoBehaviour
     {
         isBossBattle = false;
         this.state = BattleState.START;
+
+        if (!mapData.HasQuestions())
+        {
+            Debug.Log("No questions in the database");
+            OnBattleOver(false);
+            return;
+        }
+
         this.question = mapData.GetRandomQuestion();
         Debug.Log(this.question.question);
         Debug.Log(this.question.options);
@@ -51,6 +59,14 @@ public class BattleSystem : MonoBehaviour
         isBossBattle = true;
         maxBossQuestions = maxQuestions;
         this.state = BattleState.START;
+
+        if (!mapData.HasQuestions())
+        {
+            Debug.Log("No questions in the database -- Boss Battle");
+            OnBattleOver(false);
+            return;
+        }
+
         // Rework question selection once boss questions are implemented
         this.question = mapData.GetRandomQuestion();
         Debug.Log(this.question.question);
@@ -245,6 +261,8 @@ public class BattleSystem : MonoBehaviour
                 if (bossQuestionsRight == maxBossQuestions)
                 {
                     yield return StartCoroutine(dialogBox.TypeDialog("You got them all right! You win!"));
+
+                    LevelManager.Instance.UnlockNextLevel();
 
                     dialogBox.ResetDalogBox();
                     if (levelCompletePanel != null)

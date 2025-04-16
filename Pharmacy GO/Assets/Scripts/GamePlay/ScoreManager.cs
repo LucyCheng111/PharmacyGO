@@ -19,6 +19,9 @@ public class ScoreManager : MonoBehaviour
         {
             Instance = this;
             DontDestroyOnLoad(gameObject);
+
+            // Load saved score
+            scoreCount = PlayerPrefs.GetInt("ScoreCount", 0);
         }
         else
         {
@@ -41,6 +44,9 @@ public class ScoreManager : MonoBehaviour
             difficultyBonus = 5;
         }
         scoreCount += questionValue * (streak + 1) * difficultyBonus;
+
+        // Save scores
+        PlayerPrefs.SetInt("ScoreCount", scoreCount);
         Debug.Log("Score: " + scoreCount);
     }
 

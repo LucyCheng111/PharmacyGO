@@ -29,6 +29,8 @@ public class PlayerControl : MonoBehaviour
 
     private Animator animator;
 
+    private Collider2D activePrompt;
+
     private List<bool> areaTracker; // List of areas the player has triggered
     
     [SerializeField] private GameObject ExclamationMark;
@@ -75,14 +77,15 @@ public class PlayerControl : MonoBehaviour
                 var targetPos = transform.position; // current position of the player
                 targetPos.x += input.x;
                 targetPos.y += input.y;
-                
+                PromptCheck();
+
                 if (IsWalkable(targetPos))
                     StartCoroutine(Move(targetPos));
                 
             }
             animator.SetBool("isMoving", isMoving);
 
-            if(Input.GetKeyDown(KeyCode.Space))
+            if(Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0))
             {
                 Interact();
 
@@ -112,9 +115,34 @@ public class PlayerControl : MonoBehaviour
         }
     }
 
+    void PromptCheck()
+    {
+        var facingDir = new Vector3(animator.GetFloat("moveX"), animator.GetFloat("moveY"));
+        var interactPos = transform.position + facingDir; // the direction of the player facing
+
+        // Debug.DrawLine(transform.position, interactPos, Color.red, 0.5f);
+
+        var collider = Physics2D.OverlapCircle(interactPos, 0.3f, interactableLayer);
+        if (collider != null)
+        {
+            collider.GetComponent<Interactable>()?.ShowPrompt();
+            activePrompt = collider;
+        }
+    }
+
+    void HidePrompt()
+    {
+        if (activePrompt != null)
+        {
+            activePrompt.GetComponent<Interactable>()?.HidePrompt();
+            activePrompt = null;
+        }
+    }
+
     IEnumerator Move(Vector3 targetPos)
     {
         isMoving = true;
+        HidePrompt();
         moveCoroutine = StartCoroutine(MoveCoroutine(targetPos)); // Store the coroutine reference
         yield return moveCoroutine; // Wait for the coroutine to finish
     }
@@ -130,7 +158,8 @@ public class PlayerControl : MonoBehaviour
         isMoving = false;
 
         CheckForEncounters();
-        
+        PromptCheck();
+
     }
 
     private bool IsWalkable(Vector3 targetPos)
@@ -140,10 +169,16 @@ public class PlayerControl : MonoBehaviour
             return false;
         }
         return true;
-    }
+    } 
 
     private void CheckForEncounters()
     {
+        // skip battle if no question in this area
+        var mapArea = FindFirstObjectByType<MapArea>();
+        if (mapArea == null || !mapArea.HasQuestions())
+        {
+            return;
+        }
         if (Physics2D.OverlapCircle(transform.position, 0.0f, grassLayer) != null)
         {
             if (UnityEngine.Random.Range(1, 101) <= 50)

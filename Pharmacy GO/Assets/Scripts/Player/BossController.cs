@@ -5,6 +5,7 @@ using UnityEngine;
 public class BossController : MonoBehaviour, Interactable
 {
     [SerializeField] private int maxQuestions;
+    [SerializeField] private GameObject InteractPrompt;
 
     public static BossController i { get; private set; }
 
@@ -16,6 +17,16 @@ public class BossController : MonoBehaviour, Interactable
     public void Interact()
     {
         StartCoroutine(StartQuiz());
+    }
+
+    public void ShowPrompt()
+    {
+        InteractPrompt.SetActive(true);
+    }
+
+    public void HidePrompt()
+    {
+        InteractPrompt.SetActive(false);
     }
 
     public IEnumerator StartQuiz()
