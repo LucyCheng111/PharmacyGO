@@ -85,7 +85,7 @@ public class BattleSystem : MonoBehaviour
         shuffleAnswersList = (Option[])question.options.ToArray().Clone();
         shuffleAnswersIndex = question.answerIndex;
         ShuffleAnswers(shuffleAnswersList, ref shuffleAnswersIndex);
-        StartCoroutine(questionSection.TypeQuestion(question));
+        StartCoroutine(questionSection.TypeQuestion(question, mapData));
         if (shuffleAnswersList != null)
         {
             dialogBox.SetAnswers(shuffleAnswersList);
