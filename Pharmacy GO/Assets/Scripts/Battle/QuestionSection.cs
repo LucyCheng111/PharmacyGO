@@ -10,12 +10,12 @@ public class QuestionSection : MonoBehaviour
     public void SetQuestion(QuestionBase question)
     {
         questionText.text = question.Question;
-        questionID.text = "ID: 9999";
+        questionID.text = "ID: N/A";
     }
 
     public IEnumerator TypeQuestion(Question question)
     {
-        StartCoroutine(TypeID("ID: 9999"));
+        StartCoroutine(TypeID("ID: N/A"));
         questionText.text = "";
         foreach (var letter in question.question.ToCharArray())
         {

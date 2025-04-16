@@ -175,7 +175,7 @@ public class PlayerControl : MonoBehaviour
     {
         // skip battle if no question in this area
         var mapArea = FindFirstObjectByType<MapArea>();
-        if (mapArea != null || !mapArea.HasQuestions())
+        if (mapArea == null || !mapArea.HasQuestions())
         {
             return;
         }
