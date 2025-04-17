@@ -14,6 +14,8 @@ public class MainMenu : MonoBehaviour
     public TextMeshProUGUI volumeText;
     public Slider volumeSlider;
 
+    public GameObject[] menus;
+
     private void Start ()
     {
         LoadVolume ();
@@ -33,6 +35,14 @@ public class MainMenu : MonoBehaviour
         // Scene name or scene build index
         // Game scene is currently index 2 
         // Main Menu 0, Instructions 1
+    }
+
+    public void SetMenu (GameObject newMenu)
+    {
+        foreach (GameObject menu in menus)
+        {
+            menu.SetActive (menu == newMenu);
+        }
     }
 
     public void SetVolume (float sliderValue)
