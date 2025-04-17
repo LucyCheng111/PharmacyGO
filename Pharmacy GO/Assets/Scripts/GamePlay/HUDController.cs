@@ -31,7 +31,7 @@ public class HudController : MonoBehaviour
     {
         coinCounter.SetActive(false);
         scoreCounter.SetActive(false);
-        // toolUICanvas.SetActive(false);
-        // joyStickCanvas.SetActive(false);
+        toolUICanvas.SetActive(false);
+        joyStickCanvas.SetActive(false);
     }
 }

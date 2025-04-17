@@ -50,24 +50,29 @@ public class IndexUI : MonoBehaviour
 
     private void LoadMedications()
     {
+        Debug.Log("Loading Medications...");
         Medication[] allMedications = new Medication[0];
-        if(playerControl.HasTriggeredArea(1))
-        {
-            Medication[] medsLevel1 = Resources.LoadAll<Medication>("MedicationData/Level1");
-            allMedications = allMedications.Concat(medsLevel1).ToArray();
-        }
+        // Load all medications from the Resources folder
+        
+        Debug.Log("Loaded Level 1 Medications");
+        Medication[] medsLevel1 = Resources.LoadAll<Medication>("MedicationData/Level1");
+        allMedications = allMedications.Concat(medsLevel1).ToArray();
+        
         if(playerControl.HasTriggeredArea(2))
         {
+            Debug.Log("Loaded Level 2 Medications");
             Medication[] medsLevel2 = Resources.LoadAll<Medication>("MedicationData/Level2");
             allMedications = allMedications.Concat(medsLevel2).ToArray();
         }
         if(playerControl.HasTriggeredArea(3))
         {
+            Debug.Log("Loaded Level 3 Medications");
             Medication[] medsLevel3 = Resources.LoadAll<Medication>("MedicationData/Level3");
             allMedications = allMedications.Concat(medsLevel3).ToArray();
         }
         if(playerControl.HasTriggeredArea(4))
         {
+            Debug.Log("Loaded Level 4 Medications");
             Medication[] medsLevel4 = Resources.LoadAll<Medication>("MedicationData/Level4");
             allMedications = allMedications.Concat(medsLevel4).ToArray();
         }
