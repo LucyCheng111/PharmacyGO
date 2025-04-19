@@ -28,7 +28,7 @@ public class LevelManager : MonoBehaviour
         {
             Instance = this;
             DontDestroyOnLoad(gameObject);
-            UnlockedLevel = PlayerPrefs.GetInt("UnlockedLevel", 2);
+            UnlockedLevel = PlayerPrefs.GetInt("UnlockedLevel", 1);
         }
         else
         {
