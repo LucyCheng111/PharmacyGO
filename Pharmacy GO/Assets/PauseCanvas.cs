@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PauseCanvas : MonoBehaviour
 {
@@ -14,7 +15,7 @@ public class PauseCanvas : MonoBehaviour
         if (instance == null)
         {
             instance = this;
-            DontDestroyOnLoad(gameObject);
+            // DontDestroyOnLoad(gameObject);
         }
         else
         {
@@ -25,5 +26,17 @@ public class PauseCanvas : MonoBehaviour
     {
         bool isActive = pauseMenu.activeSelf;
         pauseMenu.SetActive(!isActive);
+    }
+
+    public void ReturnToMainMenu()
+    {
+   
+        Time.timeScale = 1f;
+
+
+        Destroy(gameObject);
+
+   
+        SceneManager.LoadScene(0);
     }
 }
