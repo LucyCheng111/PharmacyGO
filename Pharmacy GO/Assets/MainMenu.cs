@@ -16,13 +16,37 @@ public class MainMenu : MonoBehaviour
 
     public GameObject[] menus;
 
+    [SerializeField] private Button continueButton;
+    private bool hasSave;
+
     private void Start ()
     {
+    
+        hasSave = PlayerPrefs.HasKey("UnlockedLevel")
+              || PlayerPrefs.HasKey("CoinCount")
+              || PlayerPrefs.HasKey("ScoreCount");
+
+        if (continueButton != null)
+            continueButton.gameObject.SetActive(hasSave);
+
+
         LoadVolume ();
+    }
+
+    public void ContinueGame()
+    {
+        SceneManager.LoadSceneAsync(HUB_SCENE_INDEX);
     }
 
     public void PlayGame()
     {
+        PlayerPrefs.DeleteKey("UnlockedLevel");
+        PlayerPrefs.DeleteKey("CoinCount");
+        PlayerPrefs.DeleteKey("ScoreCount");
+        PlayerPrefs.DeleteKey("SpawnPointID");
+        PlayerPrefs.Save();
+
+
         SceneManager.LoadSceneAsync(HUB_SCENE_INDEX);
         // Scene name or scene build index
         // Game scene is currently index 2 
