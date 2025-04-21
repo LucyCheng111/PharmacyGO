@@ -15,8 +15,8 @@ public class QuestionUnit : MonoBehaviour
 
     public void SetImage(Question question)
     {
-        if (question.image != "")
-            StartCoroutine(downloadImage(question.image));
+        if (question.imageLink != "")
+            StartCoroutine(downloadImage(question.imageLink));
         /*
         image.sprite = question.image;
         image.preserveAspect = true;
@@ -26,9 +26,10 @@ public class QuestionUnit : MonoBehaviour
     IEnumerator downloadImage(string imagePath)
     {
         Debug.Log("" + imagePath);
-        UnityWebRequest texture = UnityWebRequestTexture.GetTexture ("https://tornquisterik.github.io/Webpage/images/" + imagePath);
-        yield return texture.SendWebRequest ();
-        Texture2D question = DownloadHandlerTexture.GetContent (texture);
-        image.texture = question;
+        yield return null;
+        //UnityWebRequest texture = UnityWebRequestTexture.GetTexture ("https://tornquisterik.github.io/Webpage/images/" + imagePath);
+        //yield return texture.SendWebRequest ();
+        //Texture2D question = DownloadHandlerTexture.GetContent (texture);
+        //image.texture = question;
     }
 }

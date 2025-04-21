@@ -5,12 +5,27 @@ using UnityEngine;
 public class MapArea : MonoBehaviour
 {
     [SerializeField] List<Question> randomQuestions;
+    [SerializeField] bool dangerous; // should questions be encountered randomly
     [SerializeField] int correctAnswer; // how much to increase when supplying a correct answer
     [SerializeField] int wrongAnswer; // how much to decrease when supplying a wrong answer
+
+    Database database;
 
     private int correctStreak;
     private int difficulty;
     private bool validQuestion;
+
+    public static MapArea i { get; private set; }
+
+    public bool HasQuestions()
+    {
+        return randomQuestions != null && randomQuestions.Count > 0;
+    }
+
+    private void Awake()
+    {
+        i = this;
+    }
 
     void Start()
     {
@@ -20,15 +35,14 @@ public class MapArea : MonoBehaviour
 
     IEnumerator load()
     {   
-        Database db = new Database();
-        StartCoroutine(db.load());
-        yield return new WaitUntil(() => db.loaded);
-        randomQuestions = db.questionSet.questions;
+        database = new Database();
+        StartCoroutine(database.load());
+        yield return new WaitUntil(() => database.loaded);
+        randomQuestions = database.questionSet.questions;
     }
 
     public Question GetRandomQuestion()
     {
-
         // difficulty based selection will need to be re-worked once we have more questions
         // more questions will be added once the database is operational
         // this is also very un-optimized
@@ -74,5 +88,15 @@ public class MapArea : MonoBehaviour
             }
         }
         Debug.Log("Difficulty: " + difficulty);
+    }
+
+    public bool IsDangerous()
+    {
+        return dangerous;
+    }
+
+    public int getQuestionID(Question question)
+    {
+        return database.questionSet.questions.IndexOf(question);
     }
 }

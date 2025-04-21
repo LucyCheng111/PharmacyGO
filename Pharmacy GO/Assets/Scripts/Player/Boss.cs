@@ -10,7 +10,17 @@ public class Boss: MonoBehaviour, Interactable
     {
         StartCoroutine(Quiz());
     }
-    
+
+    public void ShowPrompt()
+    {
+        BossController.i.ShowPrompt();
+    }
+
+    public void HidePrompt()
+    {
+        BossController.i.HidePrompt();
+    }
+
     public IEnumerator Quiz()
     {
         yield return BossController.i.StartQuiz();

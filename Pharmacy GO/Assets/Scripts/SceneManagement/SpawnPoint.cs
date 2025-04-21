@@ -19,7 +19,9 @@ public class SpawnPoint : MonoBehaviour
 
             if (player != null)
             {
-                player.transform.position = transform.position;
+                // place player according to recorded spawn point
+                // rounding and math is to ensure player is aligned on the grid
+                player.transform.position = new Vector2((Mathf.Round(transform.position.x) * 2 + 1) / 2f, (Mathf.Round(transform.position.y) * 2 + 1) / 2f + 0.3f);
 
                 // STOP MOVEMENT IMMEDIATELY AFTER SPAWNING
                 PlayerControl playerControl = player.GetComponent<PlayerControl>();

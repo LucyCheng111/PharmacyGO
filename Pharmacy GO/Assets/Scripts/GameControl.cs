@@ -14,7 +14,15 @@ public class GameController : MonoBehaviour
 
     public void Awake()
     {
+        // Check if there already is an existing GameController
+        // Especially when returning to the Sample Scene
+        if(Instance != null & Instance != this )
+        {
+            Destroy( gameObject );
+            return;
+        }
         Instance = this;
+        DontDestroyOnLoad( gameObject );
     }
 
     private void Start()
@@ -45,13 +53,13 @@ public class GameController : MonoBehaviour
 
     public void StartBattle(bool isBoss = false, int maxQuestions = 1)
     {
-        MapArea localMapArea = FindObjectOfType<MapArea>();
+        MapArea localMapArea = FindFirstObjectByType<MapArea>();
         if(localMapArea != null)
         {
             battleSystem.SetMapData(localMapArea);
         }
 
-        HudController localHud = FindObjectOfType<HudController>();
+        HudController localHud = FindFirstObjectByType<HudController>();
         if (localHud != null)
         {
             battleSystem.SetHudController(localHud);

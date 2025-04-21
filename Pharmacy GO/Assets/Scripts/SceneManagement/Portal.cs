@@ -6,14 +6,55 @@ using Unity.Cinemachine;
 public class Portal : MonoBehaviour
 {
     public int sceneBuildIndex; // The target scene's build index
+    public int levelNumber;
     public string targetSpawnPointID; // The ID of the target spawn point
 
     private bool isTransitioning = false;
+    private Collider2D portalCollider;
+    // private ParticleSystem portalEffect;
+    [SerializeField] private ParticleSystem portalEffect;
+    
+
+
+    // run time, it makes newly unlocked portal immediately able to use
+    // without reloading the Hub scene
+    public void RefreshPortalEffect()
+    {
+        var emission = portalEffect.emission;
+        emission.enabled = levelNumber <= LevelManager.Instance.UnlockedLevel;
+    }
+
+    private void Awake()
+    {
+        portalCollider = GetComponent<Collider2D>();
+        portalEffect = GetComponentInChildren<ParticleSystem>(true);
+        if (portalEffect == null)
+        {
+            Debug.LogError($"[{name}] No child ParticleSystem found on this portal!");
+        }
+            
+    }
+
+    private IEnumerator Start()
+    {
+        RefreshPortalEffect();
+
+        portalCollider.enabled = false;
+        yield return new WaitForSeconds(2f);
+        portalCollider.enabled = true;
+    }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Player") && !isTransitioning)
         {
+            // locked levels not able to teleport
+            if (levelNumber > LevelManager.Instance.UnlockedLevel)
+            {
+                Debug.Log($"Level {levelNumber} is locked");
+                return;
+            }
+
             isTransitioning = true;
             StartCoroutine(TransitionToScene());
         }
@@ -24,7 +65,8 @@ public class Portal : MonoBehaviour
         // Save the target spawn point ID before scene transition
         PlayerPrefs.SetString("SpawnPointID", targetSpawnPointID);
 
-        AsyncOperation operation = SceneManager.LoadSceneAsync(sceneBuildIndex);
+        // AsyncOperation operation = SceneManager.LoadSceneAsync(sceneBuildIndex);
+        AsyncOperation operation = LevelManager.Instance.LoadLevel(levelNumber);
         yield return new WaitUntil(() => operation.isDone);
 
         yield return new WaitForSeconds(0.1f); // Delay for scene initialization

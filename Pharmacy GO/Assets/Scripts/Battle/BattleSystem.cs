@@ -28,6 +28,7 @@ public class BattleSystem : MonoBehaviour
     int bossQuestionsRight = 0;
 
 
+
     private Option[] shuffleAnswersList;
     private int shuffleAnswersIndex;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -35,6 +36,14 @@ public class BattleSystem : MonoBehaviour
     {
         isBossBattle = false;
         this.state = BattleState.START;
+
+        if (!mapData.HasQuestions())
+        {
+            Debug.Log("No questions in the database");
+            OnBattleOver(false);
+            return;
+        }
+
         this.question = mapData.GetRandomQuestion();
         Debug.Log(this.question.question);
         Debug.Log(this.question.options);
@@ -50,6 +59,14 @@ public class BattleSystem : MonoBehaviour
         isBossBattle = true;
         maxBossQuestions = maxQuestions;
         this.state = BattleState.START;
+
+        if (!mapData.HasQuestions())
+        {
+            Debug.Log("No questions in the database -- Boss Battle");
+            OnBattleOver(false);
+            return;
+        }
+
         // Rework question selection once boss questions are implemented
         this.question = mapData.GetRandomQuestion();
         Debug.Log(this.question.question);
@@ -68,7 +85,7 @@ public class BattleSystem : MonoBehaviour
         shuffleAnswersList = (Option[])question.options.ToArray().Clone();
         shuffleAnswersIndex = question.answerIndex;
         ShuffleAnswers(shuffleAnswersList, ref shuffleAnswersIndex);
-        StartCoroutine(questionSection.TypeQuestion(question));
+        StartCoroutine(questionSection.TypeQuestion(question, mapData));
         if (shuffleAnswersList != null)
         {
             dialogBox.SetAnswers(shuffleAnswersList);
@@ -101,7 +118,9 @@ public class BattleSystem : MonoBehaviour
         }
         yield return new WaitForSeconds(1f);
 
-        PlayerAction();
+        StartCoroutine(dialogBox.TypeDialog("Pick the choice!"));
+        yield return new WaitForSeconds(1f);
+        state = BattleState.PLAYERANSWER;
     }
 
     public void SetMapData(MapArea newMapData)
@@ -114,30 +133,15 @@ public class BattleSystem : MonoBehaviour
         this.hudController = newHudController;
     }
 
-    void PlayerAction()
-    {
-        state = BattleState.PLAYERACTION;
-        chooseAction = dialogBox.TypeDialog("Choose an action!");
-        StartCoroutine(chooseAction);
-        dialogBox.EnableActionSelector(true);
-    }
-
     public void HandleUpdate()
     {
         if (state == BattleState.START)
         {
             dialogBox.EnableDialogText(true);
-            dialogBox.EnableActionSelector(false);
             dialogBox.EnableOptionSelector(false);
-        }
-
-        else if (state == BattleState.PLAYERACTION)
-        {
-            HandleAction();
         }
         else if (state == BattleState.PLAYERANSWER)
         {
-            dialogBox.EnableActionSelector(false);
             dialogBox.EnableDialogText(false);
             dialogBox.EnableOptionSelector(true);
             HandleAnswer();
@@ -145,45 +149,9 @@ public class BattleSystem : MonoBehaviour
         else if (state == BattleState.END)
         {
             dialogBox.EnableDialogText(true);
-            dialogBox.EnableActionSelector(false);
             dialogBox.EnableOptionSelector(false);
         }
 
-    }
-
-    void HandleAction()
-    {
-        if (Input.GetKeyDown(KeyCode.S))
-        {
-            if (currentAction < 1)
-                ++currentAction;
-        }
-        else if (Input.GetKeyDown(KeyCode.W))
-        {
-            if (currentAction > 0)
-                --currentAction;
-        }
-        
-       if (Input.GetKeyDown(KeyCode.Z))
-        {
-            StopCoroutine(chooseAction);
-            if (currentAction == 0)
-            {
-                // Answer the question
-                state = BattleState.PLAYERANSWER;
-            }
-            else if (currentAction == 1)
-            {
-                // Run
-            }
-        }
-        dialogBox.UpdateActionSelection(currentAction);
-
-    }
-    public void OnClickFightButton()
-    {
-        state = BattleState.PLAYERANSWER;
-        dialogBox.UpdateActionSelection(0);
     }
 
     void HandleAnswer()
@@ -191,12 +159,12 @@ public class BattleSystem : MonoBehaviour
         bool hasImageAnswers = dialogBox.currentOptions == DialogBox.AnswersType.Image;
         int maxAnswers = question.options.Count;
 
-        if (Input.GetKeyDown(KeyCode.D)) // Move Right
+        if (Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.RightArrow)) // Move Right
         {
             if (currentAnswer < maxAnswers - 1)
                 ++currentAnswer;
         }
-        else if (Input.GetKeyDown(KeyCode.A)) // Move Left
+        else if (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.LeftArrow)) // Move Left
         {
             if (currentAnswer > 0)
                 --currentAnswer;
@@ -217,7 +185,7 @@ public class BattleSystem : MonoBehaviour
         
         dialogBox.UpdateChoiceSelection(currentAnswer);
 
-        if (Input.GetKeyDown(KeyCode.Z) && !dialogBox.GetAnswerSelected())
+        if ((Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Return)) && !dialogBox.GetAnswerSelected())
         {
             bool isCorrect;
             isCorrect = dialogBox.DisplayAnswer(currentAnswer, shuffleAnswersIndex);
@@ -232,24 +200,31 @@ public class BattleSystem : MonoBehaviour
     }
     public void OnClickAnswerButton(int answerIndex)
     {
-        Debug.Log("Answer button clicked: " + answerIndex);
-        currentAnswer = answerIndex;
-        dialogBox.UpdateChoiceSelection(currentAnswer);
-        bool hasImageAnswers = dialogBox.currentOptions == DialogBox.AnswersType.Image;
-        
-        bool isCorrect;
-        isCorrect = dialogBox.DisplayAnswer(currentAnswer, shuffleAnswersIndex);
-        StartCoroutine(EndBattle(isCorrect));
-
-        if (!hasImageAnswers)
+        if(dialogBox.GetAnswerSelected())
         {
-            dialogBox.UpdateActionSelection(currentAnswer);
+            return; // Prevents multiple clicks on the answer button
+        }
+        else
+        {
+            Debug.Log("Answer button clicked: " + answerIndex);
+            currentAnswer = answerIndex;
+            dialogBox.UpdateChoiceSelection(currentAnswer);
+            bool hasImageAnswers = dialogBox.currentOptions == DialogBox.AnswersType.Image;
+            
+            bool isCorrect;
+            isCorrect = dialogBox.DisplayAnswer(currentAnswer, shuffleAnswersIndex);
+            StartCoroutine(EndBattle(isCorrect));
+
+            if (!hasImageAnswers)
+            {
+                dialogBox.UpdateActionSelection(currentAnswer);
+            }
         }
         
     }
     IEnumerator EndBattle(bool answerCorrect)
     {
-        yield return new WaitForSeconds(2.5f);
+        yield return new WaitForSeconds(1.5f);
         state = BattleState.END;
         Debug.Log("answerCorrect: " + answerCorrect);
         dialogBox.EnableDialogText(true);
@@ -286,6 +261,8 @@ public class BattleSystem : MonoBehaviour
                 if (bossQuestionsRight == maxBossQuestions)
                 {
                     yield return StartCoroutine(dialogBox.TypeDialog("You got them all right! You win!"));
+
+                    LevelManager.Instance.UnlockNextLevel();
 
                     dialogBox.ResetDalogBox();
                     if (levelCompletePanel != null)
