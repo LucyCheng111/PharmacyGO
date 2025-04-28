@@ -74,9 +74,12 @@ public class Question
     public int answerIndex;
     public enum DifficultyIndex
     {
-        easy,
-        medium,
-        hard
+        None,
+        Beginner,
+        Novice,
+        Intermediate,
+        Advanced,
+        Expert,
     };
 
     public DifficultyIndex difficulty;
