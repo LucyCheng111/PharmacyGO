@@ -43,7 +43,7 @@ public class ScoreManager : MonoBehaviour
         {
             difficultyBonus = 5;
         }
-        scoreCount += questionValue * (streak + 1) * difficultyBonus;
+        scoreCount += questionValue * streak * difficultyBonus * TimerManager.Instance.GetMultiplier();
 
         // Save scores
         PlayerPrefs.SetInt("ScoreCount", scoreCount);

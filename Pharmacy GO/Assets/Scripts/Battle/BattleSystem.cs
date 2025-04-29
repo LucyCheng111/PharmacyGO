@@ -50,7 +50,8 @@ public class BattleSystem : MonoBehaviour
         currentAction = 0;
         currentAnswer = 0;      
         dialogBox.ResetDalogBox();
-        hudController.TurnHudOff();
+        //hudController.TurnHudOff();
+        hudController.EnteringBattle();
         StartCoroutine(SetupBattle());
     }
 
@@ -74,7 +75,8 @@ public class BattleSystem : MonoBehaviour
         currentAction = 0;
         currentAnswer = 0;
         dialogBox.ResetDalogBox();
-        hudController.TurnHudOff();
+        //hudController.TurnHudOff();
+        hudController.EnteringBattle();
         StartCoroutine(SetupBattle());
     }
 
@@ -237,15 +239,13 @@ public class BattleSystem : MonoBehaviour
                 {
                     CoinManager.Instance.AddCoin(1); // Add a coin
                 }
-                ScoreManager.Instance.AddScore(mapData.GetCorrectStreak(), mapData.GetDifficulty()); // Increment score based on streak and difficulty
+                ScoreManager.Instance.AddScore(mapData.GetCorrectStreak() + 1, mapData.GetDifficulty()); // Increment score based on streak and difficulty
                 mapData.CorrectAnswer(1); // Track question streak
                 yield return StartCoroutine(dialogBox.TypeDialog("Correct!"));
             }
             else{
                 mapData.CorrectAnswer(0);
-                //Debug.Log("Should be typing incorrect");
                 yield return StartCoroutine(dialogBox.TypeDialog("Incorrect!"));
-                //Debug.Log("Returned from typing incorrect?");
         }
         if (isBossBattle)
         {
@@ -267,13 +267,16 @@ public class BattleSystem : MonoBehaviour
                     dialogBox.ResetDalogBox();
                     if (levelCompletePanel != null)
                     {
+                        ScoreManager.Instance.AddScore(5000)
+                        TimerManager.Instance.StopTimer();
                         levelCompletePanel.SetActive(true);
                         yield return new WaitForSeconds(3f); 
                         levelCompletePanel.SetActive(false);
                     }
 
                     OnBattleOver(answerCorrect);
-                    hudController.TurnHudOn();
+                    //hudController.TurnHudOn();
+                    hudController.ExitingBattle();
                     yield return null;
                 }
                 else
@@ -286,7 +289,8 @@ public class BattleSystem : MonoBehaviour
         }
         yield return new WaitForSeconds(2.5f);
         dialogBox.ResetDalogBox();
-        hudController.TurnHudOn();
+        //hudController.TurnHudOn();
+        hudController.ExitingBattle();
         OnBattleOver(answerCorrect);
     }                                                                                                                                                                                                                            
 

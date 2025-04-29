@@ -57,6 +57,14 @@ public class Portal : MonoBehaviour
 
             isTransitioning = true;
             StartCoroutine(TransitionToScene());
+
+            
+            if (levelNumber == LevelManager.Instance.UnlockedLevel)
+            {
+                if (!TimerManager.Instance.IsLevelStarted())
+                    TimerManager.Instance.ResetTimer();
+                TimerManager.Instance.StartTimer();
+            }
         }
     }
 
@@ -73,6 +81,7 @@ public class Portal : MonoBehaviour
 
         // Fix Cinemachine
         StartCoroutine(UpdateCinemachineTarget());
+
 
         isTransitioning = false;
     }
