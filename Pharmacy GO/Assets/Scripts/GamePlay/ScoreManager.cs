@@ -29,24 +29,38 @@ public class ScoreManager : MonoBehaviour
         }
     }
 
-    public void AddScore(int streak, int difficulty)
+    public void AddScore(bool question, int bonusValue = 0)
     {
-        if (difficulty <= 30)
+        if (!question)
         {
-            difficultyBonus = 1;
+            scoreCount += bonusValue * TimerManager.Instance.GetMultiplier();
         }
-        else if (difficulty < 70)
-        {
-            difficultyBonus = 3;
-        }
+
         else
         {
-            difficultyBonus = 5;
-        }
-        scoreCount += questionValue * streak * difficultyBonus * TimerManager.Instance.GetMultiplier();
+            int difficulty = MapArea.i.GetDifficulty();
 
-        // Save scores
-        PlayerPrefs.SetInt("ScoreCount", scoreCount);
+            if (difficulty <= 30)
+            {
+                difficultyBonus = 1;
+            }
+            else if (difficulty < 70)
+            {
+                difficultyBonus = 3;
+            }
+            else
+            {
+                difficultyBonus = 5;
+            }
+
+            {
+                scoreCount += questionValue * (MapArea.i.GetCorrectStreak() + 1) * difficultyBonus * TimerManager.Instance.GetMultiplier();
+            }
+        }
+        
+
+            // Save scores
+            PlayerPrefs.SetInt("ScoreCount", scoreCount);
         Debug.Log("Score: " + scoreCount);
     }
 

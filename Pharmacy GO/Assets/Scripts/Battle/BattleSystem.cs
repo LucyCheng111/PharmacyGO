@@ -239,7 +239,7 @@ public class BattleSystem : MonoBehaviour
                 {
                     CoinManager.Instance.AddCoin(1); // Add a coin
                 }
-                ScoreManager.Instance.AddScore(mapData.GetCorrectStreak() + 1, mapData.GetDifficulty()); // Increment score based on streak and difficulty
+                ScoreManager.Instance.AddScore(true); // Increment score
                 mapData.CorrectAnswer(1); // Track question streak
                 yield return StartCoroutine(dialogBox.TypeDialog("Correct!"));
             }
@@ -267,7 +267,7 @@ public class BattleSystem : MonoBehaviour
                     dialogBox.ResetDalogBox();
                     if (levelCompletePanel != null)
                     {
-                        ScoreManager.Instance.AddScore(5000)
+                        ScoreManager.Instance.AddScore(false, 10000);
                         TimerManager.Instance.StopTimer();
                         levelCompletePanel.SetActive(true);
                         yield return new WaitForSeconds(3f); 
