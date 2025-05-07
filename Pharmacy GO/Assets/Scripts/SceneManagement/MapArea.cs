@@ -8,6 +8,7 @@ public class MapArea : MonoBehaviour
     [SerializeField] bool dangerous; // should questions be encountered randomly
     [SerializeField] int correctAnswer; // how much to increase when supplying a correct answer
     [SerializeField] int wrongAnswer; // how much to decrease when supplying a wrong answer
+    [SerializeField] int module = 0;
 
     Database database;
     Module moduleManager;
@@ -61,7 +62,6 @@ public class MapArea : MonoBehaviour
         //     wrongTries++;
         // }
         // return randomQuestion;
-        int module = 1;
         Question.DifficultyIndex questionDifficulty = Question.DifficultyIndex.None;
         if (difficulty <= 20) { questionDifficulty = Question.DifficultyIndex.Beginner;}
         else if (difficulty <= 40) { questionDifficulty = Question.DifficultyIndex.Novice;}
