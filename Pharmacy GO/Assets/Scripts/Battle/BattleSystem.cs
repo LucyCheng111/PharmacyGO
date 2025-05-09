@@ -106,23 +106,58 @@ public class BattleSystem : MonoBehaviour
         //     dialogBox.SetAnswerImages(null); // Pass null if there are no images
         // }
         questionUnit.SetImage(question);
+
+        Coroutine currentDialog = null;
+
         if (!isBossBattle)
         {
-            yield return StartCoroutine(dialogBox.TypeDialog("A wild question appeared!"));
+            currentDialog = StartCoroutine(dialogBox.TypeDialog("A wild question appeared!"));
+            yield return WaitForSpaceOrComplete(currentDialog, 2.0f); // Wait max 1.5 sec or until space
+            // yield return StartCoroutine(dialogBox.TypeDialog("A wild question appeared!"));
         }
         else if (currentBossQuestion == 0)
         {
-            yield return StartCoroutine(dialogBox.TypeDialog("Time for the test!"));
+            currentDialog = StartCoroutine(dialogBox.TypeDialog("Time for the test!"));
+            yield return WaitForSpaceOrComplete(currentDialog, 2.0f);
+            // yield return StartCoroutine(dialogBox.TypeDialog("Time for the test!"));
         }
         else
         {
-            yield return StartCoroutine(dialogBox.TypeDialog("Next question!"));
+            currentDialog = StartCoroutine(dialogBox.TypeDialog("Next question!"));
+            yield return WaitForSpaceOrComplete(currentDialog, 1.5f);
+            // yield return StartCoroutine(dialogBox.TypeDialog("Next question!"));
         }
-        yield return new WaitForSeconds(1f);
 
-        StartCoroutine(dialogBox.TypeDialog("Pick the choice!"));
-        yield return new WaitForSeconds(1f);
+        currentDialog = StartCoroutine(dialogBox.TypeDialog("Pick the choice!"));
+        yield return WaitForSpaceOrComplete(currentDialog, 1f); // Wait max 1 sec or until space
+
+        //yield return new WaitForSeconds(1f);
+
+        //StartCoroutine(dialogBox.TypeDialog("Pick the choice!"));
+        //yield return new WaitForSeconds(1f);
         state = BattleState.PLAYERANSWER;
+    }
+
+
+    private IEnumerator WaitForSpaceOrComplete(Coroutine typingCoroutine, float maxWaitTime)
+    {
+        float elapsed = 0;
+        bool skipped = false;
+
+        while (elapsed < maxWaitTime && !skipped)
+        {
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                skipped = true;
+                if (typingCoroutine != null)
+                {
+                    StopCoroutine(typingCoroutine);
+                    dialogBox.ForceCompleteText(); // Implement this in DialogBox
+                }
+            }
+            elapsed += Time.deltaTime;
+            yield return null;
+        }
     }
 
 
@@ -231,23 +266,24 @@ public class BattleSystem : MonoBehaviour
         state = BattleState.END;
         Debug.Log("answerCorrect: " + answerCorrect);
         dialogBox.EnableDialogText(true);
-            if (answerCorrect){
-                if (isBossBattle)
-                {
-                    bossQuestionsRight += 1;
-                }
-                else
-                {
-                    CoinManager.Instance.AddCoin(1); // Add a coin
-                }
-                ScoreManager.Instance.AddScore(true); // Increment score
-                mapData.CorrectAnswer(1); // Track question streak
-                yield return StartCoroutine(dialogBox.TypeDialog("Correct!"));
+        if (answerCorrect){
+            if (isBossBattle)
+            {
+                bossQuestionsRight += 1;
             }
-            else{
-                mapData.CorrectAnswer(0);
-                yield return StartCoroutine(dialogBox.TypeDialog("Incorrect!"));
+            else
+            {
+                CoinManager.Instance.AddCoin(1); // Add a coin
+            }
+            ScoreManager.Instance.AddScore(true); // Increment score
+            mapData.CorrectAnswer(1); // Track question streak
+            yield return StartCoroutine(dialogBox.TypeDialog("Correct!"));
         }
+        else{
+            mapData.CorrectAnswer(0);
+            yield return StartCoroutine(dialogBox.TypeDialog("Incorrect!"));
+        }
+
         if (isBossBattle)
         {
             yield return new WaitForSeconds(2.5f);
