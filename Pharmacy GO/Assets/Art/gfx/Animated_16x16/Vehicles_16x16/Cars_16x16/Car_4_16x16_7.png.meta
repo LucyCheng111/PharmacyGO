@@ -1,0 +1,830 @@
+fileFormatVersion: 2
+guid: e3d947c6112486a40ab34927466a15fc
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 2774501642502840953
+    second: Car_4_16x16_7_0
+  - first:
+      213: -8254357706250182558
+    second: Car_4_16x16_7_1
+  - first:
+      213: 5260914976336119178
+    second: Car_4_16x16_7_2
+  - first:
+      213: 6246960098708489321
+    second: Car_4_16x16_7_3
+  - first:
+      213: -5613839102884696345
+    second: Car_4_16x16_7_4
+  - first:
+      213: -6482549407705957725
+    second: Car_4_16x16_7_5
+  - first:
+      213: 9115867926972666983
+    second: Car_4_16x16_7_6
+  - first:
+      213: -7219961829284988276
+    second: Car_4_16x16_7_7
+  - first:
+      213: 2833783571058599846
+    second: Car_4_16x16_7_8
+  - first:
+      213: 7629707167192965524
+    second: Car_4_16x16_7_9
+  - first:
+      213: -3572151816956389127
+    second: Car_4_16x16_7_10
+  - first:
+      213: 989138885832805846
+    second: Car_4_16x16_7_11
+  - first:
+      213: -1891396665742806264
+    second: Car_4_16x16_7_12
+  - first:
+      213: -6006391276043588269
+    second: Car_4_16x16_7_13
+  - first:
+      213: -2174549264129877508
+    second: Car_4_16x16_7_14
+  - first:
+      213: 773976358292456296
+    second: Car_4_16x16_7_15
+  - first:
+      213: 4740519826364809502
+    second: Car_4_16x16_7_16
+  - first:
+      213: 5733263415770893200
+    second: Car_4_16x16_7_17
+  - first:
+      213: -6106262329143719419
+    second: Car_4_16x16_7_18
+  - first:
+      213: 4917491563289943514
+    second: Car_4_16x16_7_19
+  - first:
+      213: -5738980896129329638
+    second: Car_4_16x16_7_20
+  - first:
+      213: 8758083418968206395
+    second: Car_4_16x16_7_21
+  - first:
+      213: 6019181818955561073
+    second: Car_4_16x16_7_22
+  - first:
+      213: -2702529967252316008
+    second: Car_4_16x16_7_23
+  - first:
+      213: -7890056880672239328
+    second: Car_4_16x16_7_24
+  - first:
+      213: 2899944971880336581
+    second: Car_4_16x16_7_25
+  - first:
+      213: -1492085320226927319
+    second: Car_4_16x16_7_26
+  - first:
+      213: 6242509219489377732
+    second: Car_4_16x16_7_27
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Car_4_16x16_7_0
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 79
+        width: 68
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 972ae1e3b82018620800000000000000
+      internalID: 2774501642502840953
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Car_4_16x16_7_1
+      rect:
+        serializedVersion: 2
+        x: 102
+        y: 97
+        width: 37
+        height: 63
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 26023fd4661a27d80800000000000000
+      internalID: -8254357706250182558
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Car_4_16x16_7_2
+      rect:
+        serializedVersion: 2
+        x: 164
+        y: 79
+        width: 68
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a850c062c46820940800000000000000
+      internalID: 5260914976336119178
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Car_4_16x16_7_3
+      rect:
+        serializedVersion: 2
+        x: 262
+        y: 79
+        width: 37
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9640f89ac19a1b650800000000000000
+      internalID: 6246960098708489321
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Car_4_16x16_7_4
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 0
+        width: 74
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7ee2c5e4413a712b0800000000000000
+      internalID: -5613839102884696345
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Car_4_16x16_7_5
+      rect:
+        serializedVersion: 2
+        x: 83
+        y: 0
+        width: 73
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3aa74c2e8ab5906a0800000000000000
+      internalID: -6482549407705957725
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Car_4_16x16_7_6
+      rect:
+        serializedVersion: 2
+        x: 162
+        y: 0
+        width: 74
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7641596e491128e70800000000000000
+      internalID: 9115867926972666983
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Car_4_16x16_7_7
+      rect:
+        serializedVersion: 2
+        x: 241
+        y: 0
+        width: 75
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c8ab69128fa8dcb90800000000000000
+      internalID: -7219961829284988276
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Car_4_16x16_7_8
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 0
+        width: 76
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6a72943d42f935720800000000000000
+      internalID: 2833783571058599846
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Car_4_16x16_7_9
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 0
+        width: 76
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 491e9c0ae3a22e960800000000000000
+      internalID: 7629707167192965524
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Car_4_16x16_7_10
+      rect:
+        serializedVersion: 2
+        x: 502
+        y: 12
+        width: 37
+        height: 69
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9f85c8a39da2d6ec0800000000000000
+      internalID: -3572151816956389127
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Car_4_16x16_7_11
+      rect:
+        serializedVersion: 2
+        x: 582
+        y: 13
+        width: 37
+        height: 68
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6dd079373902abd00800000000000000
+      internalID: 989138885832805846
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Car_4_16x16_7_12
+      rect:
+        serializedVersion: 2
+        x: 662
+        y: 12
+        width: 37
+        height: 69
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 803ba09e0c860c5e0800000000000000
+      internalID: -1891396665742806264
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Car_4_16x16_7_13
+      rect:
+        serializedVersion: 2
+        x: 742
+        y: 11
+        width: 37
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 35daa6925f205aca0800000000000000
+      internalID: -6006391276043588269
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Car_4_16x16_7_14
+      rect:
+        serializedVersion: 2
+        x: 822
+        y: 10
+        width: 37
+        height: 71
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cf993fc27f272d1e0800000000000000
+      internalID: -2174549264129877508
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Car_4_16x16_7_15
+      rect:
+        serializedVersion: 2
+        x: 902
+        y: 10
+        width: 37
+        height: 71
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 863829ca567bdba00800000000000000
+      internalID: 773976358292456296
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Car_4_16x16_7_16
+      rect:
+        serializedVersion: 2
+        x: 964
+        y: 0
+        width: 74
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e11cb2d6aa5b9c140800000000000000
+      internalID: 4740519826364809502
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Car_4_16x16_7_17
+      rect:
+        serializedVersion: 2
+        x: 1044
+        y: 0
+        width: 73
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 09b44c453b4a09f40800000000000000
+      internalID: 5733263415770893200
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Car_4_16x16_7_18
+      rect:
+        serializedVersion: 2
+        x: 1124
+        y: 0
+        width: 74
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 50a0a0693c2324ba0800000000000000
+      internalID: -6106262329143719419
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Car_4_16x16_7_19
+      rect:
+        serializedVersion: 2
+        x: 1204
+        y: 0
+        width: 75
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: add90e7d5807e3440800000000000000
+      internalID: 4917491563289943514
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Car_4_16x16_7_20
+      rect:
+        serializedVersion: 2
+        x: 1284
+        y: 0
+        width: 76
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a165579084b0b50b0800000000000000
+      internalID: -5738980896129329638
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Car_4_16x16_7_21
+      rect:
+        serializedVersion: 2
+        x: 1364
+        y: 0
+        width: 76
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b3ca6dc9776fa8970800000000000000
+      internalID: 8758083418968206395
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Car_4_16x16_7_22
+      rect:
+        serializedVersion: 2
+        x: 1462
+        y: 0
+        width: 37
+        height: 69
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 178f55d29fd688350800000000000000
+      internalID: 6019181818955561073
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Car_4_16x16_7_23
+      rect:
+        serializedVersion: 2
+        x: 1542
+        y: 0
+        width: 37
+        height: 68
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 890e31b305fae7ad0800000000000000
+      internalID: -2702529967252316008
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Car_4_16x16_7_24
+      rect:
+        serializedVersion: 2
+        x: 1622
+        y: 0
+        width: 37
+        height: 69
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 02197e10213e08290800000000000000
+      internalID: -7890056880672239328
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Car_4_16x16_7_25
+      rect:
+        serializedVersion: 2
+        x: 1702
+        y: 0
+        width: 37
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5cc8b1d569cae3820800000000000000
+      internalID: 2899944971880336581
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Car_4_16x16_7_26
+      rect:
+        serializedVersion: 2
+        x: 1782
+        y: 0
+        width: 37
+        height: 71
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 92d8c418e4c0b4be0800000000000000
+      internalID: -1492085320226927319
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Car_4_16x16_7_27
+      rect:
+        serializedVersion: 2
+        x: 1862
+        y: 0
+        width: 37
+        height: 71
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4cde3c69f09d1a650800000000000000
+      internalID: 6242509219489377732
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable: {}
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
