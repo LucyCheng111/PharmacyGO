@@ -188,7 +188,7 @@ public class PlayerControl : MonoBehaviour
 
             }
         }
-        else if (MapArea.i.IsDangerous())
+        else if (MapArea.i.IsDangerous() && !GameController.Instance.IsCurrentLevelBossDefeated())
         {
             if (UnityEngine.Random.Range(1, 101) <= 5)
             {

@@ -1,5 +1,8 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using System.Collections.Generic;
+
+
 public enum GameState {FreeRoam, Battle, Dialogue}
 public class GameController : MonoBehaviour
 {
@@ -11,6 +14,7 @@ public class GameController : MonoBehaviour
     GameState state;
 
     public static GameController Instance { get; private set; }
+    private HashSet<string> defeatedBossLevels = new HashSet<string>();
 
     public void Awake()
     {
@@ -91,6 +95,19 @@ public class GameController : MonoBehaviour
         battleSystem.gameObject.SetActive(false);
         playerControl.gameObject.SetActive(true);
         worldCamera.gameObject.SetActive(true);
+    }
+
+    // checks if boss is defeated
+    public void MarkBossDefeated()
+    {
+        string sceneName = SceneManager.GetActiveScene().name;
+        defeatedBossLevels.Add(sceneName);
+        Debug.Log($"Boss in {sceneName} marked as defeated");
+    }
+
+    public bool IsCurrentLevelBossDefeated()
+    {
+        return defeatedBossLevels.Contains(SceneManager.GetActiveScene().name);
     }
 
     // Update is called once per frame

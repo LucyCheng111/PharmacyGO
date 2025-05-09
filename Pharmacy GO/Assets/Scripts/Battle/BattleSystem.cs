@@ -125,6 +125,7 @@ public class BattleSystem : MonoBehaviour
         state = BattleState.PLAYERANSWER;
     }
 
+
     public void SetMapData(MapArea newMapData)
     {
         this.mapData = newMapData;
@@ -261,6 +262,8 @@ public class BattleSystem : MonoBehaviour
                 if (bossQuestionsRight == maxBossQuestions)
                 {
                     yield return StartCoroutine(dialogBox.TypeDialog("You got them all right! You win!"));
+
+                    GameController.Instance.MarkBossDefeated();
 
                     LevelManager.Instance.UnlockNextLevel();
 
