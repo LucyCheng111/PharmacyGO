@@ -266,6 +266,10 @@ public class BattleSystem : MonoBehaviour
         state = BattleState.END;
         Debug.Log("answerCorrect: " + answerCorrect);
         dialogBox.EnableDialogText(true);
+
+        int previousScore = ScoreManager.Instance.GetScoreCount();
+
+
         if (answerCorrect){
             if (isBossBattle)
             {
@@ -276,8 +280,12 @@ public class BattleSystem : MonoBehaviour
                 CoinManager.Instance.AddCoin(1); // Add a coin
             }
             ScoreManager.Instance.AddScore(true); // Increment score
+
+            int pointsEarned = ScoreManager.Instance.GetScoreCount() - previousScore;
+            string rewardText = $"Correct! Rewards: +1 coin, +{pointsEarned} points";
+
             mapData.CorrectAnswer(1); // Track question streak
-            yield return StartCoroutine(dialogBox.TypeDialog("Correct!"));
+            yield return StartCoroutine(dialogBox.TypeDialog(rewardText));
         }
         else{
             mapData.CorrectAnswer(0);
