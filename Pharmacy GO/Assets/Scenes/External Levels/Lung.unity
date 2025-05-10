@@ -26250,7 +26250,7 @@ GameObject:
   - component: {fileID: 164768265}
   - component: {fileID: 164768264}
   m_Layer: 0
-  m_Name: Portal_BladderToHub
+  m_Name: Portal_LungToHub
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -26285,7 +26285,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sceneBuildIndex: 7
   levelNumber: 0
-  targetSpawnPointID: BladderToHub
+  targetSpawnPointID: LungToHub
   portalEffect: {fileID: 0}
 --- !u!61 &164768265
 BoxCollider2D:
@@ -38651,7 +38651,7 @@ GameObject:
   - component: {fileID: 1790591801}
   - component: {fileID: 1790591802}
   m_Layer: 0
-  m_Name: SpawnPoint_HubToBladder
+  m_Name: SpawnPoint_HubToLung
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -38666,7 +38666,7 @@ Transform:
   m_GameObject: {fileID: 1790591800}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -26.490002, y: 32.53, z: 0}
+  m_LocalPosition: {x: 5.08, y: 0.68, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -38684,7 +38684,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fed96e364bf19804bbb7bd7c749f8fd7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnPointID: HubToBladder
+  spawnPointID: HubToLung
 --- !u!1001 &1811568334
 PrefabInstance:
   m_ObjectHideFlags: 0
