@@ -2,6 +2,7 @@ using NUnit.Framework;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using static UnityEngine.EventSystems.EventTrigger;
 
 [System.Serializable]
 public struct LevelEntry
@@ -29,6 +30,7 @@ public class LevelManager : MonoBehaviour
             Instance = this;
             DontDestroyOnLoad(gameObject);
             UnlockedLevel = PlayerPrefs.GetInt("UnlockedLevel", 1);
+            Debug.Log($"[LevelManager] Awake ¡ú UnlockedLevel = {UnlockedLevel}");
         }
         else
         {
@@ -58,6 +60,8 @@ public class LevelManager : MonoBehaviour
         }
 
         var phgoMap = levelMap.Find(e => e.levelNumber == levelNumber);
+        Debug.Log($"[LevelManager] LoadLevel({levelNumber}) ¡ú buildIndex = {phgoMap.buildIndex}");
+
         if (phgoMap.buildIndex >= 0)
             return SceneManager.LoadSceneAsync(phgoMap.buildIndex);
         else
@@ -65,4 +69,36 @@ public class LevelManager : MonoBehaviour
 
         return null;
     }
+
+    public int GetCurrentBuildIndex()
+    {
+        var entry = levelMap.Find(e => e.levelNumber == UnlockedLevel);
+        return entry.buildIndex;
+    }
+
+// For editor use only
+#if UNITY_EDITOR
+private void Update()
+    {
+        // Press N to unlock next level
+        if(Input.GetKeyDown(KeyCode.N))
+        {
+            UnlockNextLevel();
+        }
+
+        // Press U to unlock all levels
+        if (Input.GetKeyDown(KeyCode.U))
+        {
+            UnlockedLevel = levelMap.Count;
+            PlayerPrefs.SetInt("UnlockedLevel", UnlockedLevel);
+            PlayerPrefs.Save();
+
+            // Immediate refresh and update
+            foreach(var portal in FindObjectsOfType<Portal>())
+                portal.RefreshPortalEffect();
+
+        }
+    }
+
+#endif
 }

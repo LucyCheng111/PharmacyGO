@@ -27,9 +27,20 @@ public class GameController : MonoBehaviour
         }
         Instance = this;
         DontDestroyOnLoad( gameObject );
+
+        SceneManager.sceneLoaded += OnSceneLoaded;
     }
 
-    private void Start()
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        // grab the unlocked level and buildIndex from LevelManager
+        int lvl = LevelManager.Instance.UnlockedLevel;
+        int idx = LevelManager.Instance.GetCurrentBuildIndex();
+        Debug.Log($"[GameController] Scene \"{scene.name}\" loaded ¡ú LevelNumber = {lvl}, BuildIndex = {idx}");
+    }
+
+
+private void Start()
     {
         //playerControl.OnEncountered += StartBattle;
         battleSystem.OnBattleOver += EndBattle;
