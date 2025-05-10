@@ -148,6 +148,19 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -472,7 +485,21 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Worksite_Door_16x16_0: -6064080294879008565
+      Worksite_Door_16x16_1: 8843799691974762837
+      Worksite_Door_16x16_10: 7402925046619409166
+      Worksite_Door_16x16_11: -3473787785411289592
+      Worksite_Door_16x16_12: -2556846492547830301
+      Worksite_Door_16x16_13: 701587441982782125
+      Worksite_Door_16x16_2: 949189011438665967
+      Worksite_Door_16x16_3: -958323311923014844
+      Worksite_Door_16x16_4: -2680568231922438406
+      Worksite_Door_16x16_5: 5425289798395628480
+      Worksite_Door_16x16_6: -6244924504514143533
+      Worksite_Door_16x16_7: -1469412221168464883
+      Worksite_Door_16x16_8: -7160727719706715944
+      Worksite_Door_16x16_9: -5853315876768655965
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

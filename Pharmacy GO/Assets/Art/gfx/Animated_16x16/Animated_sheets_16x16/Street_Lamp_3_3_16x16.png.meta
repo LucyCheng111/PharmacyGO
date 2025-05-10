@@ -130,6 +130,19 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -322,7 +335,15 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Street_Lamp_3_3_16x16_0: 2519100921093016651
+      Street_Lamp_3_3_16x16_1: 6923492433730408448
+      Street_Lamp_3_3_16x16_2: 3468038123683454919
+      Street_Lamp_3_3_16x16_3: 597453747180486946
+      Street_Lamp_3_3_16x16_4: -1939533035667079208
+      Street_Lamp_3_3_16x16_5: -1093481333544297700
+      Street_Lamp_3_3_16x16_6: -61672735823778750
+      Street_Lamp_3_3_16x16_7: -5969401258787921541
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

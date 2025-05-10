@@ -124,6 +124,19 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -272,7 +285,13 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Beach_Concert_Singer_3_16x16_0: 144174634141694605
+      Beach_Concert_Singer_3_16x16_1: -7485713261196775004
+      Beach_Concert_Singer_3_16x16_2: 790892141057938348
+      Beach_Concert_Singer_3_16x16_3: 3329299213937636405
+      Beach_Concert_Singer_3_16x16_4: -5619407174391691640
+      Beach_Concert_Singer_3_16x16_5: -7688173366299145396
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

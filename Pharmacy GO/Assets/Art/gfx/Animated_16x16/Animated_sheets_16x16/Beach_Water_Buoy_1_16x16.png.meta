@@ -130,6 +130,19 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -322,7 +335,15 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Beach_Water_Buoy_1_16x16_0: 102334869365375160
+      Beach_Water_Buoy_1_16x16_1: -2788552834048980500
+      Beach_Water_Buoy_1_16x16_2: 5344715945949668089
+      Beach_Water_Buoy_1_16x16_3: 1619375147512447903
+      Beach_Water_Buoy_1_16x16_4: 4650441367657388566
+      Beach_Water_Buoy_1_16x16_5: -8564163825239134808
+      Beach_Water_Buoy_1_16x16_6: -3624932865210857466
+      Beach_Water_Buoy_1_16x16_7: 3863661485697305220
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

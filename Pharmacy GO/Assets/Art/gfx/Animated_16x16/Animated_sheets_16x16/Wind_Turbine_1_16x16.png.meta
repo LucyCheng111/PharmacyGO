@@ -130,6 +130,19 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -322,7 +335,15 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Wind_Turbine_1_16x16_0: -5004391047665634739
+      Wind_Turbine_1_16x16_1: 2455530987949786059
+      Wind_Turbine_1_16x16_2: 4399679662904679593
+      Wind_Turbine_1_16x16_3: -10488572045803817
+      Wind_Turbine_1_16x16_4: -8157079061539957021
+      Wind_Turbine_1_16x16_5: -2741671983335349649
+      Wind_Turbine_1_16x16_6: -9108083710828607138
+      Wind_Turbine_1_16x16_7: -8351152204443729290
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

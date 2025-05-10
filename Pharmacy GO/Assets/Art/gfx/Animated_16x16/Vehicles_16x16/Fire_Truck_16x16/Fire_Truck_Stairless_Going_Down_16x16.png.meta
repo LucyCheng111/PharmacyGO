@@ -124,6 +124,19 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -272,7 +285,13 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Fire_Truck_Stairless_Going_Down_16x16_0: -6489249673374758388
+      Fire_Truck_Stairless_Going_Down_16x16_1: 3660298286244734250
+      Fire_Truck_Stairless_Going_Down_16x16_2: -2752439599406544515
+      Fire_Truck_Stairless_Going_Down_16x16_3: -5386740574024936062
+      Fire_Truck_Stairless_Going_Down_16x16_4: 3478216650548806710
+      Fire_Truck_Stairless_Going_Down_16x16_5: 5564377647918130986
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

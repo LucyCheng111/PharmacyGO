@@ -124,6 +124,19 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -272,7 +285,13 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Floating_Flamingo_1_16x16_0: -7954633625351204087
+      Floating_Flamingo_1_16x16_1: 7691820512938789596
+      Floating_Flamingo_1_16x16_2: -3409680103829946429
+      Floating_Flamingo_1_16x16_3: -751429954527265897
+      Floating_Flamingo_1_16x16_4: -2782171855211874917
+      Floating_Flamingo_1_16x16_5: -2173755831245198892
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

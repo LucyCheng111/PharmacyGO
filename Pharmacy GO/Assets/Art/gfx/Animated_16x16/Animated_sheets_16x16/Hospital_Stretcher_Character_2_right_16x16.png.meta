@@ -124,6 +124,19 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -272,7 +285,13 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Hospital_Stretcher_Character_2_right_16x16_0: 4962708501008034404
+      Hospital_Stretcher_Character_2_right_16x16_1: 4745429743673059573
+      Hospital_Stretcher_Character_2_right_16x16_2: -1603177012241905208
+      Hospital_Stretcher_Character_2_right_16x16_3: 3518079194476493132
+      Hospital_Stretcher_Character_2_right_16x16_4: 4430206120472477165
+      Hospital_Stretcher_Character_2_right_16x16_5: -8265041076989704566
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

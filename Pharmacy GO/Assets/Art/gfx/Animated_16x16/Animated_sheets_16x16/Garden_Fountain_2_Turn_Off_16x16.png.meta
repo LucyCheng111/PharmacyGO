@@ -130,6 +130,19 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -322,7 +335,15 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Garden_Fountain_2_Turn_Off_16x16_0: -2483941070567291678
+      Garden_Fountain_2_Turn_Off_16x16_1: 8352131493770830937
+      Garden_Fountain_2_Turn_Off_16x16_2: -2871900584526972865
+      Garden_Fountain_2_Turn_Off_16x16_3: -6058986098699832230
+      Garden_Fountain_2_Turn_Off_16x16_4: -146485597455752270
+      Garden_Fountain_2_Turn_Off_16x16_5: -4676639919738019364
+      Garden_Fountain_2_Turn_Off_16x16_6: -6754492314250058090
+      Garden_Fountain_2_Turn_Off_16x16_7: 630087524863967969
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -124,6 +124,19 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -272,7 +285,13 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Beach_Stage_Fog_Machine_Fog_Only_Loop_16x16_0: -9047627939196998914
+      Beach_Stage_Fog_Machine_Fog_Only_Loop_16x16_1: 4503308037481321012
+      Beach_Stage_Fog_Machine_Fog_Only_Loop_16x16_2: -8234349263640960897
+      Beach_Stage_Fog_Machine_Fog_Only_Loop_16x16_3: -2888064214747633028
+      Beach_Stage_Fog_Machine_Fog_Only_Loop_16x16_4: 2406898308501852948
+      Beach_Stage_Fog_Machine_Fog_Only_Loop_16x16_5: 3154890534107250537
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

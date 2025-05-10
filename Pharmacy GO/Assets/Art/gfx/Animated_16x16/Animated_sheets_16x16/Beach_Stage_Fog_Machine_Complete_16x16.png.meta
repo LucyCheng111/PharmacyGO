@@ -154,6 +154,19 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -522,7 +535,23 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Beach_Stage_Fog_Machine_Complete_16x16_0: -5449097307342827002
+      Beach_Stage_Fog_Machine_Complete_16x16_1: 270493285506537338
+      Beach_Stage_Fog_Machine_Complete_16x16_10: -8335346191718895275
+      Beach_Stage_Fog_Machine_Complete_16x16_11: -8000357066177018117
+      Beach_Stage_Fog_Machine_Complete_16x16_12: -2448295416547919019
+      Beach_Stage_Fog_Machine_Complete_16x16_13: -589382958270602091
+      Beach_Stage_Fog_Machine_Complete_16x16_14: 207995796918523206
+      Beach_Stage_Fog_Machine_Complete_16x16_15: -1581837817921932334
+      Beach_Stage_Fog_Machine_Complete_16x16_2: -7100817725779315259
+      Beach_Stage_Fog_Machine_Complete_16x16_3: 8647164683707119451
+      Beach_Stage_Fog_Machine_Complete_16x16_4: -5840987183573989928
+      Beach_Stage_Fog_Machine_Complete_16x16_5: -6244483890141382214
+      Beach_Stage_Fog_Machine_Complete_16x16_6: -5695204112269382848
+      Beach_Stage_Fog_Machine_Complete_16x16_7: 8268714820398334184
+      Beach_Stage_Fog_Machine_Complete_16x16_8: -6074561742609992692
+      Beach_Stage_Fog_Machine_Complete_16x16_9: 8680495288724417896
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

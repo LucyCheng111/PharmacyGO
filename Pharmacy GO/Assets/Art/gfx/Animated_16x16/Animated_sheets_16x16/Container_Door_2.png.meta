@@ -196,6 +196,19 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -872,7 +885,37 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Container_Door_2_0: -7987072684726630020
+      Container_Door_2_1: 4190942630331269555
+      Container_Door_2_10: 4621449476399272927
+      Container_Door_2_11: -3087136484273814025
+      Container_Door_2_12: -33477412492914821
+      Container_Door_2_13: -9146734802101595332
+      Container_Door_2_14: 3603571324825907067
+      Container_Door_2_15: 9067495216908676055
+      Container_Door_2_16: 2294741900221237736
+      Container_Door_2_17: 3898852243550681950
+      Container_Door_2_18: 8400092629083488326
+      Container_Door_2_19: 8552411552907630637
+      Container_Door_2_2: 5639964410050366530
+      Container_Door_2_20: -2231162175896119433
+      Container_Door_2_21: -4695361717667360764
+      Container_Door_2_22: 5563735503122254046
+      Container_Door_2_23: 2664844576196945005
+      Container_Door_2_24: 3914518261525707183
+      Container_Door_2_25: -5199430188560499764
+      Container_Door_2_26: 8737470717864142991
+      Container_Door_2_27: -3143329756605628117
+      Container_Door_2_28: -8181022162448836332
+      Container_Door_2_29: -7912286249161719464
+      Container_Door_2_3: -5051048855881114335
+      Container_Door_2_4: -6918838257167653842
+      Container_Door_2_5: 1687198176772105330
+      Container_Door_2_6: -192560202469337581
+      Container_Door_2_7: -5449194991682692487
+      Container_Door_2_8: 6165271902550973137
+      Container_Door_2_9: 4187749742655916632
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

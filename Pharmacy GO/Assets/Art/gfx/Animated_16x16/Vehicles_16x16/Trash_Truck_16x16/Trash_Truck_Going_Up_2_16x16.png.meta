@@ -124,6 +124,19 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -272,7 +285,13 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Trash_Truck_Going_Up_2_16x16_0: 7476306771363713984
+      Trash_Truck_Going_Up_2_16x16_1: 5774047775028500548
+      Trash_Truck_Going_Up_2_16x16_2: 3983147780172658970
+      Trash_Truck_Going_Up_2_16x16_3: 147182490697516685
+      Trash_Truck_Going_Up_2_16x16_4: 209914951949539686
+      Trash_Truck_Going_Up_2_16x16_5: -6098931609995829142
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

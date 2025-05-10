@@ -124,6 +124,19 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -272,7 +285,13 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Crow_Flap_Right_16x16_0: -596061173542485658
+      Crow_Flap_Right_16x16_1: -1107758096926102651
+      Crow_Flap_Right_16x16_2: -5519094255530566818
+      Crow_Flap_Right_16x16_3: -6571166460652902291
+      Crow_Flap_Right_16x16_4: -974053194874788979
+      Crow_Flap_Right_16x16_5: 5929787804707802676
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

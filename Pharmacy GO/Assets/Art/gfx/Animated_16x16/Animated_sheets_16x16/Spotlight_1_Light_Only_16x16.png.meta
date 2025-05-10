@@ -142,6 +142,19 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -422,7 +435,19 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Spotlight_1_Light_Only_16x16_0: -5274220990065549899
+      Spotlight_1_Light_Only_16x16_1: 4277894090346507350
+      Spotlight_1_Light_Only_16x16_10: 2911228787325465982
+      Spotlight_1_Light_Only_16x16_11: -3024954390607883702
+      Spotlight_1_Light_Only_16x16_2: 5500979148422982953
+      Spotlight_1_Light_Only_16x16_3: 4247653517933628311
+      Spotlight_1_Light_Only_16x16_4: -4298955920990649343
+      Spotlight_1_Light_Only_16x16_5: 6394822105191004139
+      Spotlight_1_Light_Only_16x16_6: -2234404338835176045
+      Spotlight_1_Light_Only_16x16_7: -4599046238549464939
+      Spotlight_1_Light_Only_16x16_8: 120517747946709114
+      Spotlight_1_Light_Only_16x16_9: 6007148059424151368
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

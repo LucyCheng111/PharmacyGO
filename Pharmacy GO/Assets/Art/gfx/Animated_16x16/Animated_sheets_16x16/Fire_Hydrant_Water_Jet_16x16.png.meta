@@ -124,6 +124,19 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -272,7 +285,13 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Fire_Hydrant_Water_Jet_16x16_0: 3120459514933483327
+      Fire_Hydrant_Water_Jet_16x16_1: -7729124470181099312
+      Fire_Hydrant_Water_Jet_16x16_2: 8648995459757074769
+      Fire_Hydrant_Water_Jet_16x16_3: 869923639800688897
+      Fire_Hydrant_Water_Jet_16x16_4: -4509169368908029389
+      Fire_Hydrant_Water_Jet_16x16_5: -4278749407615603797
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -178,6 +178,19 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -722,7 +735,31 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Crow_idle_16x16_0: -1143671593009344760
+      Crow_idle_16x16_1: -8470336686085086213
+      Crow_idle_16x16_10: -5091524227661779969
+      Crow_idle_16x16_11: -4373077469686007778
+      Crow_idle_16x16_12: -8418403338553166825
+      Crow_idle_16x16_13: -5835135784864333369
+      Crow_idle_16x16_14: -1896863045064074867
+      Crow_idle_16x16_15: -944621711737704890
+      Crow_idle_16x16_16: 470476298761227546
+      Crow_idle_16x16_17: 6053454357491538047
+      Crow_idle_16x16_18: 7797549095797017256
+      Crow_idle_16x16_19: 2747459421669128894
+      Crow_idle_16x16_2: 4981183892169344128
+      Crow_idle_16x16_20: -1473352362879726332
+      Crow_idle_16x16_21: -5586275949381524987
+      Crow_idle_16x16_22: -8636530712548970564
+      Crow_idle_16x16_23: 5443338149272917490
+      Crow_idle_16x16_3: 5869123807215800905
+      Crow_idle_16x16_4: -1576896682511792732
+      Crow_idle_16x16_5: 853373183969795212
+      Crow_idle_16x16_6: 3335448584223044336
+      Crow_idle_16x16_7: 8549670896760454124
+      Crow_idle_16x16_8: 5862308563961339826
+      Crow_idle_16x16_9: 3274094181641616445
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

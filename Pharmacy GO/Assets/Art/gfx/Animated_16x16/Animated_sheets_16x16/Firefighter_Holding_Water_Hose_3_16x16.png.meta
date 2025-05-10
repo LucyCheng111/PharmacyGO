@@ -124,6 +124,19 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -272,7 +285,13 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Firefighter_Holding_Water_Hose_3_16x16_0: 976473014064136744
+      Firefighter_Holding_Water_Hose_3_16x16_1: -3412009218197341675
+      Firefighter_Holding_Water_Hose_3_16x16_2: 7871631823876820179
+      Firefighter_Holding_Water_Hose_3_16x16_3: 8332870589603229487
+      Firefighter_Holding_Water_Hose_3_16x16_4: -2010226323268791332
+      Firefighter_Holding_Water_Hose_3_16x16_5: 4993537581306557859
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

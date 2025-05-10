@@ -130,6 +130,19 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -322,7 +335,15 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Beach_Floating_Rock_9_16x16_0: 3722710519373585982
+      Beach_Floating_Rock_9_16x16_1: -5850748639857547055
+      Beach_Floating_Rock_9_16x16_2: 7532512263335807624
+      Beach_Floating_Rock_9_16x16_3: 4433895320238098846
+      Beach_Floating_Rock_9_16x16_4: -2328336403110753537
+      Beach_Floating_Rock_9_16x16_5: 3197097222255208223
+      Beach_Floating_Rock_9_16x16_6: -8046193213990066592
+      Beach_Floating_Rock_9_16x16_7: 2215663194433211294
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

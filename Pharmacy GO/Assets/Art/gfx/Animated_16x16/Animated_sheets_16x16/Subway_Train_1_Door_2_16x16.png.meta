@@ -130,6 +130,19 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -322,7 +335,15 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Subway_Train_1_Door_2_16x16_0: -2304457127319788681
+      Subway_Train_1_Door_2_16x16_1: -1760730730417041621
+      Subway_Train_1_Door_2_16x16_2: -4792919629208612237
+      Subway_Train_1_Door_2_16x16_3: 3370503397208783733
+      Subway_Train_1_Door_2_16x16_4: -3199277004770330883
+      Subway_Train_1_Door_2_16x16_5: 1429121820813001290
+      Subway_Train_1_Door_2_16x16_6: -5369477221410353903
+      Subway_Train_1_Door_2_16x16_7: 6668443523466638012
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

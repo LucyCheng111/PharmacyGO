@@ -166,6 +166,19 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -622,7 +635,27 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Phone_Box_Door_16x16_0: 1193160295175695117
+      Phone_Box_Door_16x16_1: 6731819801107229998
+      Phone_Box_Door_16x16_10: 8306166585689535054
+      Phone_Box_Door_16x16_11: 6740613616351731053
+      Phone_Box_Door_16x16_12: 6745796931622500981
+      Phone_Box_Door_16x16_13: -9092228693496065478
+      Phone_Box_Door_16x16_14: -2960676416770333434
+      Phone_Box_Door_16x16_15: 6118197733576233803
+      Phone_Box_Door_16x16_16: -579510300277265771
+      Phone_Box_Door_16x16_17: -7815389667696299056
+      Phone_Box_Door_16x16_18: -4925379420043518169
+      Phone_Box_Door_16x16_19: 7186505918035076202
+      Phone_Box_Door_16x16_2: -3197180523682056774
+      Phone_Box_Door_16x16_3: -575448040654161883
+      Phone_Box_Door_16x16_4: 3475388374767535787
+      Phone_Box_Door_16x16_5: -1423545988004029030
+      Phone_Box_Door_16x16_6: -6106959399965206466
+      Phone_Box_Door_16x16_7: 6868041746375133585
+      Phone_Box_Door_16x16_8: 374107742080567992
+      Phone_Box_Door_16x16_9: 2936906288403771898
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -130,6 +130,19 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -322,7 +335,15 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Fishing_Boat_left_2_16x16_0: 8112589861729967026
+      Fishing_Boat_left_2_16x16_1: 4640578479382213091
+      Fishing_Boat_left_2_16x16_2: 340188016897450191
+      Fishing_Boat_left_2_16x16_3: 1585747797225110887
+      Fishing_Boat_left_2_16x16_4: -7306471483952342489
+      Fishing_Boat_left_2_16x16_5: 2007420471757631333
+      Fishing_Boat_left_2_16x16_6: 7710224957817344498
+      Fishing_Boat_left_2_16x16_7: -8465578841044990641
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

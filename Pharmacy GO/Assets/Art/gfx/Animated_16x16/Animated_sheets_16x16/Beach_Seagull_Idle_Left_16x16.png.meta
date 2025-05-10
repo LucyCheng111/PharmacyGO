@@ -124,6 +124,19 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -272,7 +285,13 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Beach_Seagull_Idle_Left_16x16_0: -5210515532641700457
+      Beach_Seagull_Idle_Left_16x16_1: 8025481043392684520
+      Beach_Seagull_Idle_Left_16x16_2: 7154738259154310473
+      Beach_Seagull_Idle_Left_16x16_3: 58596278927021366
+      Beach_Seagull_Idle_Left_16x16_4: 5236247322957019316
+      Beach_Seagull_Idle_Left_16x16_5: -8177486176383517655
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

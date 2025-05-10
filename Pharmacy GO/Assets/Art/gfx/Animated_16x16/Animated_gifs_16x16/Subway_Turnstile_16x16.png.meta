@@ -163,6 +163,19 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -597,7 +610,26 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Subway_Turnstile_16x16_0: -6402227275930379645
+      Subway_Turnstile_16x16_1: 2199190806606788967
+      Subway_Turnstile_16x16_10: 7241797480857483410
+      Subway_Turnstile_16x16_11: -3090616234027512747
+      Subway_Turnstile_16x16_12: 4966791194567039433
+      Subway_Turnstile_16x16_13: 5376995887847270909
+      Subway_Turnstile_16x16_14: 4948677531828397485
+      Subway_Turnstile_16x16_15: 7215243398414985969
+      Subway_Turnstile_16x16_16: 5247707365142865553
+      Subway_Turnstile_16x16_17: -1496135266627592030
+      Subway_Turnstile_16x16_18: -3033854528828796907
+      Subway_Turnstile_16x16_2: -3069689687656335850
+      Subway_Turnstile_16x16_3: -1345592082392366290
+      Subway_Turnstile_16x16_4: -1789876876661070551
+      Subway_Turnstile_16x16_5: -6463978965789192928
+      Subway_Turnstile_16x16_6: -3809035945313676292
+      Subway_Turnstile_16x16_7: 7472365214657100779
+      Subway_Turnstile_16x16_8: -1991902106572990823
+      Subway_Turnstile_16x16_9: 3318960771340596539
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
