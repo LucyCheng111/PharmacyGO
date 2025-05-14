@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 13b75c95f34a00d4e8c04f76b73312e6, type: 3}
+  m_Name: Beach_5
+  m_EditorClassIdentifier: 
+  m_AnimatedSprites:
+  - {fileID: 1008832104, guid: 6d2190e1ea5907148b5b5a7a040fa26e, type: 3}
+  - {fileID: -485831133, guid: 6d2190e1ea5907148b5b5a7a040fa26e, type: 3}
+  - {fileID: 1047056036, guid: 6d2190e1ea5907148b5b5a7a040fa26e, type: 3}
+  - {fileID: 578955287, guid: 6d2190e1ea5907148b5b5a7a040fa26e, type: 3}
+  - {fileID: 1854225288, guid: 6d2190e1ea5907148b5b5a7a040fa26e, type: 3}
+  - {fileID: -497780830, guid: 6d2190e1ea5907148b5b5a7a040fa26e, type: 3}
+  - {fileID: 1623542327, guid: 6d2190e1ea5907148b5b5a7a040fa26e, type: 3}
+  - {fileID: -589459430, guid: 6d2190e1ea5907148b5b5a7a040fa26e, type: 3}
+  m_MinSpeed: 3
+  m_MaxSpeed: 3
+  m_AnimationStartTime: 0
+  m_AnimationStartFrame: 0
+  m_TileColliderType: 2
+  m_TileAnimationFlags: 0
