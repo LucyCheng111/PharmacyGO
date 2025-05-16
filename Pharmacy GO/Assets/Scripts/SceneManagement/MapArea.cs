@@ -8,8 +8,10 @@ public class MapArea : MonoBehaviour
     [SerializeField] bool dangerous; // should questions be encountered randomly
     [SerializeField] int correctAnswer; // how much to increase when supplying a correct answer
     [SerializeField] int wrongAnswer; // how much to decrease when supplying a wrong answer
+    [SerializeField] int module = 0;
 
     Database database;
+    Module moduleManager;
 
     private int correctStreak;
     private int difficulty;
@@ -30,7 +32,6 @@ public class MapArea : MonoBehaviour
     void Start()
     {
         StartCoroutine(load());
-
     }
 
     IEnumerator load()
@@ -39,6 +40,7 @@ public class MapArea : MonoBehaviour
         StartCoroutine(database.load());
         yield return new WaitUntil(() => database.loaded);
         randomQuestions = database.questionSet.questions;
+        moduleManager = new Module(randomQuestions);
     }
 
     public Question GetRandomQuestion()
@@ -46,20 +48,27 @@ public class MapArea : MonoBehaviour
         // difficulty based selection will need to be re-worked once we have more questions
         // more questions will be added once the database is operational
         // this is also very un-optimized
-        validQuestion = false;
-        var randomQuestion = randomQuestions[Random.Range(0, randomQuestions.Count)];
-        int wrongTries = 0;
+        // validQuestion = false;
+        // var randomQuestion = randomQuestions[Random.Range(0, randomQuestions.Count)];
+        // int wrongTries = 0;
 
-        while (!validQuestion)
-        {
-            if ((difficulty <= 30) && (randomQuestion.difficulty == Question.DifficultyIndex.easy)) { validQuestion = true;}
-            else if ((difficulty > 30) && (difficulty < 70) && (randomQuestion.difficulty == Question.DifficultyIndex.medium)) { validQuestion = true; }
-            else if ((difficulty >= 70) && (randomQuestion.difficulty == Question.DifficultyIndex.hard)) { validQuestion = true; }
-            else if (wrongTries >= 10) { validQuestion = true; }
-            else { randomQuestion = randomQuestions[Random.Range(0, randomQuestions.Count)]; }
-            wrongTries++;
-        }
-        return randomQuestion;
+        // while (!validQuestion)
+        // {
+        //     if ((difficulty <= 30) && (randomQuestion.difficulty == Question.DifficultyIndex.easy)) { validQuestion = true;}
+        //     else if ((difficulty > 30) && (difficulty < 70) && (randomQuestion.difficulty == Question.DifficultyIndex.medium)) { validQuestion = true; }
+        //     else if ((difficulty >= 70) && (randomQuestion.difficulty == Question.DifficultyIndex.hard)) { validQuestion = true; }
+        //     else if (wrongTries >= 10) { validQuestion = true; }
+        //     else { randomQuestion = randomQuestions[Random.Range(0, randomQuestions.Count)]; }
+        //     wrongTries++;
+        // }
+        // return randomQuestion;
+        Question.DifficultyIndex questionDifficulty = Question.DifficultyIndex.None;
+        if (difficulty <= 20) { questionDifficulty = Question.DifficultyIndex.Beginner;}
+        else if (difficulty <= 40) { questionDifficulty = Question.DifficultyIndex.Novice;}
+        else if (difficulty <= 60) { questionDifficulty = Question.DifficultyIndex.Intermediate;}
+        else if (difficulty <= 80) { questionDifficulty = Question.DifficultyIndex.Advanced;}
+        else if (difficulty <= 100) { questionDifficulty = Question.DifficultyIndex.Expert;}
+        return moduleManager.GetRandomQuestion(module, questionDifficulty);
     }
 
     public int GetCorrectStreak() { return correctStreak; }
