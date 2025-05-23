@@ -48717,7 +48717,7 @@ MonoBehaviour:
   sceneBuildIndex: 7
   levelNumber: 0
   targetSpawnPointID: GIToHub
-  portalEffect: {fileID: 0}
+  portalEffect: {fileID: 2106480611}
 --- !u!61 &1565349871
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -48823,7 +48823,7 @@ Transform:
   m_GameObject: {fileID: 2106480608}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 47.61, y: -7.9600005, z: 0.07106948}
+  m_LocalPosition: {x: -3.2, y: 2, z: 0.07106948}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
