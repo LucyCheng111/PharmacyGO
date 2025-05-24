@@ -48,11 +48,11 @@ public class ScoreManager : MonoBehaviour
             {
                 difficultyBonus = 2;
             }
-            else if (difficulty <= 600)
+            else if (difficulty <= 60)
             {
                 difficultyBonus = 3;
             }
-            else if (difficulty <= 800)
+            else if (difficulty <= 80)
             {
                 difficultyBonus = 4;
             }
