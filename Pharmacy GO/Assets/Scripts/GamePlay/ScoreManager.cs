@@ -40,13 +40,21 @@ public class ScoreManager : MonoBehaviour
         {
             int difficulty = MapArea.i.GetDifficulty();
 
-            if (difficulty <= 30)
+            if (difficulty <= 20)
             {
                 difficultyBonus = 1;
             }
-            else if (difficulty < 70)
+            else if (difficulty <= 40)
+            {
+                difficultyBonus = 2;
+            }
+            else if (difficulty <= 60)
             {
                 difficultyBonus = 3;
+            }
+            else if (difficulty <= 80)
+            {
+                difficultyBonus = 4;
             }
             else
             {
