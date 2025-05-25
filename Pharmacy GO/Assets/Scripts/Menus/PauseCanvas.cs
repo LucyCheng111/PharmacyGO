@@ -2,6 +2,9 @@ using UnityEngine;
 
 public class PauseCanvas : MonoBehaviour
 {
+
+    // Handles the Pause Menu Game Object
+
     [SerializeField] private GameObject pauseMenu;
     private static PauseCanvas instance;
     // Start is called once before the first execution of Update after the MonoBehaviour is created

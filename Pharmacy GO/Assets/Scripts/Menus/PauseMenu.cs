@@ -9,6 +9,8 @@ using UnityEngine.UI;
 
 public class PauseMenu : MonoBehaviour
 {
+
+    // Manager for the Pause Menu
     
     [SerializeField] GameObject pauseMenu;
 

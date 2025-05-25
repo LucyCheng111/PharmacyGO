@@ -5,6 +5,9 @@ using UnityEngine;
 
 public class ChoiceBox : MonoBehaviour
 {
+
+    // Manager for the choice box
+
     [SerializeField] ChoiceText choiceTextPrefab;
 
     bool choiceSelected = false;

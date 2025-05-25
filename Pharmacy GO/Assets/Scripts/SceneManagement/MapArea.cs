@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class MapArea : MonoBehaviour
 {
+
+    // Handles map encounter logic and question selection
+
     [SerializeField] List<Question> randomQuestions;
     [SerializeField] bool dangerous; // should questions be encountered randomly
     [SerializeField] int correctAnswer; // how much to increase when supplying a correct answer

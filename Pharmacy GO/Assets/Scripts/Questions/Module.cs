@@ -5,6 +5,9 @@ using UnityEngine;
 
 public class Module
 {
+
+    //  Selects the appropriate question based on module and difficulty
+
     private int number_of_modules = 6;
     private int number_of_dificulties = 6;
     public List<Question>[,] questions = new List<Question>[6,6];

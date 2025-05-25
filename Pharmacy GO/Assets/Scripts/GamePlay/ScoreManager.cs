@@ -2,6 +2,9 @@ using UnityEngine;
 
 public class ScoreManager : MonoBehaviour
 {
+
+    // Manages score and points
+
     /*
      * To ensure only one ScoreManager in the entire game
      * get --- allow other scripts to read the Instance

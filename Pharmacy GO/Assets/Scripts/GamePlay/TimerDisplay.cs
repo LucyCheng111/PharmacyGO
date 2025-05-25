@@ -3,6 +3,9 @@ using UnityEngine;
 
 public class TimerDisplay : MonoBehaviour
 {
+
+    // Handles the timer game object
+
     [SerializeField] private TMP_Text timerText;
 
     private void Update()

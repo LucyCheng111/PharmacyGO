@@ -4,6 +4,9 @@ using System.Collections;
 
 public class MapTransition : MonoBehaviour
 {
+
+    // Handles the logic for the transitioning between maps
+
     [SerializeField] private PolygonCollider2D mapBoundry;
     [SerializeField] private Direction direction;
 

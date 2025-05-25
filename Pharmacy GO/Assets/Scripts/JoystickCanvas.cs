@@ -2,6 +2,9 @@ using UnityEngine;
 
 public class JoystickCanvas : MonoBehaviour
 {
+
+    // Handles the Joystick UI object
+
     private static JoystickCanvas instance;
     [SerializeField] private GameObject joystickCanvas;
     void Awake()

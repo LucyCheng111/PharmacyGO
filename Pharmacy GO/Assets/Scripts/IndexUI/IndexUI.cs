@@ -5,6 +5,9 @@ using System.Linq;
 
 public class IndexUI : MonoBehaviour
 {
+
+    // Manager for the med index page
+
     private CanvasGroup canvasGroup;
     public static IndexUI instance;    
     [SerializeField] PlayerControl playerControl;

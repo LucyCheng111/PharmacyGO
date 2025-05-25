@@ -7,6 +7,10 @@ using UnityEngine.SceneManagement;
 
 public class PlayerControl : MonoBehaviour
 {
+
+    // Controller for the player object
+    // Also handles checks when moving into objects
+
     [SerializeField] private Joystick joystick;
 
     public static PlayerControl Instance { get; private set; }

@@ -7,6 +7,9 @@ using UnityEngine.UI;
 
 public class MainMenu : MonoBehaviour
 {
+
+    // Loads level structure and manager for the menu functions
+
     private const int HUB_SCENE_INDEX = 7;
     private const string MASTER_VOLUME_KEY = "masterVolume";
     private const int DEfAULT_VOLUME_VALUE = 10;

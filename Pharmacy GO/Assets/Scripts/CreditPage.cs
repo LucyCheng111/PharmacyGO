@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class CreditPage : MonoBehaviour
 {
+    // Handler for the credit page
 
     private CanvasGroup canvasGroup;
     public static CreditPage instance;    

@@ -14,6 +14,8 @@ public struct LevelEntry
 public class LevelManager : MonoBehaviour
 {
 
+    // Manages level loading and tracking levels unlocked by player
+
     public static LevelManager Instance { get; private set; }
     public int UnlockedLevel { get; private set; } = 1;
 

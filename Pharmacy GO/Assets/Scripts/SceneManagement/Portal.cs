@@ -5,6 +5,10 @@ using Unity.Cinemachine;
 
 public class Portal : MonoBehaviour
 {
+
+    // Controls portal object and collider
+    // Calls appropriate functions when player steps into portal
+
     public int sceneBuildIndex; // The target scene's build index
     public int levelNumber;
     public string targetSpawnPointID; // The ID of the target spawn point

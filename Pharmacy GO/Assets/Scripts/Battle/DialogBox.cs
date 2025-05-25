@@ -10,6 +10,10 @@ using System;
 
 public class DialogBox : MonoBehaviour
 {
+
+    // Manager for the dialog box
+    // Also handles dialog typing and logic
+
     private string fullText;
     private Coroutine typingCoroutine;
 

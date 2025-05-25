@@ -2,6 +2,9 @@ using UnityEngine;
 
 public class TimerManager : MonoBehaviour
 {
+
+    // Manages the timer and timer-related bonuses
+
     // we use two variables to prevent timer issues when pausing and unpausing the game
     private bool levelStarted = false;
     private bool timerRunning = false;

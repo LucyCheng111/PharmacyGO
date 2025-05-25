@@ -6,6 +6,10 @@ using System.Collections.Generic;
 public enum GameState {FreeRoam, Battle, Dialogue}
 public class GameController : MonoBehaviour
 {
+
+    // Main controller for the game state
+    // Acts as a hub for multiple intersecting components
+
     [SerializeField] PlayerControl playerControl;
     [SerializeField] BattleSystem battleSystem;
     [SerializeField] Camera worldCamera;

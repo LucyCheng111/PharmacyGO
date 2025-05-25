@@ -7,6 +7,10 @@ using System;
 public enum BattleState { START, PLAYERACTION, PLAYERANSWER, END}
 public class BattleSystem : MonoBehaviour
 {
+
+    // Manager for the battle system
+    // Handles flow through entire battle and calls to external battle components, e.g. boss manager
+
     [SerializeField] private MapArea mapData;
     [SerializeField] private QuestionSection questionSection;
     [SerializeField] private DialogBox dialogBox;

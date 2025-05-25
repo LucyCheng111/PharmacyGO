@@ -4,6 +4,9 @@ using UnityEngine.UI;
 [CreateAssetMenu(fileName = "Medication", menuName = "Scriptable Objects/Medication")]
 public class Medication : ScriptableObject
 {
+
+    // Handles a single medication item in the index
+
     [Header("Basic Info")]
     public string medicationName;
     public Sprite image;

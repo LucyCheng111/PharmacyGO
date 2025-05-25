@@ -9,6 +9,9 @@ using System.Text;
 
 public class Database
 {
+
+    // Loads questions and images from the database
+
     public bool loaded = false;
     public QuestionSet questionSet;
 

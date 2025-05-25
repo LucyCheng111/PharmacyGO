@@ -7,6 +7,7 @@ using UnityEngine;
 public class PriorityList<T>
 {
     //A class that associates a value with a priority.
+
     [System.Serializable]
     public class ListValue : IComparable<ListValue>
     {

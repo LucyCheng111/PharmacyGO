@@ -6,6 +6,9 @@ using UnityEngine.UI;
 [RequireComponent(typeof(RawImage))]
 public class QuestionUnit : MonoBehaviour
 {
+
+    // Fetches image for a question
+
     RawImage image;
 
     private void Awake()

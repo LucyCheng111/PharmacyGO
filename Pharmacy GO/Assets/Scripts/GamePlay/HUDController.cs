@@ -8,6 +8,8 @@ using TMPro;
 public class HudController : MonoBehaviour
 {
 
+    // Handles all HUD elements in one place
+
     [SerializeField] GameObject coinCounter;
     [SerializeField] GameObject scoreCounter;
     [SerializeField] GameObject toolUICanvas;
