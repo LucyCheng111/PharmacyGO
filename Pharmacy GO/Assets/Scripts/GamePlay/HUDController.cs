@@ -50,6 +50,8 @@ public class HudController : MonoBehaviour
         scoreCounter.GetComponent<TMP_Text>().color = Color.black;
         timerDisplay.GetComponent<TMP_Text>().color = Color.black;
         multiplierDisplay.GetComponent<TMP_Text>().color = Color.black;
+        toolUICanvas.SetActive(false);
+        joyStickCanvas.SetActive(false);
     }
 
     public void ExitingBattle()
@@ -58,5 +60,8 @@ public class HudController : MonoBehaviour
         scoreCounter.GetComponent<TMP_Text>().color = Color.white;
         timerDisplay.GetComponent<TMP_Text>().color = Color.white;
         multiplierDisplay.GetComponent<TMP_Text>().color = Color.white;
+        if (toolUICanvas != null) toolUICanvas.SetActive(true);
+        if (Application.isMobilePlatform && joyStickCanvas != null)
+            joyStickCanvas.SetActive(true);
     }
 }
