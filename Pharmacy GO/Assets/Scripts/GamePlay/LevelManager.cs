@@ -44,7 +44,10 @@ public class LevelManager : MonoBehaviour
     {
         if (UnlockedLevel < levelMap.Count)
         {
-            UnlockedLevel++;
+            if (UnlockedLevel == 4)
+                UnlockedLevel = levelMap.Count;
+            else
+                UnlockedLevel++;
             PlayerPrefs.SetInt("UnlockedLevel", UnlockedLevel);
             PlayerPrefs.Save();
         }
@@ -78,7 +81,7 @@ public class LevelManager : MonoBehaviour
         return entry.buildIndex;
     }
 
-// For editor use only
+    // For editor use only
 #if UNITY_EDITOR
 private void Update()
     {
@@ -86,12 +89,14 @@ private void Update()
         if(Input.GetKeyDown(KeyCode.N))
         {
             UnlockNextLevel();
+            Debug.Log("Unlocked level " + UnlockedLevel);
         }
 
         // Press U to unlock all levels
         if (Input.GetKeyDown(KeyCode.U))
         {
             UnlockedLevel = levelMap.Count;
+            Debug.Log("Unlocked level " + UnlockedLevel);
             PlayerPrefs.SetInt("UnlockedLevel", UnlockedLevel);
             PlayerPrefs.Save();
 
