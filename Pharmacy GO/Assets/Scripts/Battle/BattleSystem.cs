@@ -276,7 +276,9 @@ public class BattleSystem : MonoBehaviour
 
         if (answerCorrect)
         {
+            ScoreManager.Instance.AddScore(true); // Increment score
             int pointsEarned = ScoreManager.Instance.GetScoreCount() - previousScore;
+            mapData.CorrectAnswer(1); // Track question streak
             string rewardText;
             if (isBossBattle)
             {
@@ -288,10 +290,8 @@ public class BattleSystem : MonoBehaviour
                 rewardText = $"Correct! Rewards: +1 coin, +{pointsEarned} points";
                 CoinManager.Instance.AddCoin(1); // Add a coin
             }
-            ScoreManager.Instance.AddScore(true); // Increment score
 
 
-            mapData.CorrectAnswer(1); // Track question streak
             yield return StartCoroutine(dialogBox.TypeDialog(rewardText));
         }
         else
@@ -313,6 +313,8 @@ public class BattleSystem : MonoBehaviour
             {
                 if (bossQuestionsRight == maxBossQuestions)
                 {
+                    bossQuestionsRight = 0;
+                    currentBossQuestion = 0;
                     yield return StartCoroutine(dialogBox.TypeDialog("You got them all right! You win!"));
 
                     GameController.Instance.MarkBossDefeated();
