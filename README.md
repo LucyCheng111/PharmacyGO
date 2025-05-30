@@ -90,10 +90,6 @@ class Option:
 * string imageLink
 * bool useImage
 
-# Architecture Diagram
-![image](https://github.com/user-attachments/assets/5d930767-73a1-4ca0-9550-83155f772561)
-
-
 
 ## Play Anywhere
 Pharmacy Go is a browser based game, no installation is required to play the game. It is fully playable on PCs, laptops and mobile devices. Questions are loaded from a database on GitHub, so an internet connection is required to play the game. Your progression is based on answering questions correctly and challenging bosses. Coins, score, and progress are saved automatically between sessions. 
