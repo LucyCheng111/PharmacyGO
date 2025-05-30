@@ -110,21 +110,23 @@ This Setup Assumes the following Prerequisites:
 A tutorial for Git/Github: https://product.hubspot.com/blog/git-and-github-tutorial-for-beginners 
 
 To install Unity 6000.0.24f1:
+* Install Unity Hub (This may require you to make a Unity Account): https://public-cdn.cloud.unity3d.com/hub/prod/UnityHubSetup.exe 
 * Navigate to the Unity Download Archive: https://unity.com/releases/editor/archive 
 * Select “Unity 6”
 * Select “All Versions”
 * Scroll down to “6000.0.24f1” 
-* Click the “Install” button
-* This may require you to install “Unity Hub” to Proceed
+* Click the “Install” button, this will open Unity Hub
 * Follow the instructions
 
 To Open the Project in Unity:
-* Clone the current Github repository: https://github.com/XY-L-1/Pharmacy-GO 
-* Instructions on how to clone a Github Repository: https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository 
-* Once you have cloned the repository to a folder on your computer, open “Unity Hub”
+* We recommend using Github Desktop for this task: https://desktop.github.com/download/ 
+* Clone the current Github repository using one of the 2 methods below
+    * Instructions for cloning a repository using Github Desktop: https://docs.github.com/en/desktop/adding-and-cloning-repositories/cloning-a-repository-from-github-to-github-desktop
+    * Instructions on how to clone a Github Repository: https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository 
+* Once you have cloned the repository to a folder on your computer, open Unity Hub
 * Select: “Add” then “Add a project from disk”
 * Navigate to your cloned repository folder and select it
-* The project should appear in the “Unity Hub” projects Tab
+* The project should appear in the Unity Hub projects Tab
 * Click on the project to open it
 
 
