@@ -175,6 +175,54 @@ Maps are connected by portals and spawn points.
   * Tracks the level elapsed time.   
   * GetMultiplier(): time-based scoring multiplier tiers.
 
+# Med index
+# Medication CSV Importer for Med index (MedicationExternalCSVImporter.cs)
+
+The **Medication CSV Importer** reads medication data from a CSV file (uploaded from your local system) and automatically generates `Medication` ScriptableObject assets in Unity. If assets with the same name already exist, they will be replaced. It also links medication images if matching files are found in `Assets/Art/MedIndexImage`.
+
+---
+
+## 📦 Features
+
+- Imports medication data from CSV files.
+- Automatically generates or updates ScriptableObject assets.
+- Optionally assigns sprite images to medications if image filenames match.
+- Simple to use via Unity Editor Tools menu.
+
+---
+
+## How to Use
+
+1. **Open Unity Tool**  
+In Unity, navigate to: Tools → Medication CSV Importer (External)
+
+2. **Adjust Settings**  
+- **Base Output Folder:**  
+  Folder where `.asset` files will be created: `Assets/Medications`
+- **Medication Image Folder:**  
+  Folder where your medication sprite images are stored: `Assets/Art/MedIndexImage`
+
+3. **Import CSV**  
+Click `Select and Import CSV`, then choose your CSV file from your local computer.
+MedicationData.csv is given in the Github
+
+5. **Check Console**  
+Unity Console will display any warnings or errors.
+
+6. **Review Assets**  
+The generated `.asset` files will appear under your specified output folder.  
+Open them in the Inspector to verify data and image links.
+
+---
+
+## Image Requirements
+
+To assign images to medications:
+- Upload image files manually to:  `Assets/Art/MedIndexImage`
+- Ensure image filenames **exactly match** the medication names in your CSV.
+
+
+
 # Extension Points & Future to do
 
 * Refers to [https://docs.google.com/document/d/15g5myaUmi3ZtB-9sSFVDsmlTkK20WzN-eSPucrvHBLA/edit?tab=t.0\#heading=h.9ibmsy1p3kpx](https://docs.google.com/document/d/15g5myaUmi3ZtB-9sSFVDsmlTkK20WzN-eSPucrvHBLA/edit?tab=t.0#heading=h.9ibmsy1p3kpx) 
