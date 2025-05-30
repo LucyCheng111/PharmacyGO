@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class Boss: MonoBehaviour, Interactable
 {
-    // Currently useless class
-    // Will be expanded to initiate a boss battle
+    // Initiates quiz for the boss
     public void Interact()
     {
         StartCoroutine(Quiz());

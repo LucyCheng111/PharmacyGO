@@ -6,10 +6,10 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Main Menu.unity
+    path: Assets/Scenes/Main Levels/Main Menu.unity
     guid: d7a3e2033be9b5b48a4c25b8ca28781c
   - enabled: 1
-    path: Assets/Scenes/Instructions.unity
+    path: Assets/Scenes/Main Levels/Instructions.unity
     guid: 095e5de7ca4c9ea4b8361340df907e6e
   - enabled: 1
     path: Assets/Scenes/SampleScene.unity
@@ -17,18 +17,45 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/EastRoute1.unity
     guid: 784cc55e29d097c44847a807f2079078
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Lungs.unity
     guid: 9ca596cb90b60e14da9d3092a1553915
   - enabled: 1
-    path: Assets/Scenes/Bladder.unity
-    guid: 01369ba34fb6e024087f5601b280697d
-  - enabled: 1
-    path: Assets/Scenes/Heart.unity
+    path: Assets/Scenes/External Levels/Heart.unity
     guid: 9ebe6c32fa5c81b45a79a4eecc0a2a77
   - enabled: 1
-    path: Assets/Scenes/Hub.unity
+    path: Assets/Scenes/External Levels/Lung.unity
+    guid: 56613d8c1b5d23140a42954a56580e97
+  - enabled: 1
+    path: Assets/Scenes/External Levels/Bladder.unity
+    guid: 01369ba34fb6e024087f5601b280697d
+  - enabled: 1
+    path: Assets/Scenes/Main Levels/Hub.unity
     guid: 84a2bcaf2a645b8408d046c0fb860a98
+  - enabled: 1
+    path: Assets/Scenes/External Levels/Eyes.unity
+    guid: 7223e5de143d5d14b8ca301e7ddaa556
+  - enabled: 1
+    path: Assets/Scenes/External Levels/Brain.unity
+    guid: efbefbe49ee8bc444aa1b69b744ab574
+  - enabled: 1
+    path: Assets/Scenes/External Levels/GI.unity
+    guid: 2df24e91e8bb3284db26981ec8f274d0
+  - enabled: 1
+    path: Assets/Scenes/External Levels/Muscle.unity
+    guid: 07aa494858cb09a4ea97a50ff75ab3bf
+  - enabled: 1
+    path: Assets/Scenes/Main Levels/Level 1.unity
+    guid: 6cad2847d9bf2b345a2b073ebbc35e22
+  - enabled: 1
+    path: Assets/Scenes/Main Levels/Level 2.unity
+    guid: 7a4c40b8e1dc35342bcecd87596c80d5
+  - enabled: 1
+    path: Assets/Scenes/Main Levels/Level 3.unity
+    guid: 72dfac70dc436514ba5d84d1291f5b05
+  - enabled: 1
+    path: Assets/Scenes/Main Levels/Level 4.unity
+    guid: 5571c117d26b03e40878ca9c0da18236
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0

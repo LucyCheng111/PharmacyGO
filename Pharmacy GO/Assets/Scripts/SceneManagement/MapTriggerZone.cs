@@ -2,6 +2,9 @@ using UnityEngine;
 
 public class MapTriggerZone : MonoBehaviour
 {
+
+    // Detects when a player has entered a map
+
     public int areaIndex;  // Index represent the area to trigger
 
     private void OnTriggerEnter2D(Collider2D other)

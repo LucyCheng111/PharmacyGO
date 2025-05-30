@@ -9,6 +9,9 @@ using System.Text;
 
 public class Database
 {
+
+    // Loads questions and images from the database
+
     public bool loaded = false;
     public QuestionSet questionSet;
 
@@ -74,14 +77,73 @@ public class Question
     public int answerIndex;
     public enum DifficultyIndex
     {
-        easy,
-        medium,
-        hard
+        None,
+        Beginner,
+        Novice,
+        Intermediate,
+        Advanced,
+        Expert,
     };
+
+    [Flags]
+    public enum LocationFlags 
+    {
+        Bladder = 1,
+        Brain = 2,
+        Eyes = 4,
+        GI_Tract = 8,
+        Heart = 16,
+        Lungs = 32,
+        Smooth_Muscle = 64,
+        Other = 128,
+    }
 
     public DifficultyIndex difficulty;
 
     public int locations; 
+
+    public struct LocationData
+    {
+        public int module;
+        public LocationFlags location;
+    };
+
+    public LocationData locationData;
+
+    // Returns (Module, Location)
+    public (int, int) readBin(int locations)
+    {
+        string bin = Convert.ToString(locations, 2);
+        while (bin.Length < 13)
+        {
+            bin = "0" + bin;
+        }
+        string binModule = bin.Substring(0, 5);
+        string binLocations = bin.Substring(5);
+        int module = -1;
+        char[] charArray = binModule.ToCharArray();
+        Array.Reverse(charArray);
+        binModule = new string(charArray);
+        for (int i = 0; i < binModule.Length; i++)
+        {
+            if (binModule[i] == '1')
+            {
+                module = i;
+                break;
+            }
+        }
+        int location = Convert.ToInt32(binLocations, 2);
+
+        return (module, location);
+    }
+
+    public void loadLocationData()
+    {
+        this.locationData = new LocationData();
+        (int, int) ld = readBin(this.locations);
+        this.locationData.module = ld.Item1;
+        this.locationData.location = (LocationFlags) ld.Item2;
+    }
 
     public override string ToString ()
     {

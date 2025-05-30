@@ -2,6 +2,9 @@ using UnityEngine;
 
 public class CoinManager : MonoBehaviour
 {
+
+    // Manages and tracks coins earned
+
     /*
      * To ensure only one CoinManager in the entire game
      * get --- allow other scripts to read the Instance

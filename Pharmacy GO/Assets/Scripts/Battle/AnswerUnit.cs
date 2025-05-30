@@ -3,6 +3,9 @@ using UnityEngine.UI;
 
 public class AnswerUnit : MonoBehaviour
 {
+
+    // Generate the image for an answer option
+
     private Image image;
 
     private void Awake()

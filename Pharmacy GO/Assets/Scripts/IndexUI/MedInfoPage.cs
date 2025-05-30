@@ -4,6 +4,9 @@ using UnityEngine.UI;
 
 public class MedInfoPage : MonoBehaviour
 {
+
+    // Handles the index page game object
+
     public static MedInfoPage Instance; // Singleton for easy access
 
     [SerializeField] private TMP_Text medName;

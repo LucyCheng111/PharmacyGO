@@ -11,6 +11,12 @@ using System;
 public class DialogBox : MonoBehaviour
 {
 
+    // Manager for the dialog box
+    // Also handles dialog typing and logic
+
+    private string fullText;
+    private Coroutine typingCoroutine;
+
     public enum AnswersType
     {
         None,
@@ -204,5 +210,25 @@ public class DialogBox : MonoBehaviour
         EnableActionSelector(false);
         EnableOptionSelector(false);
     }
-    
+
+    public void ForceCompleteText()
+    {
+        if (typingCoroutine != null)
+        {
+            StopCoroutine(typingCoroutine);
+            dialogText.text = fullText; // Changed from textComponent to dialogText
+        }
+    }
+
+    private IEnumerator TypeText(string dialog)
+    {
+        fullText = dialog; // Store the full text for ForceComplete
+        dialogText.text = "";
+        foreach (char letter in dialog.ToCharArray())
+        {
+            dialogText.text += letter;
+            yield return new WaitForSeconds(1f / letterPerSecond); // Using your existing speed control
+        }
+    }
+
 }

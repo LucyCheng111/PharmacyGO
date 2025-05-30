@@ -4,6 +4,9 @@ using UnityEngine.UI;
 
 public class InstructionsHandler : MonoBehaviour
 {
+
+    // Handler for the intructions object
+
     public GameObject startMenu;
     [TextArea(2,5)]
     public string[] instructions;

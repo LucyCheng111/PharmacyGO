@@ -2,6 +2,9 @@ using UnityEngine;
 
 public class FollowCam : MonoBehaviour
 {
+
+    // Attaches the camera to the player
+
     public GameObject player;
     public Vector3 offset = new Vector3(0, 0, -10);
     // Start is called once before the first execution of Update after the MonoBehaviour is created

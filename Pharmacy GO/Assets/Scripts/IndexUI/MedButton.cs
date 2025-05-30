@@ -4,6 +4,10 @@ using UnityEngine.UI;
 
 public class MedButton : MonoBehaviour
 {
+
+    // Handles the med index button
+    // Also handles calls to set up the info page once clicked
+
     [SerializeField] TMP_Text medName;
     [SerializeField] Image medImage;
     private Medication medication;
