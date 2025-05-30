@@ -16,12 +16,12 @@ MonoBehaviour:
   image: {fileID: 21300000, guid: d9e40071601316545b8a8af3e50fc4ad, type: 3}
   level: 1
   treatmentOrgan: Heart
-  pharmacologicClass: "Selective \u03B2\u2081\u2011blocker (cardioselective)"
-  mechanismOfAction: "Blocks \u03B2\u2081 receptors; decreases HR and contractility"
-  therapeuticUses: "Hypertension; angina; heart failure; Post\u2011MI management;
-    certain arrhythmias"
-  sideEffects: Bradycardia; hypotension; Fatigue; dizziness; Masks hypoglycemia (diabetics)
-  majorDrugInteractions: Avoid abrupt withdrawal (rebound tachycardia); Caution in
-    severe asthma
-  funFact: "A mnemonic: \u201CMetoprolol meets the heart first\u201D (\u03B2\u2081
-    > \u03B2\u2082)."
+  pharmacologicClass: Beta1-adrenergic antagonist
+  mechanismOfAction: Blocks beta1 receptors
+  therapeuticUses: tachyarrhythmias; high blood pressure; heart-associated chest
+    pain
+  sideEffects: 
+  majorDrugInteractions: 
+  funFact: "B-adrenergic receptor \uFFFD A allele - Patients with this genotype have
+    a greater reduction in blood pressure with metoprolol; CYP2D6 \uFFFD C allele
+    \uFFFD increased risk of bradycardia"

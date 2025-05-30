@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class BossController : MonoBehaviour, Interactable
 {
+
+    // Manages the boss on the game map
+    // Starts the quiz if the player is ready
+
     [SerializeField] private int maxQuestions;
     [SerializeField] private GameObject InteractPrompt;
 

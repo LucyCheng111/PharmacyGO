@@ -4,6 +4,9 @@ using System.Collections;
 
 public class SpawnPoint : MonoBehaviour
 {
+
+    // Spawns the player at the spawn point during teleports
+
     public string spawnPointID;
 
     private void Start()

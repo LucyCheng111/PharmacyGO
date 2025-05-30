@@ -2,8 +2,12 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using System.Collections;
+
 public class QuestionSection : MonoBehaviour
 {
+
+    // Displays the question during battle
+
     [SerializeField] TMP_Text questionText;
     [SerializeField] TMP_Text questionID;
 

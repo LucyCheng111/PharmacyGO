@@ -3,6 +3,9 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "QuestionBase", menuName = "Question/Create new question")]
 public class QuestionBase : ScriptableObject
 {
+
+    // Stores the aspects of questions for use
+
     [SerializeField] private string question; // image or text
     [SerializeField] private Sprite questionImg;
     [SerializeField] private string[] answers;

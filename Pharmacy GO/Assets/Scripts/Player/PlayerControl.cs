@@ -7,6 +7,10 @@ using UnityEngine.SceneManagement;
 
 public class PlayerControl : MonoBehaviour
 {
+
+    // Controller for the player object
+    // Also handles checks when moving into objects
+
     [SerializeField] private Joystick joystick;
 
     public static PlayerControl Instance { get; private set; }
@@ -188,7 +192,7 @@ public class PlayerControl : MonoBehaviour
 
             }
         }
-        else if (MapArea.i.IsDangerous())
+        else if (MapArea.i.IsDangerous() && !GameController.Instance.IsCurrentLevelBossDefeated())
         {
             if (UnityEngine.Random.Range(1, 101) <= 5)
             {

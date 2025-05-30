@@ -2,6 +2,9 @@ using UnityEngine;
 
 public class IdleObject : MonoBehaviour
 {
+
+    // Provides movement for idling objects
+
     [Header ("Rotation")]
     public bool rotate;
     public float rotateAmplitude = 1f;

@@ -1,8 +1,15 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using System.Collections.Generic;
+
+
 public enum GameState {FreeRoam, Battle, Dialogue}
 public class GameController : MonoBehaviour
 {
+
+    // Main controller for the game state
+    // Acts as a hub for multiple intersecting components
+
     [SerializeField] PlayerControl playerControl;
     [SerializeField] BattleSystem battleSystem;
     [SerializeField] Camera worldCamera;
@@ -11,6 +18,7 @@ public class GameController : MonoBehaviour
     GameState state;
 
     public static GameController Instance { get; private set; }
+    private HashSet<string> defeatedBossLevels = new HashSet<string>();
 
     public void Awake()
     {
@@ -23,9 +31,20 @@ public class GameController : MonoBehaviour
         }
         Instance = this;
         DontDestroyOnLoad( gameObject );
+
+        SceneManager.sceneLoaded += OnSceneLoaded;
     }
 
-    private void Start()
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        // grab the unlocked level and buildIndex from LevelManager
+        int lvl = LevelManager.Instance.UnlockedLevel;
+        int idx = LevelManager.Instance.GetCurrentBuildIndex();
+        Debug.Log($"[GameController] Scene \"{scene.name}\" loaded ¡ú LevelNumber = {lvl}, BuildIndex = {idx}");
+    }
+
+
+private void Start()
     {
         //playerControl.OnEncountered += StartBattle;
         battleSystem.OnBattleOver += EndBattle;
@@ -91,6 +110,19 @@ public class GameController : MonoBehaviour
         battleSystem.gameObject.SetActive(false);
         playerControl.gameObject.SetActive(true);
         worldCamera.gameObject.SetActive(true);
+    }
+
+    // checks if boss is defeated
+    public void MarkBossDefeated()
+    {
+        string sceneName = SceneManager.GetActiveScene().name;
+        defeatedBossLevels.Add(sceneName);
+        Debug.Log($"Boss in {sceneName} marked as defeated");
+    }
+
+    public bool IsCurrentLevelBossDefeated()
+    {
+        return defeatedBossLevels.Contains(SceneManager.GetActiveScene().name);
     }
 
     // Update is called once per frame

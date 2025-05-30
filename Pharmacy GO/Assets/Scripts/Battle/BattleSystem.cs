@@ -7,6 +7,10 @@ using System;
 public enum BattleState { START, PLAYERACTION, PLAYERANSWER, END}
 public class BattleSystem : MonoBehaviour
 {
+
+    // Manager for the battle system
+    // Handles flow through entire battle and calls to external battle components, e.g. boss manager
+
     [SerializeField] private MapArea mapData;
     [SerializeField] private QuestionSection questionSection;
     [SerializeField] private DialogBox dialogBox;
@@ -50,7 +54,8 @@ public class BattleSystem : MonoBehaviour
         currentAction = 0;
         currentAnswer = 0;      
         dialogBox.ResetDalogBox();
-        hudController.TurnHudOff();
+        //hudController.TurnHudOff();
+        hudController.EnteringBattle();
         StartCoroutine(SetupBattle());
     }
 
@@ -74,7 +79,8 @@ public class BattleSystem : MonoBehaviour
         currentAction = 0;
         currentAnswer = 0;
         dialogBox.ResetDalogBox();
-        hudController.TurnHudOff();
+        //hudController.TurnHudOff();
+        hudController.EnteringBattle();
         StartCoroutine(SetupBattle());
     }
 
@@ -104,24 +110,60 @@ public class BattleSystem : MonoBehaviour
         //     dialogBox.SetAnswerImages(null); // Pass null if there are no images
         // }
         questionUnit.SetImage(question);
+
+        Coroutine currentDialog = null;
+
         if (!isBossBattle)
         {
-            yield return StartCoroutine(dialogBox.TypeDialog("A wild question appeared!"));
+            currentDialog = StartCoroutine(dialogBox.TypeDialog("A wild question appeared!"));
+            yield return WaitForSpaceOrComplete(currentDialog, 2.0f); // Wait max 1.5 sec or until space
+            // yield return StartCoroutine(dialogBox.TypeDialog("A wild question appeared!"));
         }
         else if (currentBossQuestion == 0)
         {
-            yield return StartCoroutine(dialogBox.TypeDialog("Time for the test!"));
+            currentDialog = StartCoroutine(dialogBox.TypeDialog("Time for the test!"));
+            yield return WaitForSpaceOrComplete(currentDialog, 2.0f);
+            // yield return StartCoroutine(dialogBox.TypeDialog("Time for the test!"));
         }
         else
         {
-            yield return StartCoroutine(dialogBox.TypeDialog("Next question!"));
+            currentDialog = StartCoroutine(dialogBox.TypeDialog("Next question!"));
+            yield return WaitForSpaceOrComplete(currentDialog, 1.5f);
+            // yield return StartCoroutine(dialogBox.TypeDialog("Next question!"));
         }
-        yield return new WaitForSeconds(1f);
 
-        StartCoroutine(dialogBox.TypeDialog("Pick the choice!"));
-        yield return new WaitForSeconds(1f);
+        currentDialog = StartCoroutine(dialogBox.TypeDialog("Pick the choice!"));
+        yield return WaitForSpaceOrComplete(currentDialog, 1f); // Wait max 1 sec or until space
+
+        //yield return new WaitForSeconds(1f);
+
+        //StartCoroutine(dialogBox.TypeDialog("Pick the choice!"));
+        //yield return new WaitForSeconds(1f);
         state = BattleState.PLAYERANSWER;
     }
+
+
+    private IEnumerator WaitForSpaceOrComplete(Coroutine typingCoroutine, float maxWaitTime)
+    {
+        float elapsed = 0;
+        bool skipped = false;
+
+        while (elapsed < maxWaitTime && !skipped)
+        {
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                skipped = true;
+                if (typingCoroutine != null)
+                {
+                    StopCoroutine(typingCoroutine);
+                    dialogBox.ForceCompleteText(); // Implement this in DialogBox
+                }
+            }
+            elapsed += Time.deltaTime;
+            yield return null;
+        }
+    }
+
 
     public void SetMapData(MapArea newMapData)
     {
@@ -228,25 +270,36 @@ public class BattleSystem : MonoBehaviour
         state = BattleState.END;
         Debug.Log("answerCorrect: " + answerCorrect);
         dialogBox.EnableDialogText(true);
-            if (answerCorrect){
-                if (isBossBattle)
-                {
-                    bossQuestionsRight += 1;
-                }
-                else
-                {
-                    CoinManager.Instance.AddCoin(1); // Add a coin
-                }
-                ScoreManager.Instance.AddScore(mapData.GetCorrectStreak(), mapData.GetDifficulty()); // Increment score based on streak and difficulty
-                mapData.CorrectAnswer(1); // Track question streak
-                yield return StartCoroutine(dialogBox.TypeDialog("Correct!"));
+
+        int previousScore = ScoreManager.Instance.GetScoreCount();
+
+
+        if (answerCorrect)
+        {
+            ScoreManager.Instance.AddScore(true); // Increment score
+            int pointsEarned = ScoreManager.Instance.GetScoreCount() - previousScore;
+            mapData.CorrectAnswer(1); // Track question streak
+            string rewardText;
+            if (isBossBattle)
+            {
+                rewardText = $"Correct! Rewards: {pointsEarned} points";
+                bossQuestionsRight += 1;
             }
-            else{
-                mapData.CorrectAnswer(0);
-                //Debug.Log("Should be typing incorrect");
-                yield return StartCoroutine(dialogBox.TypeDialog("Incorrect!"));
-                //Debug.Log("Returned from typing incorrect?");
+            else
+            {
+                rewardText = $"Correct! Rewards: +1 coin, +{pointsEarned} points";
+                CoinManager.Instance.AddCoin(1); // Add a coin
+            }
+
+
+            yield return StartCoroutine(dialogBox.TypeDialog(rewardText));
         }
+        else
+        {
+            mapData.CorrectAnswer(0);
+            yield return StartCoroutine(dialogBox.TypeDialog("Incorrect!"));
+        }
+
         if (isBossBattle)
         {
             yield return new WaitForSeconds(2.5f);
@@ -260,20 +313,27 @@ public class BattleSystem : MonoBehaviour
             {
                 if (bossQuestionsRight == maxBossQuestions)
                 {
+                    bossQuestionsRight = 0;
+                    currentBossQuestion = 0;
                     yield return StartCoroutine(dialogBox.TypeDialog("You got them all right! You win!"));
+
+                    GameController.Instance.MarkBossDefeated();
 
                     LevelManager.Instance.UnlockNextLevel();
 
                     dialogBox.ResetDalogBox();
                     if (levelCompletePanel != null)
                     {
+                        ScoreManager.Instance.AddScore(false, 10000);
+                        TimerManager.Instance.StopTimer();
                         levelCompletePanel.SetActive(true);
                         yield return new WaitForSeconds(3f); 
                         levelCompletePanel.SetActive(false);
                     }
 
                     OnBattleOver(answerCorrect);
-                    hudController.TurnHudOn();
+                    //hudController.TurnHudOn();
+                    hudController.ExitingBattle();
                     yield return null;
                 }
                 else
@@ -286,7 +346,8 @@ public class BattleSystem : MonoBehaviour
         }
         yield return new WaitForSeconds(2.5f);
         dialogBox.ResetDalogBox();
-        hudController.TurnHudOn();
+        //hudController.TurnHudOn();
+        hudController.ExitingBattle();
         OnBattleOver(answerCorrect);
     }                                                                                                                                                                                                                            
 
