@@ -73,6 +73,62 @@
 
 * MapArea Question Logic
 
+# Level Creation
+The way we have level creation set up is depended on from one person to another. However, we have used specific steps when we have created most of our levels to make them consistent.
+
+* **Step 1: Make a copy of the level "_Scene Copies" and rename that copy to whatever you want it to be named.**
+* We have a quick template that has the grid set up and functioning for level creation.
+* It has some objects missing, like the light source. These can be added by generally looking at other levels and just copying and pasting them.
+
+* **Step 2: Make a rough outline of what the level should look like.**
+* This is normally done on the "background (0)" layer in the "Grid" object.
+
+* **Step 3: Fill out the outline and any major details.**
+* This can be anything from the small islands in Level 4 to as big as the cave tunnels in Level 2.
+
+* **Step 4: Put in all the small details.**
+* This would be trees, decorations, houses, etc.
+
+* **Explanation Of Each Layer**
+* background (-1): A background layer that is below the standard background. Used for placing backgrounds behind transparent background items.
+* background (0): A background layer that is called the standard background. Where most everything that's in the background is.
+* Background Cosmetics: A background layer that is above the standard background. Used mostly for anything that the player should walk behind.
+* Foreground Cosmetics: A foreground layer that is normally the standard foreground. Used normally for anything that should be shown in front of the player as they walk, like trees and house tops.
+* SolidObjects: A Solid Object layer that does just that. Has a collider so that any tiles in it will prevent the player from walking through them.
+* Background Solids: A background layer that is two above the standard background. Has a collider, so is normally used for anything that should be behind the player, but the player should collide with.
+* LongGrass: A foreground layer that is at the same layer as the standard foreground. This is where any tile will be treated as Long Grass, causing the player to get questions more freqently inside of it. 
+
+
+* **Things to look out for**
+* A major reason why there are many layers in the Grid is simply to allow the level creator the freedom of having multiple tiles on top of each other. Make sure that the level you're placing tiles on is what you want.
+* Certan tiles need to have there Collider Type changed in Unity ether for the player to not clip though it, or for it to actualy have a collider. This is done by going into Assets > Art > Tiles and picking on the tile you want to change. Then changing its Collider Type to "Grid" if you want to stop players from clipping though it, or "Sprite" if you just need it to have a collider.
+
+# Adding Art
+Adding the art from the art pack we use can be finiky. We use 16 x 16 sprites in our game.
+
+* **Step 1: Add your art into Assets > Art > gfx**
+
+* **Step 2: Open the sprite editor and hit the slice**
+* Make sure that Type is "Grid By Cell Size", Pixel Size as 16 X and 16 Y.
+* Then you can hit slice.
+* Make sure to hit Apply in the top center-right area.
+
+* **Step 3: Change the base image settings**
+*Change the Pixels Per Unit to 16.
+* Change the Filter Mode to "Point (no filter)"
+* If the art that's getting added is too big, change the Max Size from 2048 to some type of power of 2, like 4096.
+* Make sure to hit the Apply button on the right side below the box thing.
+
+* **Step 4: Make a new pallet (skip if adding to a new pallet)**
+* Go to the Tile Pallet and click on the left side dropdown.
+* Then go to the bottom and create a new pallet. Name it whatever you want it to be.
+* The folder you want to save these to is Assets > Art > Tiles
+
+* **Step 5: Drag your art into the pallet**
+* The folder you want to save these to is Assets > Art > Tiles
+* Warning, it can take a few minutes if your artwork has numerous tiles. This is normal.
+
+
 # Map Transition
 
 * **SpawnPoint.cs**   
