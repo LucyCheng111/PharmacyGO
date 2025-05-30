@@ -100,6 +100,179 @@ The game is deployed on itch.io and can be reached here: (https://phgo.itch.io/p
 ![Image](https://github.com/user-attachments/assets/49b6bd9d-7c79-4cab-a3f4-0da9b774d726)<br/><br/>
 ![Image](https://github.com/user-attachments/assets/61f5a0fe-9efd-4455-b979-c38f526fec7d)<br/><br/>
 
+## Setup Instructions
+
+This Setup Assumes the following Prerequisites:
+* You have Unity 6000.0.24f1 installed
+* You have some understanding of Git/Github
+
+A tutorial for Git/Github: https://product.hubspot.com/blog/git-and-github-tutorial-for-beginners 
+
+To install Unity 6000.0.24f1:
+* Navigate to the Unity Download Archive: https://unity.com/releases/editor/archive 
+* Select “Unity 6”
+* Select “All Versions”
+* Scroll down to “6000.0.24f1” 
+* Click the “Install” button
+* This may require you to install “Unity Hub” to Proceed
+* Follow the instructions
+
+To Open the Project in Unity:
+* Clone the current Github repository: https://github.com/XY-L-1/Pharmacy-GO 
+* Instructions on how to clone a Github Repository: https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository 
+* Once you have cloned the repository to a folder on your computer, open “Unity Hub”
+* Select: “Add” then “Add a project from disk”
+* Navigate to your cloned repository folder and select it
+* The project should appear in the “Unity Hub” projects Tab
+* Click on the project to open it
+
+
+## Deployment Procedures
+
+To deploy the Project on an Itch.io page, the following prerequisites must be met:
+* You have access to an itch.io project page
+* You have the project loaded into the Unity Editor
+
+To create a new itch.io project page:
+* Create an itch account if you do not have one.
+* In the top left of the screen, find the profile dropdown menu 
+* In the menu, click on “create a new project”
+* Put your project name in the title area
+* Change “Kind of project” from “Downloadable” to “HTML”
+* Change “Pricing” from “$0 or Donate” to “Free”
+* Leave “Uploads” blank
+* Click “Save and View Page”
+
+To deploy the game we first need to have a build of the current game
+To build the game:
+* In the Unity editor, go to “File/Build Profiles” or hit Control Shift B
+* Under the platforms tab, click on “Web”
+* If the “Build” button is not interactable, press “Switch Platform”
+* This may take a few minutes
+* Press “Build”
+* Select the target folder
+* It is recommended to make a new folder in an easy to access place for the build
+* This may take a few minutes
+
+To Deploy the Game to the Itch Page:
+* Find the folder that contains the Build, and create a zipped folder of it 
+* Open the itch.io project page
+* This should be at “https://{USERNAME}.itch.io/{PROJECT TITLE}”
+* This can also be found by navigating to itch.io, dashboard, and the project title
+* On the itch.io page, click on “Edit Game”
+* Click on “Upload Files”
+* Find the zipped folder and select it
+* Click on “This file will be played in the browser” 
+* This is directly above the “Upload files” button
+* Change the “Embed options” from “Manually Set Size” to “Auto-Detect size”
+* In the “Frame Options”, enable “Mobile Friendly”
+* Save the page
+
+The Game should now be on the Itch.io page.
+Return to the Page and verify that it is playable.
+
+To Publish the game and make it visible to other people:
+* On the itch.io page, click on “Edit Game”
+* At the bottom of the page, change “Visibility & access” from “Draft” to “Public”
+* Open the Page in an incognito browser to verify that it works for any user.
+
+
+
+## Maintenance Guidelines
+Maintaining “Pharmacy Go!” is critical to ensure long-term reliability, educational accuracy, and engagement. The following guidelines outline best practices for maintaining both the frontend and backend components, as well as the database and study content.
+### 1. Content Maintenance
+* Regular Updates: Ensure quiz content remains aligned with the latest Pharmacy 736 curriculum. Periodically consult with faculty or course coordinators for updates.
+
+* Content Management Interface: Use the backend CMS to add, remove, or update questions. Avoid direct database edits unless absolutely necessary.
+
+* Version Control: Implement question versioning to allow rollback in case of incorrect or outdated content.
+
+### 2. Code Maintenance
+
+* Keep Unity and relevant plugins up to date.
+
+* Ensure cross-platform compatibility with every build (desktop and mobile browsers).
+
+
+* Use source control (e.g. GitHub) and enforce commit messages tied to feature additions, bug fixes, or content updates.
+
+
+### 3. Database Maintenance 
+* Data Integrity: Validate new entries (questions, users, scores) against schemas.
+
+* Backups: Schedule regular database backups to ensure data recovery in the event of failure.
+
+* Indexes: Monitor and maintain indexes to keep query performance optimal.
+
+### 4. User Data & Privacy
+* Store only minimal personal data if needed. Anonymize data when feasible.
+
+* Adhere to your institution’s data privacy and storage policies.
+
+### 5. Logging & Monitoring
+* Use logging libraries to log backend errors and important events.
+
+* Review logs periodically to preemptively catch errors or abuse.
+
+* Track Unity errors during runtime.
+
+
+
+## Troubleshooting Section
+
+This section provides common issues and how to resolve them.
+
+Issue: Game doesn’t load in browser
+Possible Causes:
+* Unity WebGL build not hosted correctly.
+
+* Browser caching an older version.
+
+Solutions:
+* Clear the browser cache and reload.
+
+* Confirm that WebGL build files are correctly deployed.
+
+
+Issue: Questions not loading or empty battle screen
+Possible Causes:
+* Local cache not syncing with database.
+
+* Backend API not reachable.
+
+* Database document format error.
+
+Solutions:
+* Check if internet connection is active (if not in offline mode).
+
+* Restart the backend server if needed.
+
+Issue: Game crashes or freezes during play
+Possible Causes:
+* Asset loading issues.
+
+* Logic error in Unity script.
+
+* Corrupted browser cache.
+
+Solutions:
+* Reload the game and clear the browser cache.
+
+* Test using Unity Editor’s console to locate logic errors.
+
+* Check for missing assets or animations in the level or question scenes.
+
+Issue: Incorrect answer marked correct or vice versa
+Possible Causes:
+* Incorrect mapping of correct answers in database.
+
+* Frontend logic misreading the correct answer field.
+
+Solutions:
+* Review and correct the question entry in the database.
+
+* Test the logic in Unity that compares user selection against the correct answer.
+
 ## Contact Us
 If you have any feedback or bugs to report about the game, please follow the link here: https://oregonstate.qualtrics.com/jfe/form/SV_3IfO3l2H7FbOOuW
 
