@@ -12,11 +12,11 @@
 
 # Project Structure
 
-![][image1]
+![Image](https://github.com/user-attachments/assets/00212a6d-0bce-479b-8bb0-ef8f5104c286)
 
 # Scripts Structure
 
-![][image2]
+![Image](https://github.com/user-attachments/assets/e7aa0af3-42ef-4da5-a145-3fff324c9ff3)
 
 # Core System
 
@@ -119,11 +119,3 @@ Maps are connected by portals and spawn points.
 * **TimerManager.cs & TimerDisplay.cs**   
   * Tracks the level elapsed time.   
   * GetMultiplier(): time-based scoring multiplier tiers.
-
-# Extension Points & Future to do
-
-* Refers to [https://docs.google.com/document/d/15g5myaUmi3ZtB-9sSFVDsmlTkK20WzN-eSPucrvHBLA/edit?tab=t.0\#heading=h.9ibmsy1p3kpx](https://docs.google.com/document/d/15g5myaUmi3ZtB-9sSFVDsmlTkK20WzN-eSPucrvHBLA/edit?tab=t.0#heading=h.9ibmsy1p3kpx) 
-
-[image1]: <https://private-user-images.githubusercontent.com/97140904/449366559-e7aa0af3-42ef-4da5-a145-3fff324c9ff3.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3NDg2MzI4OTQsIm5iZiI6MTc0ODYzMjU5NCwicGF0aCI6Ii85NzE0MDkwNC80NDkzNjY1NTktZTdhYTBhZjMtNDJlZi00ZGE1LWExNDUtM2ZmZjMyNGM5ZmYzLnBuZz9YLUFtei1BbGdvcml0aG09QVdTNC1ITUFDLVNIQTI1NiZYLUFtei1DcmVkZW50aWFsPUFLSUFWQ09EWUxTQTUzUFFLNFpBJTJGMjAyNTA1MzAlMkZ1cy1lYXN0LTElMkZzMyUyRmF3czRfcmVxdWVzdCZYLUFtei1EYXRlPTIwMjUwNTMwVDE5MTYzNFomWC1BbXotRXhwaXJlcz0zMDAmWC1BbXotU2lnbmF0dXJlPWFiNjlhNDc1MTc2YTBlMDgwZjNiYzMwOWY3MzU4ODM0ODI0NjI0NGJhNzYzODQyZGZlOWQzYzEzMzM0NjljNGEmWC1BbXotU2lnbmVkSGVhZGVycz1ob3N0In0.IpN9Ts5KXcgabdav7zrHCOu8F5IGgLhSUlJmuOxUFbU>
-
-[image2]: https://private-user-images.githubusercontent.com/97140904/449366559-e7aa0af3-42ef-4da5-a145-3fff324c9ff3.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3NDg2MzI4OTQsIm5iZiI6MTc0ODYzMjU5NCwicGF0aCI6Ii85NzE0MDkwNC80NDkzNjY1NTktZTdhYTBhZjMtNDJlZi00ZGE1LWExNDUtM2ZmZjMyNGM5ZmYzLnBuZz9YLUFtei1BbGdvcml0aG09QVdTNC1ITUFDLVNIQTI1NiZYLUFtei1DcmVkZW50aWFsPUFLSUFWQ09EWUxTQTUzUFFLNFpBJTJGMjAyNTA1MzAlMkZ1cy1lYXN0LTElMkZzMyUyRmF3czRfcmVxdWVzdCZYLUFtei1EYXRlPTIwMjUwNTMwVDE5MTYzNFomWC1BbXotRXhwaXJlcz0zMDAmWC1BbXotU2lnbmF0dXJlPWFiNjlhNDc1MTc2YTBlMDgwZjNiYzMwOWY3MzU4ODM0ODI0NjI0NGJhNzYzODQyZGZlOWQzYzEzMzM0NjljNGEmWC1BbXotU2lnbmVkSGVhZGVycz1ob3N0In0.IpN9Ts5KXcgabdav7zrHCOu8F5IGgLhSUlJmuOxUFbU
