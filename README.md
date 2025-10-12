@@ -5,6 +5,7 @@ Pharmacy GO! is a Pokémon-style adventure game that helps students master PHAR7
 
 ## Team Roster
 - Lucy Cheng — chengjuh@oregonstate.edu
+- Annmarie Geiger - geigerta@oregonstate.edu
 
 
 ## Contact
