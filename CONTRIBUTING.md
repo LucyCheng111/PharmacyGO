@@ -46,6 +46,10 @@ State how to report vulnerabilities, prohibited patterns (hard-coded secrets), d
 
 Specify what must be updated (README, docs/, API refs, CHANGELOG) and docstring/comment standards.
 
+-Update README, CHANGELOG with every feature after successful merge and PR
+-Include docstring and comments for added functionality
+-For any functionality that will not be used by dev team, provide instructions for proper usage
+
 ## Release Process
 
 Describe versioning scheme, tagging, changelog generation, packaging/publishing steps, and rollback process.
