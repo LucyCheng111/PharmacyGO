@@ -12,7 +12,6 @@ public class JoystickCanvas : MonoBehaviour
         if (instance == null)
         {
             instance = this;
-            DontDestroyOnLoad(gameObject);
         }
         else
         {

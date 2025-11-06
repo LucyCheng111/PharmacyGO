@@ -133,7 +133,6 @@ GameObject:
   - component: {fileID: 8463730880880842406}
   - component: {fileID: 6269784156509738337}
   - component: {fileID: 7437785458107524368}
-  - component: {fileID: 5776765192453828524}
   - component: {fileID: 6486153027805538213}
   m_Layer: 5
   m_Name: Index UI
@@ -141,7 +140,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &6248348401879504005
 RectTransform:
   m_ObjectHideFlags: 0
@@ -230,26 +229,6 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
---- !u!114 &5776765192453828524
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 687442835150015391}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5e2249fdbdaafa745a373f6a02a59a18, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerControl: {fileID: 0}
-  Topic1Button: {fileID: 3217730525753970671}
-  Topic2Button: {fileID: 7631654462076609333}
-  Topic3Button: {fileID: 5934711246495076912}
-  Topic4Button: {fileID: 4271880068170043681}
-  buttonPrefab: {fileID: 8879953854670777811, guid: 255156fe03fefb8469e67bd73148deef, type: 3}
-  scrollRectPrefab: {fileID: 3477218868914114103, guid: 6a0daec9619a2194cb721ca71e2f2659, type: 3}
-  IndexUIPanel: {fileID: 687442835150015391}
 --- !u!225 &6486153027805538213
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -1877,10 +1856,6 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 2491596265034535732, guid: 71dfd3cd2e57ad443a88b8fd7f39d6ef, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 5776765192453828524}
     - target: {fileID: 2491596265034535732, guid: 71dfd3cd2e57ad443a88b8fd7f39d6ef, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2

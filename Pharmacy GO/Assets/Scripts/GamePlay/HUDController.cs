@@ -17,12 +17,11 @@ public class HudController : MonoBehaviour
     [SerializeField] GameObject timerDisplay;
     [SerializeField] GameObject multiplierDisplay;
 
+    [SerializeField] GameObject Counters; //coin, score, etc...
+
     public void TurnHudOn()
     {
-        coinCounter.SetActive(true);
-        scoreCounter.SetActive(true);
-        timerDisplay.SetActive(true);
-        multiplierDisplay.SetActive(true);
+        Counters.SetActive(true);
         // toolUICanvas.SetActive(true);
         // if (Application.isMobilePlatform)
         // {
@@ -36,12 +35,9 @@ public class HudController : MonoBehaviour
 
     public void TurnHudOff()
     {
-        coinCounter.SetActive(false);
-        scoreCounter.SetActive(false);
         toolUICanvas.SetActive(false);
-        joyStickCanvas.SetActive(false);
-        timerDisplay.SetActive(false);
-        multiplierDisplay.SetActive(false);
+        joyStickCanvas.SetActive(false); 
+        Counters.SetActive(false);
     }
 
     public void EnteringBattle()
@@ -61,7 +57,7 @@ public class HudController : MonoBehaviour
         timerDisplay.GetComponent<TMP_Text>().color = Color.white;
         multiplierDisplay.GetComponent<TMP_Text>().color = Color.white;
         if (toolUICanvas != null) toolUICanvas.SetActive(true);
-        if (Application.isMobilePlatform && joyStickCanvas != null)
+        if (joyStickCanvas != null)
             joyStickCanvas.SetActive(true);
     }
 }

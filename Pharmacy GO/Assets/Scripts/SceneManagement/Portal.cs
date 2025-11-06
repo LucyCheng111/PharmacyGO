@@ -41,11 +41,12 @@ public class Portal : MonoBehaviour
 
     private IEnumerator Start()
     {
-        RefreshPortalEffect();
+        
 
         portalCollider.enabled = false;
         yield return new WaitForSeconds(2f);
         portalCollider.enabled = true;
+        RefreshPortalEffect();
     }
 
     private void OnTriggerEnter2D(Collider2D other)
