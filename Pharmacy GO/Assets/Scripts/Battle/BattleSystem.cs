@@ -21,7 +21,7 @@ public class BattleSystem : MonoBehaviour
     public event Action<bool> OnBattleOver;
 
     BattleState state;
-    int currentAction;  // store user selected action
+    //int currentAction;  // store user selected action
     int currentAnswer;  // store user selected answer
     IEnumerator chooseAction;
     Question question;
@@ -51,7 +51,7 @@ public class BattleSystem : MonoBehaviour
         this.question = mapData.GetRandomQuestion();
         Debug.Log(this.question.question);
         Debug.Log(this.question.options);
-        currentAction = 0;
+        //currentAction = 0;
         currentAnswer = 0;      
         dialogBox.ResetDalogBox();
         //hudController.TurnHudOff();
@@ -76,7 +76,7 @@ public class BattleSystem : MonoBehaviour
         this.question = mapData.GetRandomQuestion();
         Debug.Log(this.question.question);
         Debug.Log(this.question.options);
-        currentAction = 0;
+        //currentAction = 0;
         currentAnswer = 0;
         dialogBox.ResetDalogBox();
         //hudController.TurnHudOff();

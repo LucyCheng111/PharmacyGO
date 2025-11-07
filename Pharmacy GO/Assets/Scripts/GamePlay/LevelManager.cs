@@ -32,7 +32,7 @@ public class LevelManager : MonoBehaviour
             Instance = this;
             DontDestroyOnLoad(gameObject);
             UnlockedLevel = PlayerPrefs.GetInt("UnlockedLevel", 1);
-            Debug.Log($"[LevelManager] Awake ¡ú UnlockedLevel = {UnlockedLevel}");
+            Debug.Log($"[LevelManager] Awake ï¿½ï¿½ UnlockedLevel = {UnlockedLevel}");
         }
         else
         {
@@ -52,7 +52,7 @@ public class LevelManager : MonoBehaviour
             PlayerPrefs.Save();
         }
         
-        foreach (var portal in FindObjectsOfType<Portal>())
+        foreach (var portal in FindObjectsByType<Portal>(FindObjectsSortMode.None))
             portal.RefreshPortalEffect();
     }
 
@@ -65,7 +65,7 @@ public class LevelManager : MonoBehaviour
         }
 
         var phgoMap = levelMap.Find(e => e.levelNumber == levelNumber);
-        Debug.Log($"[LevelManager] LoadLevel({levelNumber}) ¡ú buildIndex = {phgoMap.buildIndex}");
+        Debug.Log($"[LevelManager] LoadLevel({levelNumber}) ï¿½ï¿½ buildIndex = {phgoMap.buildIndex}");
 
         if (phgoMap.buildIndex >= 0)
             return SceneManager.LoadSceneAsync(phgoMap.buildIndex);
@@ -101,7 +101,7 @@ private void Update()
             PlayerPrefs.Save();
 
             // Immediate refresh and update
-            foreach(var portal in FindObjectsOfType<Portal>())
+            foreach(var portal in FindObjectsByType<Portal>(FindObjectsSortMode.None))
                 portal.RefreshPortalEffect();
 
         }

@@ -1,8 +1,9 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using System.Collections.Generic;
+using System.Collections;
 
-
+[System.Serializable]
 public enum GameState {FreeRoam, Battle, Dialogue}
 public class GameController : MonoBehaviour
 {
@@ -15,7 +16,7 @@ public class GameController : MonoBehaviour
     [SerializeField] Camera worldCamera;
 
 
-    GameState state;
+    [SerializeField] GameState state;
 
     public static GameController Instance { get; private set; }
     private HashSet<string> defeatedBossLevels = new HashSet<string>();
@@ -40,7 +41,7 @@ public class GameController : MonoBehaviour
         // grab the unlocked level and buildIndex from LevelManager
         int lvl = LevelManager.Instance.UnlockedLevel;
         int idx = LevelManager.Instance.GetCurrentBuildIndex();
-        Debug.Log($"[GameController] Scene \"{scene.name}\" loaded ¡ú LevelNumber = {lvl}, BuildIndex = {idx}");
+        Debug.Log($"[GameController] Scene \"{scene.name}\" loaded ï¿½ï¿½ LevelNumber = {lvl}, BuildIndex = {idx}");
     }
 
 
