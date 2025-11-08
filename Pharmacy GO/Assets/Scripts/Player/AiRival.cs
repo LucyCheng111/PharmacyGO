@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class SimpleFollowAnim : MonoBehaviour
+public class AiRival: MonoBehaviour
 {
     public Transform player;
     public float moveSpeed = 4f;
