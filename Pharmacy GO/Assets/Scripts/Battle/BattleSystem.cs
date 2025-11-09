@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Data.Common;
 using System;
+using System.Timers;
 
 public enum BattleState { START, PLAYERACTION, PLAYERANSWER, END}
 public class BattleSystem : MonoBehaviour
@@ -17,6 +18,7 @@ public class BattleSystem : MonoBehaviour
     [SerializeField] private QuestionUnit questionUnit;
     [SerializeField] private HudController hudController;
     [SerializeField] private GameObject levelCompletePanel;
+    [SerializeField] private float timeLimit = 15f;
 
     public event Action<bool> OnBattleOver;
 
@@ -187,6 +189,12 @@ public class BattleSystem : MonoBehaviour
             dialogBox.EnableDialogText(false);
             dialogBox.EnableOptionSelector(true);
             HandleAnswer();
+
+            // Start the rival timer
+            if (rivalTimer == null)
+            {
+                rivalTimer = StartCoroutine(BattleTimer(timeLimit));
+            }
         }
         else if (state == BattleState.END)
         {
@@ -372,5 +380,25 @@ public class BattleSystem : MonoBehaviour
             }
         }
 
+    }
+
+    private Coroutine rivalTimer;
+    private IEnumerator BattleTimer(float duration)
+    {
+        float elaspedTime = 0f;
+        while (elaspedTime < duration && state == BattleState.PLAYERANSWER)
+        {
+            elaspedTime += Time.deltaTime;
+            yield return null;
+        }
+
+        // If the player fails to make an answer when the timer reaches 0
+        if (state == BattleState.PLAYERANSWER)
+        {
+            Debug.Log("Times up, you lose!");
+            StartCoroutine(EndBattle(false));  // Auto lose
+        }
+
+        rivalTimer = null;  // Reset for next battle
     }
 }
