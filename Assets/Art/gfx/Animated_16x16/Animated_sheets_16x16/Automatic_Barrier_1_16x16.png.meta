@@ -1,0 +1,507 @@
+fileFormatVersion: 2
+guid: 8f383dba256a6184a9b468ee16457898
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -4831032056592878572
+    second: Automatic_Barrier_1_16x16_0
+  - first:
+      213: -7185511547949684654
+    second: Automatic_Barrier_1_16x16_1
+  - first:
+      213: -7766183509388669867
+    second: Automatic_Barrier_1_16x16_2
+  - first:
+      213: -1640926721972102365
+    second: Automatic_Barrier_1_16x16_3
+  - first:
+      213: -935931737803610891
+    second: Automatic_Barrier_1_16x16_4
+  - first:
+      213: -3518186580740554592
+    second: Automatic_Barrier_1_16x16_5
+  - first:
+      213: 3653414338221508668
+    second: Automatic_Barrier_1_16x16_6
+  - first:
+      213: 8742812864501831199
+    second: Automatic_Barrier_1_16x16_7
+  - first:
+      213: -1259514755213279382
+    second: Automatic_Barrier_1_16x16_8
+  - first:
+      213: -2700225315912546622
+    second: Automatic_Barrier_1_16x16_9
+  - first:
+      213: 5684768060523720734
+    second: Automatic_Barrier_1_16x16_10
+  - first:
+      213: -972226819922775720
+    second: Automatic_Barrier_1_16x16_11
+  - first:
+      213: 235653554593177090
+    second: Automatic_Barrier_1_16x16_12
+  - first:
+      213: 4205549376379777630
+    second: Automatic_Barrier_1_16x16_13
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Automatic_Barrier_1_16x16_0
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 0
+        width: 74
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 414b140c0f9b4fcb0800000000000000
+      internalID: -4831032056592878572
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Automatic_Barrier_1_16x16_1
+      rect:
+        serializedVersion: 2
+        x: 83
+        y: 0
+        width: 73
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 258edfe415fe74c90800000000000000
+      internalID: -7185511547949684654
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Automatic_Barrier_1_16x16_2
+      rect:
+        serializedVersion: 2
+        x: 163
+        y: 0
+        width: 69
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 55c4466ce39f83490800000000000000
+      internalID: -7766183509388669867
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Automatic_Barrier_1_16x16_3
+      rect:
+        serializedVersion: 2
+        x: 243
+        y: 0
+        width: 63
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 32b186227d14a39e0800000000000000
+      internalID: -1640926721972102365
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Automatic_Barrier_1_16x16_4
+      rect:
+        serializedVersion: 2
+        x: 323
+        y: 0
+        width: 57
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5f4a3321b07e203f0800000000000000
+      internalID: -935931737803610891
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Automatic_Barrier_1_16x16_5
+      rect:
+        serializedVersion: 2
+        x: 403
+        y: 0
+        width: 36
+        height: 67
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0a0c969e1f3ec2fc0800000000000000
+      internalID: -3518186580740554592
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Automatic_Barrier_1_16x16_6
+      rect:
+        serializedVersion: 2
+        x: 483
+        y: 0
+        width: 21
+        height: 71
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c380307ebf883b230800000000000000
+      internalID: 3653414338221508668
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Automatic_Barrier_1_16x16_7
+      rect:
+        serializedVersion: 2
+        x: 563
+        y: 0
+        width: 20
+        height: 72
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f16d8569af5b45970800000000000000
+      internalID: 8742812864501831199
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Automatic_Barrier_1_16x16_8
+      rect:
+        serializedVersion: 2
+        x: 643
+        y: 0
+        width: 21
+        height: 71
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a6f362ad00e458ee0800000000000000
+      internalID: -1259514755213279382
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Automatic_Barrier_1_16x16_9
+      rect:
+        serializedVersion: 2
+        x: 723
+        y: 0
+        width: 36
+        height: 67
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2c6048fa16fd68ad0800000000000000
+      internalID: -2700225315912546622
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Automatic_Barrier_1_16x16_10
+      rect:
+        serializedVersion: 2
+        x: 803
+        y: 0
+        width: 57
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e10b00e8e6a54ee40800000000000000
+      internalID: 5684768060523720734
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Automatic_Barrier_1_16x16_11
+      rect:
+        serializedVersion: 2
+        x: 883
+        y: 0
+        width: 63
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 851356dbbd4f182f0800000000000000
+      internalID: -972226819922775720
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Automatic_Barrier_1_16x16_12
+      rect:
+        serializedVersion: 2
+        x: 963
+        y: 0
+        width: 69
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 20e959bc8a5354300800000000000000
+      internalID: 235653554593177090
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Automatic_Barrier_1_16x16_13
+      rect:
+        serializedVersion: 2
+        x: 1043
+        y: 0
+        width: 73
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e527b7830ec1d5a30800000000000000
+      internalID: 4205549376379777630
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Automatic_Barrier_1_16x16_0: -4831032056592878572
+      Automatic_Barrier_1_16x16_1: -7185511547949684654
+      Automatic_Barrier_1_16x16_10: 5684768060523720734
+      Automatic_Barrier_1_16x16_11: -972226819922775720
+      Automatic_Barrier_1_16x16_12: 235653554593177090
+      Automatic_Barrier_1_16x16_13: 4205549376379777630
+      Automatic_Barrier_1_16x16_2: -7766183509388669867
+      Automatic_Barrier_1_16x16_3: -1640926721972102365
+      Automatic_Barrier_1_16x16_4: -935931737803610891
+      Automatic_Barrier_1_16x16_5: -3518186580740554592
+      Automatic_Barrier_1_16x16_6: 3653414338221508668
+      Automatic_Barrier_1_16x16_7: 8742812864501831199
+      Automatic_Barrier_1_16x16_8: -1259514755213279382
+      Automatic_Barrier_1_16x16_9: -2700225315912546622
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
