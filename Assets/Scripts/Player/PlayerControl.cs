@@ -15,7 +15,7 @@ public class PlayerControl : MonoBehaviour
 
     public static PlayerControl Instance { get; private set; }
 
-    public float moveSpeed;
+    public float moveSpeed =5f;
     public LayerMask solidObjectsLayer;
     public LayerMask interactableLayer;
     public LayerMask grassLayer;
@@ -29,6 +29,7 @@ public class PlayerControl : MonoBehaviour
     private bool isInEncounter = false;
 
     private bool isMoving;
+    private bool isSprinting;
     private Vector2 input;
 
     private Animator animator;
@@ -79,6 +80,16 @@ public class PlayerControl : MonoBehaviour
                 animator.SetFloat("moveX", input.x);
                 animator.SetFloat("moveY", input.y);
                 var targetPos = transform.position; // current position of the player
+
+                if (Input.GetKey(KeyCode.LeftShift))
+                {
+                    isSprinting = true;
+                }
+                else
+                {
+                    isSprinting = false;
+                }
+
                 targetPos.x += input.x;
                 targetPos.y += input.y;
                 PromptCheck();
@@ -155,7 +166,8 @@ public class PlayerControl : MonoBehaviour
     {
         while ((targetPos - transform.position).sqrMagnitude > Mathf.Epsilon) 
         {
-            transform.position = Vector3.MoveTowards(transform.position, targetPos, moveSpeed * Time.deltaTime);
+            float currentSpeed = isSprinting ? moveSpeed * 2.0f : moveSpeed;
+            transform.position = Vector3.MoveTowards(transform.position, targetPos, currentSpeed * Time.deltaTime);
             yield return null;
         }
         transform.position = targetPos;
