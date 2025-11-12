@@ -27,6 +27,7 @@ public class PlayerControl : MonoBehaviour
     private Coroutine moveCoroutine;
 
     private bool isInEncounter = false;
+    private bool noClipEnabled = false;
 
     private bool isMoving;
     private bool isSprinting;
@@ -66,7 +67,8 @@ public class PlayerControl : MonoBehaviour
 
     public void HandleUpdate()
     {
-        if (!isMoving && !isInEncounter){ 
+        if (isInEncounter) return;
+
             // Get the input from the player
             float h = joystick.Horizontal;
             float v = joystick.Vertical;
@@ -75,6 +77,48 @@ public class PlayerControl : MonoBehaviour
             input.x = Mathf.Abs(h) > 0.1f ? h : Input.GetAxisRaw("Horizontal");
             input.y = Mathf.Abs(v) > 0.1f ? v : Input.GetAxisRaw("Vertical");
 
+            //normalize diagonal movement to prevent faster movement when moving at an angle
+            if (input.magnitude > 1f){
+                input.Normalize();
+            }
+
+            //check if the player is sprinting
+
+            isSprinting = Input.GetKey(KeyCode.LeftShift);
+            float currentSpeed = isSprinting  ? moveSpeed * 2.0f: moveSpeed;
+            //note to self: this is the ternary conditional operator, basically:
+            // condition ? ifTrue : ifFalse;
+
+            //apply movement transformation
+            Vector3 movementVector = new Vector3(input.x,input.y,0f) * currentSpeed * Time.deltaTime;
+
+
+            //when we add a sprinting animation we will add the logic for it here
+
+            if(movementVector != Vector3.zero && IsWalkable(transform.position + movementVector)){
+                transform.position += movementVector;
+                isMoving = true;
+                PromptCheck();
+
+            }
+
+            if(input.magnitude > 0.1f){
+                            
+                animator.SetFloat("moveX", input.x);
+                animator.SetFloat("moveY", input.y);
+                animator.SetBool("isMoving",true);
+            }else{
+                animator.SetBool("isMoving",false);
+
+            }
+
+            //isMoving = false;
+            //animator.SetBool("isMoving",isMoving);
+            CheckForEncounters();
+            PromptCheck();
+
+
+            /*
             if (input != Vector2.zero)
             {   
                 animator.SetFloat("moveX", input.x);
@@ -98,7 +142,8 @@ public class PlayerControl : MonoBehaviour
                     StartCoroutine(Move(targetPos));
                 
             }
-            animator.SetBool("isMoving", isMoving);
+            */
+            //animator.SetBool("isMoving", isMoving);
 
             if(Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0))
             {
@@ -112,8 +157,20 @@ public class PlayerControl : MonoBehaviour
                 CoinManager.Instance.AddCoin(10);
                 Debug.Log("Cheat activated: 10 coins added.");
             }
+
+
+            //noclip cheat for debug purposes
+            if(Input.GetKeyDown(KeyCode.N)){
+                if(noClipEnabled = true){
+                    Debug.Log("Cheat deactivated: NoClip Disabled");
+                    noClipEnabled = false;
+                }else{
+                    Debug.Log("Cheat activated: NoClip Enabled");
+                    noClipEnabled = true;
+                }
+
+            }
 #endif
-        }
     }
 
     void Interact()
@@ -180,7 +237,11 @@ public class PlayerControl : MonoBehaviour
 
     private bool IsWalkable(Vector3 targetPos)
     {
-        if (Physics2D.OverlapCircle(targetPos, 0.0f, solidObjectsLayer | interactableLayer) != null)
+        if(noClipEnabled){
+            return true;
+        }
+
+        if (Physics2D.OverlapCircle(targetPos, 0.2f, solidObjectsLayer | interactableLayer) != null)
         {
             return false;
         }
