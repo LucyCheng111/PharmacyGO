@@ -114,37 +114,8 @@ public class PlayerControl : MonoBehaviour
 
             }
 
-            //isMoving = false;
-            //animator.SetBool("isMoving",isMoving);
             PromptCheck();
 
-
-            /*
-            if (input != Vector2.zero)
-            {   
-                animator.SetFloat("moveX", input.x);
-                animator.SetFloat("moveY", input.y);
-                var targetPos = transform.position; // current position of the player
-
-                if (Input.GetKey(KeyCode.LeftShift))
-                {
-                    isSprinting = true;
-                }
-                else
-                {
-                    isSprinting = false;
-                }
-
-                targetPos.x += input.x;
-                targetPos.y += input.y;
-                PromptCheck();
-
-                if (IsWalkable(targetPos))
-                    StartCoroutine(Move(targetPos));
-                
-            }
-            */
-            //animator.SetBool("isMoving", isMoving);
 
             if(Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0))
             {
@@ -210,30 +181,6 @@ public class PlayerControl : MonoBehaviour
             activePrompt.GetComponent<Interactable>()?.HidePrompt();
             activePrompt = null;
         }
-    }
-
-    IEnumerator Move(Vector3 targetPos)
-    {
-        isMoving = true;
-        HidePrompt();
-        moveCoroutine = StartCoroutine(MoveCoroutine(targetPos)); // Store the coroutine reference
-        yield return moveCoroutine; // Wait for the coroutine to finish
-    }
-
-    private IEnumerator MoveCoroutine(Vector3 targetPos)
-    {
-        while ((targetPos - transform.position).sqrMagnitude > Mathf.Epsilon) 
-        {
-            float currentSpeed = isSprinting ? moveSpeed * 2.0f : moveSpeed;
-            transform.position = Vector3.MoveTowards(transform.position, targetPos, currentSpeed * Time.deltaTime);
-            yield return null;
-        }
-        transform.position = targetPos;
-        isMoving = false;
-
-        CheckForEncounters();
-        PromptCheck();
-
     }
 
     private bool IsWalkable(Vector3 targetPos)
