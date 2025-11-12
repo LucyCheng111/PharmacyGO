@@ -98,7 +98,9 @@ public class PlayerControl : MonoBehaviour
             if(movementVector != Vector3.zero && IsWalkable(transform.position + movementVector)){
                 transform.position += movementVector;
                 isMoving = true;
-                PromptCheck();
+                HidePrompt();
+                CheckForEncounters();
+
 
             }
 
@@ -114,7 +116,6 @@ public class PlayerControl : MonoBehaviour
 
             //isMoving = false;
             //animator.SetBool("isMoving",isMoving);
-            CheckForEncounters();
             PromptCheck();
 
 
@@ -161,7 +162,7 @@ public class PlayerControl : MonoBehaviour
 
             //noclip cheat for debug purposes
             if(Input.GetKeyDown(KeyCode.N)){
-                if(noClipEnabled = true){
+                if(noClipEnabled == true){
                     Debug.Log("Cheat deactivated: NoClip Disabled");
                     noClipEnabled = false;
                 }else{
@@ -258,16 +259,17 @@ public class PlayerControl : MonoBehaviour
         }
         if (Physics2D.OverlapCircle(transform.position, 0.0f, grassLayer) != null)
         {
-            if (UnityEngine.Random.Range(1, 101) <= 50)
+            if (UnityEngine.Random.Range(1, 101) <= 3)
             {
                 animator.SetBool("isMoving", false);
                 StartCoroutine(ShowExclamationAndEncounter());
 
             }
         }
+        //encounters are definitely overtuned right now
         else if (MapArea.i.IsDangerous() && !GameController.Instance.IsCurrentLevelBossDefeated())
         {
-            if (UnityEngine.Random.Range(1, 101) <= 5)
+            if (UnityEngine.Random.Range(1, 186) <= 1)
             {
                 animator.SetBool("isMoving", false);
                 StartCoroutine(ShowExclamationAndEncounter());
