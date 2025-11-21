@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class AiRival : MonoBehaviour
+public class AiRival : MonoBehaviour, Interactable
 {
     public Transform player;
     public float moveSpeed = 4f;
@@ -12,6 +12,23 @@ public class AiRival : MonoBehaviour
     //private bool isTeleporting = false;
 
     public static AiRival Instance { get; private set; }
+    [SerializeField] private GameObject InteractPrompt;
+    
+
+    public void Interact()
+    {
+        MainCanvas.Instance.GetComponentInChildren<MinigameController>().StartCardMatching();
+    }
+
+    public void ShowPrompt()
+    {
+        InteractPrompt.SetActive(true);
+    }
+
+    public void HidePrompt()
+    {
+        InteractPrompt.SetActive(false);
+    }
 
     void Awake()
     {
