@@ -11,8 +11,8 @@ public class AiRival : MonoBehaviour
     public Animator animator;
 
     // Private
-    private PlayerControl playerControl;
-    private float currentMoveSpeed;
+    private PlayerControl playerControl;    
+    private float currentMoveSpeed;     // To switch between sprint or normal
     private Vector2 lastMoveDirection;
 
     public static AiRival Instance { get; private set; }
@@ -151,18 +151,17 @@ public class AiRival : MonoBehaviour
         // If we have player control, check sprint state
         if (playerControl != null)
         {
-            // Use reflection to access the private isSprinting field
-            // Or make isSprinting public in PlayerControl (recommended)
+            // Get isSprinting in PlayerControl, if yes then currentmove speed is now sprintMoveSpeed
             currentMoveSpeed = GetPlayerIsSprinting() ? sprintMoveSpeed : moveSpeed;
 
-            // Optional: Make animations faster when sprinting
+            Make animations faster when sprinting
             animator.speed = GetPlayerIsSprinting() ? 1.3f : 1f;
         }
     }
 
     private bool GetPlayerIsSprinting()
     {
-        // Option A: If you can make isSprinting public in PlayerControl (recommended)
+        // Get isSprinting in PlayerControl
         return playerControl.isSprinting;
 
     }
