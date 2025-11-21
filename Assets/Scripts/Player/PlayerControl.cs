@@ -19,6 +19,7 @@ public class PlayerControl : MonoBehaviour
     public LayerMask solidObjectsLayer;
     public LayerMask interactableLayer;
     public LayerMask grassLayer;
+    public bool isSprinting;   // For ai to know 
 
     //public event Action OnEncountered;
 
@@ -30,7 +31,7 @@ public class PlayerControl : MonoBehaviour
     private bool noClipEnabled = false;
 
     private bool isMoving;
-    private bool isSprinting;
+    //private bool isSprinting;
     private Vector2 input;
 
     private Animator animator;

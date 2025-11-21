@@ -3,13 +3,17 @@ using UnityEngine.SceneManagement;
 
 public class AiRival : MonoBehaviour
 {
+    // Public
     public Transform player;
     public float moveSpeed = 4f;
+    public float sprintMoveSpeed = 9f;      // when player sprint, AI runs faster
     public float stoppingDistance = 1.5f;
     public Animator animator;
 
+    // Private
+    private PlayerControl playerControl;
+    private float currentMoveSpeed;
     private Vector2 lastMoveDirection;
-    //private bool isTeleporting = false;
 
     public static AiRival Instance { get; private set; }
 
@@ -37,6 +41,7 @@ public class AiRival : MonoBehaviour
     void Start()
     {
         FindPlayer();
+        currentMoveSpeed = moveSpeed;
 
         // If we just loaded into a new scene, teleport to player
         if (player != null && Vector3.Distance(transform.position, player.position) > 10f)
@@ -86,6 +91,9 @@ public class AiRival : MonoBehaviour
             if (player == null) return;
         }
 
+        // Check if player is sprinting and adjust AI speed
+        CheckPlayerSprint();
+
 
 
         Vector3 direction = player.position - transform.position;
@@ -95,7 +103,7 @@ public class AiRival : MonoBehaviour
 
         if (shouldMove)
         {
-            transform.position = Vector3.MoveTowards(transform.position, player.position, moveSpeed * Time.deltaTime);
+            transform.position = Vector3.MoveTowards(transform.position, player.position, currentMoveSpeed * Time.deltaTime);
             Vector2 moveDirection = new Vector2(direction.x, direction.y).normalized;
             animator.SetFloat("moveX", moveDirection.x);
             animator.SetFloat("moveY", moveDirection.y);
@@ -130,6 +138,33 @@ public class AiRival : MonoBehaviour
                 Debug.LogWarning("AI: Player not found!");
             }
         }
+    }
+
+    private void CheckPlayerSprint()
+    {
+        // Get reference to player control if we don't have it
+        if (playerControl == null && player != null)
+        {
+            playerControl = player.GetComponent<PlayerControl>();
+        }
+
+        // If we have player control, check sprint state
+        if (playerControl != null)
+        {
+            // Use reflection to access the private isSprinting field
+            // Or make isSprinting public in PlayerControl (recommended)
+            currentMoveSpeed = GetPlayerIsSprinting() ? sprintMoveSpeed : moveSpeed;
+
+            // Optional: Make animations faster when sprinting
+            animator.speed = GetPlayerIsSprinting() ? 1.3f : 1f;
+        }
+    }
+
+    private bool GetPlayerIsSprinting()
+    {
+        // Option A: If you can make isSprinting public in PlayerControl (recommended)
+        return playerControl.isSprinting;
+
     }
 
     void OnDestroy()
