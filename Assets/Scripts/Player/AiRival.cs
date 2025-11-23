@@ -154,7 +154,7 @@ public class AiRival : MonoBehaviour
             // Get isSprinting in PlayerControl, if yes then currentmove speed is now sprintMoveSpeed
             currentMoveSpeed = GetPlayerIsSprinting() ? sprintMoveSpeed : moveSpeed;
 
-            Make animations faster when sprinting
+            //Make animations faster when sprinting
             animator.speed = GetPlayerIsSprinting() ? 1.3f : 1f;
         }
     }
