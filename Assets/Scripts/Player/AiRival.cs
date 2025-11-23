@@ -50,39 +50,7 @@ public class AiRival : MonoBehaviour
         }
     }
 
-    void OnSceneLoaded(Scene scene, LoadSceneMode mode)
-    {
-
-        // Wait for scene to fully load, then teleport to player
-        StartCoroutine(TeleportToPlayerAfterDelay());
-    }
-
-    private System.Collections.IEnumerator TeleportToPlayerAfterDelay()
-    {
-        yield return new WaitForEndOfFrame();
-        yield return new WaitForSeconds(0.1f); // Small delay for player to spawn
-
-        FindPlayer();
-
-        if (player != null)
-        {
-            TeleportToPlayer();
-        }
-    }
-
-    private void TeleportToPlayer()
-    {
-        if (player == null) return;
-
-        // Teleport to near the player (behind the player)
-        Vector3 spawnOffset = new Vector3(1f, 0f, 0f);
-        transform.position = player.position + spawnOffset;
-
-
-    }
-
-
-
+    
     void Update()
     {
         if (player == null)
@@ -117,11 +85,52 @@ public class AiRival : MonoBehaviour
 
         animator.SetBool("isMoving", shouldMove);
     }
+    
+
+    void OnDestroy()
+    {
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+    }
+
+    public void StopMovement()
+    {
+        animator.SetBool("isMoving", false);
+    }
+
+    // ========== HELPER FUNCTIONS ==========
+
+    void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+
+        // Wait for scene to fully load, then teleport to player
+        StartCoroutine(TeleportToPlayerAfterDelay());
+    }
+
+    private System.Collections.IEnumerator TeleportToPlayerAfterDelay()
+    {
+        yield return new WaitForEndOfFrame();
+        yield return new WaitForSeconds(0.1f); // Small delay for player to spawn
+
+        FindPlayer();
+
+        if (player != null)
+        {
+            TeleportToPlayer();
+        }
+    }
+
+    private void TeleportToPlayer()
+    {
+        if (player == null) return;
+
+        // Teleport to near the player (behind the player)
+        Vector3 spawnOffset = new Vector3(1f, 0f, 0f);
+        transform.position = player.position + spawnOffset;
+
+    }
 
     private void FindPlayer()
     {
-
-
         if (PlayerControl.Instance != null)
         {
             player = PlayerControl.Instance.transform;
@@ -163,16 +172,6 @@ public class AiRival : MonoBehaviour
     {
         // Get isSprinting in PlayerControl
         return playerControl.isSprinting;
-
     }
 
-    void OnDestroy()
-    {
-        SceneManager.sceneLoaded -= OnSceneLoaded;
-    }
-
-    public void StopMovement()
-    {
-        animator.SetBool("isMoving", false);
-    }
 }
