@@ -207,7 +207,7 @@ public class AiRival : MonoBehaviour, Interactable
 
         // Hide interact prompt
         HidePrompt();
-
+        
         // Disable the AI after a delay to allow animation to play
         StartCoroutine(ShowShutdownMessage());
     }
@@ -217,7 +217,7 @@ public class AiRival : MonoBehaviour, Interactable
 
         // Show shutdown message
         yield return DialogManager.Instance.ShowDialogText(
-            "AI Rival was gone, it say it didn't want to be here anyway.",
+            "RIVAL: Fine, go at it alone. I didn't want to be here anyway.",
             waitForInput: true,
             autoClose: true
         );
@@ -267,7 +267,7 @@ public class AiRival : MonoBehaviour, Interactable
     private IEnumerator ShowRestartMessage()
     {
         yield return DialogManager.Instance.ShowDialogText(
-            "AI Rival was back.\nThis option will be in pause menu later",
+            "Your rival has returned.\nThis option will be in pause menu later",
             waitForInput: true,
             autoClose: true
         );
