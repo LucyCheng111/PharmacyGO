@@ -164,13 +164,13 @@ public class AiRival : MonoBehaviour, Interactable
         // Create choices for shutdown confirmation
         List<string> choices = new List<string>
         {
-            "Yes, go away",
-            "No, keep it"
+            "Yes, dismiss him",
+            "No, he can stay"
         };
 
         // Show dialog with choices using ShowDialogText
         yield return DialogManager.Instance.ShowDialogText(
-            "Would you like to shut down the AI Rival?\n",
+            "Would you like to dismiss your Rival?\n",
             waitForInput: false,
             autoClose: false,
             choices: choices,
