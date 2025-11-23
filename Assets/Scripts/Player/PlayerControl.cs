@@ -115,6 +115,9 @@ public class PlayerControl : MonoBehaviour
 
             }
 
+            //player animates faster if they are sprinting
+            animator.speed = isSprinting ? 1.3f : 1.0f;
+
             PromptCheck();
 
 
