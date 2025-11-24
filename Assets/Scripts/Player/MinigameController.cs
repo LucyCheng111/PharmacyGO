@@ -50,6 +50,22 @@ public class MinigameController : MonoBehaviour
         cardMatching.SetActive(false);
     }
 
+    void RevealAll()  //after someone wins, show all cards (in the future indicate which match which, but only after this func)
+    {
+        for (int i = 0; i < Questioncards.Count; i++)
+        {
+            if(Questioncards[i].shown == false)
+            {
+                Questioncards[i].Reveal();
+            }
+
+            if(Answercards[i].shown == false)
+            {
+                Answercards[i].Reveal();
+            }
+        }
+    }
+
     public void RestartPlay()
     {
         playerPlayReader.text = "Selecting a Question Card...";
@@ -105,6 +121,9 @@ public class MinigameController : MonoBehaviour
                 rivalPlayReader.text = "";
                 playerPlayReader.text = "Player Wins!!!";
                 playAgainButton.SetActive(true);
+
+                awaiting = CardMatchingPlay.GameEnd;
+                RevealAll();
                 return;
             }
             else if(rivalScore == 5)
@@ -112,6 +131,9 @@ public class MinigameController : MonoBehaviour
                 rivalPlayReader.text = "Rival Wins!!!";
                 playerPlayReader.text = "";
                 playAgainButton.SetActive(true);
+
+                awaiting = CardMatchingPlay.GameEnd;
+                RevealAll();
                 return;
             }
             else if(playerScore == 4 && rivalScore == 4)
@@ -201,7 +223,7 @@ public class MinigameController : MonoBehaviour
 
     void LoadCards()
     {
-        var outlist = GetComponentsInChildren<CardForMatching>();
+        var outlist = GetComponentsInChildren<CardForMatching>(true); //give true to access disabled gameobjects
         foreach (var c in outlist)
         {
             if (!c.isQuestion)
