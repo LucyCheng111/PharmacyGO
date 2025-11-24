@@ -142,6 +142,9 @@ public class MinigameController : MonoBehaviour
                 rivalPlayReader.text = "It's a Draw!!!";
                 playerPlayReader.text = "It's a Draw!!!";
                 playAgainButton.SetActive(true);
+
+                awaiting = CardMatchingPlay.GameEnd;
+                RevealAll();
                 return;
             }
         }
