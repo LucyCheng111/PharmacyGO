@@ -116,7 +116,7 @@ public class MinigameController : MonoBehaviour
             questionCard.GetComponent<Button>().interactable = false;  //disable the buttons that are matches
             answerCard.GetComponent<Button>().interactable = false;
 
-            await Awaitable.WaitForSecondsAsync(1f);
+            //await Awaitable.WaitForSecondsAsync(1f);
 
             if(playerScore == 5)
             {
@@ -165,7 +165,6 @@ public class MinigameController : MonoBehaviour
         {
             if (wonRound)
             {
-                
                 awaiting = CardMatchingPlay.PlayerQuestion;
                 questionCard = null;
                 answerCard = null;
@@ -192,8 +191,6 @@ public class MinigameController : MonoBehaviour
                 playerPlayReader.text = "Selecting a Question Card...";
             }
         }
-
-
     }
 
     async Task RivalPlay()
