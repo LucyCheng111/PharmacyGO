@@ -41,7 +41,7 @@ public class CardForMatching : MonoBehaviour
     }
     void Select()
     {
-        if(controller.awaiting == CardMatchingPlay.PlayerQuestion && isQuestion && shown == false)
+        if(controller.awaiting == CardMatchingPlay.PlayerQuestion && isQuestion && shown == false && controller.questionCard == null)
         {
             controller.questionCard = this;
             Reveal();
@@ -49,7 +49,7 @@ public class CardForMatching : MonoBehaviour
             controller.playerPlayReader.text = "Selecting an Answer Card...";
             
         }
-        else if(controller.awaiting == CardMatchingPlay.PlayerAnswer && !isQuestion  && shown == false)
+        else if(controller.awaiting == CardMatchingPlay.PlayerAnswer && !isQuestion && shown == false && controller.answerCard == null)
         {
             controller.answerCard = this;
             Reveal();

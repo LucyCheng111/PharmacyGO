@@ -90,13 +90,15 @@ public class MinigameController : MonoBehaviour
         PlayerScoreReader.text = "0";
         RivalScoreReader.text = "0";
         awaiting = CardMatchingPlay.PlayerQuestion;
+        questionCard = null;
+        answerCard = null;
         playAgainButton.SetActive(false);
     }
     //Compare Players cards
     public async Task CalculatePlay(string who)
     {
         bool wonRound = false;
-        if(questionCard.index == answerCard.index)
+        if(questionCard.index == answerCard.index)  //cards match
         {
             wonRound = true;
 
@@ -163,7 +165,10 @@ public class MinigameController : MonoBehaviour
         {
             if (wonRound)
             {
+                
                 awaiting = CardMatchingPlay.PlayerQuestion;
+                questionCard = null;
+                answerCard = null;
                 rivalPlayReader.text = "";
                 playerPlayReader.text = "Selecting a Question Card...";
             }
@@ -181,6 +186,8 @@ public class MinigameController : MonoBehaviour
             else
             {
                 awaiting = CardMatchingPlay.PlayerQuestion;
+                questionCard = null;
+                answerCard = null;
                 rivalPlayReader.text = "";
                 playerPlayReader.text = "Selecting a Question Card...";
             }
@@ -191,14 +198,19 @@ public class MinigameController : MonoBehaviour
 
     async Task RivalPlay()
     {
+        awaiting = CardMatchingPlay.RivalQuestion;
+        questionCard = null;
+        answerCard = null;
         await Awaitable.WaitForSecondsAsync(1f);
 
         int num = Random.Range(0, Questioncards.Count - 1);
         questionCard = Questioncards[num];
-        while(questionCard.shown == true) //has not already been revealed an correctly guessed (is a valid card)
+        int failsafe = 0;
+        while(questionCard.shown == true && failsafe < 10) //has not already been revealed an correctly guessed (is a valid card)
         {
             num = Random.Range(0, Questioncards.Count - 1);
             questionCard = Questioncards[num];
+            failsafe++;
         }
         
 
@@ -206,17 +218,19 @@ public class MinigameController : MonoBehaviour
         //these couple of lines should remain, as well as the last couple.
         //the rest can be changed to properly emulate a humans memory (rn it just randomly selects two cards)
         questionCard.Reveal();
+        awaiting = CardMatchingPlay.RivalAnswer;
         rivalPlayReader.text = "Selecting an Answer Card...";
         await Awaitable.WaitForSecondsAsync(2f);
-
+        failsafe = 0;
 
 
         num = Random.Range(0, Answercards.Count - 1);
         answerCard = Answercards[num];
-        while(answerCard.shown == true) //has not already been revealed an correctly guessed (is a valid card)
+        while(answerCard.shown == true && failsafe < 10) //has not already been revealed an correctly guessed (is a valid card)
         {
             num = Random.Range(0, Answercards.Count - 1);
             answerCard = Answercards[num];
+            failsafe++;
         }
 
 
