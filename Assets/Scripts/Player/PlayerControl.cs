@@ -19,6 +19,7 @@ public class PlayerControl : MonoBehaviour
     public LayerMask solidObjectsLayer;
     public LayerMask interactableLayer;
     public LayerMask grassLayer;
+    public bool isSprinting;   // For ai to know 
 
     //public event Action OnEncountered;
 
@@ -30,7 +31,7 @@ public class PlayerControl : MonoBehaviour
     private bool noClipEnabled = false;
 
     private bool isMoving;
-    private bool isSprinting;
+    //private bool isSprinting;
     private Vector2 input;
 
     private Animator animator;
@@ -67,6 +68,12 @@ public class PlayerControl : MonoBehaviour
 
     public void HandleUpdate()
     {
+        // To make AI restart, because when shut down AI stopped updating
+        if (Input.GetKeyDown(KeyCode.F8))
+        {
+            AiRival.Instance?.RestartAI();
+        }
+
         if (isInEncounter) return;
 
             // Get the input from the player
@@ -113,6 +120,9 @@ public class PlayerControl : MonoBehaviour
                 animator.SetBool("isMoving",false);
 
             }
+
+            //player animates faster if they are sprinting
+            animator.speed = isSprinting ? 1.3f : 1.0f;
 
             PromptCheck();
 
