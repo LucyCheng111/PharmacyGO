@@ -14,7 +14,6 @@ public class AiRival : MonoBehaviour, Interactable
 
     // For interacting with AI
     [SerializeField] Dialog dialog;
-    [SerializeField] private GameObject InteractPrompt;
 
     [Header("Debug Controls")]
     public KeyCode restartKey = KeyCode.F8; // Temporary key to restart AI
