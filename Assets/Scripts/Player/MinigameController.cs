@@ -200,12 +200,12 @@ public class MinigameController : MonoBehaviour
         answerCard = null;
         await Awaitable.WaitForSecondsAsync(1f);
 
-        int num = Random.Range(0, Questioncards.Count - 1);
+        int num = Random.Range(0, Questioncards.Count);
         questionCard = Questioncards[num];
         int failsafe = 0;
-        while(questionCard.shown == true && failsafe < 10) //has not already been revealed an correctly guessed (is a valid card)
+        while(questionCard.shown == true && failsafe < 1000) //has not already been revealed an correctly guessed (is a valid card)
         {
-            num = Random.Range(0, Questioncards.Count - 1);
+            num = Random.Range(0, Questioncards.Count);
             questionCard = Questioncards[num];
             failsafe++;
         }
@@ -220,12 +220,11 @@ public class MinigameController : MonoBehaviour
         await Awaitable.WaitForSecondsAsync(2f);
         failsafe = 0;
 
-
-        num = Random.Range(0, Answercards.Count - 1);
+        num = Random.Range(0, Answercards.Count);
         answerCard = Answercards[num];
-        while(answerCard.shown == true && failsafe < 10) //has not already been revealed an correctly guessed (is a valid card)
+        while(answerCard.shown == true && failsafe < 1000) //has not already been revealed an correctly guessed (is a valid card)
         {
-            num = Random.Range(0, Answercards.Count - 1);
+            num = Random.Range(0, Answercards.Count);
             answerCard = Answercards[num];
             failsafe++;
         }
