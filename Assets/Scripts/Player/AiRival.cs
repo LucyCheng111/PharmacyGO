@@ -366,4 +366,12 @@ public class AiRival : MonoBehaviour, Interactable
         return playerControl.isSprinting;
     }
 
+    public bool IsActive
+    {
+        get
+        {
+            return !isShutdown && gameObject.activeInHierarchy;
+        }
+    }
+
 }

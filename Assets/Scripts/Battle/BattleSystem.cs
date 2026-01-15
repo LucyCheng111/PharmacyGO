@@ -37,9 +37,37 @@ public class BattleSystem : MonoBehaviour
 
     private Option[] shuffleAnswersList;
     private int shuffleAnswersIndex;
+
+    // New 2026 
+    // === AI RIVAL ===
+    private bool aiEnabled;
+    private bool aiHasAnswered;
+    private bool aiAnswerCorrect;
+    private Coroutine aiAnswerRoutine;
+    private bool battleLocked = false;
+
+    // Player timing
+    private float questionStartTime;
+    private List<float> recentAnswerTimes = new List<float>();
+
+    private AnswerSource battleAnswerSource;
+    private enum AnswerSource
+    {
+        Player,
+        AI
+    }
+    // New 2026
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     public void StartBattle()
     {
+
+        // New 2026
+        battleLocked = false;
+        aiEnabled = AiRival.Instance != null && AiRival.Instance.IsActive;
+        aiHasAnswered = false;
+        // New 2026
+
         isBossBattle = false;
         this.state = BattleState.START;
 
@@ -63,6 +91,12 @@ public class BattleSystem : MonoBehaviour
 
     public void BossBattle(int maxQuestions)
     {
+        // New 2026
+        battleLocked = false;
+        aiEnabled = AiRival.Instance != null && AiRival.Instance.IsActive;
+        aiHasAnswered = false;
+        // New 2026
+
         isBossBattle = true;
         maxBossQuestions = maxQuestions;
         this.state = BattleState.START;
@@ -137,11 +171,23 @@ public class BattleSystem : MonoBehaviour
         currentDialog = StartCoroutine(dialogBox.TypeDialog("Pick the choice!"));
         yield return WaitForSpaceOrComplete(currentDialog, 1f); // Wait max 1 sec or until space
 
+
         //yield return new WaitForSeconds(1f);
+
+        // new 2026
+        // AI clock starts
+        questionStartTime = Time.time;
+
+        if (aiEnabled && !isBossBattle)
+        {
+            aiAnswerRoutine = StartCoroutine(AIAnswerRoutine());
+        }
+        // new 2026
 
         //StartCoroutine(dialogBox.TypeDialog("Pick the choice!"));
         //yield return new WaitForSeconds(1f);
         state = BattleState.PLAYERANSWER;
+
     }
 
 
@@ -209,6 +255,11 @@ public class BattleSystem : MonoBehaviour
         bool hasImageAnswers = dialogBox.currentOptions == DialogBox.AnswersType.Image;
         int maxAnswers = question.options.Count;
 
+        // new2026
+        if (state != BattleState.PLAYERANSWER || battleLocked)
+            return;
+        // new2026
+
         if (Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.RightArrow)) // Move Right
         {
             if (currentAnswer < maxAnswers - 1)
@@ -237,10 +288,23 @@ public class BattleSystem : MonoBehaviour
 
         if ((Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Return)) && !dialogBox.GetAnswerSelected())
         {
+            // new 2026
+            float playerAnswerTime = Time.time - questionStartTime;
+            RecordPlayerAnswerTime(playerAnswerTime);
+
+            battleAnswerSource = AnswerSource.Player; // player answered
+
+            if (aiAnswerRoutine != null)
+            {
+                StopCoroutine(aiAnswerRoutine);
+            }
+            // new 2026
+
             bool isCorrect;
             isCorrect = dialogBox.DisplayAnswer(currentAnswer, shuffleAnswersIndex);
 
-            StartCoroutine(EndBattle(isCorrect));
+            // new 2026
+            StartCoroutine(EndBattle(isCorrect, AnswerSource.Player));
         }
 
         if (!hasImageAnswers)
@@ -250,7 +314,12 @@ public class BattleSystem : MonoBehaviour
     }
     public void OnClickAnswerButton(int answerIndex)
     {
-        if(dialogBox.GetAnswerSelected())
+        // new2026
+        if (battleLocked || dialogBox.GetAnswerSelected())
+            return; // Prevent answering if AI already finished
+        // new 2026
+
+        if (dialogBox.GetAnswerSelected())
         {
             return; // Prevents multiple clicks on the answer button
         }
@@ -260,10 +329,24 @@ public class BattleSystem : MonoBehaviour
             currentAnswer = answerIndex;
             dialogBox.UpdateChoiceSelection(currentAnswer);
             bool hasImageAnswers = dialogBox.currentOptions == DialogBox.AnswersType.Image;
-            
+
+            // new 2026
+            float playerAnswerTime = Time.time - questionStartTime;
+            RecordPlayerAnswerTime(playerAnswerTime);
+
+            battleAnswerSource = AnswerSource.Player; // player answered
+
+            if (aiAnswerRoutine != null)
+            {
+                StopCoroutine(aiAnswerRoutine);
+            }
+
+            // new 2026
+
             bool isCorrect;
             isCorrect = dialogBox.DisplayAnswer(currentAnswer, shuffleAnswersIndex);
-            StartCoroutine(EndBattle(isCorrect));
+            // new 2026
+            StartCoroutine(EndBattle(isCorrect, AnswerSource.Player));
 
             if (!hasImageAnswers)
             {
@@ -272,41 +355,89 @@ public class BattleSystem : MonoBehaviour
         }
         
     }
-    IEnumerator EndBattle(bool answerCorrect)
+    IEnumerator EndBattle(bool answerCorrect, AnswerSource source)
     {
+        // new 2026
+        bool playerWon =
+        (source == AnswerSource.Player && answerCorrect);
+
+        // Clear any previous dialog - to avoid "pick the choice appear when AI wins" 
+        dialogBox.ResetDalogBox();
+        // new 2026
+
         yield return new WaitForSeconds(1.5f);
         state = BattleState.END;
         Debug.Log("answerCorrect: " + answerCorrect);
+
+        
+
         dialogBox.EnableDialogText(true);
 
         int previousScore = ScoreManager.Instance.GetScoreCount();
 
 
-        if (answerCorrect)
+        //if (answerCorrect)
+        //{
+        //    ScoreManager.Instance.AddScore(true); // Increment score
+        //    int pointsEarned = ScoreManager.Instance.GetScoreCount() - previousScore;
+        //    mapData.CorrectAnswer(1); // Track question streak
+        //    string rewardText;
+        //    if (isBossBattle)
+        //    {
+        //        rewardText = $"Correct! Rewards: {pointsEarned} points";
+        //        bossQuestionsRight += 1;
+        //    }
+        //    else
+        //    {
+        //        rewardText = $"Correct! Rewards: +1 coin, +{pointsEarned} points";
+        //        CoinManager.Instance.AddCoin(1); // Add a coin
+        //    }
+
+
+        //    yield return StartCoroutine(dialogBox.TypeDialog(rewardText));
+        //}
+        //else
+        //{
+        //    mapData.CorrectAnswer(0);
+        //    yield return StartCoroutine(dialogBox.TypeDialog("Incorrect!"));
+        //}
+
+        // new 2026
+        if (playerWon)
         {
-            ScoreManager.Instance.AddScore(true); // Increment score
+            // Player won
+            ScoreManager.Instance.AddScore(true);
             int pointsEarned = ScoreManager.Instance.GetScoreCount() - previousScore;
-            mapData.CorrectAnswer(1); // Track question streak
+            mapData.CorrectAnswer(1);
+
             string rewardText;
             if (isBossBattle)
             {
-                rewardText = $"Correct! Rewards: {pointsEarned} points";
+                rewardText = $"You win! Rewards: {pointsEarned} points";
                 bossQuestionsRight += 1;
             }
             else
             {
-                rewardText = $"Correct! Rewards: +1 coin, +{pointsEarned} points";
-                CoinManager.Instance.AddCoin(1); // Add a coin
+                rewardText = $"You win! Rewards: +1 coin, +{pointsEarned} points";
+                CoinManager.Instance.AddCoin(1);
             }
-
 
             yield return StartCoroutine(dialogBox.TypeDialog(rewardText));
         }
         else
         {
             mapData.CorrectAnswer(0);
-            yield return StartCoroutine(dialogBox.TypeDialog("Incorrect!"));
+
+            if (source == AnswerSource.AI)
+            {
+                yield return StartCoroutine(dialogBox.TypeDialog("Your Rival answered first and won!"));
+            }
+            else
+            {
+                yield return StartCoroutine(dialogBox.TypeDialog("Incorrect!"));
+            }
         }
+        // new 2026
 
         if (isBossBattle)
         {
@@ -396,9 +527,79 @@ public class BattleSystem : MonoBehaviour
         if (state == BattleState.PLAYERANSWER)
         {
             Debug.Log("Times up, you lose!");
-            StartCoroutine(EndBattle(false));  // Auto lose
+            StartCoroutine(EndBattle(false, AnswerSource.Player));  // Auto lose
         }
 
         rivalTimer = null;  // Reset for next battle
     }
+
+    // new 2026
+    // ================= AI RIVAL LOGIC =================
+
+    private IEnumerator AIAnswerRoutine()
+    {
+        float playerAvg = GetAveragePlayerAnswerTime();
+
+        // Rival difficulty tuning
+        float difficultyModifier = UnityEngine.Random.Range(0.85f, 1.1f);
+        float aiDelay = Mathf.Clamp(playerAvg * difficultyModifier + UnityEngine.Random.Range(0.2f, 0.8f), 5, timeLimit - 0.5f);
+
+        yield return new WaitForSeconds(aiDelay);
+
+        if (state != BattleState.PLAYERANSWER)
+            yield break;
+
+        battleAnswerSource = AnswerSource.AI;   // Ai answered
+
+        aiHasAnswered = true;
+
+        // Accuracy model
+        float accuracy = 0.75f; // tune per rival / difficulty
+        aiAnswerCorrect = UnityEngine.Random.value < accuracy;
+
+        Debug.Log($"AI answered in {aiDelay:F2}s | Correct: {aiAnswerCorrect}");
+
+        ResolveBattleIfNeeded();
+    }
+
+    // Ai helper function, get player answering info
+    private void RecordPlayerAnswerTime(float time)
+    {
+        recentAnswerTimes.Add(time);
+        if (recentAnswerTimes.Count > 5)
+            recentAnswerTimes.RemoveAt(0);
+    }
+
+    private float GetAveragePlayerAnswerTime()
+    {
+        if (recentAnswerTimes.Count == 0)
+            return timeLimit * 0.6f; // safe default
+
+        float sum = 0;
+        foreach (float t in recentAnswerTimes)
+            sum += t;
+
+        return sum / recentAnswerTimes.Count;
+    }
+
+    private void ResolveBattleIfNeeded()
+    {
+        if (battleLocked) return; // Already resolved
+        battleLocked = true;      // Lock immediately
+
+        // AI answered first
+        StopPlayerInput();
+        StartCoroutine(EndBattle(aiAnswerCorrect, AnswerSource.AI));
+    }
+
+    private void StopPlayerInput()
+    {
+        state = BattleState.END;
+        dialogBox.EnableOptionSelector(false);
+    }
+
+    // new 2026
+
+
 }
+
