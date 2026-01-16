@@ -47,6 +47,7 @@ public class DialogBox : MonoBehaviour
     private readonly Color UNSELECTED_COLOR = Color.clear;
     private readonly Color CORRECT_COLOR = Color.green;
     private readonly Color INCORRECT_COLOR = Color.red;
+    private readonly Color AI_CHOICE_COLOR = new Color(1f, 0.65f, 0f); // Orange for AI selection
     private const float MAX_OPTION_WIDTH = 150f;
     private const float MAX_OPTION_HEIGHT = 100f;
 
@@ -81,6 +82,13 @@ public class DialogBox : MonoBehaviour
         optionImages = optionSelector.GetComponentsInChildren<RawImage>(true);
         optionStrings = optionSelector.GetComponentsInChildren<TMP_Text>(true);
         optionOutlines = optionSelector.GetComponentsInChildren<Image>(true);
+
+        // Debug: Show what we found 2026 - option[4] - outline
+        //Debug.Log($"EnableOptionSelector - Found {optionOutlines.Length} Image components");
+        //for (int i = 0; i < optionOutlines.Length; i++)
+        //{
+        //    Debug.Log($"  optionOutlines[{i}] = {optionOutlines[i].gameObject.name}");
+        //}
     }
 
     public void UpdateChoiceSelection(int selectedChoice)
@@ -228,6 +236,33 @@ public class DialogBox : MonoBehaviour
         {
             dialogText.text += letter;
             yield return new WaitForSeconds(1f / letterPerSecond); // Using your existing speed control
+        }
+    }
+
+    // === AI rival DialogBox (orange) 2026
+
+    // Highlight AI's chosen answer with orange color
+    public void ShowAIChoice(int aiAnswer)
+    {
+        Debug.Log($"ShowAIChoice called for answer {aiAnswer}");
+        if (aiAnswer >= 0 && aiAnswer < optionOutlines.Length)
+        {
+            optionOutlines[aiAnswer].color = AI_CHOICE_COLOR;
+            Debug.Log($"AI outline set to orange for answer {aiAnswer}");
+        }
+        else
+        {
+            Debug.LogError($"Invalid aiAnswer index: {aiAnswer}, optionOutlines.Length: {optionOutlines.Length}");
+        }
+    }
+
+    // Clear AI highlighting so player can continue or AI can try another answer
+    public void ClearAIChoice()
+    {
+        Debug.Log("ClearAIChoice called");
+        for (int i = 0; i < optionOutlines.Length; i++)
+        {
+            optionOutlines[i].color = UNSELECTED_COLOR;
         }
     }
 

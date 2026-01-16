@@ -41,10 +41,12 @@ public class BattleSystem : MonoBehaviour
     // New 2026 
     // === AI RIVAL ===
     private bool aiEnabled;
-    private bool aiHasAnswered;
-    private bool aiAnswerCorrect;
+    private List<int> aiTriedAnswers = new List<int>(); // Track which answers AI already tried
+    //private bool aiHasAnswered;
+    //private bool aiAnswerCorrect;
     private Coroutine aiAnswerRoutine;
     private bool battleLocked = false;
+    private bool timedOut = false;
 
     // Player timing
     private float questionStartTime;
@@ -54,7 +56,8 @@ public class BattleSystem : MonoBehaviour
     private enum AnswerSource
     {
         Player,
-        AI
+        AI,
+        Timeout
     }
     // New 2026
 
@@ -65,7 +68,9 @@ public class BattleSystem : MonoBehaviour
         // New 2026
         battleLocked = false;
         aiEnabled = AiRival.Instance != null && AiRival.Instance.IsActive;
-        aiHasAnswered = false;
+        //aiHasAnswered = false;
+        aiTriedAnswers.Clear();
+        timedOut = false;
         // New 2026
 
         isBossBattle = false;
@@ -94,7 +99,9 @@ public class BattleSystem : MonoBehaviour
         // New 2026
         battleLocked = false;
         aiEnabled = AiRival.Instance != null && AiRival.Instance.IsActive;
-        aiHasAnswered = false;
+        //aiHasAnswered = false;
+        aiTriedAnswers.Clear();
+        timedOut = false;
         // New 2026
 
         isBossBattle = true;
@@ -176,17 +183,25 @@ public class BattleSystem : MonoBehaviour
 
         // new 2026
         // AI clock starts
+
+        state = BattleState.PLAYERANSWER;
         questionStartTime = Time.time;
+        
 
         if (aiEnabled && !isBossBattle)
         {
+            Debug.Log("Starting AI Answer Routine - AI is enabled!");
             aiAnswerRoutine = StartCoroutine(AIAnswerRoutine());
+        }
+        else
+        {
+            Debug.Log($"AI NOT starting - aiEnabled: {aiEnabled}, isBossBattle: {isBossBattle}");
         }
         // new 2026
 
         //StartCoroutine(dialogBox.TypeDialog("Pick the choice!"));
         //yield return new WaitForSeconds(1f);
-        state = BattleState.PLAYERANSWER;
+        //state = BattleState.PLAYERANSWER;
 
     }
 
@@ -236,7 +251,7 @@ public class BattleSystem : MonoBehaviour
             dialogBox.EnableOptionSelector(true);
             HandleAnswer();
 
-            // Start the rival timer
+            // Start the rival timer - For timeout usage
             if (rivalTimer == null)
             {
                 rivalTimer = StartCoroutine(BattleTimer(timeLimit));
@@ -255,7 +270,7 @@ public class BattleSystem : MonoBehaviour
         bool hasImageAnswers = dialogBox.currentOptions == DialogBox.AnswersType.Image;
         int maxAnswers = question.options.Count;
 
-        // new2026
+        // new2026 - stop accepting answer
         if (state != BattleState.PLAYERANSWER || battleLocked)
             return;
         // new2026
@@ -362,7 +377,10 @@ public class BattleSystem : MonoBehaviour
         (source == AnswerSource.Player && answerCorrect);
 
         // Clear any previous dialog - to avoid "pick the choice appear when AI wins" 
-        dialogBox.ResetDalogBox();
+        if (source == AnswerSource.AI || source == AnswerSource.Timeout)
+        {
+            dialogBox.ResetDalogBox();
+        }
         // new 2026
 
         yield return new WaitForSeconds(1.5f);
@@ -431,6 +449,10 @@ public class BattleSystem : MonoBehaviour
             if (source == AnswerSource.AI)
             {
                 yield return StartCoroutine(dialogBox.TypeDialog("Your Rival answered first and won!"));
+            }
+            else if (source == AnswerSource.Timeout)
+            {
+                yield return StartCoroutine(dialogBox.TypeDialog("Time's up, you failed!"));
             }
             else
             {
@@ -527,7 +549,13 @@ public class BattleSystem : MonoBehaviour
         if (state == BattleState.PLAYERANSWER)
         {
             Debug.Log("Times up, you lose!");
-            StartCoroutine(EndBattle(false, AnswerSource.Player));  // Auto lose
+            timedOut = true;
+            // Stop AI routine if it's still running
+            if (aiAnswerRoutine != null)
+            {
+                StopCoroutine(aiAnswerRoutine);
+            }
+            StartCoroutine(EndBattle(false, AnswerSource.Timeout));  // Auto lose
         }
 
         rivalTimer = null;  // Reset for next battle
@@ -536,30 +564,110 @@ public class BattleSystem : MonoBehaviour
     // new 2026
     // ================= AI RIVAL LOGIC =================
 
+    //private IEnumerator AIAnswerRoutine()
+    //{
+    //    float playerAvg = GetAveragePlayerAnswerTime();
+
+    //    // Rival difficulty tuning
+    //    float difficultyModifier = UnityEngine.Random.Range(0.85f, 1.1f);
+    //    float aiDelay = Mathf.Clamp(playerAvg * difficultyModifier + UnityEngine.Random.Range(0.2f, 0.8f), 5, timeLimit - 0.5f);
+
+    //    yield return new WaitForSeconds(aiDelay);
+
+    //    if (state != BattleState.PLAYERANSWER)
+    //        yield break;
+
+    //    battleAnswerSource = AnswerSource.AI;   // Ai answered
+
+    //    aiHasAnswered = true;
+
+    //    // Accuracy model
+    //    float accuracy = 0.75f; // tune per rival / difficulty
+    //    aiAnswerCorrect = UnityEngine.Random.value < accuracy;
+
+    //    Debug.Log($"AI answered in {aiDelay:F2}s | Correct: {aiAnswerCorrect}");
+
+    //    ResolveBattleIfNeeded();
+    //}
+
     private IEnumerator AIAnswerRoutine()
     {
-        float playerAvg = GetAveragePlayerAnswerTime();
+        Debug.Log("AI Answer Routine Started!");
 
-        // Rival difficulty tuning
-        float difficultyModifier = UnityEngine.Random.Range(0.85f, 1.1f);
-        float aiDelay = Mathf.Clamp(playerAvg * difficultyModifier + UnityEngine.Random.Range(0.2f, 0.8f), 5, timeLimit - 0.5f);
+        while (state == BattleState.PLAYERANSWER && !battleLocked)
+        {
+            float playerAvg = GetAveragePlayerAnswerTime();
 
-        yield return new WaitForSeconds(aiDelay);
+            // Rival difficulty tuning - time between attempts
+            // Make AI faster: use 60% of player average time, with some randomness
+            float difficultyModifier = UnityEngine.Random.Range(0.5f, 0.8f);
+            float aiDelay = Mathf.Clamp(playerAvg * difficultyModifier, 1.5f, 8f);
 
-        if (state != BattleState.PLAYERANSWER)
-            yield break;
+            Debug.Log($"AI waiting {aiDelay:F2} seconds before answering... (playerAvg: {playerAvg:F2})");
+            yield return new WaitForSeconds(aiDelay);
 
-        battleAnswerSource = AnswerSource.AI;   // Ai answered
+            if (state != BattleState.PLAYERANSWER || battleLocked)
+            {
+                Debug.Log("AI stopped - battle state changed or locked");
+                yield break;
+            }
 
-        aiHasAnswered = true;
+            // Choose an answer AI hasn't tried yet
+            int aiChosenAnswer = ChooseAIAnswer();
 
-        // Accuracy model
-        float accuracy = 0.75f; // tune per rival / difficulty
-        aiAnswerCorrect = UnityEngine.Random.value < accuracy;
+            if (aiChosenAnswer == -1)
+            {
+                Debug.Log("AI ran out of answers to try");
+                yield break;
+            }
 
-        Debug.Log($"AI answered in {aiDelay:F2}s | Correct: {aiAnswerCorrect}");
+            Debug.Log($"AI chose answer index: {aiChosenAnswer}");
 
-        ResolveBattleIfNeeded();
+            // Show AI's choice with orange outline
+            dialogBox.ShowAIChoice(aiChosenAnswer);
+
+            yield return new WaitForSeconds(2f); // Brief pause to show selection
+
+            // Check if AI got it right
+            bool aiCorrect = (aiChosenAnswer == shuffleAnswersIndex);
+
+            if (aiCorrect)
+            {
+                // AI got it right! AI wins
+                Debug.Log($"AI answered correctly: {aiChosenAnswer}");
+                battleAnswerSource = AnswerSource.AI;
+                ResolveBattleWin();
+                yield break;
+            }
+            else
+            {
+                // AI got it wrong, clear and try again
+                Debug.Log($"AI answered wrong: {aiChosenAnswer}, correct was {shuffleAnswersIndex}, will try again");
+                dialogBox.ClearAIChoice();
+                aiTriedAnswers.Add(aiChosenAnswer);
+                // Loop continues to try another answer
+            }
+        }
+    }
+
+
+    private int ChooseAIAnswer()
+    {
+        // Get list of answers AI hasn't tried yet
+        List<int> availableAnswers = new List<int>();
+        for (int i = 0; i < question.options.Count; i++)
+        {
+            if (!aiTriedAnswers.Contains(i))
+            {
+                availableAnswers.Add(i);
+            }
+        }
+
+        if (availableAnswers.Count == 0)
+            return -1; // No more answers to try
+
+        // Randomly choose from available answers
+        return availableAnswers[UnityEngine.Random.Range(0, availableAnswers.Count)];
     }
 
     // Ai helper function, get player answering info
@@ -573,7 +681,7 @@ public class BattleSystem : MonoBehaviour
     private float GetAveragePlayerAnswerTime()
     {
         if (recentAnswerTimes.Count == 0)
-            return timeLimit * 0.6f; // safe default
+            return 5f; // Start with 5 seconds default instead of 9
 
         float sum = 0;
         foreach (float t in recentAnswerTimes)
@@ -582,14 +690,14 @@ public class BattleSystem : MonoBehaviour
         return sum / recentAnswerTimes.Count;
     }
 
-    private void ResolveBattleIfNeeded()
+    private void ResolveBattleWin()
     {
         if (battleLocked) return; // Already resolved
         battleLocked = true;      // Lock immediately
 
-        // AI answered first
+        // AI answered correctly and wins
         StopPlayerInput();
-        StartCoroutine(EndBattle(aiAnswerCorrect, AnswerSource.AI));
+        StartCoroutine(EndBattle(true, AnswerSource.AI));
     }
 
     private void StopPlayerInput()
