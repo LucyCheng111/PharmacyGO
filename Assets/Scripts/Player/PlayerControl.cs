@@ -29,6 +29,7 @@ public class PlayerControl : MonoBehaviour
 
     private bool isInEncounter = false;
     private bool noClipEnabled = false;
+    private bool encountersEnabled = true;
 
     private bool isMoving;
     //private bool isSprinting;
@@ -143,14 +144,15 @@ public class PlayerControl : MonoBehaviour
 
             //noclip cheat for debug purposes
             if(Input.GetKeyDown(KeyCode.N)){
-                if(noClipEnabled == true){
-                    Debug.Log("Cheat deactivated: NoClip Disabled");
-                    noClipEnabled = false;
-                }else{
-                    Debug.Log("Cheat activated: NoClip Enabled");
-                    noClipEnabled = true;
-                }
+                noClipEnabled = !noClipEnabled;
+                Debug.Log("NoClip Enabled: " + noClipEnabled);
 
+            }
+
+            //no encounter cheat for debug purposes
+            if(Input.GetKeyDown(KeyCode.M)){
+                encountersEnabled = !encountersEnabled;
+                Debug.Log("Encounters enabled: " + encountersEnabled);
             }
 #endif
     }
@@ -210,7 +212,7 @@ public class PlayerControl : MonoBehaviour
     {
         // skip battle if no question in this area
         var mapArea = FindFirstObjectByType<MapArea>();
-        if (mapArea == null || !mapArea.HasQuestions())
+        if (mapArea == null || !mapArea.HasQuestions() || encountersEnabled == false)
         {
             return;
         }
