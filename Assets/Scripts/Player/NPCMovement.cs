@@ -16,10 +16,13 @@ public class NPCMovement : MonoBehaviour
     private int currentWaypointIdx;
     private bool isWaiting;
 
+    private Animator animator;
+
     void Start()
     {
         //get an array of waypoints
         waypoints = new Transform[WaypointParent.childCount];
+        animator = GetComponent<Animator>();
 
         //determine how many child waypoints the waypoint parent has
         for(int i = 0; i < WaypointParent.childCount; i++)
@@ -43,9 +46,13 @@ public class NPCMovement : MonoBehaviour
     {
         Transform target = waypoints[currentWaypointIdx];
         transform.position = Vector2.MoveTowards(transform.position,target.position, moveSpeed * Time.deltaTime);
+        animator.SetFloat("moveX", transform.position.x);
+        animator.SetFloat("moveY", transform.position.y);
+        animator.SetBool("isMoving", true);
 
         if(Vector2.Distance(transform.position, target.position) < 0.1f)
         {
+            animator.SetBool("isMoving", false);
             StartCoroutine(Wait());
         }
     }
