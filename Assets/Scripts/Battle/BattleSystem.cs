@@ -626,7 +626,7 @@ public class BattleSystem : MonoBehaviour
             // Show AI's choice with orange outline
             dialogBox.ShowAIChoice(aiChosenAnswer);
 
-            yield return new WaitForSeconds(2f); // Brief pause to show selection
+            yield return new WaitForSeconds(1.5f); // Brief pause to show selection
 
             // Check if AI got it right
             bool aiCorrect = (aiChosenAnswer == shuffleAnswersIndex);

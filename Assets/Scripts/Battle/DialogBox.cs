@@ -25,6 +25,7 @@ public class DialogBox : MonoBehaviour
     };
     public int letterPerSecond = 30;
     private bool answerSelected = false;
+    private int aiCurrentChoice = -1; // Track which answer AI is selecting (-1 = none)
     public bool GetAnswerSelected()
     { 
         return answerSelected; 
@@ -81,15 +82,39 @@ public class DialogBox : MonoBehaviour
         optionSelector.SetActive(enabled);
         optionImages = optionSelector.GetComponentsInChildren<RawImage>(true);
         optionStrings = optionSelector.GetComponentsInChildren<TMP_Text>(true);
-        optionOutlines = optionSelector.GetComponentsInChildren<Image>(true);
+
+        // Get ALL Image components first
+        Image[] allImages = optionSelector.GetComponentsInChildren<Image>(true);
+
+        // Filter to only get ones with "outline" in the name (case-insensitive)
+        List<Image> outlineList = new List<Image>();
+        foreach (Image img in allImages)
+        {
+            if (img.gameObject.name.ToLower().Contains("outline"))
+            {
+                outlineList.Add(img);
+            }
+        }
+        optionOutlines = outlineList.ToArray();
+
+        // Debug.Log($"Found {optionOutlines.Length} outline Image components");
 
         // Debug: Show what we found 2026 - option[4] - outline
-        //Debug.Log($"EnableOptionSelector - Found {optionOutlines.Length} Image components");
-        //for (int i = 0; i < optionOutlines.Length; i++)
-        //{
-        //    Debug.Log($"  optionOutlines[{i}] = {optionOutlines[i].gameObject.name}");
-        //}
+
     }
+
+    //public void UpdateChoiceSelection(int selectedChoice)
+    //{
+    //    if (answerSelected)
+    //        return;
+
+    //    for (int i = 0; i < optionOutlines.Length; i++)
+    //    {
+    //        bool selected = i == selectedChoice;
+    //        Color color = selected ? SELECTED_COLOR : UNSELECTED_COLOR;
+    //        optionOutlines[i].color = color;
+    //    }
+    //}
 
     public void UpdateChoiceSelection(int selectedChoice)
     {
@@ -98,6 +123,10 @@ public class DialogBox : MonoBehaviour
 
         for (int i = 0; i < optionOutlines.Length; i++)
         {
+            // Skip AI's current choice - don't overwrite the orange!
+            if (i == aiCurrentChoice)
+                continue;
+
             bool selected = i == selectedChoice;
             Color color = selected ? SELECTED_COLOR : UNSELECTED_COLOR;
             optionOutlines[i].color = color;
@@ -245,6 +274,8 @@ public class DialogBox : MonoBehaviour
     public void ShowAIChoice(int aiAnswer)
     {
         Debug.Log($"ShowAIChoice called for answer {aiAnswer}");
+        aiCurrentChoice = aiAnswer; // Remember AI's choice
+
         if (aiAnswer >= 0 && aiAnswer < optionOutlines.Length)
         {
             optionOutlines[aiAnswer].color = AI_CHOICE_COLOR;
@@ -260,6 +291,8 @@ public class DialogBox : MonoBehaviour
     public void ClearAIChoice()
     {
         Debug.Log("ClearAIChoice called");
+        aiCurrentChoice = -1; // Clear AI's choice
+
         for (int i = 0; i < optionOutlines.Length; i++)
         {
             optionOutlines[i].color = UNSELECTED_COLOR;
