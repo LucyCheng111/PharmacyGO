@@ -82,39 +82,9 @@ public class DialogBox : MonoBehaviour
         optionSelector.SetActive(enabled);
         optionImages = optionSelector.GetComponentsInChildren<RawImage>(true);
         optionStrings = optionSelector.GetComponentsInChildren<TMP_Text>(true);
-
-        // Get ALL Image components first
-        Image[] allImages = optionSelector.GetComponentsInChildren<Image>(true);
-
-        // Filter to only get ones with "outline" in the name (case-insensitive)
-        List<Image> outlineList = new List<Image>();
-        foreach (Image img in allImages)
-        {
-            if (img.gameObject.name.ToLower().Contains("outline"))
-            {
-                outlineList.Add(img);
-            }
-        }
-        optionOutlines = outlineList.ToArray();
-
-        // Debug.Log($"Found {optionOutlines.Length} outline Image components");
-
-        // Debug: Show what we found 2026 - option[4] - outline
+        optionOutlines = optionSelector.GetComponentsInChildren<Image>(true);
 
     }
-
-    //public void UpdateChoiceSelection(int selectedChoice)
-    //{
-    //    if (answerSelected)
-    //        return;
-
-    //    for (int i = 0; i < optionOutlines.Length; i++)
-    //    {
-    //        bool selected = i == selectedChoice;
-    //        Color color = selected ? SELECTED_COLOR : UNSELECTED_COLOR;
-    //        optionOutlines[i].color = color;
-    //    }
-    //}
 
     public void UpdateChoiceSelection(int selectedChoice)
     {
@@ -123,7 +93,7 @@ public class DialogBox : MonoBehaviour
 
         for (int i = 0; i < optionOutlines.Length; i++)
         {
-            // Skip AI's current choice - don't overwrite the orange!
+            // Don't overwrite the orange outline (without this orange outline won't appear)
             if (i == aiCurrentChoice)
                 continue;
 
@@ -242,7 +212,7 @@ public class DialogBox : MonoBehaviour
     public void ResetDalogBox()
     {
         answerSelected = false;
-        aiCurrentChoice = -1; // Reset AI choice when resetting dialog
+        aiCurrentChoice = -1; // Reset AI choice when resetting dialog 
         dialogText.text = "";
         currentOptions = AnswersType.None;
         EnableActionSelector(false);
@@ -269,29 +239,24 @@ public class DialogBox : MonoBehaviour
         }
     }
 
-    // === AI rival DialogBox (orange) 2026
+    //  ====AI rival DialogBox (orange)====
 
     // Highlight AI's chosen answer with orange color
     public void ShowAIChoice(int aiAnswer)
     {
-        Debug.Log($"ShowAIChoice called for answer {aiAnswer}");
         aiCurrentChoice = aiAnswer; // Remember AI's choice
 
+        // if AI answer index is valid
         if (aiAnswer >= 0 && aiAnswer < optionOutlines.Length)
         {
             optionOutlines[aiAnswer].color = AI_CHOICE_COLOR;
-            Debug.Log($"AI outline set to orange for answer {aiAnswer}");
         }
-        else
-        {
-            Debug.LogError($"Invalid aiAnswer index: {aiAnswer}, optionOutlines.Length: {optionOutlines.Length}");
-        }
+        
     }
 
     // Clear AI highlighting so player can continue or AI can try another answer
     public void ClearAIChoice()
     {
-        Debug.Log("ClearAIChoice called");
         aiCurrentChoice = -1; // Clear AI's choice
 
         for (int i = 0; i < optionOutlines.Length; i++)
