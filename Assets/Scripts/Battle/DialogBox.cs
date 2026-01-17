@@ -242,6 +242,7 @@ public class DialogBox : MonoBehaviour
     public void ResetDalogBox()
     {
         answerSelected = false;
+        aiCurrentChoice = -1; // Reset AI choice when resetting dialog
         dialogText.text = "";
         currentOptions = AnswersType.None;
         EnableActionSelector(false);
