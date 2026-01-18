@@ -46,13 +46,13 @@ public class NPCMovement : MonoBehaviour
     {
         Transform target = waypoints[currentWaypointIdx];
         transform.position = Vector2.MoveTowards(transform.position,target.position, moveSpeed * Time.deltaTime);
+ 
         animator.SetFloat("moveX", transform.position.x);
         animator.SetFloat("moveY", transform.position.y);
         animator.SetBool("isMoving", true);
 
         if(Vector2.Distance(transform.position, target.position) < 0.1f)
         {
-            animator.SetBool("isMoving", false);
             StartCoroutine(Wait());
         }
     }
@@ -61,6 +61,7 @@ public class NPCMovement : MonoBehaviour
     {
         //handles when the npc reaches a waypoint and waits for some time before resuming their course if they are set to repeat their movements
 
+        animator.SetBool("isMoving", false);
         isWaiting = true;
         yield return new WaitForSeconds(waitTime);
 
