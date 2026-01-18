@@ -14,10 +14,8 @@ public class AiRival : MonoBehaviour, Interactable
 
     // For interacting with AI
     [SerializeField] Dialog dialog;
-    [SerializeField] private GameObject InteractPrompt;
 
-    [Header("Debug Controls")]
-    public KeyCode restartKey = KeyCode.F8; // Temporary key to restart AI
+    
 
     // Private
     private PlayerControl playerControl;    
@@ -25,9 +23,12 @@ public class AiRival : MonoBehaviour, Interactable
     private Vector2 lastMoveDirection;
     private bool isInteracting = false;
     private bool isShutdown = false;
+    private bool AiRestarted = false;
+
 
     public static AiRival Instance { get; private set; }
-
+    [SerializeField] private GameObject InteractPrompt;
+    
     void Awake()
     {
 
@@ -59,16 +60,13 @@ public class AiRival : MonoBehaviour, Interactable
         {
             TeleportToPlayer();
         }
+
+        
     }
 
     
     void Update()
     {
-        // Check for restart key (works even when shutdown)
-        if (Input.GetKeyDown(restartKey))
-        {
-            RestartAI();
-        }
 
         // Don't process movement if we're shutdown or interacting
         if (isShutdown || isInteracting) return;
@@ -118,6 +116,12 @@ public class AiRival : MonoBehaviour, Interactable
         animator.SetBool("isMoving", false);
     }
 
+    // For restart AI
+    public bool IsShutdown()
+    {
+        return isShutdown;
+    }
+
     // ========== HELPER FUNCTIONS ==========
 
     // For interacting with AI (to shut down AI rival)
@@ -149,6 +153,14 @@ public class AiRival : MonoBehaviour, Interactable
     {
         isInteracting = true;
         StopMovement();
+
+        // When AI just restarted don't prompt interaction
+        if(AiRestarted == true)
+        {
+            AiRestarted = false;
+            isInteracting = false; 
+            yield break; 
+        }
 
         // Show initial dialog
         yield return DialogManager.Instance.ShowDialog(dialog);
@@ -223,7 +235,7 @@ public class AiRival : MonoBehaviour, Interactable
         );
 
         yield return DialogManager.Instance.ShowDialogText(
-            "Press " + restartKey + " to reopen AI (temporary).",
+            "Go to pause menu to reopen AI.",
             waitForInput: true,
             autoClose: true
         );
@@ -243,6 +255,7 @@ public class AiRival : MonoBehaviour, Interactable
 
             isShutdown = false;
             isInteracting = false;
+            AiRestarted = true;
 
             // Reset animations
             if (animator != null)
@@ -261,13 +274,16 @@ public class AiRival : MonoBehaviour, Interactable
 
             // Show restart message
             StartCoroutine(ShowRestartMessage());
+
         }
     }
 
-    private IEnumerator ShowRestartMessage()
+    public IEnumerator ShowRestartMessage()
     {
+        yield return new WaitForSeconds(0.5f);  // prevent conflict in pause menu
+
         yield return DialogManager.Instance.ShowDialogText(
-            "Your rival has returned.\nThis option will be in pause menu later",
+            "Your rival has returned.",
             waitForInput: true,
             autoClose: true
         );
@@ -301,6 +317,7 @@ public class AiRival : MonoBehaviour, Interactable
         // Teleport to near the player (behind the player)
         Vector3 spawnOffset = new Vector3(1f, 0f, 0f);
         transform.position = player.position + spawnOffset;
+
 
     }
 
@@ -347,6 +364,14 @@ public class AiRival : MonoBehaviour, Interactable
     {
         // Get isSprinting in PlayerControl
         return playerControl.isSprinting;
+    }
+
+    public bool IsActive
+    {
+        get
+        {
+            return !isShutdown && gameObject.activeInHierarchy;
+        }
     }
 
 }

@@ -68,12 +68,7 @@ public class PlayerControl : MonoBehaviour
 
     public void HandleUpdate()
     {
-        // To make AI restart, because when shut down AI stopped updating
-        if (Input.GetKeyDown(KeyCode.F8))
-        {
-            AiRival.Instance?.RestartAI();
-        }
-
+        
         if (isInEncounter) return;
 
             // Get the input from the player

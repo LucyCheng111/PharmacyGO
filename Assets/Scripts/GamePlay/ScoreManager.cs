@@ -64,8 +64,17 @@ public class ScoreManager : MonoBehaviour
                 difficultyBonus = 5;
             }
 
+            int multiplier = TimerManager.Instance.GetMultiplier();
+
+            // If multiplier is 0, use 1 as minimum to avoid 0 points
+            // when AI join battle, it seems to be somehow resetting multiplier, so default multiplier = 1
+            if (multiplier == 0 && TimerManager.Instance.IsLevelStarted())
             {
-                scoreCount += questionValue * (MapArea.i.GetCorrectStreak() + 1) * difficultyBonus * TimerManager.Instance.GetMultiplier();
+                multiplier = 1;
+            }
+
+            {
+                scoreCount += questionValue * (MapArea.i.GetCorrectStreak() + 1) * difficultyBonus * multiplier;
             }
         }
         

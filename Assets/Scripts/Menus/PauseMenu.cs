@@ -15,13 +15,17 @@ public class PauseMenu : MonoBehaviour
 
     [SerializeField] private Slider brightness;
     [SerializeField] private Image brightLevel;
+
+
     private const int HUB_SCENE_INDEX = 7;
     private const string MASTER_VOLUME_KEY = "masterVolume";
     private const int DEfAULT_VOLUME_VALUE = 10;
+
     public AudioMixer audioMixer;
     public TextMeshProUGUI volumeText;
     public Slider volumeSlider;
 
+    
 
     private SpriteRenderer[] spriteRenderers;
 
@@ -41,6 +45,7 @@ public class PauseMenu : MonoBehaviour
             // Add listener to the slider
             brightness.onValueChanged.AddListener(OnBrightnessChanged);
         }
+
     }
 
     private void OnBrightnessChanged(float value)
@@ -131,5 +136,10 @@ public class PauseMenu : MonoBehaviour
         }
     }
 
+    // Restart AI 
+    public void RestartAIFromMenu()
+    {
+        AiRival.Instance?.RestartAI();
+    }
 
 }
