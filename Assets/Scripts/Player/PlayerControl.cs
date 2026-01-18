@@ -117,6 +117,7 @@ public class PlayerControl : MonoBehaviour
                 animator.SetFloat("moveX", input.x);
                 animator.SetFloat("moveY", input.y);
                 animator.SetBool("isMoving",true);
+                Debug.Log("moveX = " + input.x + " moveY = " + input.y);
             }else{
                 animator.SetBool("isMoving",false);
 

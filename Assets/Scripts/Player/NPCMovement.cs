@@ -46,9 +46,12 @@ public class NPCMovement : MonoBehaviour
     {
         Transform target = waypoints[currentWaypointIdx];
         transform.position = Vector2.MoveTowards(transform.position,target.position, moveSpeed * Time.deltaTime);
+
+        //convert world coordinates to movement directions on a unit circle
+        Vector2 movementDirection = (target.position - transform.position).normalized;
  
-        animator.SetFloat("moveX", transform.position.x);
-        animator.SetFloat("moveY", transform.position.y);
+        animator.SetFloat("moveX", movementDirection.x);
+        animator.SetFloat("moveY", movementDirection.y);
         animator.SetBool("isMoving", true);
 
         if(Vector2.Distance(transform.position, target.position) < 0.1f)
