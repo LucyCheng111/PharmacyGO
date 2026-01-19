@@ -78,8 +78,8 @@ public class PlayerControl : MonoBehaviour
         if (isInEncounter) return;
 
             // Get the input from the player
-            float h = joystick.Horizontal;
-            float v = joystick.Vertical;
+            float h = joystick != null ? joystick.Horizontal :0f;
+            float v = joystick != null ? joystick.Vertical : 0f;
 
             // If joystick is “centered,” read keyboard
             input.x = Mathf.Abs(h) > 0.1f ? h : Input.GetAxisRaw("Horizontal");
