@@ -59,7 +59,11 @@ public class DialogManager : MonoBehaviour
             CloseDialog();
         }
 
-        CloseDialog();
+        OnDialogFinished?.Invoke();
+        /*
+        dialogBox.SetActive(false);
+        IsShowing = false;
+        */
     }
 
     // Standardized Close dialog
@@ -67,17 +71,6 @@ public class DialogManager : MonoBehaviour
     {
         dialogBox.SetActive(false);
         IsShowing = false;
-        OnDialogFinished?.Invoke();
-    }
-    
-    /* Updates the dialog system. Should be called in Update() in GameControl.cs
-     * 
-     * 
-     * 
-     */
-    public void HandleUpdate()
-    {
-        // Handled in each dialog option now
     }
 
 
@@ -113,8 +106,22 @@ public class DialogManager : MonoBehaviour
             yield return choiceBox.ShowChoices(choices, onChoiceSelected);
         }
 
-        CloseDialog();
+        dialogBox.SetActive(false);
+        IsShowing = false;
+        OnDialogFinished?.Invoke();
     }
+
+
+    /* Updates the dialog system. Should be called in Update() in GameControl.cs
+     * 
+     * 
+     * 
+     */
+    public void HandleUpdate()
+    {
+        // Handled in each dialog option now
+    }
+
 
     public IEnumerator TypeDialog(string line)
     {
@@ -126,26 +133,6 @@ public class DialogManager : MonoBehaviour
             yield return new WaitForSeconds(1f / letterPerSecond);
         }
         
-    }
-
-    void OnEnable()
-    {
-        UnityEngine.SceneManagement.SceneManager.sceneLoaded += OnSceneLoaded;
-    }
-
-    void OnDisable()
-    {
-        UnityEngine.SceneManagement.SceneManager.sceneLoaded -= OnSceneLoaded;
-
-    }
-
-    void OnSceneLoaded(UnityEngine.SceneManagement.Scene scene, UnityEngine.SceneManagement.LoadSceneMode mode)
-    {
-        dialogBox = GameObject.FindWithTag("DialogBox");
-        dialogText = dialogBox.GetComponentInChildren<Text>();
-        choiceBox = dialogBox.GetComponentInChildren<ChoiceBox>();
-
-        CloseDialog();
     }
 
 

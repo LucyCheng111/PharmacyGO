@@ -15,7 +15,6 @@ public class NPCMovement : MonoBehaviour
     private Transform[] waypoints;
     private int currentWaypointIdx;
     private bool isWaiting;
-    private bool movementLocked;
 
     private Animator animator;
 
@@ -34,7 +33,7 @@ public class NPCMovement : MonoBehaviour
 
     void Update()
     {
-        if (isWaiting || movementLocked)
+        if (isWaiting)
         {
             //if the game is paused, or the npc is waiting at a waypoint, they do nothing
             return;        
@@ -72,50 +71,5 @@ public class NPCMovement : MonoBehaviour
         currentWaypointIdx = repeatMovement ? (currentWaypointIdx + 1) % waypoints.Length : Mathf.Min(currentWaypointIdx+1, waypoints.Length-1);
         isWaiting = false;
     }
-
-    void OnEnable()
-    {
-        if(DialogManager.Instance == null)
-        {
-            return;
-        }
-
-        DialogManager.Instance.OnShowDialog += LockMovement;
-        DialogManager.Instance.OnDialogFinished += UnlockMovement;
-    }
-
-    void onDisable()
-    {
-        if(DialogManager.Instance == null)
-        {
-            return;
-        }
-
-        DialogManager.Instance.OnShowDialog -= LockMovement;
-        DialogManager.Instance.OnDialogFinished -= UnlockMovement;
-    }
-
-    void onDestroy()
-    {
-        if(DialogManager.Instance == null)
-        {
-            return;
-        }
-
-        DialogManager.Instance.OnShowDialog -= LockMovement;
-        DialogManager.Instance.OnDialogFinished -= UnlockMovement;
-    }
-
-    void LockMovement()
-    {
-        movementLocked = true;
-        animator.SetBool("isMoving", false);
-    }
-
-    void UnlockMovement()
-    {
-        movementLocked = false;
-    }
-
 
 }
