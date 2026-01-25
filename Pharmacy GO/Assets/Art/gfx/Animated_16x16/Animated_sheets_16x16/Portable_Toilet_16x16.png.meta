@@ -1,0 +1,507 @@
+fileFormatVersion: 2
+guid: 14f2843abf92b824eb4b32a6800e2e1c
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -7399968763494353691
+    second: Portable_Toilet_16x16_0
+  - first:
+      213: -7088275040318378165
+    second: Portable_Toilet_16x16_1
+  - first:
+      213: 8607707142547330027
+    second: Portable_Toilet_16x16_2
+  - first:
+      213: 650372639853815974
+    second: Portable_Toilet_16x16_3
+  - first:
+      213: -1301877938326518304
+    second: Portable_Toilet_16x16_4
+  - first:
+      213: -2364233060059534632
+    second: Portable_Toilet_16x16_5
+  - first:
+      213: -5645278347149868566
+    second: Portable_Toilet_16x16_6
+  - first:
+      213: -6189759406994840863
+    second: Portable_Toilet_16x16_7
+  - first:
+      213: -5093343979284478693
+    second: Portable_Toilet_16x16_8
+  - first:
+      213: -974593803566499886
+    second: Portable_Toilet_16x16_9
+  - first:
+      213: -8003092377243507500
+    second: Portable_Toilet_16x16_10
+  - first:
+      213: -1720545276280897474
+    second: Portable_Toilet_16x16_11
+  - first:
+      213: -2124039225592225901
+    second: Portable_Toilet_16x16_12
+  - first:
+      213: -5850642461397615122
+    second: Portable_Toilet_16x16_13
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Portable_Toilet_16x16_0
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 15
+        width: 31
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5e4bee6cd970e4990800000000000000
+      internalID: -7399968763494353691
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Portable_Toilet_16x16_1
+      rect:
+        serializedVersion: 2
+        x: 33
+        y: 15
+        width: 31
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b4f2e87f76361ad90800000000000000
+      internalID: -7088275040318378165
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Portable_Toilet_16x16_2
+      rect:
+        serializedVersion: 2
+        x: 65
+        y: 13
+        width: 31
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: be350226a08b47770800000000000000
+      internalID: 8607707142547330027
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Portable_Toilet_16x16_3
+      rect:
+        serializedVersion: 2
+        x: 97
+        y: 11
+        width: 31
+        height: 56
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6a8ae1a5876960900800000000000000
+      internalID: 650372639853815974
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Portable_Toilet_16x16_4
+      rect:
+        serializedVersion: 2
+        x: 129
+        y: 8
+        width: 31
+        height: 59
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0e54129a9ecceede0800000000000000
+      internalID: -1301877938326518304
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Portable_Toilet_16x16_5
+      rect:
+        serializedVersion: 2
+        x: 161
+        y: 7
+        width: 31
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8daaae0ee8e803fd0800000000000000
+      internalID: -2364233060059534632
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Portable_Toilet_16x16_6
+      rect:
+        serializedVersion: 2
+        x: 193
+        y: 6
+        width: 31
+        height: 61
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ae18de3d041f7a1b0800000000000000
+      internalID: -5645278347149868566
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Portable_Toilet_16x16_7
+      rect:
+        serializedVersion: 2
+        x: 225
+        y: 5
+        width: 31
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1e2a0f43d9e891aa0800000000000000
+      internalID: -6189759406994840863
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Portable_Toilet_16x16_8
+      rect:
+        serializedVersion: 2
+        x: 257
+        y: 6
+        width: 31
+        height: 61
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b15cfd3f2aec059b0800000000000000
+      internalID: -5093343979284478693
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Portable_Toilet_16x16_9
+      rect:
+        serializedVersion: 2
+        x: 289
+        y: 7
+        width: 31
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2d73f1a691c8972f0800000000000000
+      internalID: -974593803566499886
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Portable_Toilet_16x16_10
+      rect:
+        serializedVersion: 2
+        x: 321
+        y: 8
+        width: 31
+        height: 59
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4d4a3c592ed4fe090800000000000000
+      internalID: -8003092377243507500
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Portable_Toilet_16x16_11
+      rect:
+        serializedVersion: 2
+        x: 353
+        y: 11
+        width: 31
+        height: 56
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e300d43ef256f18e0800000000000000
+      internalID: -1720545276280897474
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Portable_Toilet_16x16_12
+      rect:
+        serializedVersion: 2
+        x: 385
+        y: 13
+        width: 31
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 39f5495f395e582e0800000000000000
+      internalID: -2124039225592225901
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Portable_Toilet_16x16_13
+      rect:
+        serializedVersion: 2
+        x: 417
+        y: 15
+        width: 31
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eedf39ceda75ecea0800000000000000
+      internalID: -5850642461397615122
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Portable_Toilet_16x16_0: -7399968763494353691
+      Portable_Toilet_16x16_1: -7088275040318378165
+      Portable_Toilet_16x16_10: -8003092377243507500
+      Portable_Toilet_16x16_11: -1720545276280897474
+      Portable_Toilet_16x16_12: -2124039225592225901
+      Portable_Toilet_16x16_13: -5850642461397615122
+      Portable_Toilet_16x16_2: 8607707142547330027
+      Portable_Toilet_16x16_3: 650372639853815974
+      Portable_Toilet_16x16_4: -1301877938326518304
+      Portable_Toilet_16x16_5: -2364233060059534632
+      Portable_Toilet_16x16_6: -5645278347149868566
+      Portable_Toilet_16x16_7: -6189759406994840863
+      Portable_Toilet_16x16_8: -5093343979284478693
+      Portable_Toilet_16x16_9: -974593803566499886
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

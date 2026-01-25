@@ -1,0 +1,481 @@
+fileFormatVersion: 2
+guid: 23a245543f1c3ba46a26e7c4daf4c8dc
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -1305330855949298776
+    second: Graveyard_Ghosts_1_16x16_0
+  - first:
+      213: 1700279680766374846
+    second: Graveyard_Ghosts_1_16x16_1
+  - first:
+      213: -8807977281421025130
+    second: Graveyard_Ghosts_1_16x16_2
+  - first:
+      213: 6431163212133022520
+    second: Graveyard_Ghosts_1_16x16_3
+  - first:
+      213: 4974590996634610496
+    second: Graveyard_Ghosts_1_16x16_4
+  - first:
+      213: -4885825907111918471
+    second: Graveyard_Ghosts_1_16x16_5
+  - first:
+      213: -5821434569760904015
+    second: Graveyard_Ghosts_1_16x16_6
+  - first:
+      213: -7077585410093769561
+    second: Graveyard_Ghosts_1_16x16_7
+  - first:
+      213: 1353313374163901374
+    second: Graveyard_Ghosts_1_16x16_8
+  - first:
+      213: 8731038684424852490
+    second: Graveyard_Ghosts_1_16x16_9
+  - first:
+      213: 6535127433666922360
+    second: Graveyard_Ghosts_1_16x16_10
+  - first:
+      213: -1317888844446336979
+    second: Graveyard_Ghosts_1_16x16_11
+  - first:
+      213: 3733063719213339172
+    second: Graveyard_Ghosts_1_16x16_12
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Graveyard_Ghosts_1_16x16_0
+      rect:
+        serializedVersion: 2
+        x: 51
+        y: 3
+        width: 14
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8a319c0a08882ede0800000000000000
+      internalID: -1305330855949298776
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Graveyard_Ghosts_1_16x16_1
+      rect:
+        serializedVersion: 2
+        x: 67
+        y: 10
+        width: 8
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eb3f4e67c5b989710800000000000000
+      internalID: 1700279680766374846
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Graveyard_Ghosts_1_16x16_2
+      rect:
+        serializedVersion: 2
+        x: 83
+        y: 13
+        width: 8
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 69060374457c3c580800000000000000
+      internalID: -8807977281421025130
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Graveyard_Ghosts_1_16x16_3
+      rect:
+        serializedVersion: 2
+        x: 100
+        y: 17
+        width: 7
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 83bbfbf1ed4104950800000000000000
+      internalID: 6431163212133022520
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Graveyard_Ghosts_1_16x16_4
+      rect:
+        serializedVersion: 2
+        x: 117
+        y: 7
+        width: 20
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 04b2349a72c490540800000000000000
+      internalID: 4974590996634610496
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Graveyard_Ghosts_1_16x16_5
+      rect:
+        serializedVersion: 2
+        x: 140
+        y: 8
+        width: 11
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9748134493f023cb0800000000000000
+      internalID: -4885825907111918471
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Graveyard_Ghosts_1_16x16_6
+      rect:
+        serializedVersion: 2
+        x: 161
+        y: 10
+        width: 36
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1bce8322a1c163fa0800000000000000
+      internalID: -5821434569760904015
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Graveyard_Ghosts_1_16x16_7
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 2
+        width: 24
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7ac9fd3719d57cd90800000000000000
+      internalID: -7077585410093769561
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Graveyard_Ghosts_1_16x16_8
+      rect:
+        serializedVersion: 2
+        x: 35
+        y: 2
+        width: 8
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ebb13d8f75fe7c210800000000000000
+      internalID: 1353313374163901374
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Graveyard_Ghosts_1_16x16_9
+      rect:
+        serializedVersion: 2
+        x: 74
+        y: 3
+        width: 6
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a045659ac61ea2970800000000000000
+      internalID: 8731038684424852490
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Graveyard_Ghosts_1_16x16_10
+      rect:
+        serializedVersion: 2
+        x: 90
+        y: 4
+        width: 14
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 87780adb6cf61ba50800000000000000
+      internalID: 6535127433666922360
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Graveyard_Ghosts_1_16x16_11
+      rect:
+        serializedVersion: 2
+        x: 106
+        y: 8
+        width: 6
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d287355141be5bde0800000000000000
+      internalID: -1317888844446336979
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Graveyard_Ghosts_1_16x16_12
+      rect:
+        serializedVersion: 2
+        x: 113
+        y: 5
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4221c9b8ca18ec330800000000000000
+      internalID: 3733063719213339172
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Graveyard_Ghosts_1_16x16_0: -1305330855949298776
+      Graveyard_Ghosts_1_16x16_1: 1700279680766374846
+      Graveyard_Ghosts_1_16x16_10: 6535127433666922360
+      Graveyard_Ghosts_1_16x16_11: -1317888844446336979
+      Graveyard_Ghosts_1_16x16_12: 3733063719213339172
+      Graveyard_Ghosts_1_16x16_2: -8807977281421025130
+      Graveyard_Ghosts_1_16x16_3: 6431163212133022520
+      Graveyard_Ghosts_1_16x16_4: 4974590996634610496
+      Graveyard_Ghosts_1_16x16_5: -4885825907111918471
+      Graveyard_Ghosts_1_16x16_6: -5821434569760904015
+      Graveyard_Ghosts_1_16x16_7: -7077585410093769561
+      Graveyard_Ghosts_1_16x16_8: 1353313374163901374
+      Graveyard_Ghosts_1_16x16_9: 8731038684424852490
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

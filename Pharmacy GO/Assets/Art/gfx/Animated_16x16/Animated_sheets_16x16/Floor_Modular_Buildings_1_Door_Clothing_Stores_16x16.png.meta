@@ -1,0 +1,507 @@
+fileFormatVersion: 2
+guid: 1cfbbd38b086a7d438b6bf161391db5f
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 320340556964328560
+    second: Floor_Modular_Buildings_1_Door_Clothing_Stores_16x16_0
+  - first:
+      213: -5297833947553810270
+    second: Floor_Modular_Buildings_1_Door_Clothing_Stores_16x16_1
+  - first:
+      213: 5029206538163901566
+    second: Floor_Modular_Buildings_1_Door_Clothing_Stores_16x16_2
+  - first:
+      213: 7407028551423953911
+    second: Floor_Modular_Buildings_1_Door_Clothing_Stores_16x16_3
+  - first:
+      213: -2183014599364583658
+    second: Floor_Modular_Buildings_1_Door_Clothing_Stores_16x16_4
+  - first:
+      213: -122909851625217298
+    second: Floor_Modular_Buildings_1_Door_Clothing_Stores_16x16_5
+  - first:
+      213: -6458936185745123259
+    second: Floor_Modular_Buildings_1_Door_Clothing_Stores_16x16_6
+  - first:
+      213: -6569959725281374577
+    second: Floor_Modular_Buildings_1_Door_Clothing_Stores_16x16_7
+  - first:
+      213: -7881461533220304184
+    second: Floor_Modular_Buildings_1_Door_Clothing_Stores_16x16_8
+  - first:
+      213: 3429292956614713995
+    second: Floor_Modular_Buildings_1_Door_Clothing_Stores_16x16_9
+  - first:
+      213: 5391232614775343267
+    second: Floor_Modular_Buildings_1_Door_Clothing_Stores_16x16_10
+  - first:
+      213: -2746470305519836001
+    second: Floor_Modular_Buildings_1_Door_Clothing_Stores_16x16_11
+  - first:
+      213: -2332436102743875684
+    second: Floor_Modular_Buildings_1_Door_Clothing_Stores_16x16_12
+  - first:
+      213: -8923478430907121074
+    second: Floor_Modular_Buildings_1_Door_Clothing_Stores_16x16_13
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Floor_Modular_Buildings_1_Door_Clothing_Stores_16x16_0
+      rect:
+        serializedVersion: 2
+        x: 7
+        y: 0
+        width: 34
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 07472011a04127400800000000000000
+      internalID: 320340556964328560
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Floor_Modular_Buildings_1_Door_Clothing_Stores_16x16_1
+      rect:
+        serializedVersion: 2
+        x: 55
+        y: 0
+        width: 34
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2a8bc0508105a76b0800000000000000
+      internalID: -5297833947553810270
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Floor_Modular_Buildings_1_Door_Clothing_Stores_16x16_2
+      rect:
+        serializedVersion: 2
+        x: 103
+        y: 0
+        width: 34
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e74d45953b45bc540800000000000000
+      internalID: 5029206538163901566
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Floor_Modular_Buildings_1_Door_Clothing_Stores_16x16_3
+      rect:
+        serializedVersion: 2
+        x: 151
+        y: 0
+        width: 34
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7fb0dc0393d0bc660800000000000000
+      internalID: 7407028551423953911
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Floor_Modular_Buildings_1_Door_Clothing_Stores_16x16_4
+      rect:
+        serializedVersion: 2
+        x: 199
+        y: 0
+        width: 34
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 61fd169b9cf54b1e0800000000000000
+      internalID: -2183014599364583658
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Floor_Modular_Buildings_1_Door_Clothing_Stores_16x16_5
+      rect:
+        serializedVersion: 2
+        x: 247
+        y: 0
+        width: 34
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ee2ab7224265b4ef0800000000000000
+      internalID: -122909851625217298
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Floor_Modular_Buildings_1_Door_Clothing_Stores_16x16_6
+      rect:
+        serializedVersion: 2
+        x: 295
+        y: 0
+        width: 34
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 548debd82cf3d56a0800000000000000
+      internalID: -6458936185745123259
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Floor_Modular_Buildings_1_Door_Clothing_Stores_16x16_7
+      rect:
+        serializedVersion: 2
+        x: 343
+        y: 0
+        width: 34
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f8e0bf16070d2d4a0800000000000000
+      internalID: -6569959725281374577
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Floor_Modular_Buildings_1_Door_Clothing_Stores_16x16_8
+      rect:
+        serializedVersion: 2
+        x: 391
+        y: 0
+        width: 34
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8ca8f794e7c6f9290800000000000000
+      internalID: -7881461533220304184
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Floor_Modular_Buildings_1_Door_Clothing_Stores_16x16_9
+      rect:
+        serializedVersion: 2
+        x: 439
+        y: 0
+        width: 34
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b82e4cd56cb479f20800000000000000
+      internalID: 3429292956614713995
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Floor_Modular_Buildings_1_Door_Clothing_Stores_16x16_10
+      rect:
+        serializedVersion: 2
+        x: 487
+        y: 0
+        width: 34
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3a84f29cf7181da40800000000000000
+      internalID: 5391232614775343267
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Floor_Modular_Buildings_1_Door_Clothing_Stores_16x16_11
+      rect:
+        serializedVersion: 2
+        x: 535
+        y: 0
+        width: 34
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f94e45dfec392e9d0800000000000000
+      internalID: -2746470305519836001
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Floor_Modular_Buildings_1_Door_Clothing_Stores_16x16_12
+      rect:
+        serializedVersion: 2
+        x: 583
+        y: 0
+        width: 34
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c9f97aae8b581afd0800000000000000
+      internalID: -2332436102743875684
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Floor_Modular_Buildings_1_Door_Clothing_Stores_16x16_13
+      rect:
+        serializedVersion: 2
+        x: 631
+        y: 0
+        width: 34
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e42cbec45af692480800000000000000
+      internalID: -8923478430907121074
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Floor_Modular_Buildings_1_Door_Clothing_Stores_16x16_0: 320340556964328560
+      Floor_Modular_Buildings_1_Door_Clothing_Stores_16x16_1: -5297833947553810270
+      Floor_Modular_Buildings_1_Door_Clothing_Stores_16x16_10: 5391232614775343267
+      Floor_Modular_Buildings_1_Door_Clothing_Stores_16x16_11: -2746470305519836001
+      Floor_Modular_Buildings_1_Door_Clothing_Stores_16x16_12: -2332436102743875684
+      Floor_Modular_Buildings_1_Door_Clothing_Stores_16x16_13: -8923478430907121074
+      Floor_Modular_Buildings_1_Door_Clothing_Stores_16x16_2: 5029206538163901566
+      Floor_Modular_Buildings_1_Door_Clothing_Stores_16x16_3: 7407028551423953911
+      Floor_Modular_Buildings_1_Door_Clothing_Stores_16x16_4: -2183014599364583658
+      Floor_Modular_Buildings_1_Door_Clothing_Stores_16x16_5: -122909851625217298
+      Floor_Modular_Buildings_1_Door_Clothing_Stores_16x16_6: -6458936185745123259
+      Floor_Modular_Buildings_1_Door_Clothing_Stores_16x16_7: -6569959725281374577
+      Floor_Modular_Buildings_1_Door_Clothing_Stores_16x16_8: -7881461533220304184
+      Floor_Modular_Buildings_1_Door_Clothing_Stores_16x16_9: 3429292956614713995
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -1,0 +1,923 @@
+fileFormatVersion: 2
+guid: a50ea2a0649fe584aba7fa2b043e9acf
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -6494329216676324366
+    second: Container_Door_1_0
+  - first:
+      213: 7717690301357134901
+    second: Container_Door_1_1
+  - first:
+      213: -3282613469152961162
+    second: Container_Door_1_2
+  - first:
+      213: -8973465466190350763
+    second: Container_Door_1_3
+  - first:
+      213: 1875093023533759236
+    second: Container_Door_1_4
+  - first:
+      213: 4494177612330547929
+    second: Container_Door_1_5
+  - first:
+      213: 1279515763338362665
+    second: Container_Door_1_6
+  - first:
+      213: -3726331111976360465
+    second: Container_Door_1_7
+  - first:
+      213: -8543499600537540754
+    second: Container_Door_1_8
+  - first:
+      213: 2781841925937025647
+    second: Container_Door_1_9
+  - first:
+      213: -5542097677399011108
+    second: Container_Door_1_10
+  - first:
+      213: 8690801008966811575
+    second: Container_Door_1_11
+  - first:
+      213: -6191129428115385706
+    second: Container_Door_1_12
+  - first:
+      213: 4544731549681108246
+    second: Container_Door_1_13
+  - first:
+      213: 2579442531331026169
+    second: Container_Door_1_14
+  - first:
+      213: -3922980785409923350
+    second: Container_Door_1_15
+  - first:
+      213: 412178552300420766
+    second: Container_Door_1_16
+  - first:
+      213: -8779528291027654576
+    second: Container_Door_1_17
+  - first:
+      213: -1020260346849732238
+    second: Container_Door_1_18
+  - first:
+      213: 7001706005951721051
+    second: Container_Door_1_19
+  - first:
+      213: 2510426220931231224
+    second: Container_Door_1_20
+  - first:
+      213: -8306842617402036480
+    second: Container_Door_1_21
+  - first:
+      213: 3495887073096077485
+    second: Container_Door_1_22
+  - first:
+      213: 6667311724338436775
+    second: Container_Door_1_23
+  - first:
+      213: 2882958231453303273
+    second: Container_Door_1_24
+  - first:
+      213: 3872747501648782996
+    second: Container_Door_1_25
+  - first:
+      213: -6993974653656783888
+    second: Container_Door_1_26
+  - first:
+      213: -8159284211347023969
+    second: Container_Door_1_27
+  - first:
+      213: 2921552497843337443
+    second: Container_Door_1_28
+  - first:
+      213: 2191635876612329265
+    second: Container_Door_1_29
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Container_Door_1_0
+      rect:
+        serializedVersion: 2
+        x: 15
+        y: 15
+        width: 41
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2fb11916cf18fd5a0800000000000000
+      internalID: -6494329216676324366
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Container_Door_1_1
+      rect:
+        serializedVersion: 2
+        x: 79
+        y: 15
+        width: 41
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5349ed2607eba1b60800000000000000
+      internalID: 7717690301357134901
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Container_Door_1_2
+      rect:
+        serializedVersion: 2
+        x: 143
+        y: 15
+        width: 41
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 67d993c1170d172d0800000000000000
+      internalID: -3282613469152961162
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Container_Door_1_3
+      rect:
+        serializedVersion: 2
+        x: 207
+        y: 15
+        width: 41
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5563d73b3b8d77380800000000000000
+      internalID: -8973465466190350763
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Container_Door_1_4
+      rect:
+        serializedVersion: 2
+        x: 271
+        y: 12
+        width: 41
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 40bfa849b2ba50a10800000000000000
+      internalID: 1875093023533759236
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Container_Door_1_5
+      rect:
+        serializedVersion: 2
+        x: 335
+        y: 9
+        width: 41
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9dab97c2ab68e5e30800000000000000
+      internalID: 4494177612330547929
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Container_Door_1_6
+      rect:
+        serializedVersion: 2
+        x: 399
+        y: 8
+        width: 41
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 92fbb4ebec0c1c110800000000000000
+      internalID: 1279515763338362665
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Container_Door_1_7
+      rect:
+        serializedVersion: 2
+        x: 463
+        y: 6
+        width: 41
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fe5a92bb899694cc0800000000000000
+      internalID: -3726331111976360465
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Container_Door_1_8
+      rect:
+        serializedVersion: 2
+        x: 526
+        y: 6
+        width: 42
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e67a443f0646f6980800000000000000
+      internalID: -8543499600537540754
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Container_Door_1_9
+      rect:
+        serializedVersion: 2
+        x: 587
+        y: 7
+        width: 45
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f62d3c82e761b9620800000000000000
+      internalID: 2781841925937025647
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Container_Door_1_10
+      rect:
+        serializedVersion: 2
+        x: 648
+        y: 8
+        width: 48
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cd05d1496838613b0800000000000000
+      internalID: -5542097677399011108
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Container_Door_1_11
+      rect:
+        serializedVersion: 2
+        x: 710
+        y: 11
+        width: 52
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7bfb219c87deb9870800000000000000
+      internalID: 8690801008966811575
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Container_Door_1_12
+      rect:
+        serializedVersion: 2
+        x: 773
+        y: 14
+        width: 54
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 69217be4690b41aa0800000000000000
+      internalID: -6191129428115385706
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Container_Door_1_13
+      rect:
+        serializedVersion: 2
+        x: 835
+        y: 15
+        width: 58
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 615c042f341221f30800000000000000
+      internalID: 4544731549681108246
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Container_Door_1_14
+      rect:
+        serializedVersion: 2
+        x: 898
+        y: 15
+        width: 60
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9fc2586d0550cc320800000000000000
+      internalID: 2579442531331026169
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Container_Door_1_15
+      rect:
+        serializedVersion: 2
+        x: 961
+        y: 15
+        width: 62
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ae665f0b2c5ce89c0800000000000000
+      internalID: -3922980785409923350
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Container_Door_1_16
+      rect:
+        serializedVersion: 2
+        x: 1026
+        y: 15
+        width: 60
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e9eb6e1a53a58b500800000000000000
+      internalID: 412178552300420766
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Container_Door_1_17
+      rect:
+        serializedVersion: 2
+        x: 1091
+        y: 15
+        width: 58
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 058edc50989d82680800000000000000
+      internalID: -8779528291027654576
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Container_Door_1_18
+      rect:
+        serializedVersion: 2
+        x: 1157
+        y: 14
+        width: 54
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 279da9fbe9e47d1f0800000000000000
+      internalID: -1020260346849732238
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Container_Door_1_19
+      rect:
+        serializedVersion: 2
+        x: 1222
+        y: 11
+        width: 52
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b5ea87a048e0b2160800000000000000
+      internalID: 7001706005951721051
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Container_Door_1_20
+      rect:
+        serializedVersion: 2
+        x: 1288
+        y: 8
+        width: 48
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8fdae6dd853d6d220800000000000000
+      internalID: 2510426220931231224
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Container_Door_1_21
+      rect:
+        serializedVersion: 2
+        x: 1355
+        y: 7
+        width: 45
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 00feca8a6aa28bc80800000000000000
+      internalID: -8306842617402036480
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Container_Door_1_22
+      rect:
+        serializedVersion: 2
+        x: 1422
+        y: 6
+        width: 42
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: da095ce55c2e38030800000000000000
+      internalID: 3495887073096077485
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Container_Door_1_23
+      rect:
+        serializedVersion: 2
+        x: 1487
+        y: 6
+        width: 41
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7aa5df730bc078c50800000000000000
+      internalID: 6667311724338436775
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Container_Door_1_24
+      rect:
+        serializedVersion: 2
+        x: 1551
+        y: 8
+        width: 41
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9e10018ac33520820800000000000000
+      internalID: 2882958231453303273
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Container_Door_1_25
+      rect:
+        serializedVersion: 2
+        x: 1615
+        y: 9
+        width: 41
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 496ae848553ceb530800000000000000
+      internalID: 3872747501648782996
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Container_Door_1_26
+      rect:
+        serializedVersion: 2
+        x: 1679
+        y: 12
+        width: 41
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0f3a3b0bb1960fe90800000000000000
+      internalID: -6993974653656783888
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Container_Door_1_27
+      rect:
+        serializedVersion: 2
+        x: 1743
+        y: 15
+        width: 41
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f9715315d3664ce80800000000000000
+      internalID: -8159284211347023969
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Container_Door_1_28
+      rect:
+        serializedVersion: 2
+        x: 1807
+        y: 15
+        width: 41
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3e87b9a84807b8820800000000000000
+      internalID: 2921552497843337443
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Container_Door_1_29
+      rect:
+        serializedVersion: 2
+        x: 1871
+        y: 15
+        width: 41
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 13fca7ec7314a6e10800000000000000
+      internalID: 2191635876612329265
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Container_Door_1_0: -6494329216676324366
+      Container_Door_1_1: 7717690301357134901
+      Container_Door_1_10: -5542097677399011108
+      Container_Door_1_11: 8690801008966811575
+      Container_Door_1_12: -6191129428115385706
+      Container_Door_1_13: 4544731549681108246
+      Container_Door_1_14: 2579442531331026169
+      Container_Door_1_15: -3922980785409923350
+      Container_Door_1_16: 412178552300420766
+      Container_Door_1_17: -8779528291027654576
+      Container_Door_1_18: -1020260346849732238
+      Container_Door_1_19: 7001706005951721051
+      Container_Door_1_2: -3282613469152961162
+      Container_Door_1_20: 2510426220931231224
+      Container_Door_1_21: -8306842617402036480
+      Container_Door_1_22: 3495887073096077485
+      Container_Door_1_23: 6667311724338436775
+      Container_Door_1_24: 2882958231453303273
+      Container_Door_1_25: 3872747501648782996
+      Container_Door_1_26: -6993974653656783888
+      Container_Door_1_27: -8159284211347023969
+      Container_Door_1_28: 2921552497843337443
+      Container_Door_1_29: 2191635876612329265
+      Container_Door_1_3: -8973465466190350763
+      Container_Door_1_4: 1875093023533759236
+      Container_Door_1_5: 4494177612330547929
+      Container_Door_1_6: 1279515763338362665
+      Container_Door_1_7: -3726331111976360465
+      Container_Door_1_8: -8543499600537540754
+      Container_Door_1_9: 2781841925937025647
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

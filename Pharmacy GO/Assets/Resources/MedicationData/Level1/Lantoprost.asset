@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 749a9917d56567d4a905ac9c4a86a81c, type: 3}
+  m_Name: Lantoprost
+  m_EditorClassIdentifier: 
+  medicationName: Lantoprost
+  image: {fileID: 0}
+  level: 1
+  treatmentOrgan: Eyes
+  pharmacologicClass: Prostoglandin-like
+  mechanismOfAction: Mimics prostoglandin
+  therapeuticUses: open-angle glaucoma; ocular hypertension
+  sideEffects: 
+  majorDrugInteractions: 
+  funFact: 

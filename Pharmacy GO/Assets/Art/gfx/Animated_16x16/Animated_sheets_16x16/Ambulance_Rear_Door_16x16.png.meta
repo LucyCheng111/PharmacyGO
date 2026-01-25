@@ -1,0 +1,507 @@
+fileFormatVersion: 2
+guid: d8ccb83bac41fd5409343f0e410ea56a
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -1262781869302446912
+    second: Ambulance_Rear_Door_16x16_0
+  - first:
+      213: -8401439582350168527
+    second: Ambulance_Rear_Door_16x16_1
+  - first:
+      213: -7069352461381438145
+    second: Ambulance_Rear_Door_16x16_2
+  - first:
+      213: 194870878184029891
+    second: Ambulance_Rear_Door_16x16_3
+  - first:
+      213: -5145093765633708128
+    second: Ambulance_Rear_Door_16x16_4
+  - first:
+      213: -5634107874418526722
+    second: Ambulance_Rear_Door_16x16_5
+  - first:
+      213: -8800939120255811846
+    second: Ambulance_Rear_Door_16x16_6
+  - first:
+      213: 4216228225646483417
+    second: Ambulance_Rear_Door_16x16_7
+  - first:
+      213: -3564094276847267855
+    second: Ambulance_Rear_Door_16x16_8
+  - first:
+      213: 8923144207640990332
+    second: Ambulance_Rear_Door_16x16_9
+  - first:
+      213: -3276294480554748401
+    second: Ambulance_Rear_Door_16x16_10
+  - first:
+      213: -2087101125926812131
+    second: Ambulance_Rear_Door_16x16_11
+  - first:
+      213: 5756112568992808325
+    second: Ambulance_Rear_Door_16x16_12
+  - first:
+      213: -8801680887371342870
+    second: Ambulance_Rear_Door_16x16_13
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Ambulance_Rear_Door_16x16_0
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 10
+        width: 44
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0c48c639492b97ee0800000000000000
+      internalID: -1262781869302446912
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ambulance_Rear_Door_16x16_1
+      rect:
+        serializedVersion: 2
+        x: 50
+        y: 10
+        width: 44
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 13eac1c6637186b80800000000000000
+      internalID: -8401439582350168527
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ambulance_Rear_Door_16x16_2
+      rect:
+        serializedVersion: 2
+        x: 98
+        y: 10
+        width: 44
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f357353346d94ed90800000000000000
+      internalID: -7069352461381438145
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ambulance_Rear_Door_16x16_3
+      rect:
+        serializedVersion: 2
+        x: 146
+        y: 10
+        width: 44
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3ce3a3ff70254b200800000000000000
+      internalID: 194870878184029891
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ambulance_Rear_Door_16x16_4
+      rect:
+        serializedVersion: 2
+        x: 194
+        y: 8
+        width: 44
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0af6353ea74f898b0800000000000000
+      internalID: -5145093765633708128
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ambulance_Rear_Door_16x16_5
+      rect:
+        serializedVersion: 2
+        x: 242
+        y: 5
+        width: 44
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ef57d0f2db0afc1b0800000000000000
+      internalID: -5634107874418526722
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ambulance_Rear_Door_16x16_6
+      rect:
+        serializedVersion: 2
+        x: 290
+        y: 4
+        width: 44
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: afe305fdf78ccd580800000000000000
+      internalID: -8800939120255811846
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ambulance_Rear_Door_16x16_7
+      rect:
+        serializedVersion: 2
+        x: 338
+        y: 4
+        width: 44
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9d752a19b3d038a30800000000000000
+      internalID: 4216228225646483417
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ambulance_Rear_Door_16x16_8
+      rect:
+        serializedVersion: 2
+        x: 386
+        y: 4
+        width: 44
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1ff048a732bc98ec0800000000000000
+      internalID: -3564094276847267855
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ambulance_Rear_Door_16x16_9
+      rect:
+        serializedVersion: 2
+        x: 434
+        y: 5
+        width: 44
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c729608416065db70800000000000000
+      internalID: 8923144207640990332
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ambulance_Rear_Door_16x16_10
+      rect:
+        serializedVersion: 2
+        x: 482
+        y: 8
+        width: 44
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f0616fa47834882d0800000000000000
+      internalID: -3276294480554748401
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ambulance_Rear_Door_16x16_11
+      rect:
+        serializedVersion: 2
+        x: 530
+        y: 10
+        width: 44
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d1680da75902903e0800000000000000
+      internalID: -2087101125926812131
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ambulance_Rear_Door_16x16_12
+      rect:
+        serializedVersion: 2
+        x: 578
+        y: 10
+        width: 44
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 58d3af162e1d1ef40800000000000000
+      internalID: 5756112568992808325
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ambulance_Rear_Door_16x16_13
+      rect:
+        serializedVersion: 2
+        x: 626
+        y: 10
+        width: 44
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: aebd2e1cdd52ad580800000000000000
+      internalID: -8801680887371342870
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Ambulance_Rear_Door_16x16_0: -1262781869302446912
+      Ambulance_Rear_Door_16x16_1: -8401439582350168527
+      Ambulance_Rear_Door_16x16_10: -3276294480554748401
+      Ambulance_Rear_Door_16x16_11: -2087101125926812131
+      Ambulance_Rear_Door_16x16_12: 5756112568992808325
+      Ambulance_Rear_Door_16x16_13: -8801680887371342870
+      Ambulance_Rear_Door_16x16_2: -7069352461381438145
+      Ambulance_Rear_Door_16x16_3: 194870878184029891
+      Ambulance_Rear_Door_16x16_4: -5145093765633708128
+      Ambulance_Rear_Door_16x16_5: -5634107874418526722
+      Ambulance_Rear_Door_16x16_6: -8800939120255811846
+      Ambulance_Rear_Door_16x16_7: 4216228225646483417
+      Ambulance_Rear_Door_16x16_8: -3564094276847267855
+      Ambulance_Rear_Door_16x16_9: 8923144207640990332
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
