@@ -20,7 +20,6 @@ public class PauseMenu : MonoBehaviour
     private const int HUB_SCENE_INDEX = 7;
     private const string MASTER_VOLUME_KEY = "masterVolume";
     private const int DEfAULT_VOLUME_VALUE = 10;
-
     public AudioMixer audioMixer;
     public TextMeshProUGUI volumeText;
     public Slider volumeSlider;
@@ -67,11 +66,13 @@ public class PauseMenu : MonoBehaviour
 
     public void Pause()
     {
+        isGamePaused = true;
         pauseMenu.SetActive(true);
         Time.timeScale = 0;
     }
     public void Resume()
     {
+        isGamePaused = false;
         pauseMenu.SetActive(false);
         Time.timeScale = 1;
     }
