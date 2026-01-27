@@ -125,7 +125,7 @@ public class AiRival : MonoBehaviour, Interactable
     // ========== HELPER FUNCTIONS ==========
 
     // For interacting with AI (to shut down AI rival)
-    public void Interact()
+    public void Interact(Transform initiator)
     {
         if (!isInteracting && !isShutdown)
         {

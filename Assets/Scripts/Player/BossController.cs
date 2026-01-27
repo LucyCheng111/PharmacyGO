@@ -18,7 +18,7 @@ public class BossController : MonoBehaviour, Interactable
         i = this;
     }
 
-    public void Interact()
+    public void Interact(Transform initiator)
     {
         StartCoroutine(StartQuiz());
     }
@@ -30,6 +30,7 @@ public class BossController : MonoBehaviour, Interactable
 
     public void HidePrompt()
     {
+        
         InteractPrompt.SetActive(false);
     }
 

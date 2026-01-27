@@ -5,7 +5,7 @@ using UnityEngine;
 public class Boss: MonoBehaviour, Interactable
 {
     // Initiates quiz for the boss
-    public void Interact()
+    public void Interact(Transform initiator)
     {
         StartCoroutine(Quiz());
     }
