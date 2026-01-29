@@ -893,7 +893,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 444a8c09b70ef7d49a9842a0de6d5d3e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  InteractPrompt: {fileID: 0}
+  Questions: []
+  Answers: []
+  Questioncards: []
+  Answercards: []
+  cardMatching: {fileID: 0}
+  playAgainButton: {fileID: 0}
+  playerPlayReader: {fileID: 0}
+  rivalPlayReader: {fileID: 0}
+  PlayerScoreReader: {fileID: 0}
+  RivalScoreReader: {fileID: 0}
+  awaiting: 0
+  questionCard: {fileID: 0}
+  answerCard: {fileID: 0}
+  playerScore: 0
+  rivalScore: 0
 --- !u!1 &85849477
 GameObject:
   m_ObjectHideFlags: 0
@@ -191152,6 +191166,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1118970137598779289, guid: cfe44f264673d97498ea6a6316be6afd, type: 3}
+      propertyPath: NPCFovLayer.m_Bits
+      value: 2048
+      objectReference: {fileID: 0}
     - target: {fileID: 1938964688693061374, guid: cfe44f264673d97498ea6a6316be6afd, type: 3}
       propertyPath: m_Name
       value: player
@@ -213891,7 +213909,6 @@ MonoBehaviour:
   dialog:
     lines: []
   InteractPrompt: {fileID: 1919841215}
-  restartKey: 289
 --- !u!222 &6612788408051328345
 CanvasRenderer:
   m_ObjectHideFlags: 0

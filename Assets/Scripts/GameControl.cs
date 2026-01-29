@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Collections;
 
 [System.Serializable]
-public enum GameState {FreeRoam, Battle, Dialogue}
+public enum GameState {FreeRoam, Battle, Dialogue, Encounter}
 public class GameController : MonoBehaviour
 {
 
@@ -57,6 +57,16 @@ private void Start()
         battleSystem.OnBattleOver += EndBattle;
         // playerControl.OnEnterDialogue += StartDialogue;
         // playerControl.OnEndDialogue += EndDialogue;
+
+        playerControl.OnEnemyEncountered += (Collider2D enemyCollider) =>
+        {
+            var enemy = enemyCollider.GetComponentInParent<NPCEnemy>();
+            if(enemy != null)
+            {
+                state = GameState.Encounter;
+                StartCoroutine(enemy.TriggerBattle(playerControl));
+            }
+        };
 
         DialogManager.Instance.OnShowDialog += () =>
         {
