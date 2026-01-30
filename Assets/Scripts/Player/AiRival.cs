@@ -15,6 +15,11 @@ public class AiRival : MonoBehaviour, Interactable
     // For interacting with AI
     [SerializeField] Dialog dialog;
 
+    // Avoid collision
+    [SerializeField] private LayerMask solidObjectsLayer;
+    [SerializeField] private LayerMask interactableLayer;
+    [SerializeField] private float collisionCheckRadius = 0.2f;
+
 
 
     // Private
@@ -93,23 +98,45 @@ public class AiRival : MonoBehaviour, Interactable
 
         bool shouldMove = distance > stoppingDistance;
 
+
         if (shouldMove)
         {
-            transform.position = Vector3.MoveTowards(transform.position, player.position, currentMoveSpeed * Time.deltaTime);
-            Vector2 moveDirection = new Vector2(direction.x, direction.y).normalized;
+            Vector2 moveDirection = direction.normalized;
+            Vector3 nextPos = Vector3.MoveTowards(
+                transform.position,
+                player.position,
+                currentMoveSpeed * Time.deltaTime
+            );
 
+            // Avoid solid objects
+            if (IsWalkable(nextPos))
+            {
+                transform.position = nextPos;
+            }
+            else
+            {
+                // Try sliding along obstacles
+                // Try moving only in X direction
+                Vector3 slideX = new Vector3(nextPos.x, transform.position.y, transform.position.z);
+                if (IsWalkable(slideX))
+                {
+                    transform.position = slideX;
+                }
+                else
+                {
+                    // Try moving only in Y direction
+                    Vector3 slideY = new Vector3(transform.position.x, nextPos.y, transform.position.z);
+                    if (IsWalkable(slideY))
+                    {
+                        transform.position = slideY;
+                    }
+                }
+            }
 
             animator.SetFloat("moveX", moveDirection.x);
             animator.SetFloat("moveY", moveDirection.y);
             lastMoveDirection = moveDirection;
-
         }
-        else
-        {
-            animator.SetFloat("moveX", lastMoveDirection.x);
-            animator.SetFloat("moveY", lastMoveDirection.y);
-        }
-
 
 
         animator.SetBool("isMoving", shouldMove);
@@ -388,6 +415,18 @@ public class AiRival : MonoBehaviour, Interactable
         }
     }
 
-    
+    // collision checking function
+    private bool IsWalkable(Vector3 targetPos)
+    {
+        if (isShutdown) return false;
+
+        return Physics2D.OverlapCircle(
+            targetPos,
+            collisionCheckRadius,
+            solidObjectsLayer | interactableLayer
+        ) == null;
+    }
+
+
 
 }

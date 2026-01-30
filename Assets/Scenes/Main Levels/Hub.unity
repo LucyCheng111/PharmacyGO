@@ -213904,6 +213904,13 @@ MonoBehaviour:
   animator: {fileID: 6510702805374517820}
   dialog:
     lines: []
+  solidObjectsLayer:
+    serializedVersion: 2
+    m_Bits: 256
+  interactableLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  collisionCheckRadius: 0.2
   InteractPrompt: {fileID: 1919841215}
 --- !u!222 &6612788408051328345
 CanvasRenderer:
