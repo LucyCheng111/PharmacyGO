@@ -10,6 +10,8 @@ public class NPCEnemy : MonoBehaviour
     public float moveSpeed =2f;
     [SerializeField] GameObject exclaimation;
     [SerializeField] Dialog dialog;
+    [SerializeField] private int maxQuestions = 1; 
+    [SerializeField] private bool enemyDefeated;
     private Animator animator;
     private bool battleTriggered = false;
 
@@ -40,6 +42,7 @@ public class NPCEnemy : MonoBehaviour
 
         //show Dialog
         yield return StartCoroutine(DialogManager.Instance.ShowDialog(dialog));
+        GameController.Instance.StartBattle(false, true, maxQuestions);
     }
 
     private IEnumerator MoveToPlayer(Vector2 targetPosition)

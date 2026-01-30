@@ -242,7 +242,7 @@ public class PlayerControl : MonoBehaviour
 
     private void CheckIfInEnemyView()
     {
-        Debug.Log("Checking if in enemy view");
+        //Debug.Log("Checking if in enemy view");
         var collider  = Physics2D.OverlapCircle(transform.position, 0.0f, NPCFovLayer);
         if ( collider != null)
         {

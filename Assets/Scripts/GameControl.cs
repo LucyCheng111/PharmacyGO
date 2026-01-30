@@ -87,7 +87,7 @@ private void Start()
 
     }
 
-    public void StartBattle(bool isBoss = false, int maxQuestions = 1)
+    public void StartBattle(bool isBoss = false, bool isEnemy=false, int maxQuestions = 1)
     {
         MapArea localMapArea = FindFirstObjectByType<MapArea>();
         if(localMapArea != null)
@@ -115,6 +115,10 @@ private void Start()
         {
             battleSystem.BossBattle(maxQuestions);
         }
+        else if (isEnemy)
+        {
+            battleSystem.EnemyBattle(maxQuestions);
+        }
         else
         {
             battleSystem.StartBattle();
@@ -124,6 +128,7 @@ private void Start()
     void EndBattle(bool playerWin)
     {
         state = GameState.FreeRoam;
+        Debug.Log("GameState == " + state);
         battleSystem.gameObject.SetActive(false);
         playerControl.gameObject.SetActive(true);
         worldCamera.gameObject.SetActive(true);

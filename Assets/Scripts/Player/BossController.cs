@@ -50,7 +50,7 @@ public class BossController : MonoBehaviour, Interactable
             {
                 CoinManager.Instance.RemoveCoin(10);
                 // TODO: Send a call to Boss.cs to initiate a boss battle
-                GameController.Instance.StartBattle(true, maxQuestions);
+                GameController.Instance.StartBattle(true, false, maxQuestions);
             }
             else
             {

@@ -28,12 +28,16 @@ public class BattleSystem : MonoBehaviour
     IEnumerator chooseAction;
     Question question;
 
-    bool isBossBattle = false; // if Boss battle, handle differently
-    int currentBossQuestion = 0;
-    int maxBossQuestions = 1;
-    int bossQuestionsRight = 0;
+    int currentQuestion = 0;
+    int maxBattleQuestions = 1;
+    int questionsRight = 0;
 
+    enum BattleType
+    {Wild, 
+    Enemy,
+    Boss};
 
+    BattleType battleType;
 
     private Option[] shuffleAnswersList;
     private int shuffleAnswersIndex;
@@ -69,7 +73,7 @@ public class BattleSystem : MonoBehaviour
         aiTriedAnswers.Clear();     
         timedOut = false;
 
-        isBossBattle = false;
+        battleType = BattleType.Wild;
         this.state = BattleState.START;
 
         if (!mapData.HasQuestions())
@@ -90,11 +94,36 @@ public class BattleSystem : MonoBehaviour
         StartCoroutine(SetupBattle());
     }
 
+    public void EnemyBattle(int maxQuestions)
+    {
+        battleType = BattleType.Enemy;
+        maxBattleQuestions = maxQuestions;
+        this.state = BattleState.START;
+
+        if (!mapData.HasQuestions())
+        {
+            Debug.Log("No questions in the database -- Boss Battle");
+            OnBattleOver(false);
+            return;
+        }
+
+        // Rework question selection once boss questions are implemented
+        this.question = mapData.GetRandomQuestion();
+        Debug.Log(this.question.question);
+        Debug.Log(this.question.options);
+        //currentAction = 0;
+        currentAnswer = 0;
+        dialogBox.ResetDalogBox();
+        //hudController.TurnHudOff();
+        hudController.EnteringBattle();
+        StartCoroutine(SetupBattle());
+    }
+
     public void BossBattle(int maxQuestions)
     {
 
-        isBossBattle = true;
-        maxBossQuestions = maxQuestions;
+        battleType = BattleType.Boss;
+        maxBattleQuestions = maxQuestions;
         this.state = BattleState.START;
 
         if (!mapData.HasQuestions())
@@ -132,36 +161,30 @@ public class BattleSystem : MonoBehaviour
         {
             dialogBox.SetAnswers(new Option[0]); // Pass an empty array if null
         }
-        // if (question.AnswersImg != null)
-        // {
-        //     Sprite[] clonedAnswerImages = (Sprite[])question.AnswersImg.Clone();
-        //     dialogBox.SetAnswerImages(clonedAnswerImages);
-        // }
-        // else
-        // {
-        //     dialogBox.SetAnswerImages(null); // Pass null if there are no images
-        // }
+
         questionUnit.SetImage(question);
 
         Coroutine currentDialog = null;
 
-        if (!isBossBattle)
+        if (battleType == BattleType.Wild)
         {
             currentDialog = StartCoroutine(dialogBox.TypeDialog("A wild question appeared!"));
             yield return WaitForSpaceOrComplete(currentDialog, 2.0f); // Wait max 1.5 sec or until space
-            // yield return StartCoroutine(dialogBox.TypeDialog("A wild question appeared!"));
         }
-        else if (currentBossQuestion == 0)
+        else if (battleType == BattleType.Boss && currentQuestion == 0)
         {
             currentDialog = StartCoroutine(dialogBox.TypeDialog("Time for the test!"));
             yield return WaitForSpaceOrComplete(currentDialog, 2.0f);
-            // yield return StartCoroutine(dialogBox.TypeDialog("Time for the test!"));
+        }
+        else if(battleType == BattleType.Enemy && currentQuestion == 0)
+        {
+            currentDialog = StartCoroutine(dialogBox.TypeDialog("You are challenged by an opponent!"));
+            yield return WaitForSpaceOrComplete(currentDialog, 2.0f);
         }
         else
         {
             currentDialog = StartCoroutine(dialogBox.TypeDialog("Next question!"));
             yield return WaitForSpaceOrComplete(currentDialog, 1.5f);
-            // yield return StartCoroutine(dialogBox.TypeDialog("Next question!"));
         }
 
         currentDialog = StartCoroutine(dialogBox.TypeDialog("Pick the choice!"));
@@ -175,13 +198,13 @@ public class BattleSystem : MonoBehaviour
         questionStartTime = Time.time;
         
         // AI is on and not in boss battle (AI don't participate in boss battle)
-        if (aiEnabled && !isBossBattle)
+        if (aiEnabled && battleType != BattleType.Wild)
         {
             aiAnswerRoutine = StartCoroutine(AIAnswerRoutine());
         }
         else
         {
-            Debug.Log($"AI NOT starting - aiEnabled: {aiEnabled}, isBossBattle: {isBossBattle}");
+            Debug.Log($"AI NOT starting - aiEnabled: {aiEnabled}, battle type: {battleType}");
         }
 
         //StartCoroutine(dialogBox.TypeDialog("Pick the choice!"));
@@ -270,17 +293,6 @@ public class BattleSystem : MonoBehaviour
             if (currentAnswer > 0)
                 --currentAnswer;
         }
-
-        // if (Input.GetKeyDown(KeyCode.S)) // Move Down
-        // {
-        //     if (currentAnswer < maxAnswers - 2)
-        //         currentAnswer += 3;
-        // }
-        // else if (Input.GetKeyDown(KeyCode.W)) // Move Up
-        // {
-        //     if (currentAnswer > 2)
-        //         currentAnswer -= 3;
-        // }
 
         // Update selection based on answer type
         
@@ -383,10 +395,16 @@ public class BattleSystem : MonoBehaviour
             mapData.CorrectAnswer(1);
 
             string rewardText;
-            if (isBossBattle)
+            if (battleType == BattleType.Boss)
             {
                 rewardText = $"You win! Rewards: {pointsEarned} points";
-                bossQuestionsRight += 1;
+                questionsRight += 1;
+            }
+            else if(battleType == BattleType.Enemy)
+            {
+                rewardText = $"You win! Rewards: {pointsEarned} points";
+                CoinManager.Instance.AddCoin(3);
+                questionsRight += 1;
             }
             else
             {
@@ -415,21 +433,22 @@ public class BattleSystem : MonoBehaviour
             }
         }
 
-        if (isBossBattle)
+        if (battleType == BattleType.Boss)
         {
             yield return new WaitForSeconds(2.5f);
-            currentBossQuestion += 1;
-            if (currentBossQuestion < maxBossQuestions) 
+            currentQuestion += 1;
+            if (currentQuestion < maxBattleQuestions) 
             {
-                BossBattle(maxBossQuestions);
+                BossBattle(maxBattleQuestions);
                 yield break; // Stop the iteration so the battle doesn't end until all questions are done
             }
             else
             {
-                if (bossQuestionsRight == maxBossQuestions)
+                Debug.Log("questions right =- " + questionsRight);
+                if (questionsRight == maxBattleQuestions)
                 {
-                    bossQuestionsRight = 0;
-                    currentBossQuestion = 0;
+                    questionsRight = 0;
+                    currentQuestion = 0;
                     yield return StartCoroutine(dialogBox.TypeDialog("You got them all right! You win!"));
 
                     GameController.Instance.MarkBossDefeated();
@@ -455,10 +474,46 @@ public class BattleSystem : MonoBehaviour
                 {
                     yield return StartCoroutine(dialogBox.TypeDialog("You missed some questions. Better luck next time!"));
                 }
-                bossQuestionsRight = 0;
-                currentBossQuestion = 0;
+                questionsRight = 0;
+                currentQuestion = 0;
             }
         }
+        else if (battleType == BattleType.Enemy)
+        {
+            yield return new WaitForSeconds(2.5f);
+            currentQuestion += 1;
+            if (currentQuestion < maxBattleQuestions) 
+            {
+                EnemyBattle(maxBattleQuestions);
+                yield break; // Stop the iteration so the battle doesn't end until all questions are done
+            }
+            else
+            {
+                Debug.Log("questions right =- " + questionsRight);
+                if (questionsRight == maxBattleQuestions)
+                {
+                    questionsRight = 0;
+                    currentQuestion = 0;
+                    yield return StartCoroutine(dialogBox.TypeDialog("You got them all right! You win!"));
+
+                    //GameController.Instance.MarkBossDefeated();
+
+                    dialogBox.ResetDalogBox();
+
+                    OnBattleOver(answerCorrect);
+                    //hudController.TurnHudOn();
+                    hudController.ExitingBattle();
+                    yield return null;
+                }
+                else
+                {
+                    yield return StartCoroutine(dialogBox.TypeDialog("You missed some questions. Better luck next time!"));
+                }
+                questionsRight = 0;
+                currentQuestion = 0;
+            }
+        }
+
         yield return new WaitForSeconds(2.5f);
         dialogBox.ResetDalogBox();
         //hudController.TurnHudOn();
@@ -525,7 +580,7 @@ public class BattleSystem : MonoBehaviour
             // get player answering avg time
             float playerAvg = GetAveragePlayerAnswerTime();
 
-            // AI waits 50–80% of player’s average time
+            // AI waits 50ï¿½80% of playerï¿½s average time
             // max = 8 sec, min = 1.5 sec
             float difficultyModifier = UnityEngine.Random.Range(0.5f, 0.8f);
             float aiDelay = Mathf.Clamp(playerAvg * difficultyModifier, 1.5f, 8f);
