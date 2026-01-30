@@ -1,4 +1,4 @@
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.SceneManagement;
 using System.Collections;
 using System.Collections.Generic;
@@ -15,7 +15,7 @@ public class AiRival : MonoBehaviour, Interactable
     // For interacting with AI
     [SerializeField] Dialog dialog;
 
-    
+
 
     // Private
     private PlayerControl playerControl;    
@@ -24,6 +24,10 @@ public class AiRival : MonoBehaviour, Interactable
     private bool isInteracting = false;
     private bool isShutdown = false;
     private bool AiRestarted = false;
+
+
+
+
 
 
     public static AiRival Instance { get; private set; }
@@ -47,6 +51,7 @@ public class AiRival : MonoBehaviour, Interactable
             return;
         }
 
+
         SceneManager.sceneLoaded += OnSceneLoaded;
     }
 
@@ -54,7 +59,7 @@ public class AiRival : MonoBehaviour, Interactable
     {
         FindPlayer();
         currentMoveSpeed = moveSpeed;
-
+  
         // If we just loaded into a new scene, teleport to player
         if (player != null && Vector3.Distance(transform.position, player.position) > 10f)
         {
@@ -64,7 +69,7 @@ public class AiRival : MonoBehaviour, Interactable
         
     }
 
-    
+
     void Update()
     {
 
@@ -92,9 +97,12 @@ public class AiRival : MonoBehaviour, Interactable
         {
             transform.position = Vector3.MoveTowards(transform.position, player.position, currentMoveSpeed * Time.deltaTime);
             Vector2 moveDirection = new Vector2(direction.x, direction.y).normalized;
+
+
             animator.SetFloat("moveX", moveDirection.x);
             animator.SetFloat("moveY", moveDirection.y);
             lastMoveDirection = moveDirection;
+
         }
         else
         {
@@ -102,9 +110,13 @@ public class AiRival : MonoBehaviour, Interactable
             animator.SetFloat("moveY", lastMoveDirection.y);
         }
 
+
+
         animator.SetBool("isMoving", shouldMove);
     }
-    
+
+
+
 
     void OnDestroy()
     {
@@ -299,6 +311,7 @@ public class AiRival : MonoBehaviour, Interactable
 
     private System.Collections.IEnumerator TeleportToPlayerAfterDelay()
     {
+
         yield return new WaitForEndOfFrame();
         yield return new WaitForSeconds(0.1f); // Small delay for player to spawn
 
@@ -318,8 +331,9 @@ public class AiRival : MonoBehaviour, Interactable
         Vector3 spawnOffset = new Vector3(1f, 0f, 0f);
         transform.position = player.position + spawnOffset;
 
-
     }
+
+
 
     private void FindPlayer()
     {
@@ -373,5 +387,7 @@ public class AiRival : MonoBehaviour, Interactable
             return !isShutdown && gameObject.activeInHierarchy;
         }
     }
+
+    
 
 }
