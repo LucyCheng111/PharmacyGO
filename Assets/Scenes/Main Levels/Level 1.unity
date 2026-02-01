@@ -17309,7 +17309,7 @@ Tilemap:
       - {fileID: -1585253172, guid: 773e379232eedee4991d33fd051ad3fa, type: 3}
       - {fileID: 1132399051, guid: 773e379232eedee4991d33fd051ad3fa, type: 3}
       - {fileID: 980775145, guid: 773e379232eedee4991d33fd051ad3fa, type: 3}
-      m_AnimationSpeed: 3.0000002
+      m_AnimationSpeed: 3
       m_AnimationTimeOffset: 0
       m_Flags: 0
   - first: {x: 23, y: 44, z: 0}
@@ -17474,7 +17474,7 @@ Tilemap:
       - {fileID: 499879477, guid: 773e379232eedee4991d33fd051ad3fa, type: 3}
       - {fileID: 761625966, guid: 773e379232eedee4991d33fd051ad3fa, type: 3}
       - {fileID: -1197156764, guid: 773e379232eedee4991d33fd051ad3fa, type: 3}
-      m_AnimationSpeed: 3
+      m_AnimationSpeed: 3.0000002
       m_AnimationTimeOffset: 0
       m_Flags: 0
   - first: {x: 20, y: 47, z: 0}
@@ -17489,7 +17489,7 @@ Tilemap:
       - {fileID: 286730521, guid: 773e379232eedee4991d33fd051ad3fa, type: 3}
       - {fileID: 1833754602, guid: 773e379232eedee4991d33fd051ad3fa, type: 3}
       - {fileID: -870501625, guid: 773e379232eedee4991d33fd051ad3fa, type: 3}
-      m_AnimationSpeed: 3.0000002
+      m_AnimationSpeed: 3
       m_AnimationTimeOffset: 0
       m_Flags: 0
   - first: {x: 21, y: 47, z: 0}
@@ -17519,7 +17519,7 @@ Tilemap:
       - {fileID: -1371498308, guid: 773e379232eedee4991d33fd051ad3fa, type: 3}
       - {fileID: 9274824, guid: 773e379232eedee4991d33fd051ad3fa, type: 3}
       - {fileID: -1565040832, guid: 773e379232eedee4991d33fd051ad3fa, type: 3}
-      m_AnimationSpeed: 3.0000002
+      m_AnimationSpeed: 3
       m_AnimationTimeOffset: 0
       m_Flags: 0
   - first: {x: 21, y: 48, z: 0}
@@ -17534,7 +17534,7 @@ Tilemap:
       - {fileID: 286730521, guid: 773e379232eedee4991d33fd051ad3fa, type: 3}
       - {fileID: 1833754602, guid: 773e379232eedee4991d33fd051ad3fa, type: 3}
       - {fileID: -870501625, guid: 773e379232eedee4991d33fd051ad3fa, type: 3}
-      m_AnimationSpeed: 3.0000002
+      m_AnimationSpeed: 3
       m_AnimationTimeOffset: 0
       m_Flags: 0
   - first: {x: 22, y: 48, z: 0}
@@ -21325,7 +21325,7 @@ Camera:
   far clip plane: 1000
   field of view: 34
   orthographic: 1
-  orthographic size: 8
+  orthographic size: 11.052083
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -195483,6 +195483,7 @@ MonoBehaviour:
     lines:
     - Surprise! Pop quiz!
     - Let's see what you know!
+  FoV: {fileID: 0}
   maxQuestions: 1
   enemyDefeated: 0
 --- !u!1 &1703243350

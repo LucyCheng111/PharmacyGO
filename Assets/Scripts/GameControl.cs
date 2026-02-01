@@ -16,7 +16,7 @@ public class GameController : MonoBehaviour
     [SerializeField] Camera worldCamera;
 
 
-    [SerializeField] GameState state;
+    public GameState state;
 
     public static GameController Instance { get; private set; }
     private HashSet<string> defeatedBossLevels = new HashSet<string>();
@@ -127,8 +127,26 @@ private void Start()
 
     void EndBattle(bool playerWin)
     {
+        StartCoroutine(EndBattleRoutine());
+
+        // state = GameState.FreeRoam;
+        // Debug.Log("GameState == " + state);
+        // //yield return null;
+        // battleSystem.gameObject.SetActive(false);
+        // playerControl.gameObject.SetActive(true);
+        // worldCamera.gameObject.SetActive(true);
+
+        // NPCEnemy enemy = FindFirstObjectByType<NPCEnemy>();
+        // if (enemy!= null){
+        //     enemy.MarkDefeated();
+        // }        
+    }
+
+    IEnumerator EndBattleRoutine()
+    {
         state = GameState.FreeRoam;
         Debug.Log("GameState == " + state);
+        yield return null;
         battleSystem.gameObject.SetActive(false);
         playerControl.gameObject.SetActive(true);
         worldCamera.gameObject.SetActive(true);

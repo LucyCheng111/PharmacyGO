@@ -503,7 +503,7 @@ public class BattleSystem : MonoBehaviour
                     OnBattleOver(answerCorrect);
                     //hudController.TurnHudOn();
                     hudController.ExitingBattle();
-                    yield return null;
+                    yield break;
                 }
                 else
                 {
