@@ -17354,7 +17354,7 @@ Tilemap:
       - {fileID: -1585253172, guid: 773e379232eedee4991d33fd051ad3fa, type: 3}
       - {fileID: 1132399051, guid: 773e379232eedee4991d33fd051ad3fa, type: 3}
       - {fileID: 980775145, guid: 773e379232eedee4991d33fd051ad3fa, type: 3}
-      m_AnimationSpeed: 3.0000002
+      m_AnimationSpeed: 3
       m_AnimationTimeOffset: 0
       m_Flags: 0
   - first: {x: 26, y: 44, z: 0}
@@ -17399,7 +17399,7 @@ Tilemap:
       - {fileID: 2033494609, guid: 773e379232eedee4991d33fd051ad3fa, type: 3}
       - {fileID: 700626799, guid: 773e379232eedee4991d33fd051ad3fa, type: 3}
       - {fileID: 1575422809, guid: 773e379232eedee4991d33fd051ad3fa, type: 3}
-      m_AnimationSpeed: 3.0000002
+      m_AnimationSpeed: 3
       m_AnimationTimeOffset: 0
       m_Flags: 0
   - first: {x: 27, y: 45, z: 0}
@@ -17414,7 +17414,7 @@ Tilemap:
       - {fileID: -1371498308, guid: 773e379232eedee4991d33fd051ad3fa, type: 3}
       - {fileID: 9274824, guid: 773e379232eedee4991d33fd051ad3fa, type: 3}
       - {fileID: -1565040832, guid: 773e379232eedee4991d33fd051ad3fa, type: 3}
-      m_AnimationSpeed: 3
+      m_AnimationSpeed: 3.0000002
       m_AnimationTimeOffset: 0
       m_Flags: 0
   - first: {x: 19, y: 46, z: 0}
@@ -17459,7 +17459,7 @@ Tilemap:
       - {fileID: -822861202, guid: 0c65644f4c8569f4497fbf51903e37d6, type: 3}
       - {fileID: -863519392, guid: 0c65644f4c8569f4497fbf51903e37d6, type: 3}
       - {fileID: 941076120, guid: 0c65644f4c8569f4497fbf51903e37d6, type: 3}
-      m_AnimationSpeed: 3
+      m_AnimationSpeed: 3.0000002
       m_AnimationTimeOffset: 0
       m_Flags: 0
   - first: {x: 27, y: 46, z: 0}
@@ -17519,7 +17519,7 @@ Tilemap:
       - {fileID: -1371498308, guid: 773e379232eedee4991d33fd051ad3fa, type: 3}
       - {fileID: 9274824, guid: 773e379232eedee4991d33fd051ad3fa, type: 3}
       - {fileID: -1565040832, guid: 773e379232eedee4991d33fd051ad3fa, type: 3}
-      m_AnimationSpeed: 3
+      m_AnimationSpeed: 3.0000002
       m_AnimationTimeOffset: 0
       m_Flags: 0
   - first: {x: 21, y: 48, z: 0}
@@ -20504,6 +20504,7 @@ GameObject:
   - component: {fileID: 851989544}
   - component: {fileID: 851989543}
   - component: {fileID: 851989542}
+  - component: {fileID: 851989546}
   m_Layer: 10
   m_Name: Question guy
   m_TagString: Untagged
@@ -20675,6 +20676,22 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &851989546
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 851989540}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c028f28e4b112c4783439eda152d471, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  WaypointParent: {fileID: 0}
+  moveSpeed: 2
+  waitTime: 2
+  repeatMovement: 1
 --- !u!1001 &886443228
 PrefabInstance:
   m_ObjectHideFlags: 0

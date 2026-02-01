@@ -19,7 +19,7 @@ public class NPCController : MonoBehaviour, Interactable
     public void Interact(Transform initiator)
     {
         
-        npcMovement.LookTowards(initiator.position);
+        //npcMovement.LookTowards(initiator.position);  
         StartCoroutine( DialogManager.Instance.ShowDialog(dialog) );
 
     }
