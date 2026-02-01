@@ -402,8 +402,7 @@ public class BattleSystem : MonoBehaviour
             }
             else if(battleType == BattleType.Enemy)
             {
-                rewardText = $"You win! Rewards: {pointsEarned} points";
-                CoinManager.Instance.AddCoin(3);
+                rewardText = $"Correct! +{pointsEarned} points";
                 questionsRight += 1;
             }
             else
@@ -495,6 +494,9 @@ public class BattleSystem : MonoBehaviour
                     questionsRight = 0;
                     currentQuestion = 0;
                     yield return StartCoroutine(dialogBox.TypeDialog("You got them all right! You win!"));
+                    CoinManager.Instance.AddCoin(3);
+                    yield return StartCoroutine(dialogBox.TypeDialog("You are given 3 coins as a reward!"));
+
 
                     //GameController.Instance.MarkBossDefeated();
 
@@ -508,6 +510,19 @@ public class BattleSystem : MonoBehaviour
                 else
                 {
                     yield return StartCoroutine(dialogBox.TypeDialog("You missed some questions. Better luck next time!"));
+                    CoinManager.Instance.RemoveCoin(3);
+
+                    if(CoinManager.Instance.GetCoinCount() >= 3)
+                    {
+                        yield return StartCoroutine(dialogBox.TypeDialog("You hand over 3 coins to the victor as a reward."));
+                    }
+                    else
+                    {
+                        yield return StartCoroutine(dialogBox.TypeDialog("You hand over your remaining coins to the victor as a reward."));
+
+                    }
+
+
                 }
                 questionsRight = 0;
                 currentQuestion = 0;

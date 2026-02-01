@@ -17354,7 +17354,7 @@ Tilemap:
       - {fileID: -1585253172, guid: 773e379232eedee4991d33fd051ad3fa, type: 3}
       - {fileID: 1132399051, guid: 773e379232eedee4991d33fd051ad3fa, type: 3}
       - {fileID: 980775145, guid: 773e379232eedee4991d33fd051ad3fa, type: 3}
-      m_AnimationSpeed: 3
+      m_AnimationSpeed: 3.0000002
       m_AnimationTimeOffset: 0
       m_Flags: 0
   - first: {x: 26, y: 44, z: 0}
@@ -17399,7 +17399,7 @@ Tilemap:
       - {fileID: 2033494609, guid: 773e379232eedee4991d33fd051ad3fa, type: 3}
       - {fileID: 700626799, guid: 773e379232eedee4991d33fd051ad3fa, type: 3}
       - {fileID: 1575422809, guid: 773e379232eedee4991d33fd051ad3fa, type: 3}
-      m_AnimationSpeed: 3
+      m_AnimationSpeed: 3.0000002
       m_AnimationTimeOffset: 0
       m_Flags: 0
   - first: {x: 27, y: 45, z: 0}
@@ -17474,7 +17474,7 @@ Tilemap:
       - {fileID: 499879477, guid: 773e379232eedee4991d33fd051ad3fa, type: 3}
       - {fileID: 761625966, guid: 773e379232eedee4991d33fd051ad3fa, type: 3}
       - {fileID: -1197156764, guid: 773e379232eedee4991d33fd051ad3fa, type: 3}
-      m_AnimationSpeed: 3.0000002
+      m_AnimationSpeed: 3
       m_AnimationTimeOffset: 0
       m_Flags: 0
   - first: {x: 20, y: 47, z: 0}
@@ -21325,7 +21325,7 @@ Camera:
   far clip plane: 1000
   field of view: 34
   orthographic: 1
-  orthographic size: 11.052083
+  orthographic size: 8
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -195484,7 +195484,7 @@ MonoBehaviour:
     - Surprise! Pop quiz!
     - Let's see what you know!
   FoV: {fileID: 0}
-  maxQuestions: 1
+  maxQuestions: 3
   enemyDefeated: 0
 --- !u!1 &1703243350
 GameObject:
