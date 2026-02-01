@@ -25,6 +25,7 @@ public class DialogBox : MonoBehaviour
     };
     public int letterPerSecond = 30;
     private bool answerSelected = false;
+    private int aiCurrentChoice = -1; // Track which answer AI is selecting (-1 = none)
     public bool GetAnswerSelected()
     { 
         return answerSelected; 
@@ -47,6 +48,7 @@ public class DialogBox : MonoBehaviour
     private readonly Color UNSELECTED_COLOR = Color.clear;
     private readonly Color CORRECT_COLOR = Color.green;
     private readonly Color INCORRECT_COLOR = Color.red;
+    private readonly Color AI_CHOICE_COLOR = new Color(1f, 0.65f, 0f); // Orange for AI selection
     private const float MAX_OPTION_WIDTH = 150f;
     private const float MAX_OPTION_HEIGHT = 100f;
 
@@ -81,6 +83,7 @@ public class DialogBox : MonoBehaviour
         optionImages = optionSelector.GetComponentsInChildren<RawImage>(true);
         optionStrings = optionSelector.GetComponentsInChildren<TMP_Text>(true);
         optionOutlines = optionSelector.GetComponentsInChildren<Image>(true);
+
     }
 
     public void UpdateChoiceSelection(int selectedChoice)
@@ -90,6 +93,10 @@ public class DialogBox : MonoBehaviour
 
         for (int i = 0; i < optionOutlines.Length; i++)
         {
+            // Don't overwrite the orange outline (without this orange outline won't appear)
+            if (i == aiCurrentChoice)
+                continue;
+
             bool selected = i == selectedChoice;
             Color color = selected ? SELECTED_COLOR : UNSELECTED_COLOR;
             optionOutlines[i].color = color;
@@ -205,6 +212,7 @@ public class DialogBox : MonoBehaviour
     public void ResetDalogBox()
     {
         answerSelected = false;
+        aiCurrentChoice = -1; // Reset AI choice when resetting dialog 
         dialogText.text = "";
         currentOptions = AnswersType.None;
         EnableActionSelector(false);
@@ -228,6 +236,32 @@ public class DialogBox : MonoBehaviour
         {
             dialogText.text += letter;
             yield return new WaitForSeconds(1f / letterPerSecond); // Using your existing speed control
+        }
+    }
+
+    //  ====AI rival DialogBox (orange)====
+
+    // Highlight AI's chosen answer with orange color
+    public void ShowAIChoice(int aiAnswer)
+    {
+        aiCurrentChoice = aiAnswer; // Remember AI's choice
+
+        // if AI answer index is valid
+        if (aiAnswer >= 0 && aiAnswer < optionOutlines.Length)
+        {
+            optionOutlines[aiAnswer].color = AI_CHOICE_COLOR;
+        }
+        
+    }
+
+    // Clear AI highlighting so player can continue or AI can try another answer
+    public void ClearAIChoice()
+    {
+        aiCurrentChoice = -1; // Clear AI's choice
+
+        for (int i = 0; i < optionOutlines.Length; i++)
+        {
+            optionOutlines[i].color = UNSELECTED_COLOR;
         }
     }
 
