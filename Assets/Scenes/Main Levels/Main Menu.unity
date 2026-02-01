@@ -1599,6 +1599,67 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 622514100}
   m_CullTransparentMesh: 1
+--- !u!1 &679827163
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 679827164}
+  - component: {fileID: 679827166}
+  - component: {fileID: 679827165}
+  m_Layer: 0
+  m_Name: Scoreboard Controller
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &679827164
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 679827163}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &679827165
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 679827163}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78971c00a22da2b43ac328cb0495f2bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  username: 
+  adjectivesFile: {fileID: 4900000, guid: 063eabe1a5a24c14caba852de9587b14, type: 3}
+  nounsFile: {fileID: 4900000, guid: b878b0005792d8c4b9c73d0593d703f6, type: 3}
+  numbersFile: {fileID: 4900000, guid: 62384b9864a0e854d814a21c27a6c9d1, type: 3}
+--- !u!114 &679827166
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 679827163}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1108d8626b02b694496fda00792ee737, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &989376445
 GameObject:
   m_ObjectHideFlags: 0
@@ -8536,6 +8597,7 @@ MonoBehaviour:
     buildIndex: 10
   - levelNumber: 11
     buildIndex: 11
+  continuing: 0
 --- !u!4 &1934515284
 Transform:
   m_ObjectHideFlags: 0
@@ -8560,3 +8622,4 @@ SceneRoots:
   - {fileID: 386682942}
   - {fileID: 1794381457}
   - {fileID: 1934515284}
+  - {fileID: 679827164}
