@@ -18,7 +18,7 @@ public class BattleSystem : MonoBehaviour
     [SerializeField] private QuestionUnit questionUnit;
     [SerializeField] private HudController hudController;
     [SerializeField] private GameObject levelCompletePanel;
-    [SerializeField] private float timeLimit = 15f;
+    [SerializeField] private float timeLimit = 30f;
 
     public event Action<bool> OnBattleOver;
 
@@ -290,7 +290,6 @@ public class BattleSystem : MonoBehaviour
         {
             // Record player answer time
             float playerAnswerTime = Time.time - questionStartTime;
-            RecordPlayerAnswerTime(playerAnswerTime);
 
             battleAnswerSource = AnswerSource.Player; // player answered
 
@@ -303,7 +302,17 @@ public class BattleSystem : MonoBehaviour
             bool isCorrect;
             isCorrect = dialogBox.DisplayAnswer(currentAnswer, shuffleAnswersIndex);
 
-           // pass if player's answer is correct and its source is from player
+            // AI only record if CORRECT 
+            if (isCorrect)
+            {
+                RecordPlayerAnswerTime(playerAnswerTime);
+            }
+            else
+            {
+                RecordPlayerAnswerTime(playerAnswerTime + 3f); // Add 3 second to slow AI down
+            }
+
+            // pass if player's answer is correct and its source is from player
             StartCoroutine(EndBattle(isCorrect, AnswerSource.Player));
         }
 
