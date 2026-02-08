@@ -297147,6 +297147,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1118970137598779289, guid: cfe44f264673d97498ea6a6316be6afd, type: 3}
+      propertyPath: NPCFovLayer.m_Bits
+      value: 2048
+      objectReference: {fileID: 0}
     - target: {fileID: 1938964688693061374, guid: cfe44f264673d97498ea6a6316be6afd, type: 3}
       propertyPath: m_Name
       value: player

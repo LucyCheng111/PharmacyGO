@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Collections;
 
 [System.Serializable]
-public enum GameState {FreeRoam, Battle, Dialogue}
+public enum GameState {FreeRoam, Battle, Dialogue, Encounter}
 public class GameController : MonoBehaviour
 {
 
@@ -16,7 +16,7 @@ public class GameController : MonoBehaviour
     [SerializeField] Camera worldCamera;
 
 
-    [SerializeField] GameState state;
+    public GameState state;
 
     public static GameController Instance { get; private set; }
     private HashSet<string> defeatedBossLevels = new HashSet<string>();
@@ -58,6 +58,16 @@ private void Start()
         // playerControl.OnEnterDialogue += StartDialogue;
         // playerControl.OnEndDialogue += EndDialogue;
 
+        playerControl.OnEnemyEncountered += (Collider2D enemyCollider) =>
+        {
+            var enemy = enemyCollider.GetComponentInParent<NPCEnemy>();
+            if(enemy != null)
+            {
+                state = GameState.Encounter;
+                StartCoroutine(enemy.TriggerBattle(playerControl));
+            }
+        };
+
         DialogManager.Instance.OnShowDialog += () =>
         {
             state = GameState.Dialogue;
@@ -77,7 +87,7 @@ private void Start()
 
     }
 
-    public void StartBattle(bool isBoss = false, int maxQuestions = 1)
+    public void StartBattle(bool isBoss = false, bool isEnemy=false, int maxQuestions = 1)
     {
         MapArea localMapArea = FindFirstObjectByType<MapArea>();
         if(localMapArea != null)
@@ -105,6 +115,10 @@ private void Start()
         {
             battleSystem.BossBattle(maxQuestions);
         }
+        else if (isEnemy)
+        {
+            battleSystem.EnemyBattle(maxQuestions);
+        }
         else
         {
             battleSystem.StartBattle();
@@ -113,7 +127,26 @@ private void Start()
 
     void EndBattle(bool playerWin)
     {
+        StartCoroutine(EndBattleRoutine());
+
+        // state = GameState.FreeRoam;
+        // Debug.Log("GameState == " + state);
+        // //yield return null;
+        // battleSystem.gameObject.SetActive(false);
+        // playerControl.gameObject.SetActive(true);
+        // worldCamera.gameObject.SetActive(true);
+
+        // NPCEnemy enemy = FindFirstObjectByType<NPCEnemy>();
+        // if (enemy!= null){
+        //     enemy.MarkDefeated();
+        // }        
+    }
+
+    IEnumerator EndBattleRoutine()
+    {
         state = GameState.FreeRoam;
+        Debug.Log("GameState == " + state);
+        yield return null;
         battleSystem.gameObject.SetActive(false);
         playerControl.gameObject.SetActive(true);
         worldCamera.gameObject.SetActive(true);

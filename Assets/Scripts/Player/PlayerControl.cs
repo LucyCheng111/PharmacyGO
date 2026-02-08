@@ -1,4 +1,4 @@
-﻿﻿using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using System;
 using UnityEngine;
@@ -19,9 +19,11 @@ public class PlayerControl : MonoBehaviour
     public LayerMask solidObjectsLayer;
     public LayerMask interactableLayer;
     public LayerMask grassLayer;
+    public LayerMask NPCFovLayer;
     public bool isSprinting;   // For ai to know 
 
     //public event Action OnEncountered;
+    public event Action<Collider2D> OnEnemyEncountered;
 
     public int numberOfAreas = 4;  // Adjust based on the number of areas
 
@@ -102,7 +104,7 @@ public class PlayerControl : MonoBehaviour
                 transform.position += movementVector;
                 isMoving = true;
                 HidePrompt();
-                CheckForEncounters();
+                CheckTriggers();
 
 
             }
@@ -163,7 +165,7 @@ public class PlayerControl : MonoBehaviour
         var collider = Physics2D.OverlapCircle(interactPos, 0.3f, interactableLayer);
         if (collider != null)
         {
-            collider.GetComponent<Interactable>()?.Interact();
+            collider.GetComponent<Interactable>()?.Interact(transform);
         }
     }
 
@@ -204,6 +206,12 @@ public class PlayerControl : MonoBehaviour
         return true;
     } 
 
+    private void CheckTriggers()
+    {
+        CheckIfInEnemyView();
+        CheckForEncounters();
+    }
+
     private void CheckForEncounters()
     {
         // skip battle if no question in this area
@@ -232,6 +240,16 @@ public class PlayerControl : MonoBehaviour
         }
     }
 
+    private void CheckIfInEnemyView()
+    {
+        //Debug.Log("Checking if in enemy view");
+        var collider  = Physics2D.OverlapCircle(transform.position, 0.0f, NPCFovLayer);
+        if ( collider != null)
+        {
+            animator.SetBool("isMoving",false);
+            OnEnemyEncountered?.Invoke(collider);
+        }
+    }
 
     private IEnumerator ShowExclamationAndEncounter()
     {
