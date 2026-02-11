@@ -147322,7 +147322,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1118970137598779289, guid: cfe44f264673d97498ea6a6316be6afd, type: 3}
   m_PrefabInstance: {fileID: 2017872473}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 2017872474}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f45baef909489894aabb7515c1ea4b39, type: 3}
@@ -156874,6 +156874,7 @@ GameObject:
   - component: {fileID: 881116103}
   - component: {fileID: 881116102}
   - component: {fileID: 881116107}
+  - component: {fileID: 881116108}
   m_Layer: 0
   m_Name: GameController
   m_TagString: Untagged
@@ -156968,6 +156969,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e53ac3016f8c9854bbb88fff42dd13db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &881116108
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 881116101}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c203f4feb474274e9e7ed631acd3ed2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 2017872474}
+  running: 0
 --- !u!1001 &887622015
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -191230,6 +191245,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cfe44f264673d97498ea6a6316be6afd, type: 3}
+--- !u!1 &2017872474 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1938964688693061374, guid: cfe44f264673d97498ea6a6316be6afd, type: 3}
+  m_PrefabInstance: {fileID: 2017872473}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2029878205
 GameObject:
   m_ObjectHideFlags: 0
