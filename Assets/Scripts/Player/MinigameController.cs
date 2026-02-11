@@ -5,15 +5,6 @@ using UnityEngine.UI;
 using TMPro;
 using System.Threading.Tasks;
 
-public enum CardMatchingPlay
-{
-    PlayerQuestion,
-    PlayerAnswer,
-    RivalQuestion,
-    RivalAnswer,
-    GameEnd
-}
-
 public class MinigameController : MonoBehaviour
 {
     public List<string> Questions;
