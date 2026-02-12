@@ -53,7 +53,7 @@ public class Username_Manager : MonoBehaviour
         string generated = "";
         string noun;
         string adjective = "";
-        string number = "";
+        int number = 0;
         // a username is made up of 3 parts:
         //ADJECTIVE, NOUN, NUMBER
         string Bulk = adjectivesFile.text;
@@ -69,14 +69,12 @@ public class Username_Manager : MonoBehaviour
 
         noun = new string(nouns[Random.Range(0,no_n)].Where(char.IsLetterOrDigit).ToArray());
 
-        //number
-        Bulk = numbersFile.text;
-        string[] numbers = Bulk.Split('\n');
-        int nu_n = numbers.Length;
-        
-        number = new string(numbers[Random.Range(0,nu_n)].Where(char.IsLetterOrDigit).ToArray());
+        //number revised, generate random number between 0 and 1000
+        number = Random.Range(0,1001);
+        //if the number is equal to 1000, then easter egg
+        string numberStr=(number<1000)? numberStr= number.ToString() : "Number";
 
-        generated = adjective + noun + number;
+        generated = adjective + noun + numberStr;
         Debug.Log("Username generated: " + generated);
 
         return generated;
