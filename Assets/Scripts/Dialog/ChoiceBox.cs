@@ -1,4 +1,5 @@
-﻿using System;
+﻿
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -11,6 +12,7 @@ public class ChoiceBox : MonoBehaviour
     [SerializeField] ChoiceText choiceTextPrefab;
 
     bool choiceSelected = false;
+
     List<ChoiceText> choiceTexts;
     int currentChoice;
 
@@ -33,7 +35,6 @@ public class ChoiceBox : MonoBehaviour
             choiceTextObj.Initialize(i, OnChoiceClicked);
             choiceTexts.Add(choiceTextObj);
         }
-
         // Set initial selection
         UpdateChoiceSelection();
 
@@ -43,12 +44,12 @@ public class ChoiceBox : MonoBehaviour
         gameObject.SetActive(false);
     }
 
-    private void OnChoiceClicked(int index)  
+    private void OnChoiceClicked(int index)
     {
         Debug.Log($"OnChoiceClicked called with index: {index}");
         currentChoice = index;
         UpdateChoiceSelection();
-        choiceSelected = true;  
+        choiceSelected = true;
     }
 
     private void UpdateChoiceSelection()
@@ -61,26 +62,24 @@ public class ChoiceBox : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.DownArrow))
+        if (Input.GetKeyDown(KeyCode.DownArrow) || Input.GetKeyDown(KeyCode.S))
         {
             ++currentChoice;
             currentChoice = Mathf.Clamp(currentChoice, 0, choiceTexts.Count - 1);
             UpdateChoiceSelection();
         }
-
-        else if (Input.GetKeyDown(KeyCode.UpArrow))
+            
+        else if (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W))
         {
             --currentChoice;
             currentChoice = Mathf.Clamp(currentChoice, 0, choiceTexts.Count - 1);
             UpdateChoiceSelection();
         }
 
-
         if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Return))
         {
             choiceSelected = true;
         }
-
     }
 }
 
