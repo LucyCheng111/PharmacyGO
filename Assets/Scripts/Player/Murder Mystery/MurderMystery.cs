@@ -12,12 +12,14 @@ public class MurderCase
     public List<NPCController> evidenceObjects = new List<NPCController>();
     public List<string> options = new List<string>(); //multiple choice of answers for murder
     public int correctOption;
+
+    //For now body is separate from other evidence objects in case philmus wants a lot of arch for it, however this can be easily changed if not
     public NPCController body; //multiple choice for seeing dialoge? long sequence of dialogue?
 
 
     public int level; //PlayerPrefs.GetInt("CurrentLevel");
     public int murderID; //since multiple options of murders for each level, this differentiates them
-    public Vector2 loc; //location in Murder Mystery scene to warp to
+    public Transform SpawnLocation; //location in Murder Mystery scene to warp to
 }
 
 [System.Serializable]
@@ -45,26 +47,24 @@ public class MurderMystery : MonoBehaviour
             return;
         }
         Instance = this;
-        DontDestroyOnLoad( gameObject );
         
         randomizeMurder();
     }
 
     void randomizeMurder()
     {
-        if(currentLevel < 5)
+        if(currentLevel < murders.Count)
         {
             int numCasesForLevel = murders[currentLevel].cases.Count;
-
             //currentCase = Random.Range(0,numCasesForLevel);
-            currentCase = 0;
+            currentCase = 0;  //used for testing
 
             GameObject player = GameObject.FindGameObjectWithTag("Player"); 
-            player.transform.position = murders[currentLevel].cases[currentCase].loc;
+            player.transform.position = murders[currentLevel].cases[currentCase].SpawnLocation.position;
         }
         else
         {
-            Debug.Log("TOO HIGH OF LEVEL");
+            Debug.Log("TOO HIGH OF LEVEL, NO MURDERS FOR CURRENT LEVEL");
         }
     }
 
