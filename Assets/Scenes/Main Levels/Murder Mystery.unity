@@ -334,7 +334,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   murders:
-  - cases:
+  - name: Level 1
+    cases:
     - name: L1C1, Emily Carter, dead over her salad
       evidenceObjects:
       - {fileID: 240601829}

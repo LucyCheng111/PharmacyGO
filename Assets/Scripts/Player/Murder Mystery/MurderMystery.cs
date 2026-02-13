@@ -25,6 +25,7 @@ public class MurderCase
 [System.Serializable]
 public class CasesForLevel
 {
+    public string name; //Only for development, makes it easy to identify when looking at this data
     public List<MurderCase> cases = new List<MurderCase>();
 }
 
