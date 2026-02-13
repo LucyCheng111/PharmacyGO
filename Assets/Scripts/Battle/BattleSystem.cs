@@ -8,7 +8,7 @@ using System.Timers;
 public enum BattleState { START, PLAYERACTION, PLAYERANSWER, END}
 public class BattleSystem : MonoBehaviour
 {
-
+    public static BattleSystem Instance { get; private set; }
     // Manager for the battle system
     // Handles flow through entire battle and calls to external battle components, e.g. boss manager
 
@@ -48,6 +48,7 @@ public class BattleSystem : MonoBehaviour
     private Coroutine aiAnswerRoutine;
     private bool battleLocked = false;  // if AI answer right then have a battle lock to avoid user choose something
     private bool timedOut = false;
+    private int aiRivalScore = 0;  // Track AI's score
 
     // Player timing
     private float questionStartTime;
@@ -61,7 +62,17 @@ public class BattleSystem : MonoBehaviour
         AI,
         Timeout
     }
-
+    private void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+        else if (Instance != this)
+        {
+            Destroy(gameObject);
+        }
+    }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     public void StartBattle()
@@ -198,7 +209,7 @@ public class BattleSystem : MonoBehaviour
         questionStartTime = Time.time;
         
         // AI is on and not in boss battle (AI don't participate in boss battle)
-        if (aiEnabled && battleType != BattleType.Wild)
+        if (aiEnabled && battleType == BattleType.Wild)
         {
             aiAnswerRoutine = StartCoroutine(AIAnswerRoutine());
         }
@@ -429,7 +440,8 @@ public class BattleSystem : MonoBehaviour
 
             if (source == AnswerSource.AI)
             {
-                yield return StartCoroutine(dialogBox.TypeDialog("Your Rival answered first and won!"));
+                aiRivalScore += 1000;  // Give AI 1000 points when correct
+                yield return StartCoroutine(dialogBox.TypeDialog("Your Rival answered first and won!, + 1000 points for AI"));
             }
             else if (source == AnswerSource.Timeout)
             {
@@ -714,6 +726,16 @@ public class BattleSystem : MonoBehaviour
     {
         state = BattleState.END;
         dialogBox.EnableOptionSelector(false);
+    }
+
+    public int GetAiRivalScore()
+    {
+        return aiRivalScore;
+    }
+
+    public void ResetAiRivalScore()
+    {
+        aiRivalScore = 0;
     }
 
 
