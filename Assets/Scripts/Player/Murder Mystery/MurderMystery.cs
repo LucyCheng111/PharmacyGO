@@ -39,8 +39,6 @@ public class MurderMystery : MonoBehaviour
 
     public void Awake()
     {
-        // Check if there already is an existing GameController
-        // Especially when returning to the Sample Scene
         if(Instance != null & Instance != this )
         {
             Destroy( gameObject );
@@ -56,8 +54,8 @@ public class MurderMystery : MonoBehaviour
         if(currentLevel < murders.Count)
         {
             int numCasesForLevel = murders[currentLevel].cases.Count;
-            //currentCase = Random.Range(0,numCasesForLevel);
-            currentCase = 0;  //used for testing
+            currentCase = Random.Range(0,numCasesForLevel);
+            //currentCase = 0;  //used for testing
 
             GameObject player = GameObject.FindGameObjectWithTag("Player"); 
             player.transform.position = murders[currentLevel].cases[currentCase].SpawnLocation.position;

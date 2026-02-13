@@ -5,10 +5,22 @@ public class DetectiveController : MonoBehaviour, Interactable
 {
     private bool isInteracting = false;
     [SerializeField] private GameObject InteractPrompt;
+    MurderCase murderCase;
     public void Interact(Transform initiator)
     {
+        murderCase = MurderMystery.Instance.murders[MurderMystery.Instance.currentLevel].cases[MurderMystery.Instance.currentCase];
         if (!isInteracting)
         {
+            //first check if all evidence seen
+            for(int i = 0; i < murderCase.evidenceObjects.Count; i++)
+            {
+                if(murderCase.evidenceObjects[i].GetComponent<NPCController>().seen == false)
+                {
+                    StartCoroutine(NotCheckedAllEvidenceMessage());
+                    return;
+                }
+            }
+            //seen all evidence
             StartCoroutine(ShowSolvingChoices());
         }
     }
@@ -31,9 +43,15 @@ public class DetectiveController : MonoBehaviour, Interactable
 
     private IEnumerator ShowSolvingChoices()
     {
-        MurderCase murderCase = MurderMystery.Instance.murders[MurderMystery.Instance.currentLevel].cases[MurderMystery.Instance.currentCase];
+
         // Create choices for shutdown confirmation
-        List<string> choices = murderCase.options;
+
+        List<string> choices = new List<string>();
+        for(int i = 0; i < murderCase.options.Count; i++)
+        {
+            choices.Add(murderCase.options[i]);
+        }
+        choices.Add("I need more time");
 
         // Show dialog with choices using ShowDialogText
         yield return DialogManager.Instance.ShowDialogText(
@@ -70,7 +88,16 @@ public class DetectiveController : MonoBehaviour, Interactable
         ));
 
         yield return StartCoroutine(DialogManager.Instance.ShowDialogText(
-            "You completed the Murder Mystery Challenge!.",
+            "You completed the Murder Mystery Challenge!",
+            waitForInput: true,
+            autoClose: true
+        ));
+    }
+
+    private IEnumerator NotCheckedAllEvidenceMessage()
+    {
+        yield return StartCoroutine(DialogManager.Instance.ShowDialogText(
+            "Detective: You haven't looked at all of the evidence, come back when you have.",
             waitForInput: true,
             autoClose: true
         ));
