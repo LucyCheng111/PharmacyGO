@@ -69,6 +69,11 @@ public class MainMenu : MonoBehaviour
         // Main Menu 0, Instructions 1
     }
 
+    public void LoadLeaderBoard()
+    {
+        
+    }
+
     public void SetMenu (GameObject newMenu)
     {
         foreach (GameObject menu in menus)
