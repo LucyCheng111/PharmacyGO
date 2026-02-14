@@ -14,7 +14,9 @@
 
 ## Expected contribution workflow
 **1. Branch Naming**
+
 Make sure the branch name is short and clear and reflects the subject you're working on 
+
 
 **2. How to open a PR**
 
@@ -24,11 +26,13 @@ Make sure the branch name is short and clear and reflects the subject you're wor
 
 (3) Assign people to review your pull request
 
+
 **3. Information to include**
 
 (1) State out the subject
 
 (2) State out the outcome so people would know how to test it
+
 
 **4. Definition of Done**
 
@@ -36,12 +40,15 @@ Make sure the branch name is short and clear and reflects the subject you're wor
 
 (2) Test worked as described
 
+
 **5. Code review expectations**
 
 Clean code with clear comments
 
+
 ## Report bugs / Request changes
 Open an Issue in the GitHub repository
+
 
 **What to include**
 
@@ -50,6 +57,7 @@ Open an Issue in the GitHub repository
 (2) Which file the bug is located
 
 (3) In what condition it will happen
+
 
 ## Support & Contact
  Reach out via our project Discord/Teams channel
