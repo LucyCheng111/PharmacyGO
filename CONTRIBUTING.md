@@ -17,28 +17,28 @@
 Make sure the branch name is short and clear and reflects the subject you're working on 
 
 **2. How to open a PR**
-(1) Push the changes into your branch
-(2) Go to Pull Request and add a pull request 
-(3) Assign people to review your pull request
+(1) Push the changes into your branch\
+(2) Go to Pull Request and add a pull request\ 
+(3) Assign people to review your pull request\
 
 **3. Information to include**
-(1) State out the subject
-(2) State out the outcome so people would know how to test it
+(1) State out the subject\
+(2) State out the outcome so people would know how to test it\
 
 **4. Definition of Done**
-(1) No compiling error
-(2) Test worked as described 
+(1) No compiling error\
+(2) Test worked as described\
 
 **5. Code review expectations**
-Clean code with clear comments
+Clean code with clear comments\
 
 ## Report bugs / Request changes
-Open an Issue in the GitHub repository
+Open an Issue in the GitHub repository\
 
 **What to include**
-(1) State out the bug 
-(2) Which file the bug is located 
-(3) In what condition it will happen 
+(1) State out the bug\ 
+(2) Which file the bug is located\ 
+(3) In what condition it will happen\ 
 
 ## Support & Contact
  Reach out via our project Discord/Teams channel.
