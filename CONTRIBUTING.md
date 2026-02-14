@@ -17,7 +17,9 @@
 Make sure the branch name is short and clear and reflects the subject you're working on 
 
 **2. How to open a PR**
-(1) Push the changes into your branch  \n
+
+(1) Push the changes into your branch
+
 (2) Go to Pull Request and add a pull request\ 
 (3) Assign people to review your pull request\
 
