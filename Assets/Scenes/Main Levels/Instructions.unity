@@ -656,6 +656,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 25b1cfb3bdd333c479a3edcce8d50afd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  audioMixer: {fileID: 0}
+  volumeText: {fileID: 0}
+  volumeSlider: {fileID: 0}
+  menus: []
+  continueButton: {fileID: 0}
 --- !u!114 &324941340
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1051,8 +1056,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4287651379
-  m_fontColor: {r: 0.2, g: 0.36862746, b: 0.5647059, a: 1}
+    rgba: 4281874488
+  m_fontColor: {r: 0.21960786, g: 0.21960786, b: 0.21960786, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -1389,6 +1394,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 690107630}
+  - {fileID: 1876037764}
   m_Father: {fileID: 1475331273}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
@@ -1440,7 +1446,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 164133035}
   m_Direction: 2
   m_Value: 1
-  m_Size: 0.078580834
+  m_Size: 0.07858083
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -1514,7 +1520,6 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1876037764}
   - {fileID: 1385307473}
   m_Father: {fileID: 1355117445}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1909,12 +1914,12 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 622141860}
-  m_Father: {fileID: 1475331273}
+  m_Father: {fileID: 1385307473}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: -370.58002, y: 0}
+  m_SizeDelta: {x: 353.58, y: 17}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1876037765
 MonoBehaviour:

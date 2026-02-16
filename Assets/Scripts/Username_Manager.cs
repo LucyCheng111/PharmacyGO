@@ -1,6 +1,8 @@
 using UnityEngine;
 using System.IO;
 using System.Linq;
+using Unity.Services.Authentication;
+using System.Threading.Tasks;
 public class Username_Manager : MonoBehaviour
 {
     public static Username_Manager Instance { get; private set; }
@@ -10,7 +12,7 @@ public class Username_Manager : MonoBehaviour
     public TextAsset numbersFile;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Awake()
+    async Task Awake()
     {
         if (Instance != null && Instance != this)
         {
@@ -21,32 +23,63 @@ public class Username_Manager : MonoBehaviour
         {
             Instance = this;
             DontDestroyOnLoad(gameObject);
+
+            await WaitForServices();
+            LoadOrCreateUserName();
+            await SyncUsernameWithBackend();
         }
+    }
 
-
-
-        //GET USERNAME
-
-        username = PlayerPrefs.GetString("Username");
-        if(username == string.Empty)
+    private async Task WaitForServices()
+    {
+        while (!ServicesInitializer.IsReady)
         {
-            //User does not have a saved Username on this computer/ browser
-            username = Generate_new_username();    
-            PlayerPrefs.SetString("Username", username);
+            await Task.Yield();
+        }
+    }
+
+    private void LoadOrCreateUserName()
+    {
+        username = PlayerPrefs.GetString("Username","");
+
+        if (string.IsNullOrEmpty(username))
+        {
+            username = Generate_new_username();
+
+            PlayerPrefs.SetString("Username",username);
+            PlayerPrefs.Save();
+
+            Debug.Log("Generated new username");
         }
         else
         {
-            Debug.Log("Aquired Username: " + username);
-
+            Debug.Log("Loaded username: " + username);
         }
-
-        /*
-        //generates lots of example usernames
-        for(int i =0; i < 1000; i++){
-            Generate_new_username();
-        }
-        */
     }
+
+    private async Task SyncUsernameWithBackend()
+    {
+        try
+        {
+            var auth = AuthenticationService.Instance;
+
+            //Only update if the username is different
+
+            if(auth.PlayerName != username)
+            {
+                await auth.UpdatePlayerNameAsync(username);
+                Debug.Log("Username synced to leaderboard");
+            }
+            else
+            {
+                Debug.Log("Username already synced with the backend");
+            }
+        }catch (System.Exception e)
+        {
+            Debug.LogError("Username sync failed: " + e);
+        }
+    }
+
 
     public string Generate_new_username()
     {

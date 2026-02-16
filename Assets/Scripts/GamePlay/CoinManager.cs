@@ -56,7 +56,7 @@ public class CoinManager : MonoBehaviour
 
         // Saved spent coins
         PlayerPrefs.SetInt("CoinCount", coinCount);
-        PlayerPrefs.Save();
+         PlayerPrefs.Save();
     }
 }
 
