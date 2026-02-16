@@ -44,7 +44,7 @@ public class DialogManager : MonoBehaviour
         yield return TypeDialog(text);
         if (waitForInput)
         {
-            yield return new WaitUntil(() => (Input.GetKeyDown(KeyCode.Space)));
+            yield return new WaitUntil(() => (Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0)));
         }
 
         if (choices != null && choices.Count > 1)

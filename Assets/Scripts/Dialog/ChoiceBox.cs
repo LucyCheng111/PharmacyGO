@@ -1,3 +1,4 @@
+﻿
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -14,7 +15,7 @@ public class ChoiceBox : MonoBehaviour
 
     List<ChoiceText> choiceTexts;
     int currentChoice;
-    
+
     public IEnumerator ShowChoices(List<string> choices, Action<int> onChoiceSelected)
     {
         choiceSelected = false;
@@ -27,12 +28,15 @@ public class ChoiceBox : MonoBehaviour
             Destroy(child.gameObject);
 
         choiceTexts = new List<ChoiceText>();
-        foreach (var choice in choices)
+        for (int i = 0; i < choices.Count; i++)
         {
             var choiceTextObj = Instantiate(choiceTextPrefab, transform);
-            choiceTextObj.TextField.text = choice;
+            choiceTextObj.TextField.text = choices[i];
+            choiceTextObj.Initialize(i, OnChoiceClicked);
             choiceTexts.Add(choiceTextObj);
         }
+        // Set initial selection
+        UpdateChoiceSelection();
 
         yield return new WaitUntil(() => choiceSelected == true);
 
@@ -40,22 +44,44 @@ public class ChoiceBox : MonoBehaviour
         gameObject.SetActive(false);
     }
 
-    private void Update()
+    private void OnChoiceClicked(int index)
     {
-        if (Input.GetKeyDown(KeyCode.DownArrow))
-            ++currentChoice;
-        else if (Input.GetKeyDown(KeyCode.UpArrow))
-            --currentChoice;
-        currentChoice = Mathf.Clamp(currentChoice, 0, choiceTexts.Count - 1);
+        Debug.Log($"OnChoiceClicked called with index: {index}");
+        currentChoice = index;
+        UpdateChoiceSelection();
+        choiceSelected = true;
+    }
 
-
+    private void UpdateChoiceSelection()
+    {
         for (int i = 0; i < choiceTexts.Count; i++)
         {
             choiceTexts[i].SetSelected(i == currentChoice);
         }
+    }
 
-        if (Input.GetKeyDown(KeyCode.Space))
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.DownArrow) || Input.GetKeyDown(KeyCode.S))
+        {
+            ++currentChoice;
+            currentChoice = Mathf.Clamp(currentChoice, 0, choiceTexts.Count - 1);
+            UpdateChoiceSelection();
+        }
+            
+        else if (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W))
+        {
+            --currentChoice;
+            currentChoice = Mathf.Clamp(currentChoice, 0, choiceTexts.Count - 1);
+            UpdateChoiceSelection();
+        }
+
+        if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Return))
+        {
             choiceSelected = true;
-        
+        }
     }
 }
+
+
+

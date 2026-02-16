@@ -9,12 +9,12 @@ public class CardForMatching : MonoBehaviour
     public bool isQuestion = false;
     public string info;
     public GameObject text;
-    MinigameController controller;
+    CardMatchingMinigame controller;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        controller = GetComponentInParent<MinigameController>();
+        controller = GetComponentInParent<CardMatchingMinigame>();
 
         text = GetComponentInChildren<TextMeshProUGUI>().gameObject;
         GetComponent<Button>().onClick.AddListener(Select);

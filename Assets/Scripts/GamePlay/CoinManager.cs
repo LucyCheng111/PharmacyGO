@@ -48,6 +48,12 @@ public class CoinManager : MonoBehaviour
     {
         coinCount -= amount;
 
+        //make sure coin count doesn't drop below 0
+        if(coinCount < 0)
+        {
+            coinCount = 0;
+        }
+
         // Saved spent coins
         PlayerPrefs.SetInt("CoinCount", coinCount);
         PlayerPrefs.Save();

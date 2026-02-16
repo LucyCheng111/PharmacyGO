@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System;
 using UnityEngine;
 using Unity.VisualScripting;
+using Mono.Cecil;
 
 public class NPCMovement : MonoBehaviour
 {
@@ -95,5 +96,21 @@ public class NPCMovement : MonoBehaviour
         {
             movementLocked = false;
         }
+
+    public void LookTowards(Vector3 targetPosition)
+    {
+        LockMovement();
+
+        //var xDiff = targetPosition.x - transform.position.x;
+        //var yDiff = targetPosition.y - transform.position.y;
+
+        Vector2 facingDirection = (targetPosition - transform.position).normalized;
+
+        Debug.Log("LookToward called -- xDiff = " + facingDirection.x + " yDiff = " + facingDirection.y);
+
+        animator.SetFloat("moveX",facingDirection.x);
+        animator.SetFloat("moveY",facingDirection.y);
+    
+    }
 
 }
