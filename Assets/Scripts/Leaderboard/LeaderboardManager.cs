@@ -15,7 +15,10 @@ public class LeaderBoardManager : MonoBehaviour
     [HideInInspector] public ScoreManager scoreManager;
     [SerializeField] private Transform leaderboardContentParent;
     [SerializeField] private Transform leaderboardItemPrefab;
+    private const int LEADERBOARD_SCENE_INDEX=16;
     private bool isDestroyed;
+
+    //name of the leaderboard in the unity game services backend
     private string leaderboardID = "pharmacy-go-2-leaderboard";
 
     private void Start()
