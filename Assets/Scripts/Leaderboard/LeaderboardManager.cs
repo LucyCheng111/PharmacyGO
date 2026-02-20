@@ -22,6 +22,9 @@ public class LeaderBoardManager : MonoBehaviour
     {
         SceneManager.sceneLoaded += OnSceneLoaded;
 
+        Debug.Log("leaderboard object started");
+
+
         foreach (Transform t in leaderboardContentParent)
         {
             Destroy(t.gameObject);
@@ -35,8 +38,9 @@ public class LeaderBoardManager : MonoBehaviour
 
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        if(scene.name == "LeaderBoard")
+        if(scene.name == "Leaderboard")
         {
+            Debug.Log("leaderboard scene loaded");
             UpdateLeaderboard();
         }
     }
@@ -47,6 +51,8 @@ public class LeaderBoardManager : MonoBehaviour
     }
     private async void UpdateLeaderboard()
     {
+
+        Debug.Log("-- Fetching data");
         // Wait for services
         while (!ServicesInitializer.IsReady)
         {
