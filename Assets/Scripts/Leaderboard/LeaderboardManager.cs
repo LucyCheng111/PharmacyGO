@@ -24,7 +24,7 @@ public class LeaderBoardManager : MonoBehaviour
 
         Debug.Log("leaderboard object started");
 
-
+        //delete the placeholder leaderboard entries that are part of the leaderboard scene when the leaderboard object is loaded into the game
         foreach (Transform t in leaderboardContentParent)
         {
             Destroy(t.gameObject);
@@ -33,6 +33,7 @@ public class LeaderBoardManager : MonoBehaviour
 
     private void Awake()
     {
+        //subscribe to the OnSceneLoader event from the scene manager in order to trigger an action when the user opens the leaderboard scene
         SceneManager.sceneLoaded += OnSceneLoaded;
     }
 
@@ -66,13 +67,16 @@ public class LeaderBoardManager : MonoBehaviour
             await Task.Yield();
         }
 
+        //create a LeaderboardScoresPage object to contain the leaderboard data that is fetched from the unity game services server
         LeaderboardScoresPage leaderboardScoresPage;
 
+        //make a request to unity games services ansd attempt to populate the leaderboard
         try
         {
             leaderboardScoresPage =
                 await LeaderboardsService.Instance.GetScoresAsync(leaderboardID);
         }
+        //throw an error if that fails for some reason or another
         catch (System.Exception e)
         {
             Debug.LogError("Fetch failed: " + e);
@@ -83,30 +87,47 @@ public class LeaderBoardManager : MonoBehaviour
         if (isDestroyed || leaderboardContentParent == null)
             return;
 
-        // Clear old items safely
+        // Clear old items safely (primarily for the placeholder leaderboard entry objects that are already in the leaderboard scene)
         for (int i = leaderboardContentParent.childCount - 1; i >= 0; i--)
         {
             Destroy(leaderboardContentParent.GetChild(i).gameObject);
         }
 
+        //make a new leaderboard entry for each player in the leaderboard scores
         foreach (LeaderboardEntry entry in leaderboardScoresPage.Results)
         {
             if (isDestroyed) return;
 
+            //make a new leaderboard entry for this player
             Transform leaderboardItem =
                 Instantiate(leaderboardItemPrefab, leaderboardContentParent);
 
-            leaderboardItem.GetChild(0)
-                .GetComponent<TextMeshProUGUI>().text =
-                entry.Rank.ToString();
+            //add one to the rank since the leaderboard service indexes leaderboard ranks at 0
+            int rank = entry.Rank +1;
+            leaderboardItem.GetChild(0).GetComponent<TextMeshProUGUI>().text = rank.ToString();
 
-            leaderboardItem.GetChild(1)
-                .GetComponent<TextMeshProUGUI>().text =
-                entry.PlayerName;
+            //get the player's username and chop off the last 5 characters of the string, the "tag".
+            string Playername = TruncateString(entry.PlayerName);
+            leaderboardItem.GetChild(1).GetComponent<TextMeshProUGUI>().text = Playername;
 
-            leaderboardItem.GetChild(2)
-                .GetComponent<TextMeshProUGUI>().text =
-                entry.Score.ToString();
+            //get the player's score
+            leaderboardItem.GetChild(2).GetComponent<TextMeshProUGUI>().text = entry.Score.ToString();
+        }
+    }
+
+    string TruncateString(string username)
+    //helper funcion to cut off the "tag" at the end of the usernames fetched from the leaderboard
+    {
+        int charactersToRemove = 5;
+
+        if(username.Length >= charactersToRemove)
+        {
+            string editedUsername = username.Remove(username.Length - charactersToRemove);
+            return editedUsername;
+        }
+        else
+        {
+            return username;
         }
     }
 
