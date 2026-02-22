@@ -9,12 +9,14 @@ using Unity.Services.Leaderboards.Models;
 using UnityEngine.SceneManagement;
 using Unity.Services.Leaderboards.Exceptions;
 using Unity.Services.Authentication;
+using UnityEngine.UI;
 
 public class LeaderBoardManager : MonoBehaviour
 {
     [HideInInspector] public ScoreManager scoreManager;
     [SerializeField] private Transform leaderboardContentParent;
     [SerializeField] private Transform leaderboardItemPrefab;
+    [SerializeField] private ScrollRect scrollView;
     private const int LEADERBOARD_SCENE_INDEX=16;
     private bool isDestroyed;
 
@@ -115,7 +117,14 @@ public class LeaderBoardManager : MonoBehaviour
 
             //get the player's score
             leaderboardItem.GetChild(2).GetComponent<TextMeshProUGUI>().text = entry.Score.ToString();
+            
         }
+        
+        //force the scrollbar to the top of the conent field
+        Canvas.ForceUpdateCanvases();
+        LayoutRebuilder.ForceRebuildLayoutImmediate(leaderboardContentParent.GetComponent<RectTransform>());
+        scrollView.verticalNormalizedPosition = 1f;
+
     }
 
     string TruncateString(string username)
