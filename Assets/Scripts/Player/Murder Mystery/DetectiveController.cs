@@ -6,22 +6,39 @@ public class DetectiveController : MonoBehaviour, Interactable
     private bool isInteracting = false;
     [SerializeField] private GameObject InteractPrompt;
     MurderCase murderCase;
+    public List<string> options = new List<string>(); //multiple choice of answers for murder 
+    public int correctOption; //index in options thats correct
+
     public void Interact(Transform initiator)
     {
         murderCase = MurderMystery.Instance.murders[MurderMystery.Instance.currentLevel].cases[MurderMystery.Instance.currentCase];
         if (!isInteracting)
-        {
-            //first check if all evidence seen
-            for(int i = 0; i < murderCase.evidenceObjects.Count; i++)
+        {   if(murderCase.type == CaseType.Murder)
             {
-                if(murderCase.evidenceObjects[i].GetComponent<NPCController>().seen == false)
+                //first check if all evidence seen
+                for(int i = 0; i < murderCase.evidenceObjects.Count; i++)
+                {
+                    if(murderCase.evidenceObjects[i].GetComponent<NPCController>().seen == false)
+                    {
+                        StartCoroutine(NotCheckedAllEvidenceMessage());
+                        return;
+                    }
+                }
+                //seen all evidence
+                StartCoroutine(ShowSolvingChoices());
+            }
+            else if(murderCase.type == CaseType.LivePatient)
+            {
+                //check if seen all info from patient
+                if (murderCase.patient.responsesSeen.Contains(false))
                 {
                     StartCoroutine(NotCheckedAllEvidenceMessage());
                     return;
                 }
+                StartCoroutine(ShowSolvingChoices());
+                return;
             }
-            //seen all evidence
-            StartCoroutine(ShowSolvingChoices());
+            
         }
     }
     
@@ -47,9 +64,9 @@ public class DetectiveController : MonoBehaviour, Interactable
         // Create choices for shutdown confirmation
 
         List<string> choices = new List<string>();
-        for(int i = 0; i < murderCase.options.Count; i++)
+        for(int i = 0; i < options.Count; i++)
         {
-            choices.Add(murderCase.options[i]);
+            choices.Add(options[i]);
         }
         choices.Add("I need more time");
 
@@ -61,7 +78,7 @@ public class DetectiveController : MonoBehaviour, Interactable
             choices: choices,
             onChoiceSelected: async (choiceIndex) =>
             { //these options can be expanded upon once we know what else is wanted for the win/lose condition
-                if (choiceIndex == murderCase.correctOption) //correct
+                if (choiceIndex == correctOption) //correct
                 {
                     StartCoroutine(ShowCorrectMessage());
                 }
@@ -90,8 +107,24 @@ public class DetectiveController : MonoBehaviour, Interactable
         yield return StartCoroutine(DialogManager.Instance.ShowDialogText(
             "You completed the Murder Mystery Challenge!",
             waitForInput: true,
+            autoClose: false
+        ));
+
+         yield return StartCoroutine(DialogManager.Instance.ShowDialogText(
+            "You unlocked Level " + (murderCase.level + 1) + "!",
+            waitForInput: true,
             autoClose: true
         ));
+
+        LevelManager.Instance.UnlockNextLevel();
+
+        //AsyncOperation operation = SceneManager.LoadSceneAsync(7);
+        PlayerPrefs.SetString("SpawnPointID", MurderMystery.Instance.GetSpawnpointFromLevel());
+
+        AsyncOperation operation = LevelManager.Instance.LoadLevel(0); // load hub
+        yield return new WaitUntil(() => operation.isDone);
+
+        yield return new WaitForSeconds(0.1f); // Delay for scene initialization
     }
 
     private IEnumerator NotCheckedAllEvidenceMessage()
@@ -108,8 +141,21 @@ public class DetectiveController : MonoBehaviour, Interactable
         yield return StartCoroutine(DialogManager.Instance.ShowDialogText(
             "Detective: I don't think thats correct...",
             waitForInput: true,
+            autoClose: false
+        ));
+        yield return StartCoroutine(DialogManager.Instance.ShowDialogText(
+            "You failed the Murder Mystery Challenge :(",
+            waitForInput: true,
             autoClose: true
         ));
+
+        //AsyncOperation operation = SceneManager.LoadSceneAsync(7);
+        PlayerPrefs.SetString("SpawnPointID", MurderMystery.Instance.GetSpawnpointFromLevel());
+
+        AsyncOperation operation = LevelManager.Instance.LoadLevel(0); // load hub
+        yield return new WaitUntil(() => operation.isDone);
+
+        yield return new WaitForSeconds(0.1f); // Delay for scene initialization
     }
 
     private IEnumerator ShowLeaveMessage()
