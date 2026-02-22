@@ -59,6 +59,7 @@ public class Username_Manager : MonoBehaviour
 
     private async Task SyncUsernameWithBackend()
     {
+        //sync the player's username with the corresponding backend data if it already exists
         try
         {
             var auth = AuthenticationService.Instance;
