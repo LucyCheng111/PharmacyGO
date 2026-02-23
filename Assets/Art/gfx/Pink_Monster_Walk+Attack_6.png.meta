@@ -111,6 +111,19 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -259,7 +272,13 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Pink_Monster_Walk+Attack_6_0: -2913383811220802149
+      Pink_Monster_Walk+Attack_6_1: 436586248998104710
+      Pink_Monster_Walk+Attack_6_2: -1995897159973994104
+      Pink_Monster_Walk+Attack_6_3: 6796111683073121249
+      Pink_Monster_Walk+Attack_6_4: -2578855690707114538
+      Pink_Monster_Walk+Attack_6_5: -7957812780625682893
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

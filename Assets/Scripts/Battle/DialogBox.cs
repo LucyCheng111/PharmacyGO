@@ -107,7 +107,6 @@ public class DialogBox : MonoBehaviour
     {
         // Check type of answer 1
         (Option.OptionType, string) firstIndex = answers[0].grabOption();
-        Debug.Log(firstIndex.Item1);
         string[] values = new string[answers.Length];
         for (int i = 0; i < answers.Length; i++)
         {
