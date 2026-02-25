@@ -220,9 +220,7 @@ public class AiRival : MonoBehaviour, Interactable
 
     private IEnumerator ShowConfirmation()
     {
-        // Find BattleSystem in the scene
-        BattleSystem battleSystem = FindObjectOfType<BattleSystem>();
-        int aiScore = BattleSystem.Instance != null ? BattleSystem.Instance.GetAiRivalScore() : 0;
+        int aiScore = ScoreManager.Instance.GetAiRivalScore();
         int playerScore = ScoreManager.Instance.GetScoreCount();
 
         Debug.Log($"AI score: {aiScore}, player score: { playerScore}");
