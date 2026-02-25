@@ -1,4 +1,5 @@
 using UnityEngine;
+using System;
 
 public class ScoreManager : MonoBehaviour
 {
@@ -11,6 +12,7 @@ public class ScoreManager : MonoBehaviour
      * private set --- Only ScoreManager can assign value
      */
     public static ScoreManager Instance { get; private set; }
+    public static event Action<int> OnScoreChanged;
 
     private int scoreCount;
     private int questionValue = 100;
@@ -78,9 +80,11 @@ public class ScoreManager : MonoBehaviour
             }
         }
         
-
+        Debug.Log("AddScore called. Question=" + question + " Bonus=" + bonusValue);
             // Save scores
             PlayerPrefs.SetInt("ScoreCount", scoreCount);
+            OnScoreChanged?.Invoke(scoreCount);
+            PlayerPrefs.Save();
         Debug.Log("Score: " + scoreCount);
     }
 
