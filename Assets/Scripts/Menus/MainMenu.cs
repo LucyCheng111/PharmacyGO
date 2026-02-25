@@ -52,6 +52,7 @@ public class MainMenu : MonoBehaviour
         PlayerPrefs.DeleteKey("UnlockedLevel");
         PlayerPrefs.DeleteKey("CoinCount");
         PlayerPrefs.DeleteKey("ScoreCount");
+        PlayerPrefs.DeleteKey("AiRivalScore");
         PlayerPrefs.DeleteKey("SpawnPointID");
         PlayerPrefs.Save();
 

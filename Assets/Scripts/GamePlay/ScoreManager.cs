@@ -17,6 +17,7 @@ public class ScoreManager : MonoBehaviour
     private int scoreCount;
     private int questionValue = 100;
     private int difficultyBonus;
+    private int aiRivalScore;
 
     private void Awake()
     {
@@ -27,6 +28,7 @@ public class ScoreManager : MonoBehaviour
 
             // Load saved score
             scoreCount = PlayerPrefs.GetInt("ScoreCount", 0);
+            aiRivalScore = PlayerPrefs.GetInt("AiRivalScore", 0);  // Load AI score
         }
         else
         {
@@ -68,12 +70,6 @@ public class ScoreManager : MonoBehaviour
 
             int multiplier = TimerManager.Instance.GetMultiplier();
 
-            // If multiplier is 0, use 1 as minimum to avoid 0 points
-            // when AI join battle, it seems to be somehow resetting multiplier, so default multiplier = 1
-            if (multiplier == 0 && TimerManager.Instance.IsLevelStarted())
-            {
-                multiplier = 1;
-            }
 
             {
                 scoreCount += questionValue * (MapArea.i.GetCorrectStreak() + 1) * difficultyBonus * multiplier;
@@ -91,6 +87,37 @@ public class ScoreManager : MonoBehaviour
     public int GetScoreCount()
     {
         return scoreCount;
+    }
+
+    public int AddAiScore()
+    {
+        int previous = aiRivalScore;
+
+        int difficulty = MapArea.i.GetDifficulty();
+        int diffBonus = difficulty <= 20 ? 1 :
+                        difficulty <= 40 ? 2 :
+                        difficulty <= 60 ? 3 :
+                        difficulty <= 80 ? 4 : 5;
+
+        int multiplier = TimerManager.Instance.GetMultiplier();
+
+        aiRivalScore += questionValue * (MapArea.i.GetCorrectStreak() + 1) * diffBonus * multiplier;
+
+        PlayerPrefs.SetInt("AiRivalScore", aiRivalScore);
+
+        return aiRivalScore - previous; // return points earned this round
+    }
+
+    public int GetAiRivalScore()
+    {
+        return aiRivalScore;
+    }
+
+    public void ResetAiRivalScore()
+    {
+        aiRivalScore = 0;
+        PlayerPrefs.SetInt("AiRivalScore", 0);
+        PlayerPrefs.Save();
     }
 }
 
