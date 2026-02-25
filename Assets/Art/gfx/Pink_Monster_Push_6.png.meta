@@ -111,6 +111,19 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -259,7 +272,13 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Pink_Monster_Push_6_0: 595661573533270607
+      Pink_Monster_Push_6_1: 3380867843975962835
+      Pink_Monster_Push_6_2: 8767817562348655431
+      Pink_Monster_Push_6_3: -7016653239807626574
+      Pink_Monster_Push_6_4: -2836629171940628902
+      Pink_Monster_Push_6_5: 1645720435441620283
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

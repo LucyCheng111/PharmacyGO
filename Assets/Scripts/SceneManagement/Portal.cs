@@ -87,13 +87,12 @@ public class Portal : MonoBehaviour
         // Fix Cinemachine
         StartCoroutine(UpdateCinemachineTarget());
 
-
         isTransitioning = false;
     }
 
     private IEnumerator UpdateCinemachineTarget()
     {
-        yield return new WaitForSeconds(0.2f); // Small delay to ensure the player loads
+        yield return new WaitForSeconds(0.5f); // Small delay to ensure the player loads
 
         CinemachineCamera cam = FindFirstObjectByType<CinemachineCamera>();
         GameObject player = GameObject.FindGameObjectWithTag("Player");
@@ -114,6 +113,8 @@ public class Portal : MonoBehaviour
             }
         }
     }
+    /*
+    //this isnt called anywhere?
 
     private SpawnPoint FindTargetSpawnPoint()
     {
@@ -127,4 +128,6 @@ public class Portal : MonoBehaviour
         }
         return null;
     }
+    */
+    
 }

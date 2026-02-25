@@ -10,6 +10,7 @@ public class NPCController : MonoBehaviour, Interactable
     [SerializeField] private GameObject InteractPrompt;
     
     NPCMovement npcMovement;
+    public bool seen = false; //primarily used in murder mystery to see if all objects have been interacted with
 
     void Awake()
     {
@@ -20,6 +21,7 @@ public class NPCController : MonoBehaviour, Interactable
     {
         
         //npcMovement.LookTowards(initiator.position);  
+        seen = true;
         StartCoroutine( DialogManager.Instance.ShowDialog(dialog) );
 
     }

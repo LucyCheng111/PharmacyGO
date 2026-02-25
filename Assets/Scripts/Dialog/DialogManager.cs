@@ -37,6 +37,7 @@ public class DialogManager : MonoBehaviour
     public IEnumerator ShowDialogText(string text, bool waitForInput=true, bool autoClose=true,
         List<string> choices=null, Action<int> onChoiceSelected=null)
     {
+        yield return new WaitForEndOfFrame(); // Avoid Race Condition
         OnShowDialog?.Invoke();
         IsShowing = true;
         dialogBox.SetActive(true);
@@ -44,7 +45,7 @@ public class DialogManager : MonoBehaviour
         yield return TypeDialog(text);
         if (waitForInput)
         {
-            yield return new WaitUntil(() => (Input.GetKeyDown(KeyCode.Space)));
+            yield return new WaitUntil(() => (Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0)));
         }
 
         if (choices != null && choices.Count > 1)
