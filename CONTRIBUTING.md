@@ -1,55 +1,63 @@
 # Contributing Guide
 
-How to set up, code, test, review, and release so contributions meet our Definition of Done.
+## Prerequisites  local setup steps
+- GitHub
+- GitHub Desktop
+- Unity
+- Unity editor version 6000.0.024f1
 
-## Code of Conduct
+## local setup steps
+1. Clone PharmacyGo GitHub to GitHub Desktop
+2. Open the PharmacyGo Project on Unity, make sure the editor version is 6000.0.024f1
+3. Go to Assets/Scenes/Main Levels/Main Menu
+4. Click play
 
-Reference the project/community behavior expectations and reporting process.
+## Expected contribution workflow
+**1. Branch Naming**
 
-## Getting Started
+Make sure the branch name is short and clear and reflects the subject you're working on 
 
-List prerequisites, setup steps, environment variables/secrets handling, and how to run the app locally.
 
-## Branching & Workflow
+**2. How to open a PR**
 
-Describe the workflow (e.g., trunk-based or GitFlow), default branch, branch naming, and when to rebase vs. merge.
+(1) Push the changes into your branch
 
-## Issues & Planning
+(2) Go to Pull Request and add a pull request
 
-Explain how to file issues, required templates/labels, estimation, and triage/assignment practices.
+(3) Assign people to review your pull request
 
-## Commit Messages
 
-State the convention (e.g., Conventional Commits), include examples, and how to reference issues.
+**3. Information to include**
 
-## Code Style, Linting & Formatting
+(1) State out the subject
 
-Name the formatter/linter, config file locations, and the exact commands to check/fix locally.
+(2) State out the outcome so people would know how to test it
 
-## Testing
 
-Define required test types, how to run tests, expected coverage thresholds, and when new/updated tests are mandatory.
+**4. Definition of Done**
 
-## Pull Requests & Reviews
+(1) No compiling error
 
-Outline PR requirements (template, checklist, size limits), reviewer expectations, approval rules, and required status checks.
+(2) Test worked as described
 
-## CI/CD
 
-Link to pipeline definitions, list mandatory jobs, how to view logs/re-run jobs, and what must pass before merge/release.
+**5. Code review expectations**
 
-## Security & Secrets
+Clean code with clear comments
 
-State how to report vulnerabilities, prohibited patterns (hard-coded secrets), dependency update policy, and scanning tools.
 
-## Documentation Expectations
+## Report bugs / Request changes
+Open an Issue in the GitHub repository
 
-Specify what must be updated (README, docs/, API refs, CHANGELOG) and docstring/comment standards.
 
-## Release Process
+**What to include**
 
-Describe versioning scheme, tagging, changelog generation, packaging/publishing steps, and rollback process.
+(1) State out the bug
+
+(2) Which file the bug is located
+
+(3) In what condition it will happen
+
 
 ## Support & Contact
-
-Provide maintainer contact channel, expected response windows, and where to ask questions.
+ Reach out via our project Discord/Teams channel

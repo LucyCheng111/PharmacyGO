@@ -48,7 +48,6 @@ public class BattleSystem : MonoBehaviour
     private Coroutine aiAnswerRoutine;
     private bool battleLocked = false;  // if AI answer right then have a battle lock to avoid user choose something
     private bool timedOut = false;
-    private int aiRivalScore = 0;  // Track AI's score
 
     // Player timing
     private float questionStartTime;
@@ -440,8 +439,8 @@ public class BattleSystem : MonoBehaviour
 
             if (source == AnswerSource.AI)
             {
-                aiRivalScore += 1000;  // Give AI 1000 points when correct
-                yield return StartCoroutine(dialogBox.TypeDialog("Your Rival answered first and won!, + 1000 points for AI"));
+                int aiPointsEarned = ScoreManager.Instance.AddAiScore();
+                yield return StartCoroutine(dialogBox.TypeDialog($"Your Rival answered first! AI gains +{aiPointsEarned} points!"));
             }
             else if (source == AnswerSource.Timeout)
             {
@@ -728,15 +727,6 @@ public class BattleSystem : MonoBehaviour
         dialogBox.EnableOptionSelector(false);
     }
 
-    public int GetAiRivalScore()
-    {
-        return aiRivalScore;
-    }
-
-    public void ResetAiRivalScore()
-    {
-        aiRivalScore = 0;
-    }
 
 
 

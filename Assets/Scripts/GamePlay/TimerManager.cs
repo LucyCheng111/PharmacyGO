@@ -9,6 +9,8 @@ public class TimerManager : MonoBehaviour
     private bool levelStarted = false;
     private bool timerRunning = false;
     private float currentTime = 0f;
+    private float saveInterval = 5f;
+    private float saveTimer = 0f;
 
     public static TimerManager Instance { get; private set; }
 
@@ -19,7 +21,9 @@ public class TimerManager : MonoBehaviour
             Instance = this;
             DontDestroyOnLoad(gameObject);
 
-            // load saved time?
+            // load saved time
+            levelStarted = PlayerPrefs.GetInt("LevelStarted", 0) == 1;
+            currentTime = PlayerPrefs.GetFloat("CurrentTime", 0f);
         }
         else
         {
@@ -30,7 +34,15 @@ public class TimerManager : MonoBehaviour
     private void Update()
     {
         if (levelStarted && timerRunning)
+        {
             currentTime += Time.deltaTime;
+            saveTimer += Time.deltaTime;
+            if (saveTimer >= saveInterval)
+            {
+                saveTimer = 0f;
+                SaveTimerState();
+            }
+        }
     }
 
     public void StartTimer()
@@ -94,5 +106,12 @@ public class TimerManager : MonoBehaviour
     public bool IsLevelStarted()
     {
         return levelStarted;
+    }
+
+    private void SaveTimerState()
+    {
+        PlayerPrefs.SetInt("LevelStarted", levelStarted ? 1 : 0);
+        PlayerPrefs.SetFloat("CurrentTime", currentTime);
+        PlayerPrefs.Save();
     }
 }
