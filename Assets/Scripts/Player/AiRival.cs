@@ -9,7 +9,12 @@ public class AiRival : MonoBehaviour, Interactable
     public Transform player;
     public float moveSpeed = 4f;
     public float sprintMoveSpeed = 9f;      // when player sprint, AI runs faster
-    public float stoppingDistance = 1.5f;
+    
+    //make sure the ai rival leaves enough space between itself and the player so the player
+    //does not get stuck between a wall and the ai rival
+    public float stoppingDistance = 2.5f;
+    [SerializeField] private float minDistanceFromPlayer = 2.1f;
+    
     public Animator animator;
 
     // For interacting with AI
@@ -116,8 +121,15 @@ public class AiRival : MonoBehaviour, Interactable
                 currentMoveSpeed * Time.deltaTime
             );
 
+            //Keep the AI a comfortable distance from the player to prevent softlock
+            float nextDistanceToPlayer = Vector3.Distance(nextPos,player.position);
+            if(nextDistanceToPlayer < minDistanceFromPlayer)
+            {
+                nextPos = transform.position;
+                shouldMove=false;
+            }
             // Avoid solid objects
-            if (IsWalkable(nextPos))
+            else if (IsWalkable(nextPos))
             {
                 transform.position = nextPos;
             }
@@ -416,7 +428,7 @@ public class AiRival : MonoBehaviour, Interactable
         if (player == null) return;
 
         // Teleport to near the player (behind the player)
-        Vector3 spawnOffset = new Vector3(1f, 0f, 0f);
+        Vector3 spawnOffset = new Vector3(2.5f, 0f, 0f);
         transform.position = player.position + spawnOffset;
 
     }
