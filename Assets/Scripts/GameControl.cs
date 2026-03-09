@@ -149,6 +149,8 @@ private void Start()
         yield return null;
         battleSystem.gameObject.SetActive(false);
         playerControl.gameObject.SetActive(true);
+        //reset the player's encounter timer
+        PlayerControl.Instance.RestartEncounterCooldown();
         worldCamera.gameObject.SetActive(true);
     }
 
