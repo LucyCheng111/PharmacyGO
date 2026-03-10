@@ -177594,6 +177594,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1072621758}
     m_Modifications:
+    - target: {fileID: 2148122060933789378, guid: 6a0f26c1865828e4fa2ff99b2e488e16, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.y
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 3806297355953241193, guid: 6a0f26c1865828e4fa2ff99b2e488e16, type: 3}
       propertyPath: 'dialog.lines.Array.data[0]'
       value: Lungs level
@@ -177820,6 +177824,11 @@ MonoBehaviour:
     - North East - Lighthouse and Dock (Level 4 and Final)
   InteractPrompt: {fileID: 1990952727}
   seen: 0
+  showTravelChoice: 0
+  travelChoices:
+  - Yes
+  - No
+  yesChoiceInt: 0
 --- !u!61 &235898616
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -178194,6 +178203,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1072621758}
     m_Modifications:
+    - target: {fileID: 2148122060933789378, guid: 6a0f26c1865828e4fa2ff99b2e488e16, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.y
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 3806297355953241193, guid: 6a0f26c1865828e4fa2ff99b2e488e16, type: 3}
       propertyPath: 'dialog.lines.Array.data[0]'
       value: Eyes level
@@ -183612,6 +183625,11 @@ MonoBehaviour:
     - Whatever it is, these entities are normally called questions.
   InteractPrompt: {fileID: 2121459306}
   seen: 0
+  showTravelChoice: 0
+  travelChoices:
+  - Yes
+  - No
+  yesChoiceInt: 0
 --- !u!61 &373498652
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -183984,6 +184002,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1072621758}
     m_Modifications:
+    - target: {fileID: 2148122060933789378, guid: 6a0f26c1865828e4fa2ff99b2e488e16, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.y
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 3806297355953241193, guid: 6a0f26c1865828e4fa2ff99b2e488e16, type: 3}
       propertyPath: 'dialog.lines.Array.data[0]'
       value: Heart level
@@ -185561,6 +185583,11 @@ MonoBehaviour:
     - They become denatured!
   InteractPrompt: {fileID: 1628031369}
   seen: 0
+  showTravelChoice: 0
+  travelChoices:
+  - Yes
+  - No
+  yesChoiceInt: 0
 --- !u!61 &552881914
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -197490,6 +197517,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1072621758}
     m_Modifications:
+    - target: {fileID: 2148122060933789378, guid: 6a0f26c1865828e4fa2ff99b2e488e16, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.y
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 3806297355953241193, guid: 6a0f26c1865828e4fa2ff99b2e488e16, type: 3}
       propertyPath: 'dialog.lines.Array.data[0]'
       value: Level 3. Good luck!
@@ -264602,6 +264633,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1072621758}
     m_Modifications:
+    - target: {fileID: 2148122060933789378, guid: 6a0f26c1865828e4fa2ff99b2e488e16, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.y
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 3806297355953241193, guid: 6a0f26c1865828e4fa2ff99b2e488e16, type: 3}
       propertyPath: 'dialog.lines.Array.data[0]'
       value: GI level
@@ -272727,6 +272762,11 @@ MonoBehaviour:
     - Last time I checked, he was getting some air outside by the water fountain.
   InteractPrompt: {fileID: 2132549403}
   seen: 0
+  showTravelChoice: 0
+  travelChoices:
+  - Yes
+  - No
+  yesChoiceInt: 0
 --- !u!61 &1069623323
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -311677,6 +311717,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1072621758}
     m_Modifications:
+    - target: {fileID: 2148122060933789378, guid: 6a0f26c1865828e4fa2ff99b2e488e16, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.y
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 3806297355953241193, guid: 6a0f26c1865828e4fa2ff99b2e488e16, type: 3}
       propertyPath: 'dialog.lines.Array.data[0]'
       value: Brain level
@@ -316884,6 +316928,11 @@ MonoBehaviour:
     - ' Why would anyone bury a note like this?'
   InteractPrompt: {fileID: 1389893330}
   seen: 0
+  showTravelChoice: 0
+  travelChoices:
+  - Yes
+  - No
+  yesChoiceInt: 0
 --- !u!61 &1535057221
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -336695,6 +336744,7 @@ GameObject:
   - component: {fileID: 1560713635}
   - component: {fileID: 1560713634}
   - component: {fileID: 1560713633}
+  - component: {fileID: 1560713637}
   m_Layer: 10
   m_Name: Dr. Shepard
   m_TagString: Untagged
@@ -336741,6 +336791,11 @@ MonoBehaviour:
     - Thanks a bunch!
   InteractPrompt: {fileID: 55869294}
   seen: 0
+  showTravelChoice: 1
+  travelChoices:
+  - Yes
+  - No
+  yesChoiceInt: 0
 --- !u!61 &1560713634
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -336869,6 +336924,21 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1560713637
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1560713631}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4fedc0dcefac4a4ebedac408b4420c5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sceneBuildIndex: 12
+  levelNumber: 1
+  targetSpawnPointID: HubToLv1
 --- !u!1001 &1572063281
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -343440,6 +343510,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1072621758}
     m_Modifications:
+    - target: {fileID: 2148122060933789378, guid: 6a0f26c1865828e4fa2ff99b2e488e16, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.y
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 3806297355953241193, guid: 6a0f26c1865828e4fa2ff99b2e488e16, type: 3}
       propertyPath: 'dialog.lines.Array.data[0]'
       value: Level 4. Good luck!
@@ -343800,6 +343874,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1072621758}
     m_Modifications:
+    - target: {fileID: 2148122060933789378, guid: 6a0f26c1865828e4fa2ff99b2e488e16, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.y
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 3806297355953241193, guid: 6a0f26c1865828e4fa2ff99b2e488e16, type: 3}
       propertyPath: 'dialog.lines.Array.data[0]'
       value: Bladder level
@@ -347027,6 +347105,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1072621758}
     m_Modifications:
+    - target: {fileID: 2148122060933789378, guid: 6a0f26c1865828e4fa2ff99b2e488e16, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.y
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 3806297355953241193, guid: 6a0f26c1865828e4fa2ff99b2e488e16, type: 3}
       propertyPath: 'dialog.lines.Array.data[0]'
       value: Level 1. Good luck!
@@ -352017,6 +352099,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1072621758}
     m_Modifications:
+    - target: {fileID: 2148122060933789378, guid: 6a0f26c1865828e4fa2ff99b2e488e16, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.y
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 3806297355953241193, guid: 6a0f26c1865828e4fa2ff99b2e488e16, type: 3}
       propertyPath: 'dialog.lines.Array.data[0]'
       value: Level 2. Good luck!
@@ -362270,6 +362356,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1072621758}
     m_Modifications:
+    - target: {fileID: 2148122060933789378, guid: 6a0f26c1865828e4fa2ff99b2e488e16, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.y
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 3806297355953241193, guid: 6a0f26c1865828e4fa2ff99b2e488e16, type: 3}
       propertyPath: 'dialog.lines.Array.data[0]'
       value: Muscle level
