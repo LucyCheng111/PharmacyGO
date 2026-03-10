@@ -551,7 +551,6 @@ public class BattleSystem : MonoBehaviour
 
         yield return new WaitForSeconds(2.5f);
         dialogBox.ResetDalogBox();
-        //hudController.TurnHudOn();
         hudController.ExitingBattle();
         OnBattleOver(answerCorrect);
     }                                                                                                                                                                                                                            
