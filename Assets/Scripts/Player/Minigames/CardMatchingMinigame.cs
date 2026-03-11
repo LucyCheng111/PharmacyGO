@@ -156,7 +156,7 @@ public class CardMatchingMinigame : MonoBehaviour
             }
             else if(rivalScore == 5)
             {
-                rivalPlayReader.text = "Rival Wins!!!";
+                rivalPlayReader.text = "Opponent Wins!!!";
                 playerPlayReader.text = "";
                 playAgainButton.SetActive(true);
 
