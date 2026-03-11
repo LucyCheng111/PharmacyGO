@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Collections;
 
 [System.Serializable]
-public enum GameState {FreeRoam, Battle, Dialogue, Encounter}
+public enum GameState {FreeRoam, Battle, Dialogue, Encounter, Minigame}
 public class GameController : MonoBehaviour
 {
 
@@ -167,6 +167,16 @@ private void Start()
         return defeatedBossLevels.Contains(SceneManager.GetActiveScene().name);
     }
 
+    public void StartMinigame()
+    {
+        state = GameState.Minigame;
+    }
+
+    public void EndMinigame()
+    {
+        state = GameState.FreeRoam;
+    }
+
     // Update is called once per frame
     void Update()
     {
@@ -184,6 +194,10 @@ private void Start()
         else if (state == GameState.Dialogue)
         {
             DialogManager.Instance.HandleUpdate();
+        }
+        else if (state == GameState.Minigame)
+        {
+            //no update for it
         }
 
         saveManager.Instance.HandleUpdate(); //used for autosave

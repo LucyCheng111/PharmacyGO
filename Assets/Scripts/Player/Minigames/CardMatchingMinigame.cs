@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using System.Threading.Tasks;
+using System.Reflection;
 
 public enum CardMatchingPlay
 {
@@ -20,9 +21,14 @@ public class CardMatchingMinigame : MonoBehaviour
     public List<string> Answers;
     public List<CardForMatching> Questioncards;
     public List<CardForMatching> Answercards;
+    public List<GameObject> qshadows;
+    public List<GameObject> ashadows;
 
     public GameObject cardMatching;
     public GameObject playAgainButton;
+    public Sprite CardFront;
+    public Sprite QuestionCardBack;
+    public Sprite AnswerCardBack;
     public TextMeshProUGUI playerPlayReader;
     public TextMeshProUGUI rivalPlayReader;
     public TextMeshProUGUI PlayerScoreReader;
@@ -39,17 +45,38 @@ public class CardMatchingMinigame : MonoBehaviour
     {
         playerPlayReader.text = "Selecting a Question Card...";
         LoadCards();
+        RandomizeCardAppearance();
     }
     public void StartCardMatching()
     {
+        GameController.Instance.StartMinigame();
         cardMatching.SetActive(true);
     }
 
     public void CloseWindow()
     {
+        GameController.Instance.EndMinigame();
         cardMatching.SetActive(false);
     }
 
+    void RandomizeCardAppearance()
+    {
+        for(int i = 0; i < Questioncards.Count; i++)
+        {
+            float rand = Random.Range(-5, 5);
+            Questioncards[i].gameObject.transform.eulerAngles = new Vector3(0f, 0f, rand);
+            qshadows[i].transform.eulerAngles = new Vector3(0f, 0f, rand);
+
+            Questioncards[i].gameObject.GetComponent<Image>().color = new Color(1 - Random.Range(0,0.05f),1 - Random.Range(0,0.05f),1 - Random.Range(0,0.15f),1f);
+
+            rand = Random.Range(-5, 5);
+            Answercards[i].gameObject.transform.eulerAngles = new Vector3(0f, 0f, rand);
+            ashadows[i].transform.eulerAngles = new Vector3(0f, 0f, rand);
+
+            Answercards[i].gameObject.GetComponent<Image>().color = new Color(1 - Random.Range(0,0.05f),1 - Random.Range(0,0.05f),1 - Random.Range(0,0.15f),1f);
+
+        }
+    }
     void RevealAll()  //after someone wins, show all cards (in the future indicate which match which, but only after this func)
     {
         for (int i = 0; i < Questioncards.Count; i++)
@@ -82,8 +109,6 @@ public class CardMatchingMinigame : MonoBehaviour
             Questioncards[i].shown = false;
         }
 
-        Answercards.Clear();
-        Questioncards.Clear();
         LoadCards();
         playerScore = 0;
         rivalScore = 0;
@@ -93,6 +118,7 @@ public class CardMatchingMinigame : MonoBehaviour
         questionCard = null;
         answerCard = null;
         playAgainButton.SetActive(false);
+        RandomizeCardAppearance();
     }
     //Compare Players cards
     public async Task CalculatePlay(string who)
@@ -234,64 +260,40 @@ public class CardMatchingMinigame : MonoBehaviour
         CalculatePlay("Rival");
     }
 
+
     void LoadCards()
     {
         var outlist = GetComponentsInChildren<CardForMatching>(true); //give true to access disabled gameobjects
-        foreach (var c in outlist)
-        {
-            if (!c.isQuestion)
-            {
-                Answercards.Add(c);
-            }
-            else
-            {
-                Questioncards.Add(c);
-            }
-        }
+        
         int count = Questioncards.Count;
-        List<int> taken = new List<int>();
-        int num = -1;  //cant be valid index at start
-
+        List<int> remaining = new List<int>();
+        int num = -1;
+        
+        for(int i = 0; i < count; i++)
+        {
+            remaining.Add(i);
+        }
         for(int i = 0; i < count; i++)
         {   
-            while(true){
-                num = Random.Range(0, Questions.Count);
-                if (taken.Contains(num))
-                {
-                    num = Random.Range(0, Questions.Count);
-                }
-                else
-                {
-                    break;
-                }
-            }
-            taken.Add(num);
-            Questioncards[i].info = Questions[num];
-            Questioncards[i].index = num;
+            num = Random.Range(0, remaining.Count);
+            Questioncards[i].info = Questions[remaining[num]];
+            Questioncards[i].index = remaining[num];
+            remaining.RemoveAt(num);
+            
         }
 
-        taken.Clear();
-        num = -1;
-
-        for(int i = 0; i < count; i++)
+        //again for answers
+        for(int i =0; i < count; i++)
         {
-            while(true){  // find an entry not already selected for a prev card
-                num = Random.Range(0, Answers.Count);
-                if (taken.Contains(num))
-                {
-                    num = Random.Range(0, Answers.Count);
-                }
-                else
-                {
-                    break;
-                }
-            }
-            taken.Add(num);
-            Answercards[i].info = Answers[num]; //give string (Question wording, Answer Wording...)
-            Answercards[i].index = num; //assign the checker (if A.index == Q.index, this is the right answer)
+            remaining.Add(i);
         }
-
+        for(int i = 0; i < count; i++)
+        {   
+            num = Random.Range(0, remaining.Count);
+            Answercards[i].info = Answers[remaining[num]];
+            Answercards[i].index = remaining[num];
+            remaining.RemoveAt(num);
+        }
     }
-
 
 }

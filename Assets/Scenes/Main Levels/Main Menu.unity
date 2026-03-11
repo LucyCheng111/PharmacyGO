@@ -8714,7 +8714,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1934515284}
   - component: {fileID: 1934515283}
-  - component: {fileID: 1934515286}
   - component: {fileID: 1934515285}
   m_Layer: 0
   m_Name: LevelManager
@@ -8794,18 +8793,6 @@ MonoBehaviour:
   adjectivesFile: {fileID: 4900000, guid: 79a6f38444c5fa9468b52ba22cbecee4, type: 3}
   nounsFile: {fileID: 4900000, guid: 79a2068e9f500834dbe12fc4aeb3157b, type: 3}
   numbersFile: {fileID: 4900000, guid: 4e9209d33d78aee4d97f365ee945e864, type: 3}
---- !u!114 &1934515286
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1934515282}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: de52a933f959fa74da4a6c2341064c96, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &2136848835
 GameObject:
   m_ObjectHideFlags: 0
