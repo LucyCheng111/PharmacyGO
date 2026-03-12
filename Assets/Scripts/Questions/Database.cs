@@ -106,9 +106,6 @@ public class Question
     public LocationData locationData;
 
     // Uses bitwise logic so that it's matching the WinForms packing logic
-    //
-    // RIGHT NOW THIS DOES NOT DETERMINE WHAT LOCATION THE QUESTION IS SET IN, FIXED IN NEXT SPRINT
-    //
     public void loadLocationData()
     {
         this.locationData = new LocationData();

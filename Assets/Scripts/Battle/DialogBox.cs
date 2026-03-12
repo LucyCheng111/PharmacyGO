@@ -4,8 +4,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.UI;
 using UnityEngine.Networking;
-using Newtonsoft.Json.Linq;
-using System.Text;
 using System;
 
 public class DialogBox : MonoBehaviour
@@ -25,7 +23,7 @@ public class DialogBox : MonoBehaviour
     };
     public int letterPerSecond = 30;
     private bool answerSelected = false;
-    private int aiCurrentChoice = -1; // Track which answer AI is selecting (-1 = none)
+    private int aiCurrentChoice = -1;
     public bool GetAnswerSelected()
     { 
         return answerSelected; 
@@ -39,16 +37,20 @@ public class DialogBox : MonoBehaviour
     [SerializeField] private GameObject actionSelector;
     [SerializeField] private GameObject optionSelector;
     [SerializeField] private List<TMP_Text> actionTexts;
-    private RawImage[] optionImages;
-    private TMP_Text[] optionStrings;
-    private Image[] optionOutlines;
+
+    // Separated into distinct arrays collected by child object name.
+    private RawImage[] optionImages;        // Image child on each option slot
+    private TMP_Text[] optionStrings;       // Text child on each option slot
+    private TMP_Text[] optionCaptions;      // CaptionText child on each option slot
+    private Image[] optionOutlines;         // Outline child on each option slot
+
     public AnswersType currentOptions = AnswersType.None;
 
     private readonly Color SELECTED_COLOR = Color.black;
     private readonly Color UNSELECTED_COLOR = Color.clear;
     private readonly Color CORRECT_COLOR = Color.green;
     private readonly Color INCORRECT_COLOR = Color.red;
-    private readonly Color AI_CHOICE_COLOR = new Color(1f, 0.65f, 0f); // Orange for AI selection
+    private readonly Color AI_CHOICE_COLOR = new Color(1f, 0.65f, 0f);
     private const float MAX_OPTION_WIDTH = 150f;
     private const float MAX_OPTION_HEIGHT = 100f;
 
@@ -66,7 +68,7 @@ public class DialogBox : MonoBehaviour
             yield return new WaitForSeconds(1f/letterPerSecond);
         }
     }
-    //
+
     public void EnableDialogText(bool enabled)
     {
         dialogText.enabled = enabled;
@@ -80,10 +82,43 @@ public class DialogBox : MonoBehaviour
     public void EnableOptionSelector(bool enabled)
     {
         optionSelector.SetActive(enabled);
-        optionImages = optionSelector.GetComponentsInChildren<RawImage>(true);
-        optionStrings = optionSelector.GetComponentsInChildren<TMP_Text>(true);
-        optionOutlines = optionSelector.GetComponentsInChildren<Image>(true);
 
+        // Collect each component type by child name
+        var slots = optionSelector.GetComponentsInChildren<Transform>(true);
+
+        var images = new List<RawImage>();
+        var strings = new List<TMP_Text>();
+        var captions = new List<TMP_Text>();
+        var outlines = new List<Image>();
+
+        foreach (Transform t in slots)
+        {
+            if (t.name == "Image")
+            {
+                RawImage ri = t.GetComponent<RawImage>();
+                if (ri != null) images.Add(ri);
+            }
+            else if (t.name == "Text")
+            {
+                TMP_Text tmp = t.GetComponent<TMP_Text>();
+                if (tmp != null) strings.Add(tmp);
+            }
+            else if (t.name == "CaptionText")
+            {
+                TMP_Text tmp = t.GetComponent<TMP_Text>();
+                if (tmp != null) captions.Add(tmp);
+            }
+            else if (t.name == "Outline")
+            {
+                Image img = t.GetComponent<Image>();
+                if (img != null) outlines.Add(img);
+            }
+        }
+
+        optionImages = images.ToArray();
+        optionStrings = strings.ToArray();
+        optionCaptions = captions.ToArray();
+        optionOutlines = outlines.ToArray();
     }
 
     public void UpdateChoiceSelection(int selectedChoice)
@@ -93,7 +128,6 @@ public class DialogBox : MonoBehaviour
 
         for (int i = 0; i < optionOutlines.Length; i++)
         {
-            // Don't overwrite the orange outline (without this orange outline won't appear)
             if (i == aiCurrentChoice)
                 continue;
 
@@ -105,46 +139,93 @@ public class DialogBox : MonoBehaviour
 
     public void SetAnswers(Option[] answers)
     {
-        // Check type of answer 1
-        (Option.OptionType, string) firstIndex = answers[0].grabOption();
-        string[] values = new string[answers.Length];
+        // Check all options for images, not just answers[0]
+        bool anyImage = false;
         for (int i = 0; i < answers.Length; i++)
         {
-            values[i] = answers[i].grabOption().Item2;
+            if (answers[i].useImage && !string.IsNullOrEmpty(answers[i].imageLink))
+            {
+                anyImage = true;
+                break;
+            }
         }
 
-        switch (firstIndex.Item1)
+        if (anyImage)
         {
-            case Option.OptionType.None:
-                break;
-            case Option.OptionType.String:
-                currentOptions = AnswersType.String;
-                for (int i = 0; i < optionImages.Length; i++)
+            currentOptions = AnswersType.Image;
+
+            // Collect image URLs and caption text separately
+            // Each slot also shows RawImage and CaptionText (if text is present)
+            string[] imagePaths = new string[answers.Length];
+            string[] captionTexts = new string[answers.Length];
+
+            for (int i = 0; i < answers.Length; i++)
+            {
+                if (answers[i].useImage && !string.IsNullOrEmpty(answers[i].imageLink))
                 {
+                    imagePaths[i] = answers[i].imageLink;
+                    captionTexts[i] = answers[i].text;
+                }
+                else
+                {
+                    // Text-only option in an otherwise image question — no image, caption only
+                    imagePaths[i] = null;
+                    captionTexts[i] = answers[i].text;
+                }
+            }
+
+            for (int i = 0; i < optionImages.Length; i++)
+            {
+                if (i < answers.Length)
+                {
+                    optionImages[i].transform.parent.gameObject.SetActive(true);
+                    optionStrings[i].gameObject.SetActive(false);
+
+                    bool hasCaption = !string.IsNullOrEmpty(captionTexts[i]);
+                    if (i < optionCaptions.Length)
+                    {
+                        optionCaptions[i].gameObject.SetActive(hasCaption);
+                        optionCaptions[i].text = hasCaption ? captionTexts[i] : "";
+                    }
+                }
+                else
+                {
+                    optionImages[i].transform.parent.gameObject.SetActive(false);
+                }
+            }
+
+            StartCoroutine(loadImages(imagePaths));
+        }
+        else
+        {
+            currentOptions = AnswersType.String;
+
+            for (int i = 0; i < optionImages.Length; i++)
+            {
+                if (i < answers.Length)
+                {
+                    optionImages[i].transform.parent.gameObject.SetActive(true);
                     optionImages[i].gameObject.SetActive(false);
                     optionStrings[i].gameObject.SetActive(true);
+                    if (i < optionCaptions.Length)
+                        optionCaptions[i].gameObject.SetActive(false);
                 }
-                loadStrings(values);
-                break;
-            case Option.OptionType.Image:
-                currentOptions = AnswersType.Image;
-                for (int i = 0; i < optionImages.Length; i++)
+                else
                 {
-                    optionImages[i].gameObject.SetActive(true);
-                    optionStrings[i].gameObject.SetActive(false);
+                    optionImages[i].transform.parent.gameObject.SetActive(false);
                 }
-                StartCoroutine(loadImages(values));
-                break;
-            default:
-                break;
+            }
+
+            loadStrings(answers);
         }
     }
 
-    void loadStrings(string[] values)
+    void loadStrings(Option[] answers)
     {
-        for (int i = 0; i < values.Length; i++)
+        for (int i = 0; i < optionStrings.Length; i++)
         {
-            optionStrings[i].text = values[i];
+            if (i < answers.Length)
+                optionStrings[i].text = answers[i].text;
         }
     }
 
@@ -152,51 +233,47 @@ public class DialogBox : MonoBehaviour
     {
         for (int i = 0; i < paths.Length; i++)
         {
-            UnityWebRequest request = UnityWebRequest.Get (paths[i]);
+            // Skip slots with no image (text-only option in an image question)
+            if (string.IsNullOrEmpty(paths[i]))
+            {
+                optionImages[i].gameObject.SetActive(false);
+                continue;
+            }
 
-            yield return request.SendWebRequest ();
-            
+            // Use UnityWebRequestTexture to download raw image bytes directly
+            UnityWebRequest request = UnityWebRequestTexture.GetTexture(paths[i]);
+            yield return request.SendWebRequest();
+
             if (request.result == UnityWebRequest.Result.Success)
             {
-                string responseText = request.downloadHandler.text;
-                JObject responseJson = JObject.Parse (responseText);                    // Convert text to json object
-                string base64Content = responseJson.GetValue ("content").ToString ();   // Get base64 from json
-                byte[] byteArrayContent = Convert.FromBase64String (base64Content);     // Convert base64 to byte array
-                string databaseContent = Encoding.UTF8.GetString (byteArrayContent);    // Convert byte array to string
-                databaseContent = databaseContent.Replace ("\"", "");
-                byteArrayContent = Convert.FromBase64String (databaseContent);     // Convert base64 to byte array
-
-
-                Texture2D newTexture = new Texture2D (1, 1);
-                newTexture.LoadImage (byteArrayContent);
-                newTexture.Apply ();
+                Texture2D newTexture = DownloadHandlerTexture.GetContent(request);
                 float widthDividend = newTexture.width / MAX_OPTION_WIDTH;
                 float heightDividend = newTexture.height / MAX_OPTION_HEIGHT;
-                float maxSize = Mathf.Max (widthDividend, heightDividend);
+                float maxSize = Mathf.Max(widthDividend, heightDividend);
+                optionImages[i].gameObject.SetActive(true);
                 optionImages[i].texture = newTexture;
 
-                Vector2 size = new Vector2 (newTexture.width, newTexture.height) / maxSize;
-                size -= new Vector2 (5, 5);
+                Vector2 size = new Vector2(newTexture.width, newTexture.height) / maxSize;
+                size -= new Vector2(5, 5);
                 optionImages[i].rectTransform.sizeDelta = size;
             }
             else
             {
-                Debug.LogError ("Image Load Error: " + request.error);
-                Debug.LogError ("Failed Image Path: " + paths[i]);
+                Debug.LogError("Image Load Error: " + request.error);
+                Debug.LogError("Failed Image Path: " + paths[i]);
+                optionImages[i].gameObject.SetActive(false);
             }
         }
     }
 
-    // Display the Correct or Wrong answer
     public bool DisplayAnswer(int selectedChoiceIndex, int correctAnswerIndex)
     {
         answerSelected = true;
-
-        // If the selected choice was correct, it will override the incorrect color with the correct color
         optionOutlines[selectedChoiceIndex].color = INCORRECT_COLOR;
         optionOutlines[correctAnswerIndex].color = CORRECT_COLOR;
         return selectedChoiceIndex == correctAnswerIndex;
     }
+
     public void UpdateActionSelection(int selectedAction)
     {
         for (int i = 0; i < actionTexts.Count; i++)
@@ -211,7 +288,7 @@ public class DialogBox : MonoBehaviour
     public void ResetDalogBox()
     {
         answerSelected = false;
-        aiCurrentChoice = -1; // Reset AI choice when resetting dialog 
+        aiCurrentChoice = -1;
         dialogText.text = "";
         currentOptions = AnswersType.None;
         EnableActionSelector(false);
@@ -223,45 +300,34 @@ public class DialogBox : MonoBehaviour
         if (typingCoroutine != null)
         {
             StopCoroutine(typingCoroutine);
-            dialogText.text = fullText; // Changed from textComponent to dialogText
+            dialogText.text = fullText;
         }
     }
 
     private IEnumerator TypeText(string dialog)
     {
-        fullText = dialog; // Store the full text for ForceComplete
+        fullText = dialog;
         dialogText.text = "";
         foreach (char letter in dialog.ToCharArray())
         {
             dialogText.text += letter;
-            yield return new WaitForSeconds(1f / letterPerSecond); // Using your existing speed control
+            yield return new WaitForSeconds(1f / letterPerSecond);
         }
     }
 
-    //  ====AI rival DialogBox (orange)====
+    // ==== AI rival DialogBox (orange) ====
 
-    // Highlight AI's chosen answer with orange color
     public void ShowAIChoice(int aiAnswer)
     {
-        aiCurrentChoice = aiAnswer; // Remember AI's choice
-
-        // if AI answer index is valid
+        aiCurrentChoice = aiAnswer;
         if (aiAnswer >= 0 && aiAnswer < optionOutlines.Length)
-        {
             optionOutlines[aiAnswer].color = AI_CHOICE_COLOR;
-        }
-        
     }
 
-    // Clear AI highlighting so player can continue or AI can try another answer
     public void ClearAIChoice()
     {
-        aiCurrentChoice = -1; // Clear AI's choice
-
+        aiCurrentChoice = -1;
         for (int i = 0; i < optionOutlines.Length; i++)
-        {
             optionOutlines[i].color = UNSELECTED_COLOR;
-        }
     }
-
 }
