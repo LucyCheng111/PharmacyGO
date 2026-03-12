@@ -75,7 +75,7 @@ public class NPCController : MonoBehaviour, Interactable
                 else //can afford to travel
                 {
                     StartCoroutine(DialogManager.Instance.ShowDialog(dialog, travelChoices, OnTravelChoiceSelected));
-                    CoinManager.Instance.RemoveCoin(sceneTransitioner.price);
+                    
                 }
             }
             else
@@ -92,6 +92,7 @@ public class NPCController : MonoBehaviour, Interactable
         if(choiceIdx == yesChoiceInt && sceneTransitioner != null)
         {
             sceneTransitioner.Travel();
+            CoinManager.Instance.RemoveCoin(sceneTransitioner.price);
         }
     }
 
