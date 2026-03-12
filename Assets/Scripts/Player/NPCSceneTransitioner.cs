@@ -10,6 +10,7 @@ public class NPCSceneTransitioner : MonoBehaviour
     public int levelNumber;
     public string targetSpawnPointID;
     private bool isTransitioning = false;       
+    public int price = 0; //0 means it wont prompt for a price at all, as it is free
 
     //call this from a dialogue choice from an NPC set up to transport the player
     public void Travel()

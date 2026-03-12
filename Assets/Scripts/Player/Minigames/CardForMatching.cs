@@ -26,10 +26,12 @@ public class CardForMatching : MonoBehaviour
         if (isQuestion)
         {
             text.GetComponent<TextMeshProUGUI>().text = "";
+            gameObject.GetComponent<Image>().sprite = controller.QuestionCardBack;
         }
         else
         {
             text.GetComponent<TextMeshProUGUI>().text = "";   
+            gameObject.GetComponent<Image>().sprite = controller.AnswerCardBack;
         }
         shown = false;
     }
@@ -37,6 +39,7 @@ public class CardForMatching : MonoBehaviour
     public void Reveal()
     {
         text.GetComponent<TextMeshProUGUI>().text = info;
+        gameObject.GetComponent<Image>().sprite = controller.CardFront;
         shown = true;
     }
     void Select()
