@@ -9,7 +9,12 @@ public class AiRival : MonoBehaviour, Interactable
     public Transform player;
     public float moveSpeed = 4f;
     public float sprintMoveSpeed = 9f;      // when player sprint, AI runs faster
-    public float stoppingDistance = 1.5f;
+    
+    //make sure the ai rival leaves enough space between itself and the player so the player
+    //does not get stuck between a wall and the ai rival
+    public float stoppingDistance = 2.5f;
+    [SerializeField] private float minDistanceFromPlayer = 2.1f;
+    
     public Animator animator;
 
     // For interacting with AI
@@ -23,7 +28,8 @@ public class AiRival : MonoBehaviour, Interactable
 
 
     // Private
-    private PlayerControl playerControl;    
+    private PlayerControl playerControl;
+    private NPCMinigamePlayer minigamePlayer;   // minigame
     private float currentMoveSpeed;     // To switch between sprint or normal
     private Vector2 lastMoveDirection;
     private bool isInteracting = false;
@@ -48,6 +54,7 @@ public class AiRival : MonoBehaviour, Interactable
     
     void Awake()
     {
+        minigamePlayer = GetComponent<NPCMinigamePlayer>();
 
         // Check if we're the first AI in the game
         if (Instance == null)
@@ -116,8 +123,15 @@ public class AiRival : MonoBehaviour, Interactable
                 currentMoveSpeed * Time.deltaTime
             );
 
+            //Keep the AI a comfortable distance from the player to prevent softlock
+            float nextDistanceToPlayer = Vector3.Distance(nextPos,player.position);
+            if(nextDistanceToPlayer < minDistanceFromPlayer)
+            {
+                nextPos = transform.position;
+                shouldMove=false;
+            }
             // Avoid solid objects
-            if (IsWalkable(nextPos))
+            else if (IsWalkable(nextPos))
             {
                 transform.position = nextPos;
             }
@@ -228,12 +242,15 @@ public class AiRival : MonoBehaviour, Interactable
         SetAiState(aiScore, playerScore);
 
         bool showingChat = false;
+        bool showingMiniGame = false;
 
         // Create choices for shutdown confirmation
         List<string> choices = new List<string>
         {
             "Chat",
+            "Mini Game",
             "Close the AI"
+            
         };
 
         // Show dialog with choices using ShowDialogText
@@ -248,6 +265,11 @@ public class AiRival : MonoBehaviour, Interactable
                 {
                     showingChat = true;
                 }
+                else if (choiceIndex == 1)
+                {
+                    showingMiniGame = true;
+                }
+           
             }
         );
         if (showingChat)
@@ -264,6 +286,10 @@ public class AiRival : MonoBehaviour, Interactable
             {
                 yield return ShowEvenMessage();
             }
+        }
+        else if (showingMiniGame)
+        {
+            yield return showMiniGameOptions();
         }
         else
         {
@@ -293,6 +319,43 @@ public class AiRival : MonoBehaviour, Interactable
                 {
                     ShutdownAI();
                 }
+                else
+                {
+                    // Manually close the dialog after choice is made
+                    DialogManager.Instance.CloseDialog();
+                }
+            }
+        );
+    }
+
+    // New
+    private IEnumerator showMiniGameOptions()
+    {
+        // Create choices for mini games
+        List<string> choices = new List<string>
+        {
+            "PlayCards",
+            "option 2 (not yet)",
+            "Nah"
+        };
+
+        // Show dialog with choices using ShowDialogText
+        yield return DialogManager.Instance.ShowDialogText(
+            "What game would you like to play?\n",
+            waitForInput: false,
+            autoClose: false,
+            choices: choices,
+            onChoiceSelected: (choiceIndex) =>
+            {
+                if (choiceIndex == 0) // Player chose "playcards
+                {
+                    // Open the minigame
+                    if (minigamePlayer != null)
+                        minigamePlayer.StartMinigame();
+                    else
+                        Debug.LogWarning("AiRival: No NPCMinigamePlayer component found!");
+                }
+                // Can add other minigames later
                 else
                 {
                     // Manually close the dialog after choice is made
@@ -416,7 +479,7 @@ public class AiRival : MonoBehaviour, Interactable
         if (player == null) return;
 
         // Teleport to near the player (behind the player)
-        Vector3 spawnOffset = new Vector3(1f, 0f, 0f);
+        Vector3 spawnOffset = new Vector3(2.5f, 0f, 0f);
         transform.position = player.position + spawnOffset;
 
     }

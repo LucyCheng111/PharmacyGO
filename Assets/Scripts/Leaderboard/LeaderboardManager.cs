@@ -14,7 +14,7 @@ using UnityEngine.UI;
 public class LeaderBoardManager : MonoBehaviour
 {
     [HideInInspector] public ScoreManager scoreManager;
-    [SerializeField] private Transform leaderboardContentParent;
+    [SerializeField] private RectTransform leaderboardContentParent;
     [SerializeField] private Transform leaderboardItemPrefab;
     [SerializeField] private ScrollRect scrollView;
     private const int LEADERBOARD_SCENE_INDEX=16;
@@ -25,8 +25,6 @@ public class LeaderBoardManager : MonoBehaviour
 
     private void Start()
     {
-        SceneManager.sceneLoaded += OnSceneLoaded;
-
         Debug.Log("leaderboard object started");
 
         //delete the placeholder leaderboard entries that are part of the leaderboard scene when the leaderboard object is loaded into the game
@@ -42,12 +40,12 @@ public class LeaderBoardManager : MonoBehaviour
         SceneManager.sceneLoaded += OnSceneLoaded;
     }
 
-    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    private async void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
         if(scene.name == "Leaderboard")
         {
             Debug.Log("leaderboard scene loaded");
-            UpdateLeaderboard();
+            await UpdateLeaderboard();
         }
     }
     private void OnDestroy()
@@ -55,7 +53,7 @@ public class LeaderBoardManager : MonoBehaviour
         isDestroyed = true;
         SceneManager.sceneLoaded -= OnSceneLoaded;
     }
-    private async void UpdateLeaderboard()
+    private async Task  UpdateLeaderboard()
     {
 
         Debug.Log("-- Fetching data");
@@ -121,10 +119,17 @@ public class LeaderBoardManager : MonoBehaviour
         }
         
         //force the scrollbar to the top of the conent field
+        await Task.Yield();
         Canvas.ForceUpdateCanvases();
-        LayoutRebuilder.ForceRebuildLayoutImmediate(leaderboardContentParent.GetComponent<RectTransform>());
+        LayoutRebuilder.ForceRebuildLayoutImmediate(leaderboardContentParent);
+
+        leaderboardContentParent.anchoredPosition = Vector2.zero;
+
+        scrollView.StopMovement();
+        scrollView.velocity = Vector2.zero;
         scrollView.verticalNormalizedPosition = 1f;
 
+        Canvas.ForceUpdateCanvases();
     }
 
     string TruncateString(string username)

@@ -12,7 +12,7 @@ public class MainMenu : MonoBehaviour
     // Loads level structure and manager for the menu functions
 
     private const int HUB_SCENE_INDEX = 7;
-    private const int LEADERBOARD_SCENE_INDEX=16;
+    private const int LEADERBOARD_SCENE_INDEX=17; //changed to resolve a conflict with the murder mystery scene
     private const string MASTER_VOLUME_KEY = "masterVolume";
     private const int DEfAULT_VOLUME_VALUE = 10;
     public AudioMixer audioMixer;

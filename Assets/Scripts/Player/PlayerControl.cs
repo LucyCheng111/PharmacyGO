@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System;
 using UnityEngine;
+using System.Timers;
 using Unity.VisualScripting;
 using UnityEngine.SceneManagement;
 
@@ -45,12 +46,18 @@ public class PlayerControl : MonoBehaviour
 
     [SerializeField] private GameObject ExclamationMark;
 
+    //encounter cooldown timer
+    private float cooldownTime = 5f;
+    private bool cooldownActive = true; //prevents encounters from happening if the cooldown timer has not run out
 
     private void Awake()
     {
         areaTracker = new List<bool>(new bool[numberOfAreas]);  // Initializes all to false
    
         animator = GetComponent<Animator>();
+
+        //subscribe to the scene loaded event in order to start the encounter cooldown timer when the scene loads
+        SceneManager.sceneLoaded += OnSceneLoaded;
 
         if (Instance != null && Instance != this)
         {
@@ -105,7 +112,6 @@ public class PlayerControl : MonoBehaviour
                 isMoving = true;
                 HidePrompt();
                 CheckTriggers();
-
 
             }
 
@@ -174,8 +180,6 @@ public class PlayerControl : MonoBehaviour
         var facingDir = new Vector3(animator.GetFloat("moveX"), animator.GetFloat("moveY"));
         var interactPos = transform.position + facingDir; // the direction of the player facing
 
-        // Debug.DrawLine(transform.position, interactPos, Color.red, 0.5f);
-
         var collider = Physics2D.OverlapCircle(interactPos, 0.3f, interactableLayer);
         if (collider != null)
         {
@@ -216,24 +220,25 @@ public class PlayerControl : MonoBehaviour
     {
         // skip battle if no question in this area
         var mapArea = FindFirstObjectByType<MapArea>();
-        if (mapArea == null || !mapArea.HasQuestions() || encountersEnabled == false)
+        if (mapArea == null || !mapArea.HasQuestions() || encountersEnabled == false || cooldownActive == true)
         {
             return;
         }
         if (Physics2D.OverlapCircle(transform.position, 0.0f, grassLayer) != null)
         {
-            if (UnityEngine.Random.Range(1, 101) <= 3)
+            if (UnityEngine.Random.Range(1, 202) <= 3)
             {
                 animator.SetBool("isMoving", false);
+                Debug.Log("grass layer encounter triggered");
                 StartCoroutine(ShowExclamationAndEncounter());
-
             }
         }
         //encounters are definitely overtuned right now
         else if (MapArea.i.IsDangerous() && !GameController.Instance.IsCurrentLevelBossDefeated())
         {
-            if (UnityEngine.Random.Range(1, 186) <= 1)
+            if (UnityEngine.Random.Range(1, 350) <= 1)
             {
+                //Debug.Log("dengerous ground encounter triggered");
                 animator.SetBool("isMoving", false);
                 StartCoroutine(ShowExclamationAndEncounter());
             }
@@ -315,6 +320,37 @@ public class PlayerControl : MonoBehaviour
         return areaIndex >= 0 && areaIndex < areaTracker.Count && areaTracker[areaIndex];
     }
 
+    private async void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        //starts the encounter cooldown timer when the player enters the scene for the first time
+        StartCoroutine(EncounterCooldownTimer(cooldownTime));
+    }
+
+    public void RestartEncounterCooldown()
+    {
+        //restarts the encounter cooldown timer when the player finishes a battle
+        cooldownActive = true;
+        StartCoroutine(EncounterCooldownTimer(cooldownTime));
+    }
+    private IEnumerator EncounterCooldownTimer(float duration)
+    {
+        //count up to five seconds
+        float elapsedTime = 0f;
+        cooldownActive = true;
+        while(elapsedTime < duration)
+        {
+            elapsedTime += Time.deltaTime;
+            yield return null;
+        }
+
+        cooldownActive = false;
+    }
+
+    private void OnDestroy()
+    {
+        //cleanup function to unsubscribe from the scene loader event if the player controller is destroyed for some reasonh
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+    }
 
 
 

@@ -113,21 +113,5 @@ public class Portal : MonoBehaviour
             }
         }
     }
-    /*
-    //this isnt called anywhere?
 
-    private SpawnPoint FindTargetSpawnPoint()
-    {
-        SpawnPoint[] spawnPoints = FindObjectsByType<SpawnPoint>(FindObjectsInactive.Include, FindObjectsSortMode.None);
-        foreach (var spawnPoint in spawnPoints)
-        {
-            if (spawnPoint.spawnPointID == targetSpawnPointID)
-            {
-                return spawnPoint;
-            }
-        }
-        return null;
-    }
-    */
-    
 }
