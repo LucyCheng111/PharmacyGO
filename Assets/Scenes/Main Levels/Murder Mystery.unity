@@ -1338,6 +1338,14 @@ MonoBehaviour:
     - "The thermostat has been set to 68 \xB0F"
   InteractPrompt: {fileID: 1471429963}
   seen: 0
+  showTravelChoice: 0
+  travelChoices:
+  - Yes
+  - No
+  minigameChoices: []
+  yesChoiceInt: 0
+  cantaffordtravelDialog:
+    lines: []
 --- !u!50 &240601830
 Rigidbody2D:
   serializedVersion: 5
@@ -8307,9 +8315,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c6915ce22acd32144b720a9df478a1c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneBuildIndex: 12
-  levelNumber: 1
-  targetSpawnPointID: HubToLv1MM
+  sceneBuildIndex: 7
+  levelNumber: 0
+  targetSpawnPointID: Lv1MMToHub
   portalEffect: {fileID: 1732095492}
 --- !u!61 &1159925519
 BoxCollider2D:
@@ -8419,9 +8427,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c6915ce22acd32144b720a9df478a1c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneBuildIndex: 12
-  levelNumber: 1
-  targetSpawnPointID: HubToLv1MM
+  sceneBuildIndex: 7
+  levelNumber: 0
+  targetSpawnPointID: Lv1MMToHub
   portalEffect: {fileID: 1113580786}
 --- !u!61 &1174020895
 BoxCollider2D:
@@ -8619,6 +8627,14 @@ MonoBehaviour:
     - '- slowed down considerably around 7:00 pm.'
   InteractPrompt: {fileID: 421207248382693196}
   seen: 0
+  showTravelChoice: 0
+  travelChoices:
+  - Yes
+  - No
+  minigameChoices: []
+  yesChoiceInt: 0
+  cantaffordtravelDialog:
+    lines: []
 --- !u!61 &1213397019
 BoxCollider2D:
   m_ObjectHideFlags: 0
