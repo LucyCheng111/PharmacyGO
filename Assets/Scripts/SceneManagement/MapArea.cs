@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class MapArea : MonoBehaviour
 {
-
     // Handles map encounter logic and question selection
 
     [SerializeField] List<Question> randomQuestions;
@@ -49,35 +48,22 @@ public class MapArea : MonoBehaviour
     public Question GetRandomQuestion()
     {
         // difficulty based selection will need to be re-worked once we have more questions
-        // more questions will be added once the database is operational
-        // this is also very un-optimized
-        // validQuestion = false;
-        // var randomQuestion = randomQuestions[Random.Range(0, randomQuestions.Count)];
-        // int wrongTries = 0;
+        // more questions will allow for more dynamic difficulty selection
+        
+        // Instead of enum logic, used int logic (1-5)
+        int questionDifficulty = 1; 
+        
+        if (difficulty <= 20) { questionDifficulty = 1; }
+        else if (difficulty <= 40) { questionDifficulty = 2; }
+        else if (difficulty <= 60) { questionDifficulty = 3; }
+        else if (difficulty <= 80) { questionDifficulty = 4; }
+        else if (difficulty <= 100) { questionDifficulty = 5; }
 
-        // while (!validQuestion)
-        // {
-        //     if ((difficulty <= 30) && (randomQuestion.difficulty == Question.DifficultyIndex.easy)) { validQuestion = true;}
-        //     else if ((difficulty > 30) && (difficulty < 70) && (randomQuestion.difficulty == Question.DifficultyIndex.medium)) { validQuestion = true; }
-        //     else if ((difficulty >= 70) && (randomQuestion.difficulty == Question.DifficultyIndex.hard)) { validQuestion = true; }
-        //     else if (wrongTries >= 10) { validQuestion = true; }
-        //     else { randomQuestion = randomQuestions[Random.Range(0, randomQuestions.Count)]; }
-        //     wrongTries++;
-        // }
-        // return randomQuestion;
-        Question.DifficultyIndex questionDifficulty = Question.DifficultyIndex.None;
-        if (difficulty <= 20) { questionDifficulty = Question.DifficultyIndex.Beginner;}
-        else if (difficulty <= 40) { questionDifficulty = Question.DifficultyIndex.Novice;}
-        else if (difficulty <= 60) { questionDifficulty = Question.DifficultyIndex.Intermediate;}
-        else if (difficulty <= 80) { questionDifficulty = Question.DifficultyIndex.Advanced;}
-        else if (difficulty <= 100) { questionDifficulty = Question.DifficultyIndex.Expert;}
         return moduleManager.GetRandomQuestion(module, questionDifficulty);
     }
 
     public int GetCorrectStreak() { return correctStreak; }
     public int GetDifficulty() { return difficulty; }
-
-    
 
     public void CorrectAnswer(int correct)
     {
