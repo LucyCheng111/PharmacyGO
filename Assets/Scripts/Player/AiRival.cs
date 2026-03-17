@@ -334,7 +334,7 @@ public class AiRival : MonoBehaviour, Interactable
         // Create choices for mini games
         List<string> choices = new List<string>
         {
-            "PlayCards",
+            "Play Cards",
             "option 2 (not yet)",
             "Nah"
         };

@@ -17,6 +17,7 @@ public class Portal : MonoBehaviour
     private Collider2D portalCollider;
     // private ParticleSystem portalEffect;
     [SerializeField] private ParticleSystem portalEffect;
+    public bool hasNoParticle;
     
 
 
@@ -24,15 +25,19 @@ public class Portal : MonoBehaviour
     // without reloading the Hub scene
     public void RefreshPortalEffect()
     {
-        var emission = portalEffect.emission;
-        emission.enabled = levelNumber <= LevelManager.Instance.UnlockedLevel;
+        if(hasNoParticle == false)
+        {
+            var emission = portalEffect.emission;
+            emission.enabled = levelNumber <= LevelManager.Instance.UnlockedLevel;
+        }
+        
     }
 
     private void Awake()
     {
         portalCollider = GetComponent<Collider2D>();
         portalEffect = GetComponentInChildren<ParticleSystem>(true);
-        if (portalEffect == null)
+        if (portalEffect == null && hasNoParticle == false)
         {
             Debug.LogError($"[{name}] No child ParticleSystem found on this portal!");
         }
