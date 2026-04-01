@@ -37,7 +37,6 @@ public class CardForMatching : MonoBehaviour
         {
             image.gameObject.SetActive(false);
             text.GetComponent<TextMeshProUGUI>().text = "";   
-            Debug.Log("Card: " + index + " " + isQuestion);
             gameObject.GetComponent<Image>().sprite = controller.AnswerCardBack;
             
         }

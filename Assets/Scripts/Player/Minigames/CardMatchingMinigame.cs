@@ -18,13 +18,14 @@ public enum CardMatchingPlay
 
 public class CardMatchingMinigame : MonoBehaviour
 {
+    public MinigamePilot pilot; //separate script to only request from github once, reducing risk of 403
     public List<Question> questions;
     public List<CardForMatching> Questioncards;
     public List<CardForMatching> Answercards;
     public List<GameObject> qshadows;
     public List<GameObject> ashadows;
 
-    public GameObject cardMatching;
+    public GameObject cardMatching; //main object
     public GameObject playAgainButton;
     public Sprite CardFront;
     public Sprite QuestionCardBack;
@@ -40,11 +41,9 @@ public class CardMatchingMinigame : MonoBehaviour
     public CardForMatching answerCard;
     public int playerScore;
     public int rivalScore;
-    Database database;
-    [SerializeField] List<Question> randomQuestions;
-    Module moduleManager;
-    private int difficulty = 0; 
     //used in database collection
+    
+    private int difficulty = 0; 
     private int correctAnswer = 8; //used in map area
     private int wrongAnswer = -5;
     private int correctStreak = 0;
@@ -66,7 +65,7 @@ public class CardMatchingMinigame : MonoBehaviour
     public char[] symbolsformatching = {'☺', '☼', '♯', '♠', '♣','♥','♦','♪'}; //could use numbers too
 
 
-    public void StartCardMatching()
+    public void StartCardMatching() //entrypoint, called from npcminigameplayer
     {
         GameController.Instance.StartMinigame();
         cardMatching.SetActive(true);
@@ -379,48 +378,17 @@ public class CardMatchingMinigame : MonoBehaviour
         answerCard.Reveal(true);
         CalculatePlay("Rival");
     }
-    IEnumerator getQuestions()
-    {   
-        database = new Database();
-        StartCoroutine(database.load());
-        yield return new WaitUntil(() => database.loaded);
-        randomQuestions = database.questionSet.questions;
-        moduleManager = new Module(randomQuestions);
-        gotQuestions = true;
-
-    }
-    IEnumerator DownloadImage(string url, CardForMatching card)
-    {
-        // Use UnityWebRequestTexture to download raw image bytes directly
-        UnityWebRequest request = UnityWebRequestTexture.GetTexture(url);
-        yield return request.SendWebRequest();
-
-        if (request.result == UnityWebRequest.Result.Success)
-        {
-            Texture2D texture = DownloadHandlerTexture.GetContent(request);
-            card.image.texture = texture;
-        }
-        else
-        {
-            Debug.LogError("Question image load error: " + request.error);
-            Debug.LogError("Failed URL: " + url);
-        }
-    }
 
     IEnumerator LoadCards()
     {
-        StartCoroutine(getQuestions());
+        StartCoroutine(pilot.getQuestions());
         yield return new WaitUntil(() => gotQuestions);
-        
-
-        var outlist = GetComponentsInChildren<CardForMatching>(true); //give true to access disabled gameobjects
-        
         int count = Questioncards.Count;
         
         
         for(int i = 0; i < count; i++) //get questions and answers from database
         {
-            Question q = moduleManager.GetRandomQuestion(module, (int) (difficulty / 20));
+            Question q = pilot.moduleManager.GetRandomQuestion(module, (int) (difficulty / 20));
 
             questions[i] = q;
         }
@@ -438,7 +406,7 @@ public class CardMatchingMinigame : MonoBehaviour
             Questioncards[i].index = remaining[num];
             if(!string.IsNullOrEmpty(questions[remaining[num]].imageLink))
             {
-                StartCoroutine(DownloadImage(questions[remaining[num]].imageLink, Questioncards[i]));
+                StartCoroutine(pilot.DownloadImage(questions[remaining[num]].imageLink, Questioncards[i].gameObject));
             }
             else
             {
@@ -461,7 +429,7 @@ public class CardMatchingMinigame : MonoBehaviour
             Answercards[i].index = remaining[num];
             if (!string.IsNullOrEmpty(questions[remaining[num]].options[questions[remaining[num]].answerIndex].imageLink))
             {
-                StartCoroutine(DownloadImage(questions[remaining[num]].options[questions[remaining[num]].answerIndex].imageLink, Answercards[i]));
+                StartCoroutine(pilot.DownloadImage(questions[remaining[num]].options[questions[remaining[num]].answerIndex].imageLink, Answercards[i].gameObject));
             }
             else
             {

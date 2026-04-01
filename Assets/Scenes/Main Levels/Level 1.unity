@@ -203481,18 +203481,21 @@ MonoBehaviour:
     options: []
     answerIndex: 0
     difficulty: 0
+    minigameType: MultipleChoice
     locations: 0
   - question: 
     imageLink: 
     options: []
     answerIndex: 0
     difficulty: 0
+    minigameType: MultipleChoice
     locations: 0
   - question: 
     imageLink: 
     options: []
     answerIndex: 0
     difficulty: 0
+    minigameType: MultipleChoice
     locations: 0
   dangerous: 1
   correctAnswer: 8
@@ -296130,6 +296133,7 @@ MonoBehaviour:
   levelNumber: 0
   targetSpawnPointID: Lv1ToHub
   portalEffect: {fileID: 0}
+  hasNoParticle: 1
 --- !u!61 &626546790
 BoxCollider2D:
   m_ObjectHideFlags: 0

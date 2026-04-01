@@ -27,7 +27,7 @@ public class NPCMinigamePlayer : MonoBehaviour
         }
         else if(type == MinigameType.Slapjack)
         {
-            
+            MainCanvas.Instance.GetComponentInChildren<SlapjackMinigame>().StartSlapjack();
         }
     }
 }
