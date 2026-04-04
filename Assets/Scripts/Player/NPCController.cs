@@ -40,9 +40,9 @@ public class NPCController : MonoBehaviour, Interactable
             {
                 minigameChoices.Add("Play Cards");
             }
-            else if(minigamePlayer.type == MinigameType.Whackamole)
+            else if(minigamePlayer.type == MinigameType.WordBank)
             {
-                minigameChoices.Add("Play Whackamole");
+                minigameChoices.Add("Play Pharmacy Word Scramble");
             }
             else if(minigamePlayer.type == MinigameType.Slapjack)
             {

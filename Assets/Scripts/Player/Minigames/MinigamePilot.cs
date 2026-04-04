@@ -3,6 +3,13 @@ using UnityEngine.Networking;
 using System.Collections;
 using System.Collections.Generic;
 
+public enum MinigameType
+{
+    None,
+    CardMatching,
+    WordBank,
+    Slapjack
+}
 public class MinigamePilot : MonoBehaviour
 {
     public bool gotQuestions = false;

@@ -1,16 +1,8 @@
 using UnityEngine;
-
-public enum MinigameType
-{
-    None,
-    CardMatching,
-    Whackamole,
-    Slapjack
-}
 public class NPCMinigamePlayer : MonoBehaviour
 {
     public MinigameType type;
-    
+    public int difficulty; //0-10 inclusive
     public void StartMinigame()
     {
         if(type == MinigameType.None){
@@ -21,13 +13,13 @@ public class NPCMinigamePlayer : MonoBehaviour
             MainCanvas.Instance.GetComponentInChildren<CardMatchingMinigame>().StartCardMatching();
             MainCanvas.Instance.GetComponentInChildren<CardMatchingMinigame>().RestartPlay();
         }
-        else if(type == MinigameType.Whackamole)
+        else if(type == MinigameType.WordBank)
         {
             
         }
         else if(type == MinigameType.Slapjack)
         {
-            MainCanvas.Instance.GetComponentInChildren<SlapjackMinigame>().StartSlapjack();
+            MainCanvas.Instance.GetComponentInChildren<SlapjackMinigame>().StartSlapjack(difficulty);
         }
     }
 }

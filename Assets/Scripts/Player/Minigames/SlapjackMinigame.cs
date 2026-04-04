@@ -125,8 +125,9 @@ public class SlapjackMinigame : MonoBehaviour
         
     }
 
-    public void StartSlapjack() //entrypoint, called from npcminigameplayer
+    public void StartSlapjack(int difficult) //entrypoint, called from npcminigameplayer
     {
+        minigameDifficulty = difficult;
         GameController.Instance.StartMinigame();
         slapjack.SetActive(true);
         totalgainedcoins = 0; //reset session
