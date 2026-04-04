@@ -220,12 +220,7 @@ public class SlapjackMinigame : MonoBehaviour
 
         totalcointext.text = "That makes a total of:\n" + totalgainedcoins + " Coins and +" + totalgainedpoints + " Points"; 
     }
-    public void EndGame(bool outofQuestions) //if not outofquestions, then someone ran out of cards
-    {
-        OpenEndGamePopup();
-        HandleCoinsandScore();
-        awaiting = SlapjackPlay.GameEnd;
-    }
+    
     
     public void reIndexCards(int list) //0- player, 1- center, 2- opponent
     {
@@ -404,6 +399,8 @@ public class SlapjackMinigame : MonoBehaviour
     }
     public void CardDrawn(bool isPlayer, CardForSlapping card) //called when a new answer card is moved to the center 
     {
+        
+        //Debug.Log("CARD PLAYER: " + isPlayer);
         opponentDecidedNo = false;
         opponentActionCanceled = false;
         currentcentercard = card;
@@ -423,10 +420,14 @@ public class SlapjackMinigame : MonoBehaviour
         //opponent decide if to slap
         CalculatePlay();
     }
+    public void StopAllActions()
+    {
+        StopAllCoroutines();
+    }
     
     public IEnumerator PlayerSelectedCenter()
     {
-        
+        HaltOpponentAction();
         Debug.Log("PLAYER SELECTED CENTER");
         if (currentcentercard.info == currentQuestion.options[currentQuestion.answerIndex].text)
         {
@@ -438,7 +439,6 @@ public class SlapjackMinigame : MonoBehaviour
             {
                 StartCoroutine(centerCards[0].moveFromCenter(true));
                 yield return new WaitForSeconds(cardstackdelay);
-                //yield return new WaitUntil(() => cardisMoving == false);
             }
             DrawNextQuestionCard();
             UpdateCardNumReaders();
@@ -477,24 +477,56 @@ public class SlapjackMinigame : MonoBehaviour
 
             Debug.Log("THIS IS CORRECT"); //for us to know when its correct (we are not pharmacy majors)
             chancetoPress = (1 + minigameDifficulty) * .10f; //ie dif 6 = 60%
-            timetopress = (11 - minigameDifficulty) / 4; 
-            currentOpponentAction = OpponentAction(timetopress, 1, true);   //TESTING CHANGE THIS---------------------------------------------------------------
+
+            timetopress = .1f + ((10 - minigameDifficulty) * .05f);; 
+            currentOpponentAction = OpponentAction(timetopress, chancetoPress, true);  
             StartCoroutine(currentOpponentAction);
             StartCoroutine(OpponentContinue());
         }
         else
         { //not the correct answer
-            chancetoPress = (10 - minigameDifficulty) * .05f; //ie diff 6 is 20%
-            timetopress = (11 - minigameDifficulty) / 4; 
+            chancetoPress = (10 - minigameDifficulty) * .025f; //ranges from .25 to 0
+
+            timetopress = .1f + ((10 - minigameDifficulty) * .05f); // starts at .5, decreases by .05 until level 10 = .1 second delay
             currentOpponentAction = OpponentAction(timetopress, chancetoPress, false);
             StartCoroutine(currentOpponentAction);
             StartCoroutine(OpponentContinue());
         }
     }
 
+    //patch for stopping coroutines which causes visual bug with displacement of cards
+    public void MoveCardsToCorrectPile()
+    {
+        for(int i = 0; i < playerCards.Count; i++)
+        {
+            if(playerCards[i].gameObject.transform.position != playerpile.transform.position)
+            {
+                Debug.Log("PLAYER CARD DISPLACED");
+                playerCards[i].gameObject.transform.position = playerpile.transform.position;
+            }
+        }
+        for(int i = 0; i < opponentCards.Count; i++)
+        {
+            if(opponentCards[i].gameObject.transform.position != opponentpile.transform.position)
+            {
+                Debug.Log("OPPONENT CARD DISPLACED");
+                opponentCards[i].gameObject.transform.position = opponentpile.transform.position;
+            }
+        }
+        for(int i = 0; i < centerCards.Count; i++)
+        {
+            if(centerCards[i].gameObject.transform.position != centerpile.transform.position)
+            {
+                Debug.Log("CENTER CARD DISPLACED");
+                centerCards[i].gameObject.transform.position = centerpile.transform.position;
+            }
+        }
+    }
+
     public IEnumerator OpponentAction(float waittime, float chance, bool iscorrect) //opponent waits proper amount of time before reacting (stopped if player input)
     {
         yield return new WaitForSeconds(waittime);
+        yield return new WaitUntil(() => awaiting == SlapjackPlay.OpponentTurn);
 
         int percent = (int) (chance * 100);
 
@@ -502,7 +534,7 @@ public class SlapjackMinigame : MonoBehaviour
         if(roll <= percent)
         {
             //select
-            Debug.Log("OPPONENT ROLLED TO PRESS, " + "CHANCE: " + percent);
+            //Debug.Log("OPPONENT ROLLED TO PRESS, " + "CHANCE: " + percent);
             currentcentercard.Reveal(true); //outline card
 
 
@@ -517,8 +549,7 @@ public class SlapjackMinigame : MonoBehaviour
                 {
                     StartCoroutine(centerCards[0].moveFromCenter(false));
                     yield return new WaitForSeconds(cardstackdelay);
-                    yield return new WaitUntil(() => cardisMoving == false);
-
+                    UpdateCardNumReaders();
                 }
                 DrawNextQuestionCard();
                 UpdateCardNumReaders();
@@ -539,7 +570,7 @@ public class SlapjackMinigame : MonoBehaviour
         } 
         else
         {
-            Debug.Log("OPPONENT ROLLED NO, " + "CHANCE: " + percent);
+            //Debug.Log("OPPONENT ROLLED NO, " + "CHANCE: " + percent);
             opponentDecidedNo = true;
         }
         yield return null;
@@ -550,18 +581,28 @@ public class SlapjackMinigame : MonoBehaviour
         opponentDecidedNo = false;
         opponentActionCanceled = false;
         yield return new WaitUntil(() => opponentActionCanceled || opponentDecidedNo);
-        yield return new WaitForSeconds(correctnessreadingdelay); // have delay between giving player a card and then drawing a new one (looks weird otherwise)
+        //yield return new WaitForSeconds(correctnessreadingdelay); // have delay between giving player a card and then drawing a new one (looks weird otherwise)
         yield return new WaitUntil(() => cardisMoving == false && awaiting == SlapjackPlay.OpponentTurn);
-        yield return new WaitForSeconds(correctnessreadingdelay); // have delay between giving player a card and then drawing a new one (looks weird otherwise)
+        yield return new WaitForSeconds(correctnessreadingdelay); // have delay between player drawing a card and opponent drawing a card
+        MoveCardsToCorrectPile();
+        Debug.Log("OPPONENT CONTINUES");
 
         if(opponentCards.Count == 0)
         {
             EndGame(false);
+            yield break; //return
         }
         opponentCards[0].Press();
         
         correctnessreader.GetComponent<TextMeshProUGUI> ().text = "";
         whoselectedreader.GetComponent<TextMeshProUGUI> ().text = "";
 
+    }
+
+    public void EndGame(bool outofQuestions) //if not outofquestions, then someone ran out of cards
+    {
+        awaiting = SlapjackPlay.GameEnd;
+        OpenEndGamePopup();
+        HandleCoinsandScore();
     }
 }

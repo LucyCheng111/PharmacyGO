@@ -51,6 +51,7 @@ public class CardForSlapping : MonoBehaviour
         }
         else if(type == SlapjackCardType.OpponentCard && controller.awaiting == SlapjackPlay.OpponentTurn) //this was called by the opponent
         {
+            controller.StopAllActions();
             StartCoroutine(moveToCenter(false));
             Reveal(false); //even though the opponent is selecting this, I wont outline every card it touches, only when it selects the center
             controller.CardDrawn(false, this);
