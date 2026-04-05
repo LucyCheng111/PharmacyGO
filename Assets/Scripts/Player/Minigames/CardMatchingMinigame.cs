@@ -5,6 +5,7 @@ using UnityEngine.UI;
 using TMPro;
 using System.Threading.Tasks;
 using System.Reflection;
+using UnityEngine.Networking;
 
 public enum CardMatchingPlay
 {
@@ -17,14 +18,14 @@ public enum CardMatchingPlay
 
 public class CardMatchingMinigame : MonoBehaviour
 {
-    public List<string> Questions;
-    public List<string> Answers;
+    public MinigamePilot pilot; //separate script to only request from github once, reducing risk of 403
+    public List<Question> questions;
     public List<CardForMatching> Questioncards;
     public List<CardForMatching> Answercards;
     public List<GameObject> qshadows;
     public List<GameObject> ashadows;
 
-    public GameObject cardMatching;
+    public GameObject cardMatching; //main object
     public GameObject playAgainButton;
     public Sprite CardFront;
     public Sprite QuestionCardBack;
@@ -40,23 +41,107 @@ public class CardMatchingMinigame : MonoBehaviour
     public CardForMatching answerCard;
     public int playerScore;
     public int rivalScore;
+    //used in database collection
+    
+    private int difficulty = 0; 
+    private int correctAnswer = 8; //used in map area
+    private int wrongAnswer = -5;
+    private int correctStreak = 0;
+    private bool gotQuestions = false;
+    private int module = 0;
 
-    void Start()
-    {
-        playerPlayReader.text = "Selecting a Question Card...";
-        LoadCards();
-        RandomizeCardAppearance();
-    }
-    public void StartCardMatching()
+    //information screens/ popups
+    public GameObject infoscreen;
+    public GameObject gameendScreen;
+    public TextMeshProUGUI finalcointext;
+    public TextMeshProUGUI totalcointext;
+    public TextMeshProUGUI finalscoretext;
+
+    public GameObject exitbutton;
+    public GameObject infobutton;
+
+    private int totalgainedcoins =0;
+    private int totalgainedpoints =0;
+    public char[] symbolsformatching = {'☺', '☼', '♯', '♠', '♣','♥','♦','♪'}; //could use numbers too
+
+
+    public void StartCardMatching() //entrypoint, called from npcminigameplayer
     {
         GameController.Instance.StartMinigame();
         cardMatching.SetActive(true);
+        totalgainedcoins = 0; //reset session
+        totalgainedpoints = 0;
     }
-
+    
     public void CloseWindow()
     {
         GameController.Instance.EndMinigame();
         cardMatching.SetActive(false);
+    }
+
+    public void OpenInfoPopup()
+    {
+        infoscreen.SetActive(true);
+
+        exitbutton.SetActive(false);
+        infobutton.SetActive(false);
+    }
+    public void CloseInfoPopup()
+    {
+        infoscreen.SetActive(false);
+
+        exitbutton.SetActive(true);
+        infobutton.SetActive(true);
+    }
+
+
+    public void HandleCoinsandScore()
+    {
+        int numCoinsToGain = playerScore - rivalScore;
+        
+        
+        int scoreToGain = playerScore * 1000;
+        ScoreManager.Instance.AddMinigameScore(scoreToGain);
+
+        finalscoretext.text = "Final score:\nYou: " + playerScore + "   Opponent: " + rivalScore;
+
+        if(numCoinsToGain < 0)
+        {
+            numCoinsToGain = -1; //only lose a max of 1
+            finalcointext.text = "You lost:\n" + 1 + " Coin and got " + scoreToGain + " Points";
+            CoinManager.Instance.RemoveCoin(1); //take coins
+        }
+        else
+        {
+            CoinManager.Instance.AddCoin(numCoinsToGain); //give coins
+            if(numCoinsToGain == 1)
+            {
+                finalcointext.text = "You got:\n" + numCoinsToGain + " Coin and +" + scoreToGain + " Points"; 
+            }
+            else
+            {
+                finalcointext.text = "You got:\n" + numCoinsToGain + " Coins and +" + scoreToGain + " Points"; 
+            }
+        }
+        totalgainedcoins += numCoinsToGain; //subtraction will still apply
+        totalgainedpoints += scoreToGain;
+
+        totalcointext.text = "That makes a total of:\n" + totalgainedcoins + " Coins and +" + totalgainedpoints + " Points"; 
+    }
+    public void OpenEndGamePopup()
+    {
+        gameendScreen.SetActive(true);
+
+        exitbutton.SetActive(false);
+        infobutton.SetActive(false);
+
+    }
+    public void CloseEndGamePopup()
+    {
+        gameendScreen.SetActive(false);
+
+        exitbutton.SetActive(true);
+        infobutton.SetActive(true);
     }
 
     void RandomizeCardAppearance()
@@ -83,21 +168,28 @@ public class CardMatchingMinigame : MonoBehaviour
         {
             if(Questioncards[i].shown == false)
             {
-                Questioncards[i].Reveal();
+                Questioncards[i].Reveal(false);
             }
 
             if(Answercards[i].shown == false)
             {
-                Answercards[i].Reveal();
+                Answercards[i].Reveal(false);
             }
+
+            Questioncards[i].indexidentifier.SetActive(true);
+            Questioncards[i].indexidentifier.GetComponent<TextMeshProUGUI>().text = "" + symbolsformatching[Questioncards[i].index];
+
+            Answercards[i].indexidentifier.SetActive(true);
+            Answercards[i].indexidentifier.GetComponent<TextMeshProUGUI>().text = "" + symbolsformatching[Answercards[i].index];
         }
     }
 
     public void RestartPlay()
     {
+        gotQuestions = false;
         playerPlayReader.text = "Selecting a Question Card...";
         rivalPlayReader.text = "";
-        for(int i = 0; i < Answers.Count; i++)
+        for(int i = 0; i < questions.Count; i++)
         {
             Answercards[i].gameObject.GetComponent<Button>().interactable = true;
             Questioncards[i].gameObject.GetComponent<Button>().interactable = true;
@@ -105,11 +197,11 @@ public class CardMatchingMinigame : MonoBehaviour
             Answercards[i].gameObject.GetComponentInChildren<TextMeshProUGUI>().text = "";
             Questioncards[i].gameObject.GetComponentInChildren<TextMeshProUGUI>().text = "";
 
-            Answercards[i].shown = false;
-            Questioncards[i].shown = false;
+            Answercards[i].Hide();
+            Questioncards[i].Hide();
         }
 
-        LoadCards();
+        StartCoroutine(LoadCards());
         playerScore = 0;
         rivalScore = 0;
         PlayerScoreReader.text = "0";
@@ -117,10 +209,31 @@ public class CardMatchingMinigame : MonoBehaviour
         awaiting = CardMatchingPlay.PlayerQuestion;
         questionCard = null;
         answerCard = null;
-        playAgainButton.SetActive(false);
+        CloseEndGamePopup();
         RandomizeCardAppearance();
     }
     //Compare Players cards
+    public void IncrementDifficulty(bool correct)
+    {
+        if (!correct)//got question wrong
+        {
+            correctStreak = 0;
+            difficulty += wrongAnswer;
+            if (difficulty < 0)
+            {
+                difficulty = 0;
+            }
+        }
+        else
+        {
+            correctStreak += 1;
+            difficulty += correctAnswer;
+            if (difficulty > 100)
+            {
+                difficulty = 100;
+            }
+        }
+    }
     public async Task CalculatePlay(string who)
     {
         bool wonRound = false;
@@ -131,11 +244,13 @@ public class CardMatchingMinigame : MonoBehaviour
             if(who == "Player")
             {
                 //chose correctly
+                IncrementDifficulty(true);
                 playerScore++;
                 PlayerScoreReader.text = playerScore.ToString();
             }
             else
             {
+                IncrementDifficulty(false);
                 rivalScore++;
                 RivalScoreReader.text = rivalScore.ToString();
             }
@@ -148,7 +263,8 @@ public class CardMatchingMinigame : MonoBehaviour
             {
                 rivalPlayReader.text = "";
                 playerPlayReader.text = "Player Wins!!!";
-                playAgainButton.SetActive(true);
+                OpenEndGamePopup();
+                HandleCoinsandScore();
 
                 awaiting = CardMatchingPlay.GameEnd;
                 RevealAll();
@@ -158,7 +274,8 @@ public class CardMatchingMinigame : MonoBehaviour
             {
                 rivalPlayReader.text = "Opponent Wins!!!";
                 playerPlayReader.text = "";
-                playAgainButton.SetActive(true);
+                OpenEndGamePopup();
+                HandleCoinsandScore();
 
                 awaiting = CardMatchingPlay.GameEnd;
                 RevealAll();
@@ -169,7 +286,8 @@ public class CardMatchingMinigame : MonoBehaviour
                 //draw
                 rivalPlayReader.text = "It's a Draw!!!";
                 playerPlayReader.text = "It's a Draw!!!";
-                playAgainButton.SetActive(true);
+                OpenEndGamePopup();
+                HandleCoinsandScore();
 
                 awaiting = CardMatchingPlay.GameEnd;
                 RevealAll();
@@ -240,7 +358,8 @@ public class CardMatchingMinigame : MonoBehaviour
 
         //these couple of lines should remain, as well as the last couple.
         //the rest can be changed to properly emulate a humans memory (rn it just randomly selects two cards)
-        questionCard.Reveal();
+        questionCard.Reveal(true);
+
         awaiting = CardMatchingPlay.RivalAnswer;
         rivalPlayReader.text = "Selecting an Answer Card...";
         await Awaitable.WaitForSecondsAsync(2f);
@@ -256,19 +375,26 @@ public class CardMatchingMinigame : MonoBehaviour
         }
 
 
-        answerCard.Reveal();
+        answerCard.Reveal(true);
         CalculatePlay("Rival");
     }
 
-
-    void LoadCards()
+    IEnumerator LoadCards()
     {
-        var outlist = GetComponentsInChildren<CardForMatching>(true); //give true to access disabled gameobjects
-        
+        StartCoroutine(pilot.getQuestions());
+        yield return new WaitUntil(() => gotQuestions);
         int count = Questioncards.Count;
+        
+        
+        for(int i = 0; i < count; i++) //get questions and answers from database
+        {
+            Question q = pilot.moduleManager.GetRandomQuestion(module, (int) (difficulty / 20));
+
+            questions[i] = q;
+        }
+
         List<int> remaining = new List<int>();
         int num = -1;
-        
         for(int i = 0; i < count; i++)
         {
             remaining.Add(i);
@@ -276,10 +402,19 @@ public class CardMatchingMinigame : MonoBehaviour
         for(int i = 0; i < count; i++)
         {   
             num = Random.Range(0, remaining.Count);
-            Questioncards[i].info = Questions[remaining[num]];
+            Questioncards[i].info = questions[remaining[num]].question;
             Questioncards[i].index = remaining[num];
+            if(!string.IsNullOrEmpty(questions[remaining[num]].imageLink))
+            {
+                StartCoroutine(pilot.DownloadImage(questions[remaining[num]].imageLink, Questioncards[i].gameObject));
+            }
+            else
+            {
+                Questioncards[i].image.texture = null;
+            }
+
             remaining.RemoveAt(num);
-            
+            //Questioncards[i].Hide();
         }
 
         //again for answers
@@ -290,9 +425,19 @@ public class CardMatchingMinigame : MonoBehaviour
         for(int i = 0; i < count; i++)
         {   
             num = Random.Range(0, remaining.Count);
-            Answercards[i].info = Answers[remaining[num]];
+            Answercards[i].info = questions[remaining[num]].options[questions[remaining[num]].answerIndex].text;
             Answercards[i].index = remaining[num];
+            if (!string.IsNullOrEmpty(questions[remaining[num]].options[questions[remaining[num]].answerIndex].imageLink))
+            {
+                StartCoroutine(pilot.DownloadImage(questions[remaining[num]].options[questions[remaining[num]].answerIndex].imageLink, Answercards[i].gameObject));
+            }
+            else
+            {
+                Answercards[i].image.texture = null;
+            }
+
             remaining.RemoveAt(num);
+            //Answercards[i].Hide();
         }
     }
 

@@ -334,7 +334,7 @@ public class AiRival : MonoBehaviour, Interactable
         // Create choices for mini games
         List<string> choices = new List<string>
         {
-            "PlayCards",
+            "Play Cards",
             "option 2 (not yet)",
             "Nah"
         };
@@ -479,7 +479,7 @@ public class AiRival : MonoBehaviour, Interactable
         if (player == null) return;
 
         // Teleport to near the player (behind the player)
-        Vector3 spawnOffset = new Vector3(2.5f, 0f, 0f);
+        Vector3 spawnOffset = new Vector3(-2.5f, 0f, 0f);
         transform.position = player.position + spawnOffset;
 
     }

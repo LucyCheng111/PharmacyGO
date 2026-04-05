@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using System.Reflection;
 
 public class CardForMatching : MonoBehaviour
 {
@@ -9,12 +10,15 @@ public class CardForMatching : MonoBehaviour
     public bool isQuestion = false;
     public string info;
     public GameObject text;
+    public RawImage image;
     CardMatchingMinigame controller;
+    public Image outline;
+    public GameObject indexidentifier;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+
+    void Awake()
     {
-        controller = GetComponentInParent<CardMatchingMinigame>();
+        controller = gameObject.GetComponentInParent<CardMatchingMinigame>();
 
         text = GetComponentInChildren<TextMeshProUGUI>().gameObject;
         GetComponent<Button>().onClick.AddListener(Select);
@@ -27,27 +31,41 @@ public class CardForMatching : MonoBehaviour
         {
             text.GetComponent<TextMeshProUGUI>().text = "";
             gameObject.GetComponent<Image>().sprite = controller.QuestionCardBack;
+            image.gameObject.SetActive(false);
         }
         else
         {
+            image.gameObject.SetActive(false);
             text.GetComponent<TextMeshProUGUI>().text = "";   
             gameObject.GetComponent<Image>().sprite = controller.AnswerCardBack;
+            
         }
         shown = false;
+        outline.color = new Color(1,0.65f,0,0f);
+        indexidentifier.SetActive(false);
     }
 
-    public void Reveal()
+    public void Reveal(bool isOpponent)
     {
         text.GetComponent<TextMeshProUGUI>().text = info;
         gameObject.GetComponent<Image>().sprite = controller.CardFront;
+        if(image.texture != null)
+        {
+            image.gameObject.SetActive(true);
+        }
         shown = true;
+
+        if (isOpponent)
+        {
+            outline.color = new Color(1,0.65f,0,1f);
+        }
     }
     void Select()
     {
         if(controller.awaiting == CardMatchingPlay.PlayerQuestion && isQuestion && shown == false && controller.questionCard == null)
         {
             controller.questionCard = this;
-            Reveal();
+            Reveal(false);
             controller.awaiting = CardMatchingPlay.PlayerAnswer;
             controller.playerPlayReader.text = "Selecting an Answer Card...";
             
@@ -55,7 +73,7 @@ public class CardForMatching : MonoBehaviour
         else if(controller.awaiting == CardMatchingPlay.PlayerAnswer && !isQuestion && shown == false && controller.answerCard == null)
         {
             controller.answerCard = this;
-            Reveal();
+            Reveal(false);
             controller.awaiting = CardMatchingPlay.PlayerAnswer;
             controller.CalculatePlay("Player");
         }

@@ -69,7 +69,7 @@ public class MurderMystery : MonoBehaviour
 
         int numCasesForLevel = murders[levelfrom].cases.Count;
         currentCase = UnityEngine.Random.Range(0,numCasesForLevel);
-        //currentCase = 1;  //used for testing
+        //currentCase = 0;  //used for testing
 
         GameObject player = GameObject.FindGameObjectWithTag("Player"); 
         player.transform.position = murders[levelfrom].cases[currentCase].SpawnLocation.position;

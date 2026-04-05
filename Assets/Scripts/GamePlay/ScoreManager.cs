@@ -108,6 +108,15 @@ public class ScoreManager : MonoBehaviour
         return aiRivalScore - previous; // return points earned this round
     }
 
+    //adds hard value of score
+    public void AddMinigameScore(int score)
+    {
+        scoreCount += score;
+        PlayerPrefs.SetInt("ScoreCount", scoreCount);
+        OnScoreChanged?.Invoke(scoreCount);
+        PlayerPrefs.Save();
+    }
+
     public int GetAiRivalScore()
     {
         return aiRivalScore;

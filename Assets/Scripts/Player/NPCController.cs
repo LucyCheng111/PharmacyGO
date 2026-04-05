@@ -38,15 +38,15 @@ public class NPCController : MonoBehaviour, Interactable
         {
             if(minigamePlayer.type == MinigameType.CardMatching)
             {
-                minigameChoices.Add("Play Cards");
+                minigameChoices.Add("Play Cards " + "(Lvl." + minigamePlayer.difficulty + ")");
             }
-            else if(minigamePlayer.type == MinigameType.Whackamole)
+            else if(minigamePlayer.type == MinigameType.WordBank)
             {
-                minigameChoices.Add("Play Whackamole");
+                minigameChoices.Add("Play Pharmacy Word Scramble" + "(Lvl." + minigamePlayer.difficulty + ")");
             }
             else if(minigamePlayer.type == MinigameType.Slapjack)
             {
-                minigameChoices.Add("Play Slapjack");
+                minigameChoices.Add("Play Slapjack" + "(Lvl." + minigamePlayer.difficulty + ")");
             }
             minigameChoices.Add("Leave");
         }
