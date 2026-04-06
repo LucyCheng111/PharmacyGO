@@ -46,10 +46,9 @@ public class NPCEnemy : MonoBehaviour
         yield return StartCoroutine(DialogManager.Instance.ShowDialog(dialog));
         GameController.Instance.StartBattle(false, true, maxQuestions);
 
-        yield return new WaitUntil(()=>
-            GameController.Instance.state == GameState.FreeRoam
-        );
+        yield return StartCoroutine(WaitForBattleEnd());
         gameObject.SetActive(false);
+        Debug.Log("NPC Enemy Deactivated");
         //enemyDefeated = true;
 
     }
@@ -75,6 +74,23 @@ public class NPCEnemy : MonoBehaviour
         }
 
         animator.SetBool("isMoving", false);
+    }
+
+    private IEnumerator WaitForBattleEnd()
+    {
+        //added this to prevent an occassional softlock when ending a battle caused by a race condition
+
+        bool finished = false;
+        
+        void Handler(bool won)
+        {
+            finished = true;
+        }
+
+        //subscribe to the OnBattleOver event from the Battle System class
+        BattleSystem.Instance.OnBattleOver += Handler;
+        yield return new WaitUntil(()=> finished);
+        BattleSystem.Instance.OnBattleOver -= Handler;
     }
 
     public void MarkDefeated()
