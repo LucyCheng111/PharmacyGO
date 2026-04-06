@@ -257485,7 +257485,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &877147178
 RectTransform:
   m_ObjectHideFlags: 0
@@ -257495,7 +257495,7 @@ RectTransform:
   m_GameObject: {fileID: 877147177}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.76, y: 1.76, z: 1.76}
+  m_LocalScale: {x: 2.2, y: 2.2, z: 2.2}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 644411923}
@@ -336468,6 +336468,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4895086884157921707, guid: e3b3f787f063a39429f5463ae61140d5, type: 3}
+      propertyPath: sprintButton
+      value: 
+      objectReference: {fileID: 877147177}
     - target: {fileID: 7760941380844261774, guid: e3b3f787f063a39429f5463ae61140d5, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
