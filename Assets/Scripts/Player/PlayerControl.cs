@@ -13,6 +13,7 @@ public class PlayerControl : MonoBehaviour
     // Also handles checks when moving into objects
 
     [SerializeField] private Joystick joystick;
+    [SerializeField] private GameObject sprintButton;
 
     public static PlayerControl Instance { get; private set; }
 
@@ -96,7 +97,7 @@ public class PlayerControl : MonoBehaviour
 
             //check if the player is sprinting
 
-            isSprinting = Input.GetKey(KeyCode.LeftShift);
+            isSprinting = isSprinting || Input.GetKey(KeyCode.LeftShift);
             float currentSpeed = isSprinting  ? moveSpeed * 2.0f: moveSpeed;
             //note to self: this is the ternary conditional operator, basically:
             // condition ? ifTrue : ifFalse;
