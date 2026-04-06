@@ -46,6 +46,7 @@ public class SlapjackMinigame : MonoBehaviour
     public GameObject opponentTurnreader;
     //information screens/ popups
     public GameObject infoscreen;
+    public GameObject firsttimeinfopopup; //information that only appears in the info screen the first time the player opens the minigame
     public GameObject gameendScreen;
     public TextMeshProUGUI finalcointext;
     public TextMeshProUGUI totalcointext;
@@ -100,6 +101,7 @@ public class SlapjackMinigame : MonoBehaviour
     {
         infoscreen.SetActive(false);
 
+        firsttimeinfopopup.SetActive(false); //won't open again, but is open through the scene by default
         exitbutton.SetActive(true);
         infobutton.SetActive(true);
     }
@@ -165,7 +167,6 @@ public class SlapjackMinigame : MonoBehaviour
 
         StartCoroutine(LoadCards());
         awaiting = SlapjackPlay.PlayerTurn;
-        CloseEndGamePopup();
         RandomizeCardAppearance();
     }
     public void DrawNextQuestionCard()

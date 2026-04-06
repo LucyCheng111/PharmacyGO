@@ -52,6 +52,7 @@ public class CardMatchingMinigame : MonoBehaviour
 
     //information screens/ popups
     public GameObject infoscreen;
+    public GameObject firsttimeinfopopup; //information that only appears in the info screen the first time the player opens the minigame
     public GameObject gameendScreen;
     public TextMeshProUGUI finalcointext;
     public TextMeshProUGUI totalcointext;
@@ -89,7 +90,7 @@ public class CardMatchingMinigame : MonoBehaviour
     public void CloseInfoPopup()
     {
         infoscreen.SetActive(false);
-
+        firsttimeinfopopup.SetActive(false);
         exitbutton.SetActive(true);
         infobutton.SetActive(true);
     }
@@ -139,7 +140,7 @@ public class CardMatchingMinigame : MonoBehaviour
     public void CloseEndGamePopup()
     {
         gameendScreen.SetActive(false);
-
+        Debug.Log("JKOLADSF");
         exitbutton.SetActive(true);
         infobutton.SetActive(true);
     }
@@ -209,7 +210,6 @@ public class CardMatchingMinigame : MonoBehaviour
         awaiting = CardMatchingPlay.PlayerQuestion;
         questionCard = null;
         answerCard = null;
-        CloseEndGamePopup();
         RandomizeCardAppearance();
     }
     //Compare Players cards
@@ -382,7 +382,7 @@ public class CardMatchingMinigame : MonoBehaviour
     IEnumerator LoadCards()
     {
         StartCoroutine(pilot.getQuestions());
-        yield return new WaitUntil(() => gotQuestions);
+        yield return new WaitUntil(() => pilot.gotQuestions);
         int count = Questioncards.Count;
         
         
