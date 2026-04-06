@@ -46,7 +46,10 @@ public class NPCEnemy : MonoBehaviour
         yield return StartCoroutine(DialogManager.Instance.ShowDialog(dialog));
         GameController.Instance.StartBattle(false, true, maxQuestions);
 
+        Debug.Log("NPC waiting for battle end...");
         yield return StartCoroutine(WaitForBattleEnd());
+        Debug.Log("NPC detected battle end!");
+        
         gameObject.SetActive(false);
         Debug.Log("NPC Enemy Deactivated");
         //enemyDefeated = true;
