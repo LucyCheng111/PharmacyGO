@@ -514,8 +514,8 @@ public class BattleSystem : MonoBehaviour
                     questionsRight = 0;
                     currentQuestion = 0;
                     yield return StartCoroutine(dialogBox.TypeDialog("You got them all right! You win!"));
-                    CoinManager.Instance.AddCoin(3);
-                    yield return StartCoroutine(dialogBox.TypeDialog("You are given 3 coins as a reward!"));
+                    CoinManager.Instance.AddCoin(maxBattleQuestions);
+                    yield return StartCoroutine(dialogBox.TypeDialog($"You are given {maxBattleQuestions} coins as a reward!"));
 
 
                     //GameController.Instance.MarkBossDefeated();
