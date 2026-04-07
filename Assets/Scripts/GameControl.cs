@@ -146,12 +146,14 @@ private void Start()
     {
         state = GameState.FreeRoam;
         Debug.Log("GameState == " + state);
-        yield return null;
+        //yield return null;
         battleSystem.gameObject.SetActive(false);
         playerControl.gameObject.SetActive(true);
         //reset the player's encounter timer
         PlayerControl.Instance.RestartEncounterCooldown();
         worldCamera.gameObject.SetActive(true);
+
+        yield break;
     }
 
     // checks if boss is defeated
