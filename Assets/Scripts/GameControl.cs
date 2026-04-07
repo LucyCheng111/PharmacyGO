@@ -20,6 +20,7 @@ public class GameController : MonoBehaviour
 
     public static GameController Instance { get; private set; }
     private HashSet<string> defeatedBossLevels = new HashSet<string>();
+    private WordBankMinigame WordBankminigameController;
 
     public void Awake()
     {
@@ -53,6 +54,7 @@ public class GameController : MonoBehaviour
 
 private void Start()
     {
+        WordBankminigameController = MainCanvas.Instance.GetComponentInChildren<WordBankMinigame>();
         //playerControl.OnEncountered += StartBattle;
         battleSystem.OnBattleOver += EndBattle;
         // playerControl.OnEnterDialogue += StartDialogue;
@@ -197,7 +199,7 @@ private void Start()
         }
         else if (state == GameState.Minigame)
         {
-            //no update for it
+            WordBankminigameController.HandleUpdate();
         }
 
         saveManager.Instance.HandleUpdate(); //used for autosave

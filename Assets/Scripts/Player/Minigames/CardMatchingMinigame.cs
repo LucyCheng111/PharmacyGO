@@ -65,8 +65,9 @@ public class CardMatchingMinigame : MonoBehaviour
     public char[] symbolsformatching = {'☺', '☼', '♯', '♠', '♣','♥','♦','♪'}; //could use numbers too
 
 
-    public void StartCardMatching() //entrypoint, called from npcminigameplayer
+    public void StartCardMatching(int level) //entrypoint, called from npcminigameplayer
     {
+        module = level;
         GameController.Instance.StartMinigame();
         cardMatching.SetActive(true);
         totalgainedcoins = 0; //reset session
@@ -139,7 +140,6 @@ public class CardMatchingMinigame : MonoBehaviour
     public void CloseEndGamePopup()
     {
         gameendScreen.SetActive(false);
-        Debug.Log("JKOLADSF");
         exitbutton.SetActive(true);
         infobutton.SetActive(true);
     }

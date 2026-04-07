@@ -15,9 +15,11 @@ public class WordBankMinigame : MonoBehaviour
     public MinigamePilot pilot; //separate script to only request from github once, reducing risk of 403
     public GameObject WordBank; //main object
     public GameObject GameBoard;
+    public GameObject sentenceArea;
+    public Transform sentenceOrigin; //starting point for sentence objects
     public List<Question> questions;
     public WordBankPlay awaiting = WordBankPlay.Arrange;
-    public int numQuestions = 3;
+    public int numQuestions = 5;
 
     public Question currentQuestion;
     public List<WordFromBank> words = new List<WordFromBank>();
@@ -27,30 +29,32 @@ public class WordBankMinigame : MonoBehaviour
     public int minigameDifficulty = 0; //separate from question difficulty (below)
     //database info
     private int difficulty = 0; 
-    private int correctAnswer = 8; //used in map area
-    private int wrongAnswer = -5;
-    private int correctStreak = 0;
+
+    int numCoinsToGain = 0;
+    int incorrectAnswers = 0;
     private int module = 0;
 
     //information screens/ popups
     public GameObject infoscreen;
     public GameObject firsttimeinfopopup; //information that only appears in the info screen the first time the player opens the minigame
     public GameObject gameendScreen;
-    public TextMeshProUGUI finalcointext;
-    public TextMeshProUGUI totalcointext;
-    public TextMeshProUGUI finalscoretext;
+    public TextMeshProUGUI finalcointext; //coins got this round
+    public TextMeshProUGUI totalcointext; //coins got since opening the minigame
+    public TextMeshProUGUI finalscoretext; //leaderboard for this score (2 questions correct, etc.)
 
+
+    public TextMeshProUGUI scorereader; //constant score reader
     public GameObject exitbutton; //closes game
     public GameObject infobutton;
     public GameObject guessbutton;
-    public GameObject giveUpbutton; //shows answer, gives another question (doesn't close game)
     public GameObject QuestionReader;
 
     private int totalgainedcoins =0;
     private int totalgainedpoints =0;
 
-    public void StartWordBank(int d) //entrypoint, called from npcminigameplayer
+    public void StartWordBank(int d, int level) //entrypoint, called from npcminigameplayer
     {
+        module = level;
         minigameDifficulty = d;
         GameController.Instance.StartMinigame();
         WordBank.SetActive(true);
@@ -80,13 +84,31 @@ public class WordBankMinigame : MonoBehaviour
         exitbutton.SetActive(true);
         infobutton.SetActive(true);
     }
+
+    public void OpenEndGamePopup()
+    {
+        gameendScreen.SetActive(true);
+        exitbutton.SetActive(false);
+        infobutton.SetActive(false);
+
+    }
+    public void CloseEndGamePopup()
+    {
+        gameendScreen.SetActive(false);
+        exitbutton.SetActive(true);
+        infobutton.SetActive(true);
+    }
     public void RestartPlay()
     {
+        numCoinsToGain = 0;
+        incorrectAnswers = 0;
+
         DeleteWords();
+        StartCoroutine(getQuestionList());
         StartCoroutine(LoadWords());
 
-        
-        
+        scorereader.text = "Correct Solutions: " + numCoinsToGain + "\nIncorrect Solutions: "
+            + incorrectAnswers + "\nQuestions Left: " + 5;
     }
 
     //used for resetting
@@ -96,8 +118,13 @@ public class WordBankMinigame : MonoBehaviour
         {
             Destroy(words[i].gameObject);
         }
+        for(int i = 0; i < answerSentence.Count; i++)
+        {
+            Destroy(answerSentence[i].gameObject);
+        }
 
         words.Clear();
+        answerSentence.Clear();
     }
     public void RandomizeWordAppearance()
     {
@@ -110,7 +137,38 @@ public class WordBankMinigame : MonoBehaviour
             words[i].gameObject.transform.eulerAngles = new Vector3(0f, 0f, rand);
         }
     }
-    public IEnumerator LoadWords()
+    public void CheckSentence()
+    {
+        string sentence = "";
+
+        for(int i = 0; i <answerSentence.Count; i++)
+        {
+            sentence += answerSentence[i].text.text;
+            if(i != answerSentence.Count - 1)
+            {
+                sentence += " "; //spacer not on last word
+            }
+        }
+        if (currentQuestion.options[currentQuestion.answerIndex].text == sentence)
+        {
+            numCoinsToGain++; //give a coin
+            scorereader.text = "Correct Solutions: " + numCoinsToGain + "\nIncorrect Solutions: "
+            + incorrectAnswers + "\nQuestions Left: " + questions.Count;
+
+        }
+        else
+        {
+            incorrectAnswers++;
+            scorereader.text = "Correct Solutions: " + numCoinsToGain + "\nIncorrect Solutions: "
+            + incorrectAnswers + "\nQuestions Left: " + questions.Count;
+        }
+
+        DeleteWords();
+        SelectNextQuestion();
+        StartCoroutine(LoadWords());
+
+    }
+    public IEnumerator getQuestionList()
     {
         yield return new WaitUntil(() => pilot.gotQuestions);
         List<string> tempwords = new List<string>();
@@ -154,14 +212,20 @@ public class WordBankMinigame : MonoBehaviour
         }
 
         SelectNextQuestion();
+    }
 
+    public IEnumerator LoadWords()
+    {
+        yield return new WaitUntil(() => pilot.gotQuestions);
+        List<string> tempwords = new List<string>();
+        string currentWord = "";
         string rightAnswer = currentQuestion.options[currentQuestion.answerIndex].text;
         //iterate through to actually make the word objects and assign their values
         for(int i = 0; i < rightAnswer.Length; i++) //size of string
         {
             if(rightAnswer[i] == ' ' || rightAnswer[i]  == '\n' || rightAnswer[i]  == '\r' || i == rightAnswer.Length - 1)
             {
-                if(i == rightAnswer.Length - 1 && rightAnswer[i] != '.')
+                if(i == rightAnswer.Length - 1)
                 {
                     currentWord += rightAnswer[i]; //get last letter, otherwise would be culled
                 }
@@ -173,7 +237,6 @@ public class WordBankMinigame : MonoBehaviour
                 currentWord += rightAnswer[i] ;
             }
         }
-        Debug.Log("QUESTION IS: " + currentQuestion.question);
         Debug.Log("ANSWER IS: " + rightAnswer);
         for(int i = 0; i < tempwords.Count; i++)
         {
@@ -184,6 +247,7 @@ public class WordBankMinigame : MonoBehaviour
             words[i].word = tempwords[i];
             words[i].text.text = words[i].word;
             words[i].gameObject.name = "Word- " + words[i].word;
+            words[i].indexInWords = i;
             
         }
 
@@ -192,10 +256,40 @@ public class WordBankMinigame : MonoBehaviour
 
     public void SelectNextQuestion()
     {
-        currentQuestion = questions[0];
-        questions.RemoveAt(0);
+        if(questions.Count > 0)
+        {
+            currentQuestion = questions[0];
+            questions.RemoveAt(0);
 
-        QuestionReader.GetComponentInChildren<TextMeshProUGUI>().text = currentQuestion.question;
+            QuestionReader.GetComponentInChildren<TextMeshProUGUI>().text = currentQuestion.question;
+        }
+        else //game over
+        {
+            OpenEndGamePopup();
+            HandleCoinsandScore();
+        }
+    }
+
+    public void HandleCoinsandScore()
+    {
+
+        int scoreToGain = numCoinsToGain * 1000;
+        ScoreManager.Instance.AddMinigameScore(scoreToGain);
+        CoinManager.Instance.AddCoin(numCoinsToGain);
+
+        totalgainedcoins += numCoinsToGain;
+        totalgainedpoints += scoreToGain;
+        finalscoretext.text = "Correct Solutions: " + numCoinsToGain + "\nIncorrect Solutions: " + incorrectAnswers;
+
+        if(numCoinsToGain == 1)
+        {
+            finalcointext.text = "You got:\n" + numCoinsToGain + " Coin and +" + scoreToGain + " Points"; 
+        }
+        else
+        {
+            finalcointext.text = "You got:\n" + numCoinsToGain + " Coins and +" + scoreToGain + " Points"; 
+        }
+        totalcointext.text = "That makes a total of:\n" + totalgainedcoins + " Coins and +" + totalgainedpoints + " Points"; 
     }
 
     public Vector2 getRandomGameboardPosition()
@@ -203,10 +297,109 @@ public class WordBankMinigame : MonoBehaviour
         return new Vector2(Random.Range(-650f,650f), Random.Range(-325f,325f));
     }
 
-    //actually need this to constantly attach current word the player has "picked up" to be near their mouse/finger
-    public void Update() 
+    public void ReprintSentence()
     {
-        
+        for(int i = 0; i < answerSentence.Count; i++)
+        {
+            answerSentence[i].transform.SetParent(sentenceArea.transform, true);
+            answerSentence[i].gameObject.transform.position = new Vector2((sentenceOrigin.position.x + ((i * 140) % 840)) , 
+                (sentenceOrigin.position.y - ((i * 140) / 840) * 90)  );
+            answerSentence[i].indexInSentence = i; //index in sentence
+            answerSentence[i].indexInWords = -1;
+        }
+    }
+
+    //exchange words from sentence and board
+    public void exchangeBoardandSentence(Transform word)
+    {
+        GameObject identifier = FindNearestObjectToWord(word);
+        if (identifier)
+        {
+            if(identifier == sentenceArea)
+            {
+                if(word.gameObject.GetComponent<WordFromBank>().indexInWords != -1)
+                {
+                    //append to sentence
+                    words.RemoveAt(word.gameObject.GetComponent<WordFromBank>().indexInWords);
+                    answerSentence.Add(word.gameObject.GetComponent<WordFromBank>());
+                }
+                else //was already in sentence, just reappend
+                {
+                    answerSentence.RemoveAt(word.gameObject.GetComponent<WordFromBank>().indexInSentence);
+                    answerSentence.Add(word.gameObject.GetComponent<WordFromBank>());
+                }
+            }
+        }
+        else //remove from sentence
+        {
+            if(word.gameObject.GetComponent<WordFromBank>().indexInSentence != -1)
+            {
+                answerSentence.RemoveAt(word.gameObject.GetComponent<WordFromBank>().indexInSentence);
+                words.Add(word.gameObject.GetComponent<WordFromBank>());
+            }
+            // else already on game board, just place it down again
+    
+        }
+        reIndex();
+        ReprintSentence();
+    }
+
+    public void reIndex()
+    {
+        for(int i = 0; i < answerSentence.Count; i++)
+        {
+            answerSentence[i].indexInSentence = i;
+            answerSentence[i].indexInWords = -1;
+        }
+
+        for(int i = 0; i < words.Count; i++)
+        {
+            words[i].indexInSentence = -1;
+            words[i].indexInWords = i;
+        }
+    }
+    //in sentence
+    public GameObject FindNearestObjectToWord(Transform word)
+    {
+        RaycastHit hit;
+        // Does the ray intersect any objects excluding the player layer
+        Vector3 raystart = new Vector3(word.position.x, word.position.y, word.position.z - 15);
+        if (Physics.Raycast(raystart, transform.TransformDirection(Vector3.forward), out hit, Mathf.Infinity))
+        {
+            if(hit.transform.gameObject.GetComponent<SentenceSpacer>())
+            {
+                Debug.Log("OVER SPACER");   
+                return hit.transform.gameObject;
+            }
+            else if(hit.transform == sentenceArea.transform )
+            {
+                //append to end of sentence
+                return sentenceArea;
+            }
+            else
+            {
+                Debug.Log("NOT IN SENTENCE"); 
+                return null;
+            }
+        }
+        return null;
+    }
+
+    //actually need this to constantly attach current word the player has "picked up" to be near their mouse/finger
+    //called in GameControl.cs
+    public void HandleUpdate() 
+    {
+        if(WordInHand != null)
+        {
+            if (Application.isMobilePlatform) 
+            {
+                WordInHand.transform.position = Input.GetTouch(0).position;
+            }
+            else
+            {
+                WordInHand.transform.position = Input.mousePosition;
+            }
+        }
     }
 
 }
