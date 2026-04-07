@@ -47,7 +47,6 @@ public class CardMatchingMinigame : MonoBehaviour
     private int correctAnswer = 8; //used in map area
     private int wrongAnswer = -5;
     private int correctStreak = 0;
-    private bool gotQuestions = false;
     private int module = 0;
 
     //information screens/ popups
@@ -187,7 +186,6 @@ public class CardMatchingMinigame : MonoBehaviour
 
     public void RestartPlay()
     {
-        gotQuestions = false;
         playerPlayReader.text = "Selecting a Question Card...";
         rivalPlayReader.text = "";
         for(int i = 0; i < questions.Count; i++)
@@ -381,7 +379,6 @@ public class CardMatchingMinigame : MonoBehaviour
 
     IEnumerator LoadCards()
     {
-        StartCoroutine(pilot.getQuestions());
         yield return new WaitUntil(() => pilot.gotQuestions);
         int count = Questioncards.Count;
         

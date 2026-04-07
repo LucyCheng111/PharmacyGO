@@ -250,7 +250,6 @@ public class SlapjackMinigame : MonoBehaviour
     } 
     IEnumerator LoadCards()
     {
-        StartCoroutine(pilot.getQuestions());
         yield return new WaitUntil(() => pilot.gotQuestions);
         
         int Questioncount = 10;

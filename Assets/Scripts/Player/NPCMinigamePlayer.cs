@@ -15,7 +15,7 @@ public class NPCMinigamePlayer : MonoBehaviour
         }
         else if(type == MinigameType.WordBank)
         {
-            
+            MainCanvas.Instance.GetComponentInChildren<WordBankMinigame>().StartWordBank(difficulty);
         }
         else if(type == MinigameType.Slapjack)
         {

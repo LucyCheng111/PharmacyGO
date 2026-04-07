@@ -16,6 +16,10 @@ public class MinigamePilot : MonoBehaviour
     public Database database;
     public List<Question> randomQuestions;
     public Module moduleManager;
+    void Start()
+    {
+        StartCoroutine(getQuestions());
+    }
     public IEnumerator getQuestions()
     {   
         database = new Database();
