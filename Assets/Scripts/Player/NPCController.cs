@@ -115,5 +115,11 @@ public class NPCController : MonoBehaviour, Interactable
         InteractPrompt.SetActive(false);
     }
 
+    public void SetDialog(Dialog newDialog)
+    {
+        // This allows other scripts to change what dialog this NPC says
+
+        dialog = newDialog;
+    }
 }
 
