@@ -266403,7 +266403,7 @@ Camera:
   far clip plane: 1000
   field of view: 34
   orthographic: 1
-  orthographic size: 8.916667
+  orthographic size: 10.638889
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -267565,6 +267565,7 @@ MonoBehaviour:
     - Here's your partner, but I have to tell you, they have some attitude
     - If you don't want them, you can close them by interacting with them
     - You can reopen them in the pause menu
+    - For more info, go to the front desk in the building!
     - Anyways, good luck!
 --- !u!4 &1420719948
 Transform:
@@ -364712,6 +364713,7 @@ GameObject:
   - component: {fileID: 1088355924383440656}
   - component: {fileID: 6510702805374517820}
   - component: {fileID: 6510702805374517822}
+  - component: {fileID: 6510702805374517823}
   m_Layer: 10
   m_Name: AiRival
   m_TagString: Untagged
@@ -364945,6 +364947,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 1
+  difficulty: 0
+--- !u!114 &6510702805374517823
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1259882426521305609}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2583fb2bfb2852945afc6bd50dfb6756, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 3
   difficulty: 0
 --- !u!1001 &6638732802060604241
 PrefabInstance:
