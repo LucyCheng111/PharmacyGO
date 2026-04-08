@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using System.Net;
 
 public enum WordBankPlay  //only used to determine if you can pick up the words
 {
@@ -42,6 +43,11 @@ public class WordBankMinigame : MonoBehaviour
     public TextMeshProUGUI totalcointext; //coins got since opening the minigame
     public TextMeshProUGUI finalscoretext; //leaderboard for this score (2 questions correct, etc.)
 
+    public TextMeshProUGUI lastquestiontext;
+    public TextMeshProUGUI itscorrectanswertext;
+    public TextMeshProUGUI yougavetext;
+    public TextMeshProUGUI confusedtext;
+    public GameObject lastQuestionInfo; //in info screen
 
     public TextMeshProUGUI scorereader; //constant score reader
     public GameObject exitbutton; //closes game
@@ -137,6 +143,13 @@ public class WordBankMinigame : MonoBehaviour
             words[i].gameObject.transform.eulerAngles = new Vector3(0f, 0f, rand);
         }
     }
+    public void updateLastQuestionTexts(string yougave, string correctanswer, string q)
+    {
+        yougavetext.text = "You gave: " + yougave;
+        lastquestiontext.text = "Last question: " + q;
+        itscorrectanswertext.text = "Its correct answer: " + correctanswer;
+
+    }
     public void CheckSentence()
     {
         string sentence = "";
@@ -151,6 +164,8 @@ public class WordBankMinigame : MonoBehaviour
         }
         if (currentQuestion.options[currentQuestion.answerIndex].text == sentence)
         {
+            confusedtext.gameObject.SetActive(false);
+            lastQuestionInfo.SetActive(false);
             numCoinsToGain++; //give a coin
             scorereader.text = "Correct Solutions: " + numCoinsToGain + "\nIncorrect Solutions: "
             + incorrectAnswers + "\nQuestions Left: " + questions.Count;
@@ -158,11 +173,14 @@ public class WordBankMinigame : MonoBehaviour
         }
         else
         {
+            confusedtext.gameObject.SetActive(true);
+            lastQuestionInfo.SetActive(true);
             incorrectAnswers++;
             scorereader.text = "Correct Solutions: " + numCoinsToGain + "\nIncorrect Solutions: "
             + incorrectAnswers + "\nQuestions Left: " + questions.Count;
         }
 
+        updateLastQuestionTexts(sentence, currentQuestion.options[currentQuestion.answerIndex].text, currentQuestion.question);
         DeleteWords();
         SelectNextQuestion();
         StartCoroutine(LoadWords());
@@ -237,6 +255,56 @@ public class WordBankMinigame : MonoBehaviour
                 currentWord += rightAnswer[i] ;
             }
         }
+
+        int qtotal = pilot.randomQuestions.Count;
+        Question randQ;
+        List<string> randWords = new List<string>();
+
+        //get other random words to make it a challenge
+        int numWordsInRightAnswer = tempwords.Count;
+        for(int i = 0; i < minigameDifficulty * 3; i++)
+        {
+            //will get the # of words in the correct answer * (the difficulty / 2)
+            //ie. difficulty 2 and a total size of 10 words in correct answer = 10 extra words
+            //difficulty 4 for the same question would be 20 extra words
+            randQ = pilot.randomQuestions[Random.Range(0,qtotal)]; //random Question
+            int randO = Random.Range(0,randQ.options.Count);
+
+            string randS = randQ.options[Random.Range(0,randO)].text; //random answer (doesnt matter if right or not)
+            string word = "";
+            
+            if(randS == "")
+            {
+                //if the answer is an image link, then there isn't text here
+                //instead of getting another, we'll skip, and the player will get 1 less word
+                //this makes the challenge a little randomized too, and so there won't always be the same number-
+                //of words for a given sentence
+                continue;
+            }
+            //get words from string
+            for(int l = 0; l < randS.Length; l++)
+            {
+                if(randS[l] == ' ' || randS[l] == '\n' || randS[l] == '\r' || l == randS.Length - 1)
+                {
+                    if(l == randS.Length - 1)
+                    {
+                        word += randS[l];
+                    }
+                    randWords.Add(word);
+                    word = "";
+                }
+                else
+                {
+                    word += randS[l];
+                }
+            }
+
+            word = randWords[Random.Range(0, randWords.Count)];
+            tempwords.Add(word); //add to list
+
+            randWords.Clear();
+        }
+
         Debug.Log("ANSWER IS: " + rightAnswer);
         for(int i = 0; i < tempwords.Count; i++)
         {
