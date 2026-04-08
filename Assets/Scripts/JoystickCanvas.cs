@@ -7,6 +7,7 @@ public class JoystickCanvas : MonoBehaviour
 
     private static JoystickCanvas instance;
     [SerializeField] private GameObject joystickCanvas;
+    [SerializeField] private GameObject sprintButton;
     void Awake()
     {
         if (instance == null)
@@ -24,15 +25,18 @@ public class JoystickCanvas : MonoBehaviour
         if (Application.isMobilePlatform)
         {
             joystickCanvas.SetActive(true);
+            sprintButton.SetActive(true);
         }
         else
         {
             // For desktop or other platforms, maybe hide it by default
             joystickCanvas.SetActive(false);
+            sprintButton.SetActive(false);
         }
     }
     public void JoystickOnOff(){
         bool isActive = joystickCanvas.activeSelf;
         joystickCanvas.SetActive(!isActive);
+        sprintButton.SetActive(!isActive);
     }
 }
