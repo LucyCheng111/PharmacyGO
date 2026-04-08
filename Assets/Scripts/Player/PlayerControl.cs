@@ -22,6 +22,8 @@ public class PlayerControl : MonoBehaviour
     public LayerMask interactableLayer;
     public LayerMask grassLayer;
     public LayerMask NPCFovLayer;
+    
+    public bool sprintPressed = false;
     public bool isSprinting;   // For ai to know 
 
     //public event Action OnEncountered;
@@ -95,9 +97,9 @@ public class PlayerControl : MonoBehaviour
                 input.Normalize();
             }
 
-            //check if the player is sprinting
+            //check if the player is pressing the sprint key
 
-            isSprinting = isSprinting || Input.GetKey(KeyCode.LeftShift);
+            isSprinting = sprintPressed || Input.GetKey(KeyCode.LeftShift);
             float currentSpeed = isSprinting  ? moveSpeed * 2.0f: moveSpeed;
             //note to self: this is the ternary conditional operator, basically:
             // condition ? ifTrue : ifFalse;
