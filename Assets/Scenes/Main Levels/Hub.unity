@@ -366673,6 +366673,7 @@ GameObject:
   - component: {fileID: 1088355924383440656}
   - component: {fileID: 6510702805374517820}
   - component: {fileID: 6510702805374517822}
+  - component: {fileID: 6510702805374517824}
   m_Layer: 10
   m_Name: AiRival
   m_TagString: Untagged
@@ -366906,6 +366907,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 1
+  difficulty: 0
+--- !u!114 &6510702805374517824
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1259882426521305609}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2583fb2bfb2852945afc6bd50dfb6756, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 3
   difficulty: 0
 --- !u!1001 &6638732802060604241
 PrefabInstance:
