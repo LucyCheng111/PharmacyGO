@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+﻿﻿using UnityEngine;
 using UnityEngine.SceneManagement;
 using System.Collections;
 using System.Collections.Generic;
@@ -243,15 +243,13 @@ public class AiRival : MonoBehaviour, Interactable
 
         bool showingChat = false;
         bool showingMiniGame = false;
-        bool showingShutdown = false;
 
         // Create choices for shutdown confirmation
         List<string> choices = new List<string>
         {
             "Chat",
             "Mini Game",
-            "Dismiss your rival",
-            "Nevermind"
+            "Close the AI"
             
         };
 
@@ -271,10 +269,7 @@ public class AiRival : MonoBehaviour, Interactable
                 {
                     showingMiniGame = true;
                 }
-                else if(choiceIndex == 2)
-                {
-                    showingShutdown = true;
-                }
+           
             }
         );
         if (showingChat)
@@ -296,14 +291,10 @@ public class AiRival : MonoBehaviour, Interactable
         {
             yield return showMiniGameOptions();
         }
-        else if(showingShutdown)
+        else
         {
             // Show shutdown confirmation, choose close AI
             yield return ShowShutdownConfirmation();
-        }
-        else
-        {
-            DialogManager.Instance.CloseDialog();
         }
     }
 
