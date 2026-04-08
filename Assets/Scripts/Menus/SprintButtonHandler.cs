@@ -5,11 +5,11 @@ public class SprintButtonHandler : MonoBehaviour, IPointerDownHandler, IPointerU
 {
     public void OnPointerDown(PointerEventData eventData)
     {
-        PlayerControl.Instance.isSprinting = true;
+        PlayerControl.Instance.sprintPressed = true;
     }
 
     public void OnPointerUp(PointerEventData eventData)
     {
-        PlayerControl.Instance.isSprinting = false;
+        PlayerControl.Instance.sprintPressed = false;
     }
 }
