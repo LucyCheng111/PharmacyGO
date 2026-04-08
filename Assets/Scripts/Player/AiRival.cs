@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+﻿﻿using UnityEngine;
 using UnityEngine.SceneManagement;
 using System.Collections;
 using System.Collections.Generic;
@@ -29,7 +29,7 @@ public class AiRival : MonoBehaviour, Interactable
 
     // Private
     private PlayerControl playerControl;
-    private NPCMinigamePlayer minigamePlayer;   // minigame
+    private NPCMinigamePlayer[] minigamePlayers;    // mini games components
     private float currentMoveSpeed;     // To switch between sprint or normal
     private Vector2 lastMoveDirection;
     private bool isInteracting = false;
@@ -54,7 +54,7 @@ public class AiRival : MonoBehaviour, Interactable
     
     void Awake()
     {
-        minigamePlayer = GetComponent<NPCMinigamePlayer>();
+        minigamePlayers = GetComponents<NPCMinigamePlayer>();
 
         // Check if we're the first AI in the game
         if (Instance == null)
@@ -243,13 +243,15 @@ public class AiRival : MonoBehaviour, Interactable
 
         bool showingChat = false;
         bool showingMiniGame = false;
+        bool showCloseAI = false;
 
         // Create choices for shutdown confirmation
         List<string> choices = new List<string>
         {
             "Chat",
             "Mini Game",
-            "Close the AI"
+            "Close the AI",
+            "Nah"
             
         };
 
@@ -269,7 +271,11 @@ public class AiRival : MonoBehaviour, Interactable
                 {
                     showingMiniGame = true;
                 }
-           
+                else if (choiceIndex == 2)
+                {
+                    showCloseAI = true;
+                }
+
             }
         );
         if (showingChat)
@@ -291,10 +297,14 @@ public class AiRival : MonoBehaviour, Interactable
         {
             yield return showMiniGameOptions();
         }
-        else
+        else if (showCloseAI)
         {
             // Show shutdown confirmation, choose close AI
             yield return ShowShutdownConfirmation();
+        }
+        else
+        {
+            DialogManager.Instance.CloseDialog();
         }
     }
 
@@ -335,7 +345,7 @@ public class AiRival : MonoBehaviour, Interactable
         List<string> choices = new List<string>
         {
             "Play Cards",
-            "option 2 (not yet)",
+            "Slapjack",
             "Nah"
         };
 
@@ -347,20 +357,16 @@ public class AiRival : MonoBehaviour, Interactable
             choices: choices,
             onChoiceSelected: (choiceIndex) =>
             {
-                if (choiceIndex == 0) // Player chose "playcards
+                if (choiceIndex == 2) // "Nah"
                 {
-                    // Open the minigame
-                    if (minigamePlayer != null)
-                        minigamePlayer.StartMinigame();
-                    else
-                        Debug.LogWarning("AiRival: No NPCMinigamePlayer component found!");
-                }
-                // Can add other minigames later
-                else
-                {
-                    // Manually close the dialog after choice is made
                     DialogManager.Instance.CloseDialog();
+                    return;
                 }
+
+                if (minigamePlayers != null && choiceIndex < minigamePlayers.Length)
+                    minigamePlayers[choiceIndex].StartMinigame();
+                else
+                    Debug.LogWarning("AiRival: No minigame found for index " + choiceIndex);
             }
         );
     }

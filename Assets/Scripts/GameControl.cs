@@ -131,30 +131,26 @@ private void Start()
     {
         StartCoroutine(EndBattleRoutine());
 
-        // state = GameState.FreeRoam;
-        // Debug.Log("GameState == " + state);
-        // //yield return null;
-        // battleSystem.gameObject.SetActive(false);
-        // playerControl.gameObject.SetActive(true);
-        // worldCamera.gameObject.SetActive(true);
-
-        // NPCEnemy enemy = FindFirstObjectByType<NPCEnemy>();
-        // if (enemy!= null){
-        //     enemy.MarkDefeated();
-        // }        
     }
 
     IEnumerator EndBattleRoutine()
     {
-        state = GameState.FreeRoam;
-        Debug.Log("GameState == " + state);
-        yield return null;
+
+        //yield return null;
         battleSystem.gameObject.SetActive(false);
         playerControl.gameObject.SetActive(true);
         //reset the player's encounter timer
         PlayerControl.Instance.RestartEncounterCooldown();
         worldCamera.gameObject.SetActive(true);
+        
+        //moved to the end of the function to prevent race condition-related softlocks 
+        state = GameState.FreeRoam;
+        Debug.Log("GameState == " + state);
+        OnBattleFinished?.Invoke();
+        yield break;
     }
+
+    public System.Action OnBattleFinished;
 
     // checks if boss is defeated
     public void MarkBossDefeated()
@@ -187,6 +183,7 @@ private void Start()
 
         if (state == GameState.FreeRoam)
         {
+            //Debug.Log("Player control handle update is running");
             playerControl.HandleUpdate();
         }
         else if (state == GameState.Battle)
