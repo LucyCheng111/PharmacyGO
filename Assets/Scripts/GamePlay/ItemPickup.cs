@@ -21,6 +21,8 @@ public class ItemPickup : MonoBehaviour, Interactable
     {
         ProgressionState.Instance.CollectItem(itemName);
 
+        LevelManager.Instance.UnlockNextLevel();
+
         gameObject.SetActive(false);
     }
 
