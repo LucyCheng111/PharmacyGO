@@ -45,7 +45,7 @@ public class Module
         {
             difficulty = pl.GetHighestPriority();
         }
-
+        
         int index = UnityEngine.Random.Range(0, questions[module, difficulty].Count);
         Question q = questions[module, difficulty][index];
         questions[module, difficulty].Remove(q);
