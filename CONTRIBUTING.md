@@ -1,63 +1,95 @@
 # Contributing Guide
 
-## Prerequisites  local setup steps
-- GitHub
-- GitHub Desktop
-- Unity
-- Unity editor version 6000.0.024f1
+## Prerequisites
 
-## local setup steps
-1. Clone PharmacyGo GitHub to GitHub Desktop
-2. Open the PharmacyGo Project on Unity, make sure the editor version is 6000.0.024f1
-3. Go to Assets/Scenes/Main Levels/Main Menu
-4. Click play
+- [GitHub](https://github.com/) account
+- [GitHub Desktop](https://desktop.github.com/)
+- [Unity Hub](https://unity.com/download)
+- Unity editor version **6000.0.024f1** — download from the [Unity Editor Archive](https://unity.com/releases/editor/archive) (select "All versions" to find it)
 
-## Expected contribution workflow
-**1. Branch Naming**
+## Local Setup
 
-Make sure the branch name is short and clear and reflects the subject you're working on 
+1. Clone the [PharmacyGO repository](https://github.com/LucyCheng111/PharmacyGO) using GitHub Desktop
+2. Open the project in Unity Hub and confirm the editor version is **6000.0.024f1**
+3. In the Project window, navigate to `Assets/Scenes/Main Levels/` and open **Main Menu**
+4. Press **Play** — if the game runs without errors, your setup is good
 
+## Expected Contribution Workflow
 
-**2. How to open a PR**
+### 1. Branch Naming
 
-(1) Push the changes into your branch
+Keep branch names short, lowercase, and descriptive of what you're working on.
 
-(2) Go to Pull Request and add a pull request
+Examples:
+- `feature/doctor-peek-ui`
+- `fix/caption-text-display`
+- `chore/cleanup-hub-scene`
 
-(3) Assign people to review your pull request
+### 2. Opening a Pull Request
 
+1. Push your changes to your branch
+2. Go to the [Pull Requests tab](https://github.com/LucyCheng111/PharmacyGO/pulls) and open a new PR
+3. Assign relevant team members as reviewers (see [Team](#team) below)
 
-**3. Information to include**
+### 3. What to Include in Your PR
 
-(1) State out the subject
+- **Subject** — what you changed and why
+- **How to test it** — exact steps a reviewer should follow to verify the outcome
+- **Screenshots or recordings** if the change is visual
 
-(2) State out the outcome so people would know how to test it
+### 4. Definition of Done
 
+- No compiler errors
+- Tested as described in the PR and works as expected
+- At least one team member has approved the PR
 
-**4. Definition of Done**
+### 5. Code Review Expectations
 
-(1) No compiling error
+- Leave comments on logic that isn't immediately obvious
+- Flag anything that touches shared systems (Hub scene, DialogBox, BattleCanvas) — these affect multiple contributors
+- Approve only if you actually tested it
 
-(2) Test worked as described
+## Reporting Bugs / Requesting Changes
 
+[Open an Issue](https://github.com/LucyCheng111/PharmacyGO/issues) in the repository and include:
 
-**5. Code review expectations**
+1. A clear description of the bug or requested change
+2. Which file(s) are involved
+3. The condition or steps that trigger it
+4. Expected vs. actual behavior
 
-Clean code with clear comments
+## Version 2 Development Team
 
+| Name | Area | GitHub | Email |
+|---|---|---|---|
+| Annmarie Geiger | Database Management | [@kyofyufufufufufufufu](https://github.com/kyofyufufufufufufufu) | geigerta@oregonstate.edu |
+| Lucy Cheng | AI Development | [@LucyCheng111](https://github.com/LucyCheng111) | chengjuh@oregonstate.edu |
+| Nick Shininger | Game Content Development, Minigames | [@shiningn-osu](https://github.com/shiningn-osu) | shiningn@oregonstate.edu |
+| Jakob Poore | Level Design | [@poorej](https://github.com/poorej) | poorej@oregonstate.edu |
+| Max Baker | Game Mechanics Development | [@Crimson-Ender](https://github.com/Crimson-Ender) | bakerm7@oregonstate.edu |
 
-## Report bugs / Request changes
-Open an Issue in the GitHub repository
+## Version 1 Development Team
+ 
+| Name | Role |
+|---|---|
+| Jinpeng Chen | Programmer |
+| Alec Duval | Database Manager |
+| Quinn Glenn | Menu Designer |
+| Xiaoyu Luo | Scene Developer |
+| Teagan Simoneau | Project Manager |
+| Hoimau Tan | Index Designer |
+| Erik Tornquist | Database Programmer |
+| Samuel Westerham | Music / Level Designer |
 
+## Handoff & Support
 
-**What to include**
+This project was developed as a capstone at Oregon State University. For installation help, technical issues, feature requests, or general questions, submit a request via the [PharmacyGO Support & Feedback Form](https://forms.gle/NajcPYnEa8jS3CWN6). Submissions are monitored by the project manager and will be routed to the appropriate team or future development group.
 
-(1) State out the bug
+For bugs in the codebase, please open a [GitHub Issue](https://github.com/LucyCheng111/PharmacyGO/issues) instead.
 
-(2) Which file the bug is located
+### Related Repositories
 
-(3) In what condition it will happen
-
-
-## Support & Contact
- Reach out via our project Discord/Teams channel
+| Repository | Description |
+|---|---|
+| [PharmacyGO Unity Project](https://github.com/LucyCheng111/PharmacyGO) | Main Unity game |
+| [Database Management App](https://github.com/kyofyufufufufufufufu/test_database1) | WinForms C# app for managing game database content |
