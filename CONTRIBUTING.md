@@ -86,10 +86,3 @@ Examples:
 This project was developed as a capstone at Oregon State University. For installation help, technical issues, feature requests, or general questions, submit a request via the [PharmacyGO Support & Feedback Form](https://forms.gle/NajcPYnEa8jS3CWN6). Submissions are monitored by the project manager and will be routed to the appropriate team or future development group.
 
 For bugs in the codebase, please open a [GitHub Issue](https://github.com/LucyCheng111/PharmacyGO/issues) instead.
-
-### Related Repositories
-
-| Repository | Description |
-|---|---|
-| [PharmacyGO Unity Project](https://github.com/LucyCheng111/PharmacyGO) | Main Unity game |
-| [Database Management App](https://github.com/kyofyufufufufufufufu/test_database1) | WinForms C# app for managing game database content |
