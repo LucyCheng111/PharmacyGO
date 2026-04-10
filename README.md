@@ -65,7 +65,7 @@ The database management app allows the project partner to add, edit, and remove 
 
 ## Support & Handoff
 
-This project was developed as a capstone at Oregon State University and is fully complete as of Version 2. For installation help, technical issues, or feature requests, submit a request via the [PharmacyGO Support & Feedback Form](https://forms.gle/NajcPYnEa8jS3CWN6). Submissions are monitored by the project manager and will be routed to the appropriate team or future development group.
+This project was developed as a capstone at Oregon State University and is fully complete as of Version 2. For installation help, technical issues, or feature requests, submit a request via the [PharmacyGO Support & Feedback Form](https://forms.gle/NajcPYnEa8jS3CWN6). Submissions are monitored by the project manager and will be routed to the appropriate team.
 
 For contributing guidelines, see [CONTRIBUTING.md](CONTRIBUTING.md).
 

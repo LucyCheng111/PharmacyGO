@@ -79,7 +79,7 @@ Examples:
 | Teagan Simoneau | Project Manager |
 | Hoimau Tan | Index Designer |
 | Erik Tornquist | Database Programmer |
-| Samuel Westerham | Music / Level Designer |
+| Samuel Westerham | Level Designer |
 
 ## Handoff & Support
 
