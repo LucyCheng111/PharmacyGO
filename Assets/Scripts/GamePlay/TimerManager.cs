@@ -81,8 +81,8 @@ public class TimerManager : MonoBehaviour
 
     public int GetMultiplier()
     {
-        if (!levelStarted) // if level is not active, skip
-            return 0;
+        //if (!levelStarted) // if level is not active, skip
+        //    return 0;
 
         if (currentTime < 300f) // 5 minutes
             return 10;
@@ -100,7 +100,7 @@ public class TimerManager : MonoBehaviour
             return 1;
 
         else
-            return 0;
+            return 1;   // Don't return 0, if take too long it will become 0 points, at least *1
     }
 
     public bool IsLevelStarted()
