@@ -9,7 +9,7 @@ public class HudController : MonoBehaviour
 {
 
     // Handles all HUD elements in one place
-
+    [SerializeField] GameObject playerNameDisplay;
     [SerializeField] GameObject coinCounter;
     [SerializeField] GameObject scoreCounter;
     [SerializeField] GameObject toolUICanvas;
@@ -18,6 +18,18 @@ public class HudController : MonoBehaviour
     [SerializeField] GameObject multiplierDisplay;
 
     [SerializeField] GameObject Counters; //coin, score, etc...
+
+    void Start()
+    {
+        if (Username_Manager.Instance != null && playerNameDisplay != null)
+        {
+            playerNameDisplay.GetComponent<TMP_Text>().text = Username_Manager.Instance.username;
+        }
+        else
+        {
+            Debug.Log("HUD: can't assign username");
+        }
+    }
 
     public void TurnHudOn()
     {
@@ -46,6 +58,7 @@ public class HudController : MonoBehaviour
         scoreCounter.GetComponent<TMP_Text>().color = Color.black;
         timerDisplay.GetComponent<TMP_Text>().color = Color.black;
         multiplierDisplay.GetComponent<TMP_Text>().color = Color.black;
+        playerNameDisplay.GetComponent<TMP_Text>().color = Color.black;
         toolUICanvas.SetActive(false);
         joyStickCanvas.SetActive(false);
     }
@@ -56,6 +69,7 @@ public class HudController : MonoBehaviour
         scoreCounter.GetComponent<TMP_Text>().color = Color.white;
         timerDisplay.GetComponent<TMP_Text>().color = Color.white;
         multiplierDisplay.GetComponent<TMP_Text>().color = Color.white;
+        playerNameDisplay.GetComponent<TMP_Text>().color = Color.white;
         if (toolUICanvas != null) toolUICanvas.SetActive(true);
         if (joyStickCanvas != null)
             joyStickCanvas.SetActive(true);
