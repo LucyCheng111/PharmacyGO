@@ -23,7 +23,7 @@ public class HudController : MonoBehaviour
     {
         if (Username_Manager.Instance != null && playerNameDisplay != null)
         {
-            playerNameDisplay.GetComponent<TMP_Text>().text = Username_Manager.Instance.username;
+            playerNameDisplay.GetComponent<TMP_Text>().text = "Hello, " + Username_Manager.Instance.username + "!";
         }
         else
         {
