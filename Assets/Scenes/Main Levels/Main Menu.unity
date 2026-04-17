@@ -1220,7 +1220,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 10}
   m_SizeDelta: {x: 375.24, y: 154.83002}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!114 &502935296
@@ -1248,7 +1248,9 @@ MonoBehaviour:
     Move = <i>WASD</i>
 
     Interact = <i>Space
-    Bar</i>'
+    Bar</i>
+
+    Sprint = <i>Left Shift</i>'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1497,7 +1499,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 808, y: 485.06}
+  m_AnchoredPosition: {x: 813, y: 442}
   m_SizeDelta: {x: 298.04, y: 95.06}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &622514102
@@ -1520,7 +1522,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Version 2.0 \npre-release 1"
+  m_text: 'Version 2.0 '
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
