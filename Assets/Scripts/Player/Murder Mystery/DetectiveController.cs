@@ -13,6 +13,8 @@ public class DetectiveController : MonoBehaviour, Interactable
 
     public void Interact(Transform initiator)
     {
+        murderCase = MurderMystery.Instance.murders[MurderMystery.Instance.currentLevel].cases[MurderMystery.Instance.currentCase];
+
         if(murderCase.type == CaseType.LivePatient)
         {
             dectordoc = "Doctor:";
@@ -21,8 +23,6 @@ public class DetectiveController : MonoBehaviour, Interactable
         {
             dectordoc = "Detective:";
         }
-
-        murderCase = MurderMystery.Instance.murders[MurderMystery.Instance.currentLevel].cases[MurderMystery.Instance.currentCase];
         if (!isInteracting)
         {   if(murderCase.type == CaseType.Murder)
             {
@@ -40,6 +40,15 @@ public class DetectiveController : MonoBehaviour, Interactable
             }
             else if(murderCase.type == CaseType.LivePatient)
             {
+                //first check if all evidence seen
+                for(int i = 0; i < murderCase.evidenceObjects.Count; i++)
+                {
+                    if(murderCase.evidenceObjects[i].GetComponent<NPCController>().seen == false)
+                    {
+                        StartCoroutine(NotCheckedAllEvidenceMessage());
+                        return;
+                    }
+                }
                 //check if seen all info from patient
                 if (murderCase.patient.responsesSeen.Contains(false))
                 {
