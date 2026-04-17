@@ -8,10 +8,21 @@ public class DetectiveController : MonoBehaviour, Interactable
     MurderCase murderCase;
     public List<string> options = new List<string>(); //multiple choice of answers for murder 
     public int correctOption; //index in options thats correct
+    public string dialogGiven;
+    string dectordoc = "";
 
     public void Interact(Transform initiator)
     {
         murderCase = MurderMystery.Instance.murders[MurderMystery.Instance.currentLevel].cases[MurderMystery.Instance.currentCase];
+
+        if(murderCase.type == CaseType.LivePatient)
+        {
+            dectordoc = "Doctor:";
+        }
+        else
+        {
+            dectordoc = "Detective:";
+        }
         if (!isInteracting)
         {   if(murderCase.type == CaseType.Murder)
             {
@@ -29,6 +40,15 @@ public class DetectiveController : MonoBehaviour, Interactable
             }
             else if(murderCase.type == CaseType.LivePatient)
             {
+                //first check if all evidence seen
+                for(int i = 0; i < murderCase.evidenceObjects.Count; i++)
+                {
+                    if(murderCase.evidenceObjects[i].GetComponent<NPCController>().seen == false)
+                    {
+                        StartCoroutine(NotCheckedAllEvidenceMessage());
+                        return;
+                    }
+                }
                 //check if seen all info from patient
                 if (murderCase.patient.responsesSeen.Contains(false))
                 {
@@ -72,7 +92,7 @@ public class DetectiveController : MonoBehaviour, Interactable
 
         // Show dialog with choices using ShowDialogText
         yield return DialogManager.Instance.ShowDialogText(
-            "What do you think happened here?\n",
+            dialogGiven,
             waitForInput: false,
             autoClose: false,
             choices: choices,
@@ -98,8 +118,10 @@ public class DetectiveController : MonoBehaviour, Interactable
 
     private IEnumerator ShowCorrectMessage()
     {
+        
+
         yield return StartCoroutine(DialogManager.Instance.ShowDialogText(
-            "Detective: I think that makes a lot of sense.",
+            dectordoc + " I think that makes a lot of sense.",
             waitForInput: true,
             autoClose: false
         ));
@@ -130,7 +152,7 @@ public class DetectiveController : MonoBehaviour, Interactable
     private IEnumerator NotCheckedAllEvidenceMessage()
     {
         yield return StartCoroutine(DialogManager.Instance.ShowDialogText(
-            "Detective: You haven't looked at all of the evidence, come back when you have.",
+            dectordoc + " You haven't looked at all of the evidence, come back when you have.",
             waitForInput: true,
             autoClose: true
         ));
@@ -139,7 +161,7 @@ public class DetectiveController : MonoBehaviour, Interactable
     private IEnumerator ShowIncorrectMessage()
     {
         yield return StartCoroutine(DialogManager.Instance.ShowDialogText(
-            "Detective: I don't think thats correct...",
+            dectordoc + " I don't think thats correct...",
             waitForInput: true,
             autoClose: false
         ));
@@ -161,7 +183,7 @@ public class DetectiveController : MonoBehaviour, Interactable
     private IEnumerator ShowLeaveMessage()
     {
         yield return StartCoroutine(DialogManager.Instance.ShowDialogText(
-            "Detective: Let me know if you have a guess.",
+            dectordoc + " Let me know if you have a guess.",
             waitForInput: true,
             autoClose: true
         ));

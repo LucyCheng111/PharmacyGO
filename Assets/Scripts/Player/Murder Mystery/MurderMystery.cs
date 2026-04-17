@@ -2,6 +2,8 @@ using System.Collections.Generic;
 using System.IO.Pipes;
 using UnityEngine;
 using System.Text.RegularExpressions;
+using UnityEngine.UI;
+using TMPro;
 using System;
 
 [System.Serializable]
@@ -52,6 +54,27 @@ public class MurderMystery : MonoBehaviour
         }
         Instance = this;
         
+        for(int u = 0; u < murders.Count; u++) //every unit
+        {
+            for(int c = 0; c < murders[u].cases.Count; c++) //every case in given unit
+            {
+                for(int o = 0; o < murders[u].cases[c].evidenceObjects.Count; o++) //every evidence object in given case
+                {
+                    NPCController evob = murders[u].cases[c].evidenceObjects[o];
+
+                    TextMeshPro t = evob.InteractPrompt.gameObject.GetComponentInChildren<TextMeshPro>(true);
+                    if (t) //there is a label above that object 
+                    {
+                        t.text = evob.gameObject.name; //put the value on the label
+                    }
+                    else
+                    {
+                        Debug.Log("EVIDENCE OBJECT ON " + evob.gameObject.name + " HAS NO LABEL IN INTERACTPROMPT");
+                    }
+                }
+            }
+        }
+
         randomizeMurder();
     }
 
