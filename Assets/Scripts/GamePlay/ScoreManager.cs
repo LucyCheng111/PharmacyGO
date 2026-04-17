@@ -67,8 +67,9 @@ public class ScoreManager : MonoBehaviour
             {
                 difficultyBonus = 5;
             }
-
-            int multiplier = TimerManager.Instance.GetMultiplier();
+            // make sure it's at least 1
+            int multiplier = Mathf.Max(1, TimerManager.Instance.GetMultiplier());
+            Debug.Log($"Scoring breakdown — difficulty: {difficulty}, difficultyBonus: {difficultyBonus}, multiplier: {multiplier}, streak: {MapArea.i.GetCorrectStreak() + 1}");
 
 
             {
@@ -99,7 +100,8 @@ public class ScoreManager : MonoBehaviour
                         difficulty <= 60 ? 3 :
                         difficulty <= 80 ? 4 : 5;
 
-        int multiplier = TimerManager.Instance.GetMultiplier();
+        // make sure it's at least 1
+        int multiplier = Mathf.Max(1, TimerManager.Instance.GetMultiplier());
 
         aiRivalScore += questionValue * (MapArea.i.GetCorrectStreak() + 1) * diffBonus * multiplier;
 
