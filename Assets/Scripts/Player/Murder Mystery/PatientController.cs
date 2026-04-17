@@ -9,6 +9,8 @@ public class PatientController : MonoBehaviour, Interactable
     public List<string> questions = new List<string>(); //list of questions to ask patient
     public List<bool> responsesSeen = new List<bool>();
 
+    public string dialogGiven;
+
     private bool isInteracting = false;
     [SerializeField] private GameObject InteractPrompt;
     MurderCase murderCase;
@@ -38,9 +40,9 @@ public class PatientController : MonoBehaviour, Interactable
         }
         choices.Add("I'll be right back");
         yield return DialogManager.Instance.ShowDialogText(
-            "Have any questions for me?\n",
+            dialogGiven,
             waitForInput: true,
-            autoClose: true,
+            autoClose: false,
             choices: choices,
             onChoiceSelected: async (choiceIndex) =>
             { 

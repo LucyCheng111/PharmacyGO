@@ -9,7 +9,7 @@ public class NPCController : MonoBehaviour, Interactable
     // Manager for NPC dialog and interactions
 
     [SerializeField] Dialog dialog;
-    [SerializeField] private GameObject InteractPrompt;
+    public GameObject InteractPrompt;
     
     NPCMovement npcMovement;
     NPCSceneTransitioner sceneTransitioner;

@@ -8,6 +8,7 @@ public class DetectiveController : MonoBehaviour, Interactable
     MurderCase murderCase;
     public List<string> options = new List<string>(); //multiple choice of answers for murder 
     public int correctOption; //index in options thats correct
+    public string dialogGiven;
 
     public void Interact(Transform initiator)
     {
@@ -72,7 +73,7 @@ public class DetectiveController : MonoBehaviour, Interactable
 
         // Show dialog with choices using ShowDialogText
         yield return DialogManager.Instance.ShowDialogText(
-            "What do you think happened here?\n",
+            dialogGiven,
             waitForInput: false,
             autoClose: false,
             choices: choices,
