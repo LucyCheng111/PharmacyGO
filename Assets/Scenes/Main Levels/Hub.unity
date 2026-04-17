@@ -330199,10 +330199,30 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4826019653531367281, guid: e3b3f787f063a39429f5463ae61140d5, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4895086884157921707, guid: e3b3f787f063a39429f5463ae61140d5, type: 3}
       propertyPath: sprintButton
       value: 
       objectReference: {fileID: 877147177}
+    - target: {fileID: 5661531969229055589, guid: e3b3f787f063a39429f5463ae61140d5, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 954.5407
+      objectReference: {fileID: 0}
+    - target: {fileID: 5661531969229055589, guid: e3b3f787f063a39429f5463ae61140d5, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 316.0005
+      objectReference: {fileID: 0}
+    - target: {fileID: 5661531969229055589, guid: e3b3f787f063a39429f5463ae61140d5, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0.000026703
+      objectReference: {fileID: 0}
+    - target: {fileID: 5661531969229055589, guid: e3b3f787f063a39429f5463ae61140d5, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -204.3
+      objectReference: {fileID: 0}
     - target: {fileID: 7760941380844261774, guid: e3b3f787f063a39429f5463ae61140d5, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0

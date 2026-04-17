@@ -42,7 +42,7 @@ public class PatientController : MonoBehaviour, Interactable
         yield return DialogManager.Instance.ShowDialogText(
             dialogGiven,
             waitForInput: true,
-            autoClose: false,
+            autoClose: true,
             choices: choices,
             onChoiceSelected: async (choiceIndex) =>
             { 
