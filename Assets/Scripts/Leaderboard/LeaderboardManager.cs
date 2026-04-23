@@ -77,7 +77,7 @@ public class LeaderBoardManager : MonoBehaviour
         try
         {
             leaderboardScoresPage =
-                await LeaderboardsService.Instance.GetScoresAsync(leaderboardID);
+                await LeaderboardsService.Instance.GetScoresAsync(leaderboardID, new GetScoresOptions {Limit = 100});
         }
         //throw an error if that fails for some reason or another
         catch (System.Exception e)
