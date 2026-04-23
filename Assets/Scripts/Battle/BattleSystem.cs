@@ -527,9 +527,15 @@ public class BattleSystem : MonoBehaviour
                     hudController.ExitingBattle();
                     yield break;
                 }
+                //don't penalize the player as heavily if they get the majority of the questions right 
+                else if(questionsRight > maxBattleQuestions/2){
+                    
+                    yield return StartCoroutine(dialogBox.TypeDialog("You missed some questions. Don't give up!"));
+
+                }
                 else
                 {
-                    yield return StartCoroutine(dialogBox.TypeDialog("You missed some questions. Better luck next time!"));
+                    yield return StartCoroutine(dialogBox.TypeDialog("You got most of the questions wrong. Better luck next time!"));
                     CoinManager.Instance.RemoveCoin(3);
 
                     if(CoinManager.Instance.GetCoinCount() >= 3)
