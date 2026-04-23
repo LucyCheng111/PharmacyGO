@@ -129,8 +129,6 @@ public class DialogManager : MonoBehaviour
     public IEnumerator TypeDialog(string line)
     {
         // TypeDialog calls now wait until the call returns to before resuming other functions
-        //fastDialog = Input.GetKey(KeyCode.LeftShift);
-        Debug.Log("fast dialog mode");
         dialogText.text = "";
         foreach (var letter in line.ToCharArray())
         {            
@@ -138,7 +136,6 @@ public class DialogManager : MonoBehaviour
             dialogText.text += letter;
             if (fastDialog)
             {
-                Debug.Log("fast");
                 yield return new WaitForSeconds(0.33f / letterPerSecond);
             }
             else
