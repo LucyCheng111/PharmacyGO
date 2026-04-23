@@ -346,6 +346,7 @@ public class AiRival : MonoBehaviour, Interactable
         {
             "Play Cards",
             "Slapjack",
+            "WordBank",
             "Nah"
         };
 
@@ -357,7 +358,7 @@ public class AiRival : MonoBehaviour, Interactable
             choices: choices,
             onChoiceSelected: (choiceIndex) =>
             {
-                if (choiceIndex == 2) // "Nah"
+                if (choiceIndex == 3) // "Nah"
                 {
                     DialogManager.Instance.CloseDialog();
                     return;
