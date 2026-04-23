@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
 public class DialogManager : MonoBehaviour
@@ -16,6 +17,7 @@ public class DialogManager : MonoBehaviour
     
     public event Action OnShowDialog;
     public event Action OnDialogFinished;
+    bool fastDialog;
 
     public static DialogManager Instance { get; private set; }
     private void Awake()
@@ -127,11 +129,22 @@ public class DialogManager : MonoBehaviour
     public IEnumerator TypeDialog(string line)
     {
         // TypeDialog calls now wait until the call returns to before resuming other functions
+        //fastDialog = Input.GetKey(KeyCode.LeftShift);
+        Debug.Log("fast dialog mode");
         dialogText.text = "";
         foreach (var letter in line.ToCharArray())
-        {
+        {            
+            fastDialog = Input.GetKey(KeyCode.LeftShift);
             dialogText.text += letter;
-            yield return new WaitForSeconds(1f / letterPerSecond);
+            if (fastDialog)
+            {
+                Debug.Log("fast");
+                yield return new WaitForSeconds(0.33f / letterPerSecond);
+            }
+            else
+            {
+                yield return new WaitForSeconds(1f / letterPerSecond);
+            }
         }
         
     }
