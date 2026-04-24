@@ -20,11 +20,14 @@ public class WordBankMinigame : MonoBehaviour
     public Transform sentenceOrigin; //starting point for sentence objects
     public List<Question> questions;
     public WordBankPlay awaiting = WordBankPlay.Arrange;
+
     public int numQuestions = 5;
 
     public Question currentQuestion;
     public List<WordFromBank> words = new List<WordFromBank>();
     public List<WordFromBank> answerSentence = new List<WordFromBank>(); //where you're putting them
+    public List<GameObject> placeholderObjects = new List<GameObject>(); //template squares to show how many words
+    public GameObject placeholderObject; //prefab for above
     public GameObject WordObject; //physical word to move around prefab
     public GameObject WordInHand; //object to lock to mouse/ finger position
     public int minigameDifficulty = 0; //separate from question difficulty (below)
@@ -128,9 +131,14 @@ public class WordBankMinigame : MonoBehaviour
         {
             Destroy(answerSentence[i].gameObject);
         }
+        for(int i = 0; i < placeholderObjects.Count; i++)
+        {
+            Destroy(placeholderObjects[i]);
+        }
 
         words.Clear();
         answerSentence.Clear();
+        placeholderObjects.Clear();
     }
     public void RandomizeWordAppearance()
     {
@@ -239,6 +247,7 @@ public class WordBankMinigame : MonoBehaviour
         string currentWord = "";
         string rightAnswer = currentQuestion.options[currentQuestion.answerIndex].text;
         //iterate through to actually make the word objects and assign their values
+        //correct words
         for(int i = 0; i < rightAnswer.Length; i++) //size of string
         {
             if(rightAnswer[i] == ' ' || rightAnswer[i]  == '\n' || rightAnswer[i]  == '\r' || i == rightAnswer.Length - 1)
@@ -249,6 +258,14 @@ public class WordBankMinigame : MonoBehaviour
                 }
                 tempwords.Add(currentWord);
                 currentWord = "";
+
+                //make a placeholder in the sentence
+                int n = placeholderObjects.Count;
+                Vector2 position = new Vector2((sentenceOrigin.position.x + ((n * 140) % 840)) , 
+                (sentenceOrigin.position.y - ((n * 140) / 840) * 90)  );
+                GameObject placeholder = Instantiate(placeholderObject, position, Quaternion.identity);
+                placeholder.transform.SetParent(sentenceArea.transform, true);
+                placeholderObjects.Add(placeholder);
             }
             else
             {
@@ -264,9 +281,7 @@ public class WordBankMinigame : MonoBehaviour
         int numWordsInRightAnswer = tempwords.Count;
         for(int i = 0; i < minigameDifficulty * 3; i++)
         {
-            //will get the # of words in the correct answer * (the difficulty / 2)
-            //ie. difficulty 2 and a total size of 10 words in correct answer = 10 extra words
-            //difficulty 4 for the same question would be 20 extra words
+            //will get the # of words in the correct answer + (the difficulty * 3)
             randQ = pilot.randomQuestions[Random.Range(0,qtotal)]; //random Question
             int randO = Random.Range(0,randQ.options.Count);
 
@@ -300,7 +315,16 @@ public class WordBankMinigame : MonoBehaviour
             }
 
             word = randWords[Random.Range(0, randWords.Count)];
-            tempwords.Add(word); //add to list
+
+            for(int t = 0; t < 3; t++)
+            {
+                word = randWords[Random.Range(0, randWords.Count)];
+                if (!tempwords.Contains(word))
+                {
+                    tempwords.Add(word); //add to list
+                }
+            }
+            
 
             randWords.Clear();
         }
@@ -337,7 +361,6 @@ public class WordBankMinigame : MonoBehaviour
             HandleCoinsandScore();
         }
     }
-
     public void HandleCoinsandScore()
     {
 
@@ -359,7 +382,6 @@ public class WordBankMinigame : MonoBehaviour
         }
         totalcointext.text = "That makes a total of:\n" + totalgainedcoins + " Coins and +" + totalgainedpoints + " Points"; 
     }
-
     public Vector2 getRandomGameboardPosition()
     {
         return new Vector2(Random.Range(-650f,650f), Random.Range(-325f,325f));
