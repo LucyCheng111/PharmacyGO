@@ -63,10 +63,6 @@ public class DialogManager : MonoBehaviour
         }
 
         OnDialogFinished?.Invoke();
-        /*
-        dialogBox.SetActive(false);
-        IsShowing = false;
-        */
     }
 
     // Standardized Close dialog

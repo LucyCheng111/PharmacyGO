@@ -18,7 +18,7 @@ public class BattleSystem : MonoBehaviour
     [SerializeField] private QuestionUnit questionUnit;
     [SerializeField] private HudController hudController;
     [SerializeField] private GameObject levelCompletePanel;
-    [SerializeField] private float timeLimit = 30f;
+    [SerializeField] private float timeLimit = 60f;
 
     public event Action<bool> OnBattleOver;
 
