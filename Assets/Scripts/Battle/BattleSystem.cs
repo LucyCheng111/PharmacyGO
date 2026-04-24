@@ -18,7 +18,7 @@ public class BattleSystem : MonoBehaviour
     [SerializeField] private QuestionUnit questionUnit;
     [SerializeField] private HudController hudController;
     [SerializeField] private GameObject levelCompletePanel;
-    [SerializeField] private float timeLimit = 60f;
+    [SerializeField] private float timeLimit = 30f;
 
     public event Action<bool> OnBattleOver;
 
@@ -272,6 +272,7 @@ public class BattleSystem : MonoBehaviour
             // Start the rival timer - For timeout usage
             if (rivalTimer == null)
             {
+                Debug.Log("time limit == " + timeLimit);
                 rivalTimer = StartCoroutine(BattleTimer(timeLimit));
             }
         }
@@ -444,7 +445,7 @@ public class BattleSystem : MonoBehaviour
             }
             else if (source == AnswerSource.Timeout)
             {
-                yield return StartCoroutine(dialogBox.TypeDialog("Time's up, you failed!"));
+                yield return StartCoroutine(dialogBox.TypeDialog("Time's up, better luck next time!"));
             }
             else
             {
@@ -583,7 +584,9 @@ public class BattleSystem : MonoBehaviour
     {
         float elaspedTime = 0f;
         while (elaspedTime < duration && state == BattleState.PLAYERANSWER)
-        {
+        {            
+            Debug.Log("elapsed time == " + elaspedTime);
+            Debug.Log("duration == " + duration); 
             elaspedTime += Time.deltaTime;
             yield return null;
         }
@@ -592,6 +595,7 @@ public class BattleSystem : MonoBehaviour
         if (state == BattleState.PLAYERANSWER)
         {
             Debug.Log("Times up, you lose!");
+            Debug.Log("elapsed time == " + elaspedTime);
             timedOut = true;
             // Stop AI routine if it's still running
             if (aiAnswerRoutine != null)
