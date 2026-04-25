@@ -24,6 +24,7 @@ public class WordBankMinigame : MonoBehaviour
     public int numQuestions = 5;
 
     public Question currentQuestion;
+    public GameObject ImageDisplay;
     public List<WordFromBank> words = new List<WordFromBank>();
     public List<WordFromBank> answerSentence = new List<WordFromBank>(); //where you're putting them
     public List<GameObject> placeholderObjects = new List<GameObject>(); //template squares to show how many words
@@ -69,6 +70,7 @@ public class WordBankMinigame : MonoBehaviour
         WordBank.SetActive(true);
         totalgainedcoins = 0; //reset session
         totalgainedpoints = 0;
+        questions.Clear();
         RestartPlay();
     }
     
@@ -113,6 +115,7 @@ public class WordBankMinigame : MonoBehaviour
         incorrectAnswers = 0;
 
         DeleteWords();
+        questions.Clear();
         StartCoroutine(getQuestionList());
         StartCoroutine(LoadWords());
 
@@ -314,8 +317,7 @@ public class WordBankMinigame : MonoBehaviour
                 }
             }
 
-            word = randWords[Random.Range(0, randWords.Count)];
-
+            //try 3 different times to get a new word, else dont add one (adds variability)
             for(int t = 0; t < 3; t++)
             {
                 word = randWords[Random.Range(0, randWords.Count)];
@@ -354,9 +356,20 @@ public class WordBankMinigame : MonoBehaviour
             questions.RemoveAt(0);
 
             QuestionReader.GetComponentInChildren<TextMeshProUGUI>().text = currentQuestion.question;
+
+            if(currentQuestion.imageLink != "")
+            {
+                ImageDisplay.gameObject.SetActive(true);
+                StartCoroutine(pilot.DownloadImage(currentQuestion.imageLink, ImageDisplay.GetComponentInChildren<BoxCollider2D>(true).gameObject));
+            }
+            else
+            {
+                ImageDisplay.gameObject.SetActive(false);
+            }
         }
         else //game over
         {
+            ImageDisplay.gameObject.SetActive(false);
             OpenEndGamePopup();
             HandleCoinsandScore();
         }
