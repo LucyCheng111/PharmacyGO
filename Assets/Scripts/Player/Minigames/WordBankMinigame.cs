@@ -52,7 +52,7 @@ public class WordBankMinigame : MonoBehaviour
     public TextMeshProUGUI yougavetext;
     public TextMeshProUGUI confusedtext;
     public GameObject lastQuestionInfo; //in info screen
-
+    public TextMeshProUGUI correctnessPopup; //"Correct!" or incorrect after guess that shows up for a few seconds
     public TextMeshProUGUI scorereader; //constant score reader
     public GameObject exitbutton; //closes game
     public GameObject infobutton;
@@ -180,7 +180,10 @@ public class WordBankMinigame : MonoBehaviour
             numCoinsToGain++; //give a coin
             scorereader.text = "Correct Solutions: " + numCoinsToGain + "\nIncorrect Solutions: "
             + incorrectAnswers + "\nQuestions Left: " + questions.Count;
-
+            StopCoroutine(correctPopup(false));
+            StopCoroutine(correctPopup(true)); //halt if currently running;
+            
+            StartCoroutine(correctPopup(false));
         }
         else
         {
@@ -189,6 +192,10 @@ public class WordBankMinigame : MonoBehaviour
             incorrectAnswers++;
             scorereader.text = "Correct Solutions: " + numCoinsToGain + "\nIncorrect Solutions: "
             + incorrectAnswers + "\nQuestions Left: " + questions.Count;
+            StopCoroutine(correctPopup(false));
+            StopCoroutine(correctPopup(true)); //halt if currently running;
+
+            StartCoroutine(correctPopup(true));
         }
 
         updateLastQuestionTexts(sentence, currentQuestion.options[currentQuestion.answerIndex].text, currentQuestion.question);
@@ -348,6 +355,24 @@ public class WordBankMinigame : MonoBehaviour
         RandomizeWordAppearance();
     }
 
+    public IEnumerator correctPopup(bool Incorrect)
+    {
+        correctnessPopup.gameObject.SetActive(true);
+        string toPrint = "";
+        if (Incorrect)
+        {
+            toPrint += "Inc";
+        }
+        else
+        {
+            toPrint += "C";
+        }
+        toPrint += "orrect!";
+        correctnessPopup.text = toPrint;
+        yield return new WaitForSeconds(4f);
+        correctnessPopup.text = "";
+        correctnessPopup.gameObject.SetActive(false);
+    }
     public void SelectNextQuestion()
     {
         if(questions.Count > 0)
