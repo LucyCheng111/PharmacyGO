@@ -582,12 +582,12 @@ public class BattleSystem : MonoBehaviour
     private Coroutine rivalTimer;
     private IEnumerator BattleTimer(float duration)
     {
-        Debug.Log("duration 1 == " + duration); 
+        //Debug.Log("duration 1 == " + duration); 
         float elaspedTime = 0f;
         while (elaspedTime < duration && state == BattleState.PLAYERANSWER)
         {            
-            Debug.Log("elapsed time == " + elaspedTime);
-            Debug.Log("duration == " + duration); 
+            //Debug.Log("elapsed time == " + elaspedTime);
+            //Debug.Log("duration == " + duration); 
             elaspedTime += Time.deltaTime;
             yield return null;
         }
