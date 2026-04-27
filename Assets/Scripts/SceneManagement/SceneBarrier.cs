@@ -25,11 +25,6 @@ public class SceneBarrier : MonoBehaviour
     {
         // Disable the collider so the player can pass
 
-        Collider2D collider = GetComponent<Collider2D>();
-
-        if (collider!= null)
-        {
-            collider.enabled = false;
-        }
+        gameObject.SetActive(false);
     }
 }
