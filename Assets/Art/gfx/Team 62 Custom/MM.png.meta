@@ -293,7 +293,7 @@ TextureImporter:
         width: 11
         height: 12
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -302,6 +302,50 @@ TextureImporter:
       bones: []
       spriteID: cee2ee8902ff4f1448a5d5ae266c3c33
       internalID: 827737578
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MM_8
+      rect:
+        serializedVersion: 2
+        x: 19
+        y: 137
+        width: 6
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6406a4194382af44cb7a376507dbafd8
+      internalID: -92697850
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MM_9
+      rect:
+        serializedVersion: 2
+        x: 28
+        y: 139
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e479ccff342f1144cbaf860a5a9dd650
+      internalID: 1416253068
       vertices: []
       indices: 
       edges: []
@@ -328,6 +372,8 @@ TextureImporter:
       MM_5: 8470006674028259029
       MM_6: 5489863465211450803
       MM_7: 827737578
+      MM_8: -92697850
+      MM_9: 1416253068
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
-
+using System.Text.RegularExpressions;
 
 public class NPCController : MonoBehaviour, Interactable
 {
@@ -14,6 +14,7 @@ public class NPCController : MonoBehaviour, Interactable
     NPCMovement npcMovement;
     NPCSceneTransitioner sceneTransitioner;
     NPCMinigamePlayer minigamePlayer;
+    bool willCharge = true; //if transport to MM is free
     public bool seen = false; //primarily used in murder mystery to see if all objects have been interacted with
 
 
@@ -21,8 +22,10 @@ public class NPCController : MonoBehaviour, Interactable
     [SerializeField] private bool showTravelChoice = false;
     [SerializeField] private List<String> travelChoices = new List<String> {"Yes", "No"};
     [SerializeField] private List<String> minigameChoices = new List<String>();
+    [SerializeField] Dialog getProgressionItemDialog;
     [SerializeField] private int yesChoiceInt = 0;
     [SerializeField] Dialog cantaffordtravelDialog;
+    [SerializeField] Dialog TravelIsFreeDialog; //for already completed levels
     
     //optional, for when npcs give access to the minigame
     private bool minigameconfirmation = true;
@@ -67,16 +70,45 @@ public class NPCController : MonoBehaviour, Interactable
         {
             if(showTravelChoice && sceneTransitioner != null && travelChoices != null & travelChoices.Count > 1)
             {
-                //dialogue if the npc is able to transport the player to other scenes
-                if(CoinManager.Instance.GetCoinCount() < sceneTransitioner.price)
+                if (ProgressionState.Instance.HasItem(sceneTransitioner.NecessaryProgressionItemName))
                 {
-                    StartCoroutine( DialogManager.Instance.ShowDialog(cantaffordtravelDialog));
+                    if(sceneTransitioner.levelNumber == -1 && convertSpawnPointIDtoLevel(sceneTransitioner.targetSpawnPointID) < PlayerPrefs.GetInt("UnlockedLevel"))
+                    {
+                        //player has gotten past this MM level
+                        willCharge = false;
+                        StartCoroutine(DialogManager.Instance.ShowDialog(TravelIsFreeDialog, travelChoices, OnTravelChoiceSelected));
+                    }
+                    //dialogue if the npc is able to transport the player to other scenes
+                    else if(CoinManager.Instance.GetCoinCount() < sceneTransitioner.price)
+                    {
+                        StartCoroutine( DialogManager.Instance.ShowDialog(cantaffordtravelDialog));
+                    }
+                    else //can afford to travel
+                    {
+                        StartCoroutine(DialogManager.Instance.ShowDialog(dialog, travelChoices, OnTravelChoiceSelected));
+                        
+                    }
                 }
-                else //can afford to travel
+                else //block player from playing MM until they have the progression item
                 {
-                    StartCoroutine(DialogManager.Instance.ShowDialog(dialog, travelChoices, OnTravelChoiceSelected));
+                    string statement = "";
+                    if(ProgressionState.Instance.ReturnNameForItem(sceneTransitioner.NecessaryProgressionItemName) == "")
+                    {
+                        Debug.Log("MM NPC HAS INCORRECT PROGRESSION ITEM NAME");
+                        statement = "Before I can take you to the mystery level, you need to go aquire the item for Dr Shepard.";
+                    }
+                    else
+                    {
+                        statement = "Before I can take you to the mystery level, you need to go aquire " + 
+                            ProgressionState.Instance.ReturnNameForItem(sceneTransitioner.NecessaryProgressionItemName) + ".";
+                    }
                     
+                    
+                    getProgressionItemDialog.Lines.Add(statement);
+
+                    StartCoroutine( DialogManager.Instance.ShowDialog(getProgressionItemDialog));
                 }
+                
             }
             else
             {
@@ -92,7 +124,10 @@ public class NPCController : MonoBehaviour, Interactable
         if(choiceIdx == yesChoiceInt && sceneTransitioner != null)
         {
             sceneTransitioner.Travel();
-            CoinManager.Instance.RemoveCoin(sceneTransitioner.price);
+            if (willCharge)
+            {
+                CoinManager.Instance.RemoveCoin(sceneTransitioner.price);   
+            }
         }
     }
 
@@ -120,6 +155,13 @@ public class NPCController : MonoBehaviour, Interactable
         // This allows other scripts to change what dialog this NPC says
 
         dialog = newDialog;
+    }
+    
+    //gets the integer value from a string
+    public int convertSpawnPointIDtoLevel(string input)
+    {
+        //got this from https://discussions.unity.com/t/extract-number-from-string/4361
+        return Convert.ToInt32(Regex.Replace(input, "[^0-9]", ""));
     }
 }
 

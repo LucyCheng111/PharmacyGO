@@ -68,7 +68,6 @@ public class LevelManager : MonoBehaviour
         }
 
         var phgoMap = levelMap.Find(e => e.levelNumber == levelNumber);
-        Debug.Log($"[LevelManager] LoadLevel({levelNumber}) �� buildIndex = {phgoMap.buildIndex}");
 
         if (phgoMap.buildIndex >= 0)
             return SceneManager.LoadSceneAsync(phgoMap.buildIndex);

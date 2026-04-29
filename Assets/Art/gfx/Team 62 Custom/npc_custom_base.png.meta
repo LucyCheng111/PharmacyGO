@@ -1,10 +1,55 @@
 fileFormatVersion: 2
-guid: 399697a66be1c254894573daa1ea90b4
+guid: ca41e14104176764ca6c2b2500121091
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -4749826530952272611
-    second: npc_custom_base_0
+      213: -5799079204627349572
+    second: npc_custom_detail_0
+  - first:
+      213: 4124577552389702340
+    second: npc_custom_detail_1
+  - first:
+      213: 6199888810422439997
+    second: npc_custom_detail_2
+  - first:
+      213: -3021698561446506959
+    second: npc_custom_detail_3
+  - first:
+      213: -6002725513994005487
+    second: npc_custom_detail_4
+  - first:
+      213: 627588815077235616
+    second: npc_custom_detail_5
+  - first:
+      213: 2365352722323862669
+    second: npc_custom_detail_6
+  - first:
+      213: -494438942652362120
+    second: npc_custom_detail_7
+  - first:
+      213: -379029016295772779
+    second: npc_custom_detail_8
+  - first:
+      213: 2578561119783548432
+    second: npc_custom_detail_9
+  - first:
+      213: -2389297032575095387
+    second: npc_custom_detail_10
+  - first:
+      213: -8063581475436227382
+    second: npc_custom_detail_11
+  - first:
+      213: 8396943042080325201
+    second: npc_custom_detail_12
+  - first:
+      213: 1206231394515736499
+    second: npc_custom_detail_13
+  - first:
+      213: 4962293009890218956
+    second: npc_custom_detail_14
+  - first:
+      213: 5382041392652656792
+    second: npc_custom_detail_15
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,7 +158,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: npc_custom_base_0
+      name: npc_custom_detail_0
       rect:
         serializedVersion: 2
         x: 3
@@ -128,14 +173,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: d152ddd8fe9351eb0800000000000000
-      internalID: -4749826530952272611
+      spriteID: cbff4df2038858fa0800000000000000
+      internalID: -5799079204627349572
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: npc_custom_base_1
+      name: npc_custom_detail_1
       rect:
         serializedVersion: 2
         x: 19
@@ -148,16 +193,16 @@ TextureImporter:
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 92725f8c9c953984da663047e0750031
-      internalID: 171544451
+      spriteID: 4c20db25e617d3930800000000000000
+      internalID: 4124577552389702340
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: npc_custom_base_2
+      name: npc_custom_detail_2
       rect:
         serializedVersion: 2
         x: 35
@@ -170,16 +215,16 @@ TextureImporter:
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: f680b9e496ad80440841dc72cbaf815d
-      internalID: 1721092326
+      spriteID: d301620560e6a0650800000000000000
+      internalID: 6199888810422439997
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: npc_custom_base_3
+      name: npc_custom_detail_3
       rect:
         serializedVersion: 2
         x: 51
@@ -192,16 +237,16 @@ TextureImporter:
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 85c2bd2ab9f5e2e4a919e74d54e9fdec
-      internalID: -180103364
+      spriteID: 13e0ca20b25c016d0800000000000000
+      internalID: -3021698561446506959
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: npc_custom_base_4
+      name: npc_custom_detail_4
       rect:
         serializedVersion: 2
         x: 4
@@ -214,16 +259,16 @@ TextureImporter:
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 0acffe7133c74814093d87f0a6587b62
-      internalID: 1361465681
+      spriteID: 1149636e2f802bca0800000000000000
+      internalID: -6002725513994005487
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: npc_custom_base_5
+      name: npc_custom_detail_5
       rect:
         serializedVersion: 2
         x: 20
@@ -236,16 +281,16 @@ TextureImporter:
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 45da4c58de921124bac74d55013e9c53
-      internalID: -586804810
+      spriteID: 0abdfa3c3b4a5b800800000000000000
+      internalID: 627588815077235616
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: npc_custom_base_6
+      name: npc_custom_detail_6
       rect:
         serializedVersion: 2
         x: 36
@@ -258,16 +303,16 @@ TextureImporter:
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 2c5990938c3ed0047baf1859982c7821
-      internalID: -1270731344
+      spriteID: d84fd9ec4cb63d020800000000000000
+      internalID: 2365352722323862669
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: npc_custom_base_7
+      name: npc_custom_detail_7
       rect:
         serializedVersion: 2
         x: 52
@@ -280,16 +325,16 @@ TextureImporter:
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 83413944b83a582458c23258f9bbb69e
-      internalID: 2131589397
+      spriteID: 872161cb6666329f0800000000000000
+      internalID: -494438942652362120
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: npc_custom_base_8
+      name: npc_custom_detail_8
       rect:
         serializedVersion: 2
         x: 2
@@ -302,16 +347,16 @@ TextureImporter:
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 7642a02a4fd9ab34d9a6b31fcfa22fa9
-      internalID: -1531458950
+      spriteID: 59def1c2e1b6dbaf0800000000000000
+      internalID: -379029016295772779
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: npc_custom_base_9
+      name: npc_custom_detail_9
       rect:
         serializedVersion: 2
         x: 18
@@ -324,38 +369,38 @@ TextureImporter:
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 270f19ed8cb11374089895c2e0e154a0
-      internalID: 1694671836
+      spriteID: 016f4583da3e8c320800000000000000
+      internalID: 2578561119783548432
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: npc_custom_base_10
+      name: npc_custom_detail_10
       rect:
         serializedVersion: 2
         x: 34
         y: 161
         width: 17
         height: 25
-      alignment: 9
+      alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: bf84e76804ed8a54eb7809c82dfde2b9
-      internalID: 1339636923
+      spriteID: 5ad6776020387ded0800000000000000
+      internalID: -2389297032575095387
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: npc_custom_base_11
+      name: npc_custom_detail_11
       rect:
         serializedVersion: 2
         x: 50
@@ -368,16 +413,16 @@ TextureImporter:
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 8ad248c40f16e0a4cab4d5a04c772412
-      internalID: -508835872
+      spriteID: ac4143bee57681090800000000000000
+      internalID: -8063581475436227382
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: npc_custom_base_12
+      name: npc_custom_detail_12
       rect:
         serializedVersion: 2
         x: 3
@@ -390,16 +435,16 @@ TextureImporter:
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 3d61ff1ba7365a744b1436250e12fbd0
-      internalID: -452318375
+      spriteID: 15eb266353fe78470800000000000000
+      internalID: 8396943042080325201
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: npc_custom_base_13
+      name: npc_custom_detail_13
       rect:
         serializedVersion: 2
         x: 19
@@ -412,16 +457,16 @@ TextureImporter:
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 8d5187ead8a872249a5448bb25693640
-      internalID: -754572374
+      spriteID: 3b7d80bff056db010800000000000000
+      internalID: 1206231394515736499
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: npc_custom_base_14
+      name: npc_custom_detail_14
       rect:
         serializedVersion: 2
         x: 35
@@ -434,16 +479,16 @@ TextureImporter:
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 8b663591bb7666d479cc152e9811e21d
-      internalID: -1338048807
+      spriteID: cc319ed733b9dd440800000000000000
+      internalID: 4962293009890218956
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: npc_custom_base_15
+      name: npc_custom_detail_15
       rect:
         serializedVersion: 2
         x: 51
@@ -456,10 +501,10 @@ TextureImporter:
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 1b957307cf4da3a44a9a5faeefaa91ad
-      internalID: 1259306731
+      spriteID: 890a28f912ad0ba40800000000000000
+      internalID: 5382041392652656792
       vertices: []
       indices: 
       edges: []
@@ -468,7 +513,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 2124458bd938d5d4f8ec748576daccfd
+    spriteID: e86338f68df0b4840938a0a535c18925
     internalID: 0
     vertices: []
     indices: 
@@ -478,22 +523,22 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      npc_custom_base_0: -4749826530952272611
-      npc_custom_base_1: 171544451
-      npc_custom_base_10: 1339636923
-      npc_custom_base_11: -508835872
-      npc_custom_base_12: -452318375
-      npc_custom_base_13: -754572374
-      npc_custom_base_14: -1338048807
-      npc_custom_base_15: 1259306731
-      npc_custom_base_2: 1721092326
-      npc_custom_base_3: -180103364
-      npc_custom_base_4: 1361465681
-      npc_custom_base_5: -586804810
-      npc_custom_base_6: -1270731344
-      npc_custom_base_7: 2131589397
-      npc_custom_base_8: -1531458950
-      npc_custom_base_9: 1694671836
+      npc_custom_detail_0: -5799079204627349572
+      npc_custom_detail_1: 4124577552389702340
+      npc_custom_detail_10: -2389297032575095387
+      npc_custom_detail_11: -8063581475436227382
+      npc_custom_detail_12: 8396943042080325201
+      npc_custom_detail_13: 1206231394515736499
+      npc_custom_detail_14: 4962293009890218956
+      npc_custom_detail_15: 5382041392652656792
+      npc_custom_detail_2: 6199888810422439997
+      npc_custom_detail_3: -3021698561446506959
+      npc_custom_detail_4: -6002725513994005487
+      npc_custom_detail_5: 627588815077235616
+      npc_custom_detail_6: 2365352722323862669
+      npc_custom_detail_7: -494438942652362120
+      npc_custom_detail_8: -379029016295772779
+      npc_custom_detail_9: 2578561119783548432
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

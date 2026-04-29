@@ -6,11 +6,12 @@ using Unity.VisualScripting;
 
 public class NPCSceneTransitioner : MonoBehaviour
 {
-    public int sceneBuildIndex;
-    public int levelNumber;
+    public int sceneBuildIndex; //for the destination level
+    public int levelNumber; //destination level
     public string targetSpawnPointID;
     private bool isTransitioning = false;       
     public int price = 0; //0 means it wont prompt for a price at all, as it is free
+    public string NecessaryProgressionItemName; //ShepardsGlasses... etc
 
     //call this from a dialogue choice from an NPC set up to transport the player
     public void Travel()
@@ -24,7 +25,6 @@ public class NPCSceneTransitioner : MonoBehaviour
     private IEnumerator TransitionToScene()
     {
         // Save the target spawn point ID before scene transition
-        Debug.Log("player should be teleported right now");
         PlayerPrefs.SetString("SpawnPointID",targetSpawnPointID);
 
         AsyncOperation operation = LevelManager.Instance.LoadLevel(levelNumber);
