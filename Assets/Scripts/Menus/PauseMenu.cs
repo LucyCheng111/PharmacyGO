@@ -127,7 +127,7 @@ public class PauseMenu : MonoBehaviour
 
     public void Feedback()
     {
-        Application.OpenURL("https://docs.google.com/forms/d/e/1FAIpQLScUSEfN_CHr3AmGCQ2JBpNjitt4-x1Rp-wycEEnlhHN-qIM1A/viewform?usp=header");
+        Application.OpenURL("https://oregonstate.qualtrics.com/jfe/form/SV_3IfO3l2H7FbOOuW");
     }
 
     public void AdjustBrightness(float BrightnessValue)
