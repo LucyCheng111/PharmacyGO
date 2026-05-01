@@ -25,7 +25,7 @@ public class Portal : MonoBehaviour
     // without reloading the Hub scene
     public void RefreshPortalEffect()
     {
-        if(hasNoParticle == false && portalEffect != null)
+        if(hasNoParticle == false)
         {
             var emission = portalEffect.emission;
             emission.enabled = levelNumber <= LevelManager.Instance.UnlockedLevel;
