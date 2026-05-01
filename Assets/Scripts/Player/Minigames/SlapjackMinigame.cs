@@ -254,19 +254,12 @@ public class SlapjackMinigame : MonoBehaviour
         yield return new WaitUntil(() => pilot.gotQuestions);
         
         int Questioncount = 10;
+        
     
         for(int i = 0; i < Questioncount; i++) //get questions and answers from database
         {
             Question q = pilot.moduleManager.GetRandomQuestion(module, (int) (difficulty / 20));
-            if(q.options[q.answerIndex].text.Contains("all") || q.options[q.answerIndex].text.Contains("All"))
-            {
-                i--; //redo this, do not add questions with the answer "all of the following" or alike
-            }
-            else
-            {
-                questions.Add(q);  
-            }
-            
+            questions.Add(q);
         }
 
         for(int i = 0; i < Questioncount; i++) //make new question cards and assign new questions
