@@ -272,7 +272,6 @@ public class BattleSystem : MonoBehaviour
             // Start the rival timer - For timeout usage
             if (rivalTimer == null)
             {
-                Debug.Log("time limit == " + timeLimit);
                 rivalTimer = StartCoroutine(BattleTimer(timeLimit));
             }
         }
@@ -445,7 +444,7 @@ public class BattleSystem : MonoBehaviour
             }
             else if (source == AnswerSource.Timeout)
             {
-                yield return StartCoroutine(dialogBox.TypeDialog("Time's up, better luck next time!"));
+                yield return StartCoroutine(dialogBox.TypeDialog("Time's up, you failed!"));
             }
             else
             {
@@ -588,12 +587,9 @@ public class BattleSystem : MonoBehaviour
     private Coroutine rivalTimer;
     private IEnumerator BattleTimer(float duration)
     {
-        //Debug.Log("duration 1 == " + duration); 
         float elaspedTime = 0f;
         while (elaspedTime < duration && state == BattleState.PLAYERANSWER)
-        {            
-            //Debug.Log("elapsed time == " + elaspedTime);
-            //Debug.Log("duration == " + duration); 
+        {
             elaspedTime += Time.deltaTime;
             yield return null;
         }
@@ -602,7 +598,6 @@ public class BattleSystem : MonoBehaviour
         if (state == BattleState.PLAYERANSWER)
         {
             Debug.Log("Times up, you lose!");
-            Debug.Log("elapsed time == " + elaspedTime);
             timedOut = true;
             // Stop AI routine if it's still running
             if (aiAnswerRoutine != null)
