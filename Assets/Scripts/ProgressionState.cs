@@ -52,6 +52,10 @@ public class ProgressionState : MonoBehaviour
         {
             return "Dr. Shepards Medical Supplies";
         }
+        else if(itemname == "IDCard")
+        {
+            return "Dr. Shepards ID card";
+        }
 
         return "";
     }
