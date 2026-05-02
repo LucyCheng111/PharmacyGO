@@ -19,6 +19,8 @@ public class ItemPickup : MonoBehaviour, Interactable
     }
     public void Interact(Transform initiator)
     {
+        Debug.Log("Added item to inventory: " + itemName);
+
         ProgressionState.Instance.CollectItem(itemName);
 
         LevelManager.Instance.UnlockNextLevel();

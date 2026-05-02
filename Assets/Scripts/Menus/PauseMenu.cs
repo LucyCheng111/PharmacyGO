@@ -93,6 +93,9 @@ public class PauseMenu : MonoBehaviour
     {
         SaveVolume(sliderValue);
 
+
+        //random comment because git is being finnicky and not letting me merge without new commits
+        
         // Prevents math error in Mathf.Log10()
         if (sliderValue <= 0)
             sliderValue = 0.0001f;
@@ -124,7 +127,7 @@ public class PauseMenu : MonoBehaviour
 
     public void Feedback()
     {
-        Application.OpenURL("https://docs.google.com/forms/d/e/1FAIpQLScUSEfN_CHr3AmGCQ2JBpNjitt4-x1Rp-wycEEnlhHN-qIM1A/viewform?usp=header");
+        Application.OpenURL("https://oregonstate.qualtrics.com/jfe/form/SV_3IfO3l2H7FbOOuW");
     }
 
     public void AdjustBrightness(float BrightnessValue)
