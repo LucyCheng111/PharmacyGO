@@ -166,6 +166,8 @@ Transform:
   - {fileID: 32543699}
   - {fileID: 413298215}
   - {fileID: 586198592}
+  - {fileID: 381867032}
+  - {fileID: 353014919}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &32543698
@@ -213,81 +215,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawnPointID: Lv2ToHub
---- !u!1001 &55869292
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 1560713632}
-    m_Modifications:
-    - target: {fileID: 421207248417673336, guid: 49e2bd4a60b103a418f6dae1be172897, type: 3}
-      propertyPath: m_Name
-      value: InteractPrompt
-      objectReference: {fileID: 0}
-    - target: {fileID: 1338333884385684043, guid: 49e2bd4a60b103a418f6dae1be172897, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -0.02
-      objectReference: {fileID: 0}
-    - target: {fileID: 1338333884385684043, guid: 49e2bd4a60b103a418f6dae1be172897, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.8273
-      objectReference: {fileID: 0}
-    - target: {fileID: 1338333884385684043, guid: 49e2bd4a60b103a418f6dae1be172897, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1338333884385684043, guid: 49e2bd4a60b103a418f6dae1be172897, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1338333884385684043, guid: 49e2bd4a60b103a418f6dae1be172897, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1338333884385684043, guid: 49e2bd4a60b103a418f6dae1be172897, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1338333884385684043, guid: 49e2bd4a60b103a418f6dae1be172897, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1338333884385684043, guid: 49e2bd4a60b103a418f6dae1be172897, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1338333884385684043, guid: 49e2bd4a60b103a418f6dae1be172897, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1338333884385684043, guid: 49e2bd4a60b103a418f6dae1be172897, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9177692556632751042, guid: 49e2bd4a60b103a418f6dae1be172897, type: 3}
-      propertyPath: m_SortingLayer
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 9177692556632751042, guid: 49e2bd4a60b103a418f6dae1be172897, type: 3}
-      propertyPath: m_SortingLayerID
-      value: -1797134545
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 49e2bd4a60b103a418f6dae1be172897, type: 3}
---- !u!4 &55869293 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 1338333884385684043, guid: 49e2bd4a60b103a418f6dae1be172897, type: 3}
-  m_PrefabInstance: {fileID: 55869292}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &55869294 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 421207248417673336, guid: 49e2bd4a60b103a418f6dae1be172897, type: 3}
-  m_PrefabInstance: {fileID: 55869292}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &71555997
 GameObject:
   m_ObjectHideFlags: 0
@@ -176648,144 +176575,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5511220477222073332, guid: 6a0f26c1865828e4fa2ff99b2e488e16, type: 3}
   m_PrefabInstance: {fileID: 177931517}
   m_PrefabAsset: {fileID: 0}
---- !u!1001 &194287811
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 1072621758}
-    m_Modifications:
-    - target: {fileID: 708631176164728598, guid: 9a344ea8cd1fe794399ece2757dd4c66, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 34.080093
-      objectReference: {fileID: 0}
-    - target: {fileID: 708631176164728598, guid: 9a344ea8cd1fe794399ece2757dd4c66, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -18.677395
-      objectReference: {fileID: 0}
-    - target: {fileID: 708631176164728598, guid: 9a344ea8cd1fe794399ece2757dd4c66, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0.08562
-      objectReference: {fileID: 0}
-    - target: {fileID: 708631176164728598, guid: 9a344ea8cd1fe794399ece2757dd4c66, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 708631176164728598, guid: 9a344ea8cd1fe794399ece2757dd4c66, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 708631176164728598, guid: 9a344ea8cd1fe794399ece2757dd4c66, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 708631176164728598, guid: 9a344ea8cd1fe794399ece2757dd4c66, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 708631176164728598, guid: 9a344ea8cd1fe794399ece2757dd4c66, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 708631176164728598, guid: 9a344ea8cd1fe794399ece2757dd4c66, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 708631176164728598, guid: 9a344ea8cd1fe794399ece2757dd4c66, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 855725520344185540, guid: 9a344ea8cd1fe794399ece2757dd4c66, type: 3}
-      propertyPath: m_SortingLayer
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 855725520344185540, guid: 9a344ea8cd1fe794399ece2757dd4c66, type: 3}
-      propertyPath: m_SortingLayerID
-      value: -1797134545
-      objectReference: {fileID: 0}
-    - target: {fileID: 5485323346110630841, guid: 9a344ea8cd1fe794399ece2757dd4c66, type: 3}
-      propertyPath: m_Name
-      value: MM 1 NPC
-      objectReference: {fileID: 0}
-    - target: {fileID: 7363144053302750029, guid: 9a344ea8cd1fe794399ece2757dd4c66, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7363144053302750029, guid: 9a344ea8cd1fe794399ece2757dd4c66, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.8
-      objectReference: {fileID: 0}
-    - target: {fileID: 8197298919893151564, guid: 9a344ea8cd1fe794399ece2757dd4c66, type: 3}
-      propertyPath: showTravelChoice
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8197298919893151564, guid: 9a344ea8cd1fe794399ece2757dd4c66, type: 3}
-      propertyPath: dialog.lines.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 8197298919893151564, guid: 9a344ea8cd1fe794399ece2757dd4c66, type: 3}
-      propertyPath: 'dialog.lines.Array.data[0]'
-      value: I can take you to the murder mystery level
-      objectReference: {fileID: 0}
-    - target: {fileID: 8197298919893151564, guid: 9a344ea8cd1fe794399ece2757dd4c66, type: 3}
-      propertyPath: 'dialog.lines.Array.data[1]'
-      value: Want to go? It will cost 10 coins
-      objectReference: {fileID: 0}
-    - target: {fileID: 8197298919893151564, guid: 9a344ea8cd1fe794399ece2757dd4c66, type: 3}
-      propertyPath: minigameChoices.Array.size
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8197298919893151564, guid: 9a344ea8cd1fe794399ece2757dd4c66, type: 3}
-      propertyPath: cantaffordtravelDialog.lines.Array.size
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 8197298919893151564, guid: 9a344ea8cd1fe794399ece2757dd4c66, type: 3}
-      propertyPath: 'cantaffordtravelDialog.lines.Array.data[0]'
-      value: I could take you to the level 1 murder mystery.
-      objectReference: {fileID: 0}
-    - target: {fileID: 8197298919893151564, guid: 9a344ea8cd1fe794399ece2757dd4c66, type: 3}
-      propertyPath: 'cantaffordtravelDialog.lines.Array.data[1]'
-      value: Looks like you don't have enough coins though.
-      objectReference: {fileID: 0}
-    - target: {fileID: 8197298919893151564, guid: 9a344ea8cd1fe794399ece2757dd4c66, type: 3}
-      propertyPath: 'cantaffordtravelDialog.lines.Array.data[2]'
-      value: Come back when you have 10 coins.
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 5485323346110630841, guid: 9a344ea8cd1fe794399ece2757dd4c66, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 194287814}
-  m_SourcePrefab: {fileID: 100100000, guid: 9a344ea8cd1fe794399ece2757dd4c66, type: 3}
---- !u!4 &194287812 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 708631176164728598, guid: 9a344ea8cd1fe794399ece2757dd4c66, type: 3}
-  m_PrefabInstance: {fileID: 194287811}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &194287813 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5485323346110630841, guid: 9a344ea8cd1fe794399ece2757dd4c66, type: 3}
-  m_PrefabInstance: {fileID: 194287811}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &194287814
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 194287813}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4fedc0dcefac4a4ebedac408b4420c5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sceneBuildIndex: 16
-  levelNumber: -1
-  targetSpawnPointID: MMToLvl1
-  price: 10
 --- !u!1 &223989311
 GameObject:
   m_ObjectHideFlags: 0
@@ -176949,8 +176738,12 @@ MonoBehaviour:
   minigameChoices:
   - Play Cards
   - Talk
+  getProgressionItemDialog:
+    lines: []
   yesChoiceInt: 0
   cantaffordtravelDialog:
+    lines: []
+  TravelIsFreeDialog:
     lines: []
 --- !u!61 &235898616
 BoxCollider2D:
@@ -177325,7 +177118,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &298904623
 Transform:
   m_ObjectHideFlags: 0
@@ -177506,7 +177299,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &335432714
 Transform:
   m_ObjectHideFlags: 0
@@ -177695,6 +177488,51 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6a0f26c1865828e4fa2ff99b2e488e16, type: 3}
+--- !u!1 &353014918
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 353014919}
+  - component: {fileID: 353014920}
+  m_Layer: 0
+  m_Name: SpawnPoint_Lv3MM
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &353014919
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 353014918}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -7.18, y: 4.7, z: 7.8811464}
+  m_LocalScale: {x: 1.1886, y: 1.1886, z: 1.1886}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 19746298}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &353014920
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 353014918}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fed96e364bf19804bbb7bd7c749f8fd7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawnPointID: Lv2MMToHub
 --- !u!1 &360236112
 GameObject:
   m_ObjectHideFlags: 0
@@ -177893,8 +177731,12 @@ MonoBehaviour:
   minigameChoices:
   - Play Cards
   - Talk
+  getProgressionItemDialog:
+    lines: []
   yesChoiceInt: 0
   cantaffordtravelDialog:
+    lines: []
+  TravelIsFreeDialog:
     lines: []
 --- !u!61 &373498652
 BoxCollider2D:
@@ -178108,6 +177950,51 @@ PolygonCollider2D:
       - {x: -47.144863, y: -99.11735}
       - {x: 105.367386, y: -98.50763}
   m_UseDelaunayMesh: 0
+--- !u!1 &381867031
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 381867032}
+  - component: {fileID: 381867033}
+  m_Layer: 0
+  m_Name: SpawnPoint_Lv2MM
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &381867032
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 381867031}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 8.81, y: -25.69, z: 7.8811464}
+  m_LocalScale: {x: 1.1886, y: 1.1886, z: 1.1886}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 19746298}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &381867033
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 381867031}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fed96e364bf19804bbb7bd7c749f8fd7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawnPointID: Lv2MMToHub
 --- !u!1 &388401279 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2099600093481441621, guid: e3b3f787f063a39429f5463ae61140d5, type: 3}
@@ -179100,8 +178987,12 @@ MonoBehaviour:
   minigameChoices:
   - Play Cards
   - Talk
+  getProgressionItemDialog:
+    lines: []
   yesChoiceInt: 0
   cantaffordtravelDialog:
+    lines: []
+  TravelIsFreeDialog:
     lines: []
 --- !u!61 &552881914
 BoxCollider2D:
@@ -185412,7 +185303,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &639167959
 Transform:
   m_ObjectHideFlags: 0
@@ -252912,7 +252803,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &928059496
 Transform:
   m_ObjectHideFlags: 0
@@ -260664,8 +260555,12 @@ MonoBehaviour:
   minigameChoices:
   - Play Cards
   - Talk
+  getProgressionItemDialog:
+    lines: []
   yesChoiceInt: 0
   cantaffordtravelDialog:
+    lines: []
+  TravelIsFreeDialog:
     lines: []
 --- !u!61 &1069623323
 BoxCollider2D:
@@ -260812,7 +260707,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1070970759
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -260925,7 +260820,6 @@ Transform:
   - {fileID: 373498650}
   - {fileID: 552881912}
   - {fileID: 1535057219}
-  - {fileID: 1560713632}
   - {fileID: 1069623321}
   - {fileID: 1030441907}
   - {fileID: 780982922}
@@ -260941,7 +260835,11 @@ Transform:
   - {fileID: 1960457930}
   - {fileID: 682718710}
   - {fileID: 1707148767}
-  - {fileID: 194287812}
+  - {fileID: 1752375364}
+  - {fileID: 1594706645}
+  - {fileID: 1662435576}
+  - {fileID: 2014966141}
+  - {fileID: 333896523037457838}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1093793199
@@ -303694,8 +303592,12 @@ MonoBehaviour:
   minigameChoices:
   - Play Cards
   - Talk
+  getProgressionItemDialog:
+    lines: []
   yesChoiceInt: 0
   cantaffordtravelDialog:
+    lines: []
+  TravelIsFreeDialog:
     lines: []
 --- !u!61 &1535057221
 BoxCollider2D:
@@ -323175,253 +323077,6 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
---- !u!1 &1560713631
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1560713632}
-  - component: {fileID: 1560713636}
-  - component: {fileID: 1560713635}
-  - component: {fileID: 1560713634}
-  - component: {fileID: 1560713633}
-  - component: {fileID: 1560713638}
-  m_Layer: 10
-  m_Name: Dr. Shepard
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1560713632
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1560713631}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 18.69, y: -7.94, z: 0.08562}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 55869293}
-  m_Father: {fileID: 1072621758}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1560713633
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1560713631}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8222b13549041bb4b9a46564726299a8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dialog:
-    lines:
-    - Oh hello, you must be the newbie!
-    - I've heard all about you, we're lucky to have you!
-    - I'd love to help you get started, but it seems that I misplaced my glasses.
-    - Could you help me find them?
-    - I remember having them while reading under the apple tree.
-    - The apple tree? Oh it's in the park, down to the right of here.
-    - Thanks a bunch!
-  InteractPrompt: {fileID: 55869294}
-  seen: 0
-  showTravelChoice: 0
-  travelChoices: []
-  minigameChoices:
-  - Play Cards
-  - Talk
-  yesChoiceInt: 0
-  cantaffordtravelDialog:
-    lines: []
---- !u!61 &1560713634
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1560713631}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_CompositeOperation: 0
-  m_CompositeOrder: 0
-  m_Offset: {x: -0.015584052, y: -0.010389447}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 2}
-    newSize: {x: 1, y: 2}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  m_Size: {x: 0.8233799, y: 1.293524}
-  m_EdgeRadius: 0
---- !u!50 &1560713635
-Rigidbody2D:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1560713631}
-  m_BodyType: 1
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDamping: 0
-  m_AngularDamping: 0.05
-  m_GravityScale: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
---- !u!212 &1560713636
-SpriteRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1560713631}
-  m_Enabled: 1
-  m_CastShadows: 0
-  m_ReceiveShadows: 0
-  m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 0
-  m_RayTraceProcedural: 0
-  m_RayTracingAccelStructBuildFlagsOverride: 0
-  m_RayTracingAccelStructBuildFlags: 1
-  m_SmallMeshCulling: 1
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 0
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 1002134991
-  m_SortingLayer: 3
-  m_SortingOrder: 0
-  m_Sprite: {fileID: -8922328891513336043, guid: aa31ccf4f58130f498d84db15606cb5e, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
-  m_FlipY: 0
-  m_DrawMode: 0
-  m_Size: {x: 1, y: 2}
-  m_AdaptiveModeThreshold: 0.5
-  m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
-  m_MaskInteraction: 0
-  m_SpriteSortPoint: 0
---- !u!114 &1560713638
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1560713631}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b6d015f7e12d4724faaff1d65c54e3d0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dialogEntries:
-  - itemName: ShepardsGlasses
-    dialog:
-      lines:
-      - Oh?
-      - You found my glasses? Splendid!
-      - Wait, I just remembered I left my supplies at the beach.
-      - I'm such a klutz!
-      - It wouldn't be too much to ask your help again would it?
-      - The beach is directly south from the hospital.
-  - itemName: MedicalSupplies
-    dialog:
-      lines:
-      - Have you retrieved my supplies? Wonderful!
-      - You've already been such outstanding help!
-      - Now I think we can finally head inside...
-      - ...huh...wait...what? My ID card!!!
-      - They won't know who I am!! I can't go inside!!
-      - I keep bringing shame upon my name.
-      - It probably slipped out of my pocket while I was playing the piano.
-      - What's that you ask? Why yes I love playing music and it's what I often do
-        in my free time.
-      - The music room is in the basement of the hospital.
-      - I warn you though, it is very messy down there.
-  - itemName: IDCard
-    dialog:
-      lines:
-      - Ah I see you found my ID card!
-      - Now we can finally enter the building.
-      - But first, I want to stop by the post office and pick up my mail.
-      - It is quite a distance though, and I need to conserve my energy for my patients.
-      - If only there was a young, energetic person who could do it for me...
-      - ...
-      - ...
-      - ...
-      - ...Ah yes you lad, how convenient of you to be here in my time of need!.
-      - I need to send my niece her birthday card, can you drop it off for me?
-      - The post office is in the town you passed by when first arriving here.
-      - You're the best!
 --- !u!1001 &1572063281
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -323648,6 +323303,161 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1.9947472, y: 0.56727695}
   m_EdgeRadius: 0
+--- !u!1001 &1594706644
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1072621758}
+    m_Modifications:
+    - target: {fileID: 708631176164728598, guid: 99e53342f5f448545b865bdebe7bd725, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -19.868227
+      objectReference: {fileID: 0}
+    - target: {fileID: 708631176164728598, guid: 99e53342f5f448545b865bdebe7bd725, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -22.545893
+      objectReference: {fileID: 0}
+    - target: {fileID: 708631176164728598, guid: 99e53342f5f448545b865bdebe7bd725, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.08562
+      objectReference: {fileID: 0}
+    - target: {fileID: 708631176164728598, guid: 99e53342f5f448545b865bdebe7bd725, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 708631176164728598, guid: 99e53342f5f448545b865bdebe7bd725, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 708631176164728598, guid: 99e53342f5f448545b865bdebe7bd725, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 708631176164728598, guid: 99e53342f5f448545b865bdebe7bd725, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 708631176164728598, guid: 99e53342f5f448545b865bdebe7bd725, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 708631176164728598, guid: 99e53342f5f448545b865bdebe7bd725, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 708631176164728598, guid: 99e53342f5f448545b865bdebe7bd725, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2619891429852127328, guid: 99e53342f5f448545b865bdebe7bd725, type: 3}
+      propertyPath: m_Color.b
+      value: 0.122641504
+      objectReference: {fileID: 0}
+    - target: {fileID: 2619891429852127328, guid: 99e53342f5f448545b865bdebe7bd725, type: 3}
+      propertyPath: m_Color.g
+      value: 0.122641504
+      objectReference: {fileID: 0}
+    - target: {fileID: 2619891429852127328, guid: 99e53342f5f448545b865bdebe7bd725, type: 3}
+      propertyPath: m_Color.r
+      value: 0.122641504
+      objectReference: {fileID: 0}
+    - target: {fileID: 2916611966103996108, guid: 99e53342f5f448545b865bdebe7bd725, type: 3}
+      propertyPath: m_Color.b
+      value: 0.9339623
+      objectReference: {fileID: 0}
+    - target: {fileID: 2916611966103996108, guid: 99e53342f5f448545b865bdebe7bd725, type: 3}
+      propertyPath: m_Color.g
+      value: 0.53306335
+      objectReference: {fileID: 0}
+    - target: {fileID: 2916611966103996108, guid: 99e53342f5f448545b865bdebe7bd725, type: 3}
+      propertyPath: m_Color.r
+      value: 0.54633814
+      objectReference: {fileID: 0}
+    - target: {fileID: 4412091012276965414, guid: 99e53342f5f448545b865bdebe7bd725, type: 3}
+      propertyPath: m_Color.b
+      value: 0.14382343
+      objectReference: {fileID: 0}
+    - target: {fileID: 4412091012276965414, guid: 99e53342f5f448545b865bdebe7bd725, type: 3}
+      propertyPath: m_Color.g
+      value: 0.25405183
+      objectReference: {fileID: 0}
+    - target: {fileID: 4412091012276965414, guid: 99e53342f5f448545b865bdebe7bd725, type: 3}
+      propertyPath: m_Color.r
+      value: 0.3018868
+      objectReference: {fileID: 0}
+    - target: {fileID: 5485323346110630841, guid: 99e53342f5f448545b865bdebe7bd725, type: 3}
+      propertyPath: m_Name
+      value: MM 2 NPC
+      objectReference: {fileID: 0}
+    - target: {fileID: 8197298919893151564, guid: 99e53342f5f448545b865bdebe7bd725, type: 3}
+      propertyPath: showTravelChoice
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8197298919893151564, guid: 99e53342f5f448545b865bdebe7bd725, type: 3}
+      propertyPath: 'dialog.lines.Array.data[0]'
+      value: My pharmacist friend needs some help. Do you have what it takes?
+      objectReference: {fileID: 0}
+    - target: {fileID: 8197298919893151564, guid: 99e53342f5f448545b865bdebe7bd725, type: 3}
+      propertyPath: TravelIsFreeDialog.lines.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8197298919893151564, guid: 99e53342f5f448545b865bdebe7bd725, type: 3}
+      propertyPath: 'TravelIsFreeDialog.lines.Array.data[0]'
+      value: You already solved my case!
+      objectReference: {fileID: 0}
+    - target: {fileID: 8197298919893151564, guid: 99e53342f5f448545b865bdebe7bd725, type: 3}
+      propertyPath: 'TravelIsFreeDialog.lines.Array.data[1]'
+      value: If you want to go back, feel free, I won't charge you.
+      objectReference: {fileID: 0}
+    - target: {fileID: 8197298919893151564, guid: 99e53342f5f448545b865bdebe7bd725, type: 3}
+      propertyPath: cantaffordtravelDialog.lines.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8197298919893151564, guid: 99e53342f5f448545b865bdebe7bd725, type: 3}
+      propertyPath: 'cantaffordtravelDialog.lines.Array.data[0]'
+      value: Looks like you dont have enough coins.
+      objectReference: {fileID: 0}
+    - target: {fileID: 8197298919893151564, guid: 99e53342f5f448545b865bdebe7bd725, type: 3}
+      propertyPath: 'cantaffordtravelDialog.lines.Array.data[1]'
+      value: Come back after you've proved yourself out by the beach down this path!
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 5485323346110630841, guid: 99e53342f5f448545b865bdebe7bd725, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1594706647}
+  m_SourcePrefab: {fileID: 100100000, guid: 99e53342f5f448545b865bdebe7bd725, type: 3}
+--- !u!4 &1594706645 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 708631176164728598, guid: 99e53342f5f448545b865bdebe7bd725, type: 3}
+  m_PrefabInstance: {fileID: 1594706644}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1594706646 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5485323346110630841, guid: 99e53342f5f448545b865bdebe7bd725, type: 3}
+  m_PrefabInstance: {fileID: 1594706644}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1594706647
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1594706646}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4fedc0dcefac4a4ebedac408b4420c5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sceneBuildIndex: 16
+  levelNumber: -1
+  targetSpawnPointID: MMToLvl2
+  price: 10
+  NecessaryProgressionItemName: MedicalSupplies
 --- !u!1 &1611390063
 GameObject:
   m_ObjectHideFlags: 0
@@ -324500,6 +324310,173 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1646333226}
   m_CullTransparentMesh: 1
+--- !u!1001 &1662435575
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1072621758}
+    m_Modifications:
+    - target: {fileID: 708631176164728598, guid: 99e53342f5f448545b865bdebe7bd725, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -35.07
+      objectReference: {fileID: 0}
+    - target: {fileID: 708631176164728598, guid: 99e53342f5f448545b865bdebe7bd725, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 9.67
+      objectReference: {fileID: 0}
+    - target: {fileID: 708631176164728598, guid: 99e53342f5f448545b865bdebe7bd725, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.08562
+      objectReference: {fileID: 0}
+    - target: {fileID: 708631176164728598, guid: 99e53342f5f448545b865bdebe7bd725, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 708631176164728598, guid: 99e53342f5f448545b865bdebe7bd725, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 708631176164728598, guid: 99e53342f5f448545b865bdebe7bd725, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 708631176164728598, guid: 99e53342f5f448545b865bdebe7bd725, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 708631176164728598, guid: 99e53342f5f448545b865bdebe7bd725, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 708631176164728598, guid: 99e53342f5f448545b865bdebe7bd725, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 708631176164728598, guid: 99e53342f5f448545b865bdebe7bd725, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2619891429852127328, guid: 99e53342f5f448545b865bdebe7bd725, type: 3}
+      propertyPath: m_Color.b
+      value: 0.258989
+      objectReference: {fileID: 0}
+    - target: {fileID: 2619891429852127328, guid: 99e53342f5f448545b865bdebe7bd725, type: 3}
+      propertyPath: m_Color.g
+      value: 0.45972568
+      objectReference: {fileID: 0}
+    - target: {fileID: 2619891429852127328, guid: 99e53342f5f448545b865bdebe7bd725, type: 3}
+      propertyPath: m_Color.r
+      value: 0.5660378
+      objectReference: {fileID: 0}
+    - target: {fileID: 2916611966103996108, guid: 99e53342f5f448545b865bdebe7bd725, type: 3}
+      propertyPath: m_Color.b
+      value: 0.33403924
+      objectReference: {fileID: 0}
+    - target: {fileID: 2916611966103996108, guid: 99e53342f5f448545b865bdebe7bd725, type: 3}
+      propertyPath: m_Color.g
+      value: 0.2688679
+      objectReference: {fileID: 0}
+    - target: {fileID: 2916611966103996108, guid: 99e53342f5f448545b865bdebe7bd725, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4412091012276965414, guid: 99e53342f5f448545b865bdebe7bd725, type: 3}
+      propertyPath: m_Color.b
+      value: 0.6541474
+      objectReference: {fileID: 0}
+    - target: {fileID: 4412091012276965414, guid: 99e53342f5f448545b865bdebe7bd725, type: 3}
+      propertyPath: m_Color.g
+      value: 0.85536397
+      objectReference: {fileID: 0}
+    - target: {fileID: 4412091012276965414, guid: 99e53342f5f448545b865bdebe7bd725, type: 3}
+      propertyPath: m_Color.r
+      value: 0.9433962
+      objectReference: {fileID: 0}
+    - target: {fileID: 5485323346110630841, guid: 99e53342f5f448545b865bdebe7bd725, type: 3}
+      propertyPath: m_Name
+      value: MM 3 NPC
+      objectReference: {fileID: 0}
+    - target: {fileID: 8197298919893151564, guid: 99e53342f5f448545b865bdebe7bd725, type: 3}
+      propertyPath: showTravelChoice
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8197298919893151564, guid: 99e53342f5f448545b865bdebe7bd725, type: 3}
+      propertyPath: dialog.lines.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8197298919893151564, guid: 99e53342f5f448545b865bdebe7bd725, type: 3}
+      propertyPath: 'dialog.lines.Array.data[0]'
+      value: Something troublesome is brewing...
+      objectReference: {fileID: 0}
+    - target: {fileID: 8197298919893151564, guid: 99e53342f5f448545b865bdebe7bd725, type: 3}
+      propertyPath: 'dialog.lines.Array.data[1]'
+      value: Maybe you should come back near Exam 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8197298919893151564, guid: 99e53342f5f448545b865bdebe7bd725, type: 3}
+      propertyPath: 'dialog.lines.Array.data[2]'
+      value: (This mystery level is still in development)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8197298919893151564, guid: 99e53342f5f448545b865bdebe7bd725, type: 3}
+      propertyPath: TravelIsFreeDialog.lines.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8197298919893151564, guid: 99e53342f5f448545b865bdebe7bd725, type: 3}
+      propertyPath: 'TravelIsFreeDialog.lines.Array.data[0]'
+      value: You already solved my case!
+      objectReference: {fileID: 0}
+    - target: {fileID: 8197298919893151564, guid: 99e53342f5f448545b865bdebe7bd725, type: 3}
+      propertyPath: 'TravelIsFreeDialog.lines.Array.data[1]'
+      value: If you want to go back, feel free, I won't charge you.
+      objectReference: {fileID: 0}
+    - target: {fileID: 8197298919893151564, guid: 99e53342f5f448545b865bdebe7bd725, type: 3}
+      propertyPath: cantaffordtravelDialog.lines.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8197298919893151564, guid: 99e53342f5f448545b865bdebe7bd725, type: 3}
+      propertyPath: 'cantaffordtravelDialog.lines.Array.data[0]'
+      value: Looks like you dont have enough coins.
+      objectReference: {fileID: 0}
+    - target: {fileID: 8197298919893151564, guid: 99e53342f5f448545b865bdebe7bd725, type: 3}
+      propertyPath: 'cantaffordtravelDialog.lines.Array.data[1]'
+      value: Come back after you've looked around in the basement.
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 5485323346110630841, guid: 99e53342f5f448545b865bdebe7bd725, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1662435578}
+  m_SourcePrefab: {fileID: 100100000, guid: 99e53342f5f448545b865bdebe7bd725, type: 3}
+--- !u!4 &1662435576 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 708631176164728598, guid: 99e53342f5f448545b865bdebe7bd725, type: 3}
+  m_PrefabInstance: {fileID: 1662435575}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1662435577 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5485323346110630841, guid: 99e53342f5f448545b865bdebe7bd725, type: 3}
+  m_PrefabInstance: {fileID: 1662435575}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1662435578
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1662435577}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4fedc0dcefac4a4ebedac408b4420c5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sceneBuildIndex: 16
+  levelNumber: -1
+  targetSpawnPointID: MMToLvl3
+  price: 10
+  NecessaryProgressionItemName: IDCard
 --- !u!1 &1677604799
 GameObject:
   m_ObjectHideFlags: 0
@@ -325111,7 +325088,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1737810380
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -325191,6 +325168,169 @@ Transform:
   - {fileID: 953036216}
   m_Father: {fileID: 1611390064}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &1752375363
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1072621758}
+    m_Modifications:
+    - target: {fileID: 708631176164728598, guid: 99e53342f5f448545b865bdebe7bd725, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 34.42354
+      objectReference: {fileID: 0}
+    - target: {fileID: 708631176164728598, guid: 99e53342f5f448545b865bdebe7bd725, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -18.285662
+      objectReference: {fileID: 0}
+    - target: {fileID: 708631176164728598, guid: 99e53342f5f448545b865bdebe7bd725, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.08562
+      objectReference: {fileID: 0}
+    - target: {fileID: 708631176164728598, guid: 99e53342f5f448545b865bdebe7bd725, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 708631176164728598, guid: 99e53342f5f448545b865bdebe7bd725, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 708631176164728598, guid: 99e53342f5f448545b865bdebe7bd725, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 708631176164728598, guid: 99e53342f5f448545b865bdebe7bd725, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 708631176164728598, guid: 99e53342f5f448545b865bdebe7bd725, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 708631176164728598, guid: 99e53342f5f448545b865bdebe7bd725, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 708631176164728598, guid: 99e53342f5f448545b865bdebe7bd725, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2619891429852127328, guid: 99e53342f5f448545b865bdebe7bd725, type: 3}
+      propertyPath: m_Color.b
+      value: 0.18111429
+      objectReference: {fileID: 0}
+    - target: {fileID: 2619891429852127328, guid: 99e53342f5f448545b865bdebe7bd725, type: 3}
+      propertyPath: m_Color.g
+      value: 0.50171137
+      objectReference: {fileID: 0}
+    - target: {fileID: 2619891429852127328, guid: 99e53342f5f448545b865bdebe7bd725, type: 3}
+      propertyPath: m_Color.r
+      value: 0.6981132
+      objectReference: {fileID: 0}
+    - target: {fileID: 2916611966103996108, guid: 99e53342f5f448545b865bdebe7bd725, type: 3}
+      propertyPath: m_Color.b
+      value: 0.9245283
+      objectReference: {fileID: 0}
+    - target: {fileID: 2916611966103996108, guid: 99e53342f5f448545b865bdebe7bd725, type: 3}
+      propertyPath: m_Color.g
+      value: 0.47006425
+      objectReference: {fileID: 0}
+    - target: {fileID: 2916611966103996108, guid: 99e53342f5f448545b865bdebe7bd725, type: 3}
+      propertyPath: m_Color.r
+      value: 0.3794055
+      objectReference: {fileID: 0}
+    - target: {fileID: 4412091012276965414, guid: 99e53342f5f448545b865bdebe7bd725, type: 3}
+      propertyPath: m_Color.b
+      value: 0.7877358
+      objectReference: {fileID: 0}
+    - target: {fileID: 4412091012276965414, guid: 99e53342f5f448545b865bdebe7bd725, type: 3}
+      propertyPath: m_Color.g
+      value: 0.9351415
+      objectReference: {fileID: 0}
+    - target: {fileID: 4412091012276965414, guid: 99e53342f5f448545b865bdebe7bd725, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5485323346110630841, guid: 99e53342f5f448545b865bdebe7bd725, type: 3}
+      propertyPath: m_Name
+      value: MM 1 NPC
+      objectReference: {fileID: 0}
+    - target: {fileID: 8197298919893151564, guid: 99e53342f5f448545b865bdebe7bd725, type: 3}
+      propertyPath: showTravelChoice
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8197298919893151564, guid: 99e53342f5f448545b865bdebe7bd725, type: 3}
+      propertyPath: dialog.lines.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8197298919893151564, guid: 99e53342f5f448545b865bdebe7bd725, type: 3}
+      propertyPath: 'dialog.lines.Array.data[0]'
+      value: I have a special case that my doctor friend needs help with.
+      objectReference: {fileID: 0}
+    - target: {fileID: 8197298919893151564, guid: 99e53342f5f448545b865bdebe7bd725, type: 3}
+      propertyPath: 'dialog.lines.Array.data[1]'
+      value: Think you could give it a shot?
+      objectReference: {fileID: 0}
+    - target: {fileID: 8197298919893151564, guid: 99e53342f5f448545b865bdebe7bd725, type: 3}
+      propertyPath: TravelIsFreeDialog.lines.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8197298919893151564, guid: 99e53342f5f448545b865bdebe7bd725, type: 3}
+      propertyPath: 'TravelIsFreeDialog.lines.Array.data[0]'
+      value: You already solved my case!
+      objectReference: {fileID: 0}
+    - target: {fileID: 8197298919893151564, guid: 99e53342f5f448545b865bdebe7bd725, type: 3}
+      propertyPath: 'TravelIsFreeDialog.lines.Array.data[1]'
+      value: If you want to go back, feel free, I won't charge you.
+      objectReference: {fileID: 0}
+    - target: {fileID: 8197298919893151564, guid: 99e53342f5f448545b865bdebe7bd725, type: 3}
+      propertyPath: cantaffordtravelDialog.lines.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8197298919893151564, guid: 99e53342f5f448545b865bdebe7bd725, type: 3}
+      propertyPath: 'cantaffordtravelDialog.lines.Array.data[0]'
+      value: Looks like you dont have enough coins.
+      objectReference: {fileID: 0}
+    - target: {fileID: 8197298919893151564, guid: 99e53342f5f448545b865bdebe7bd725, type: 3}
+      propertyPath: 'cantaffordtravelDialog.lines.Array.data[1]'
+      value: Come back after you've proved yourself out in the park behind me!
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 5485323346110630841, guid: 99e53342f5f448545b865bdebe7bd725, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1752375366}
+  m_SourcePrefab: {fileID: 100100000, guid: 99e53342f5f448545b865bdebe7bd725, type: 3}
+--- !u!4 &1752375364 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 708631176164728598, guid: 99e53342f5f448545b865bdebe7bd725, type: 3}
+  m_PrefabInstance: {fileID: 1752375363}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1752375365 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5485323346110630841, guid: 99e53342f5f448545b865bdebe7bd725, type: 3}
+  m_PrefabInstance: {fileID: 1752375363}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1752375366
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1752375365}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4fedc0dcefac4a4ebedac408b4420c5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sceneBuildIndex: 16
+  levelNumber: -1
+  targetSpawnPointID: MMToLvl1
+  price: 10
+  NecessaryProgressionItemName: ShepardsGlasses
 --- !u!1 &1766225339
 GameObject:
   m_ObjectHideFlags: 0
@@ -334710,6 +334850,182 @@ MonoBehaviour:
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
+--- !u!1001 &2014966140
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1072621758}
+    m_Modifications:
+    - target: {fileID: 708631176164728598, guid: 99e53342f5f448545b865bdebe7bd725, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -59.09
+      objectReference: {fileID: 0}
+    - target: {fileID: 708631176164728598, guid: 99e53342f5f448545b865bdebe7bd725, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -20.14
+      objectReference: {fileID: 0}
+    - target: {fileID: 708631176164728598, guid: 99e53342f5f448545b865bdebe7bd725, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.08562
+      objectReference: {fileID: 0}
+    - target: {fileID: 708631176164728598, guid: 99e53342f5f448545b865bdebe7bd725, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 708631176164728598, guid: 99e53342f5f448545b865bdebe7bd725, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 708631176164728598, guid: 99e53342f5f448545b865bdebe7bd725, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 708631176164728598, guid: 99e53342f5f448545b865bdebe7bd725, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 708631176164728598, guid: 99e53342f5f448545b865bdebe7bd725, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 708631176164728598, guid: 99e53342f5f448545b865bdebe7bd725, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 708631176164728598, guid: 99e53342f5f448545b865bdebe7bd725, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2619891429852127328, guid: 99e53342f5f448545b865bdebe7bd725, type: 3}
+      propertyPath: m_Color.b
+      value: 0.2024742
+      objectReference: {fileID: 0}
+    - target: {fileID: 2619891429852127328, guid: 99e53342f5f448545b865bdebe7bd725, type: 3}
+      propertyPath: m_Color.g
+      value: 0.2024742
+      objectReference: {fileID: 0}
+    - target: {fileID: 2619891429852127328, guid: 99e53342f5f448545b865bdebe7bd725, type: 3}
+      propertyPath: m_Color.r
+      value: 0.6603774
+      objectReference: {fileID: 0}
+    - target: {fileID: 2916611966103996108, guid: 99e53342f5f448545b865bdebe7bd725, type: 3}
+      propertyPath: m_Color.b
+      value: 0.7924528
+      objectReference: {fileID: 0}
+    - target: {fileID: 2916611966103996108, guid: 99e53342f5f448545b865bdebe7bd725, type: 3}
+      propertyPath: m_Color.g
+      value: 0.6840513
+      objectReference: {fileID: 0}
+    - target: {fileID: 2916611966103996108, guid: 99e53342f5f448545b865bdebe7bd725, type: 3}
+      propertyPath: m_Color.r
+      value: 0.6876407
+      objectReference: {fileID: 0}
+    - target: {fileID: 4412091012276965414, guid: 99e53342f5f448545b865bdebe7bd725, type: 3}
+      propertyPath: m_Color.b
+      value: 0.33228016
+      objectReference: {fileID: 0}
+    - target: {fileID: 4412091012276965414, guid: 99e53342f5f448545b865bdebe7bd725, type: 3}
+      propertyPath: m_Color.g
+      value: 0.47838196
+      objectReference: {fileID: 0}
+    - target: {fileID: 4412091012276965414, guid: 99e53342f5f448545b865bdebe7bd725, type: 3}
+      propertyPath: m_Color.r
+      value: 0.5377358
+      objectReference: {fileID: 0}
+    - target: {fileID: 5485323346110630841, guid: 99e53342f5f448545b865bdebe7bd725, type: 3}
+      propertyPath: m_Name
+      value: MM 4 NPC
+      objectReference: {fileID: 0}
+    - target: {fileID: 8197298919893151564, guid: 99e53342f5f448545b865bdebe7bd725, type: 3}
+      propertyPath: showTravelChoice
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8197298919893151564, guid: 99e53342f5f448545b865bdebe7bd725, type: 3}
+      propertyPath: dialog.lines.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8197298919893151564, guid: 99e53342f5f448545b865bdebe7bd725, type: 3}
+      propertyPath: 'dialog.lines.Array.data[0]'
+      value: I've had to sneeze for like 10 minutes but it just wont happen.
+      objectReference: {fileID: 0}
+    - target: {fileID: 8197298919893151564, guid: 99e53342f5f448545b865bdebe7bd725, type: 3}
+      propertyPath: 'dialog.lines.Array.data[1]'
+      value: Oh, who are you?
+      objectReference: {fileID: 0}
+    - target: {fileID: 8197298919893151564, guid: 99e53342f5f448545b865bdebe7bd725, type: 3}
+      propertyPath: 'dialog.lines.Array.data[2]'
+      value: Mystery level? What are you talking about?
+      objectReference: {fileID: 0}
+    - target: {fileID: 8197298919893151564, guid: 99e53342f5f448545b865bdebe7bd725, type: 3}
+      propertyPath: 'dialog.lines.Array.data[3]'
+      value: Maybe you should come back near Exam 4.
+      objectReference: {fileID: 0}
+    - target: {fileID: 8197298919893151564, guid: 99e53342f5f448545b865bdebe7bd725, type: 3}
+      propertyPath: 'dialog.lines.Array.data[4]'
+      value: (This mystery level is still in development), but you should probably
+        get out of here before he sneezes, he's trying really hard.
+      objectReference: {fileID: 0}
+    - target: {fileID: 8197298919893151564, guid: 99e53342f5f448545b865bdebe7bd725, type: 3}
+      propertyPath: TravelIsFreeDialog.lines.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8197298919893151564, guid: 99e53342f5f448545b865bdebe7bd725, type: 3}
+      propertyPath: 'TravelIsFreeDialog.lines.Array.data[0]'
+      value: You already solved my case!
+      objectReference: {fileID: 0}
+    - target: {fileID: 8197298919893151564, guid: 99e53342f5f448545b865bdebe7bd725, type: 3}
+      propertyPath: 'TravelIsFreeDialog.lines.Array.data[1]'
+      value: If you want to go back, feel free, I won't charge you.
+      objectReference: {fileID: 0}
+    - target: {fileID: 8197298919893151564, guid: 99e53342f5f448545b865bdebe7bd725, type: 3}
+      propertyPath: cantaffordtravelDialog.lines.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8197298919893151564, guid: 99e53342f5f448545b865bdebe7bd725, type: 3}
+      propertyPath: 'cantaffordtravelDialog.lines.Array.data[0]'
+      value: Looks like you dont have enough coins.
+      objectReference: {fileID: 0}
+    - target: {fileID: 8197298919893151564, guid: 99e53342f5f448545b865bdebe7bd725, type: 3}
+      propertyPath: 'cantaffordtravelDialog.lines.Array.data[1]'
+      value: Come back after you've gone out to the big city!
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 5485323346110630841, guid: 99e53342f5f448545b865bdebe7bd725, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2014966143}
+  m_SourcePrefab: {fileID: 100100000, guid: 99e53342f5f448545b865bdebe7bd725, type: 3}
+--- !u!4 &2014966141 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 708631176164728598, guid: 99e53342f5f448545b865bdebe7bd725, type: 3}
+  m_PrefabInstance: {fileID: 2014966140}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &2014966142 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5485323346110630841, guid: 99e53342f5f448545b865bdebe7bd725, type: 3}
+  m_PrefabInstance: {fileID: 2014966140}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2014966143
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2014966142}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4fedc0dcefac4a4ebedac408b4420c5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sceneBuildIndex: 16
+  levelNumber: -1
+  targetSpawnPointID: MMToLvl4
+  price: 10
+  NecessaryProgressionItemName: 
 --- !u!1001 &2017872473
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -349714,6 +350030,77 @@ RectTransform:
   m_AnchoredPosition: {x: 280.04, y: 0}
   m_SizeDelta: {x: 205.96, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!4 &333896523037457838
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7329282672589155964}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 18.622507, y: -9.063345, z: 0.17124}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 5862375971353011533}
+  m_Father: {fileID: 1072621758}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!212 &1076054893170972208
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7329282672589155964}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 1002134991
+  m_SortingLayer: 3
+  m_SortingOrder: 0
+  m_Sprite: {fileID: -8922328891513336043, guid: aa31ccf4f58130f498d84db15606cb5e, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 1, y: 2}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
+  m_SpriteSortPoint: 0
 --- !u!61 &1088355924383440656
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -349760,6 +350147,41 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 0.5, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &1249165829117395777
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7329282672589155964}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8222b13549041bb4b9a46564726299a8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialog:
+    lines:
+    - Oh hello, you must be the newbie!
+    - I've heard all about you, we're lucky to have you!
+    - I'd love to help you get started, but it seems that I misplaced my glasses.
+    - Could you help me find them?
+    - I remember having them while reading under the apple tree.
+    - The apple tree? Oh it's in the park, down to the right of here.
+    - Thanks a bunch!
+  InteractPrompt: {fileID: 5048972460337405822}
+  seen: 0
+  showTravelChoice: 0
+  travelChoices: []
+  minigameChoices:
+  - Play Cards
+  - Talk
+  getProgressionItemDialog:
+    lines: []
+  yesChoiceInt: 0
+  cantaffordtravelDialog:
+    lines: []
+  TravelIsFreeDialog:
+    lines: []
 --- !u!1 &1259882426521305609
 GameObject:
   m_ObjectHideFlags: 0
@@ -349849,6 +350271,78 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1503932d2f3e0fb45b4a085fa2685e95, type: 3}
+--- !u!212 &4365209254054999236
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5048972460337405822}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: -1797134545
+  m_SortingLayer: 4
+  m_SortingOrder: 0
+  m_Sprite: {fileID: 2678539659978713172, guid: 6797e47eeca16d044a990295d7b126c9, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 1, y: 1}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
+  m_SpriteSortPoint: 0
+--- !u!1 &5048972460337405822
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5862375971353011533}
+  - component: {fileID: 4365209254054999236}
+  m_Layer: 10
+  m_Name: InteractPrompt
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
 --- !u!50 &5326752992930515262
 Rigidbody2D:
   serializedVersion: 5
@@ -349892,6 +350386,67 @@ Transform:
   - {fileID: 1919841214}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &5862375971353011533
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5048972460337405822}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.02, y: 0.8273, z: 0}
+  m_LocalScale: {x: 0.34365007, y: 0.240175, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 333896523037457838}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &6315176471140315774
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7329282672589155964}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: -0.015584052, y: -0.010389447}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 2}
+    newSize: {x: 1, y: 2}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Size: {x: 0.8233799, y: 1.293524}
+  m_EdgeRadius: 0
 --- !u!212 &6495842872242085073
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -350107,6 +350662,105 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 49e2bd4a60b103a418f6dae1be172897, type: 3}
+--- !u!1 &7329282672589155964
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 333896523037457838}
+  - component: {fileID: 1076054893170972208}
+  - component: {fileID: 8452920965594417273}
+  - component: {fileID: 6315176471140315774}
+  - component: {fileID: 1249165829117395777}
+  - component: {fileID: 8286969822555457439}
+  m_Layer: 10
+  m_Name: Dr. Shepard
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &8286969822555457439
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7329282672589155964}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b6d015f7e12d4724faaff1d65c54e3d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogEntries:
+  - itemName: ShepardsGlasses
+    dialog:
+      lines:
+      - Oh?
+      - You found my glasses? Splendid!
+      - Wait, I just remembered I left my supplies at the beach.
+      - I'm such a klutz!
+      - It wouldn't be too much to ask your help again would it?
+      - The beach is directly south from the hospital.
+  - itemName: MedicalSupplies
+    dialog:
+      lines:
+      - Have you retrieved my supplies? Wonderful!
+      - You've already been such outstanding help!
+      - Now I think we can finally head inside...
+      - ...huh...wait...what? My ID card!!!
+      - They won't know who I am!! I can't go inside!!
+      - I keep bringing shame upon my name.
+      - It probably slipped out of my pocket while I was playing the piano.
+      - What's that you ask? Why yes I love playing music and it's what I often do
+        in my free time.
+      - The music room is in the basement of the hospital.
+      - I warn you though, it is very messy down there.
+  - itemName: IDCard
+    dialog:
+      lines:
+      - Ah I see you found my ID card!
+      - Now we can finally enter the building.
+      - But first, I want to stop by the post office and pick up my mail.
+      - It is quite a distance though, and I need to conserve my energy for my patients.
+      - If only there was a young, energetic person who could do it for me...
+      - ...
+      - ...
+      - ...
+      - ...Ah yes you lad, how convenient of you to be here in my time of need!.
+      - I need to send my niece her birthday card, can you drop it off for me?
+      - The post office is in the town you passed by when first arriving here.
+      - You're the best!
+--- !u!50 &8452920965594417273
+Rigidbody2D:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7329282672589155964}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

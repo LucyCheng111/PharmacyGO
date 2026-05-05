@@ -41,4 +41,22 @@ public class ProgressionState : MonoBehaviour
     {
         return collectedItems.Contains(itemName);
     }
+
+    public string ReturnNameForItem(string itemname)
+    {
+        if(itemname == "ShepardsGlasses")
+        {
+            return "Dr. Shepards Glasses";
+        }
+        else if(itemname == "MedicalSupplies")
+        {
+            return "Dr. Shepards Medical Supplies";
+        }
+        else if(itemname == "IDCard")
+        {
+            return "Dr. Shepards ID card";
+        }
+
+        return "";
+    }
 }

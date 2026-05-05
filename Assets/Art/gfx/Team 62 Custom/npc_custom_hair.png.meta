@@ -1,0 +1,546 @@
+fileFormatVersion: 2
+guid: 66124f851f40d5848ab1fe89a5944c25
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -3948168425033643615
+    second: npc_custom_hair_0
+  - first:
+      213: -3776171161578537122
+    second: npc_custom_hair_1
+  - first:
+      213: -238218487230577807
+    second: npc_custom_hair_2
+  - first:
+      213: -8831534007023872429
+    second: npc_custom_hair_3
+  - first:
+      213: 5450413306462099838
+    second: npc_custom_hair_4
+  - first:
+      213: -6015156809972006569
+    second: npc_custom_hair_5
+  - first:
+      213: 1846543202407743867
+    second: npc_custom_hair_6
+  - first:
+      213: 2012095027875813120
+    second: npc_custom_hair_7
+  - first:
+      213: -5275169289212284861
+    second: npc_custom_hair_8
+  - first:
+      213: -82571679812047191
+    second: npc_custom_hair_9
+  - first:
+      213: -8589535448274830770
+    second: npc_custom_hair_10
+  - first:
+      213: -3016364055444771282
+    second: npc_custom_hair_11
+  - first:
+      213: -7074394055467286636
+    second: npc_custom_hair_12
+  - first:
+      213: 5911135013143585015
+    second: npc_custom_hair_13
+  - first:
+      213: 4767524673492448115
+    second: npc_custom_hair_14
+  - first:
+      213: 2860373862628718650
+    second: npc_custom_hair_15
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 16
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: npc_custom_hair_0
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 225
+        width: 17
+        height: 24
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1a9c4785cb94539c0800000000000000
+      internalID: -3948168425033643615
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: npc_custom_hair_1
+      rect:
+        serializedVersion: 2
+        x: 19
+        y: 225
+        width: 17
+        height: 23
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e5f7907e558589bc0800000000000000
+      internalID: -3776171161578537122
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: npc_custom_hair_2
+      rect:
+        serializedVersion: 2
+        x: 35
+        y: 225
+        width: 17
+        height: 24
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 173c0b94c8da1bcf0800000000000000
+      internalID: -238218487230577807
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: npc_custom_hair_3
+      rect:
+        serializedVersion: 2
+        x: 51
+        y: 225
+        width: 17
+        height: 23
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3565f81bc96107580800000000000000
+      internalID: -8831534007023872429
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: npc_custom_hair_4
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 193
+        width: 15
+        height: 24
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e795cb25602c3ab40800000000000000
+      internalID: 5450413306462099838
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: npc_custom_hair_5
+      rect:
+        serializedVersion: 2
+        x: 20
+        y: 193
+        width: 15
+        height: 23
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 751c85140ced58ca0800000000000000
+      internalID: -6015156809972006569
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: npc_custom_hair_6
+      rect:
+        serializedVersion: 2
+        x: 36
+        y: 193
+        width: 15
+        height: 24
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b710de9524d30a910800000000000000
+      internalID: 1846543202407743867
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: npc_custom_hair_7
+      rect:
+        serializedVersion: 2
+        x: 52
+        y: 193
+        width: 15
+        height: 23
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0071ede64c56ceb10800000000000000
+      internalID: 2012095027875813120
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: npc_custom_hair_8
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 161
+        width: 17
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 340b3720b75dac6b0800000000000000
+      internalID: -5275169289212284861
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: npc_custom_hair_9
+      rect:
+        serializedVersion: 2
+        x: 18
+        y: 161
+        width: 17
+        height: 24
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9aeab44ae75aadef0800000000000000
+      internalID: -82571679812047191
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: npc_custom_hair_10
+      rect:
+        serializedVersion: 2
+        x: 34
+        y: 161
+        width: 17
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e4af3f3e407dbc880800000000000000
+      internalID: -8589535448274830770
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: npc_custom_hair_11
+      rect:
+        serializedVersion: 2
+        x: 50
+        y: 161
+        width: 17
+        height: 24
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e2e25f97fd8b326d0800000000000000
+      internalID: -3016364055444771282
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: npc_custom_hair_12
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 129
+        width: 15
+        height: 24
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 49fbcba9614b2dd90800000000000000
+      internalID: -7074394055467286636
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: npc_custom_hair_13
+      rect:
+        serializedVersion: 2
+        x: 19
+        y: 129
+        width: 15
+        height: 23
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7f02cc5d9f1980250800000000000000
+      internalID: 5911135013143585015
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: npc_custom_hair_14
+      rect:
+        serializedVersion: 2
+        x: 35
+        y: 129
+        width: 15
+        height: 24
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3737d6d5e66a92240800000000000000
+      internalID: 4767524673492448115
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: npc_custom_hair_15
+      rect:
+        serializedVersion: 2
+        x: 51
+        y: 129
+        width: 15
+        height: 23
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a38fbc68fd612b720800000000000000
+      internalID: 2860373862628718650
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: c54f798238ab04946a5e7d8edc8887bd
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      npc_custom_hair_0: -3948168425033643615
+      npc_custom_hair_1: -3776171161578537122
+      npc_custom_hair_10: -8589535448274830770
+      npc_custom_hair_11: -3016364055444771282
+      npc_custom_hair_12: -7074394055467286636
+      npc_custom_hair_13: 5911135013143585015
+      npc_custom_hair_14: 4767524673492448115
+      npc_custom_hair_15: 2860373862628718650
+      npc_custom_hair_2: -238218487230577807
+      npc_custom_hair_3: -8831534007023872429
+      npc_custom_hair_4: 5450413306462099838
+      npc_custom_hair_5: -6015156809972006569
+      npc_custom_hair_6: 1846543202407743867
+      npc_custom_hair_7: 2012095027875813120
+      npc_custom_hair_8: -5275169289212284861
+      npc_custom_hair_9: -82571679812047191
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -82,20 +82,20 @@ public class MurderMystery : MonoBehaviour
     {
         UnityEngine.Debug.Log(PlayerPrefs.GetString("SpawnPointID", ""));
         string wherefrom = PlayerPrefs.GetString("SpawnPointID", "");
-        int levelfrom = convertSpawnPointIDtoLevel(wherefrom) - 1;
+        currentLevel = convertSpawnPointIDtoLevel(wherefrom) - 1;
 
-        if(levelfrom > murders.Count)
+        if(currentLevel > murders.Count)
         {
             Debug.Log("TOO HIGH OF LEVEL, NO MURDERS FOR CURRENT LEVEL, DEFAULTING TO LEVEL 1");
-            levelfrom = 0;
+            currentLevel = 0;
         }
 
-        int numCasesForLevel = murders[levelfrom].cases.Count;
+        int numCasesForLevel = murders[currentLevel].cases.Count;
         currentCase = UnityEngine.Random.Range(0,numCasesForLevel);
         //currentCase = 0;  //used for testing
 
         GameObject player = GameObject.FindGameObjectWithTag("Player"); 
-        player.transform.position = murders[levelfrom].cases[currentCase].SpawnLocation.position;
+        player.transform.position = murders[currentLevel].cases[currentCase].SpawnLocation.position;
     }
 
     public int convertSpawnPointIDtoLevel(string input)
