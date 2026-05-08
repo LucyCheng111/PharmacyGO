@@ -7,7 +7,7 @@ using UnityEngine.UI;
 
 public class DialogManager : MonoBehaviour
 {
-
+ 
     // Handles logic to display and type dialog
     // Also handles generating and handling choices
     [SerializeField] GameObject dialogBox;
