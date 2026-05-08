@@ -444,7 +444,7 @@ public class BattleSystem : MonoBehaviour
             }
             else if (source == AnswerSource.Timeout)
             {
-                yield return StartCoroutine(dialogBox.TypeDialog("Time's up, you failed!"));
+                yield return StartCoroutine(dialogBox.TypeDialog("Time's up, better luck next time!"));
             }
             else
             {
