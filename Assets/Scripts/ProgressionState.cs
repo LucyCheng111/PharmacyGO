@@ -59,4 +59,23 @@ public class ProgressionState : MonoBehaviour
 
         return "";
     }
+
+    //returns what item is needed to unlock the output level
+    public int ReturnLevelForItem(string itemname)
+    {
+        if(itemname == "ShepardsGlasses")
+        {
+            return 2;
+        }
+        else if(itemname == "MedicalSupplies")
+        {
+            return 3;
+        }
+        else if(itemname == "IDCard")
+        {
+            return 4;
+        }
+
+        return 0;
+    }
 }
