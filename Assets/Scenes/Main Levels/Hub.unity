@@ -176903,6 +176903,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2fbdfb68c91c4fa4488a6a477564976f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  allItems:
+  - ShepardsGlasses
+  - MedicalSupplies
+  - IDCard
 --- !u!4 &264953344
 Transform:
   m_ObjectHideFlags: 0
