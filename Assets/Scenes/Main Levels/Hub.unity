@@ -324401,19 +324401,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8197298919893151564, guid: 99e53342f5f448545b865bdebe7bd725, type: 3}
       propertyPath: showTravelChoice
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8197298919893151564, guid: 99e53342f5f448545b865bdebe7bd725, type: 3}
       propertyPath: dialog.lines.Array.size
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8197298919893151564, guid: 99e53342f5f448545b865bdebe7bd725, type: 3}
       propertyPath: 'dialog.lines.Array.data[0]'
-      value: Something troublesome is brewing...
+      value: I know a detective who could use your help.
       objectReference: {fileID: 0}
     - target: {fileID: 8197298919893151564, guid: 99e53342f5f448545b865bdebe7bd725, type: 3}
       propertyPath: 'dialog.lines.Array.data[1]'
-      value: Maybe you should come back near Exam 3
+      value: Want to go and see what his issue is?
       objectReference: {fileID: 0}
     - target: {fileID: 8197298919893151564, guid: 99e53342f5f448545b865bdebe7bd725, type: 3}
       propertyPath: 'dialog.lines.Array.data[2]'
@@ -334941,27 +334941,28 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8197298919893151564, guid: 99e53342f5f448545b865bdebe7bd725, type: 3}
       propertyPath: showTravelChoice
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8197298919893151564, guid: 99e53342f5f448545b865bdebe7bd725, type: 3}
       propertyPath: dialog.lines.Array.size
-      value: 5
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8197298919893151564, guid: 99e53342f5f448545b865bdebe7bd725, type: 3}
       propertyPath: 'dialog.lines.Array.data[0]'
-      value: I've had to sneeze for like 10 minutes but it just wont happen.
+      value: I can take you to the level 4 mystery level
       objectReference: {fileID: 0}
     - target: {fileID: 8197298919893151564, guid: 99e53342f5f448545b865bdebe7bd725, type: 3}
       propertyPath: 'dialog.lines.Array.data[1]'
-      value: Oh, who are you?
+      value: Want to go? it'll cost you 10 coins...
       objectReference: {fileID: 0}
     - target: {fileID: 8197298919893151564, guid: 99e53342f5f448545b865bdebe7bd725, type: 3}
       propertyPath: 'dialog.lines.Array.data[2]'
-      value: Mystery level? What are you talking about?
+      value: Maybe you should come back near Exam 4.
       objectReference: {fileID: 0}
     - target: {fileID: 8197298919893151564, guid: 99e53342f5f448545b865bdebe7bd725, type: 3}
       propertyPath: 'dialog.lines.Array.data[3]'
-      value: Maybe you should come back near Exam 4.
+      value: (This mystery level is still in development), but you should probably
+        get out of here before he sneezes, he's trying really hard.
       objectReference: {fileID: 0}
     - target: {fileID: 8197298919893151564, guid: 99e53342f5f448545b865bdebe7bd725, type: 3}
       propertyPath: 'dialog.lines.Array.data[4]'
