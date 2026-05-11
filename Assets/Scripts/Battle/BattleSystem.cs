@@ -272,6 +272,7 @@ public class BattleSystem : MonoBehaviour
             // Start the rival timer - For timeout usage
             if (rivalTimer == null)
             {
+                Debug.Log("time limit == " + timeLimit);
                 rivalTimer = StartCoroutine(BattleTimer(timeLimit));
             }
         }
@@ -527,15 +528,9 @@ public class BattleSystem : MonoBehaviour
                     hudController.ExitingBattle();
                     yield break;
                 }
-                //don't penalize the player as heavily if they get the majority of the questions right 
-                else if(questionsRight > maxBattleQuestions/2){
-                    
-                    yield return StartCoroutine(dialogBox.TypeDialog("You missed some questions. Don't give up!"));
-
-                }
                 else
                 {
-                    yield return StartCoroutine(dialogBox.TypeDialog("You got most of the questions wrong. Better luck next time!"));
+                    yield return StartCoroutine(dialogBox.TypeDialog("You missed some questions. Better luck next time!"));
                     CoinManager.Instance.RemoveCoin(3);
 
                     if(CoinManager.Instance.GetCoinCount() >= 3)
@@ -587,9 +582,12 @@ public class BattleSystem : MonoBehaviour
     private Coroutine rivalTimer;
     private IEnumerator BattleTimer(float duration)
     {
+        //Debug.Log("duration 1 == " + duration); 
         float elaspedTime = 0f;
         while (elaspedTime < duration && state == BattleState.PLAYERANSWER)
-        {
+        {            
+            //Debug.Log("elapsed time == " + elaspedTime);
+            //Debug.Log("duration == " + duration); 
             elaspedTime += Time.deltaTime;
             yield return null;
         }
@@ -598,6 +596,7 @@ public class BattleSystem : MonoBehaviour
         if (state == BattleState.PLAYERANSWER)
         {
             Debug.Log("Times up, you lose!");
+            Debug.Log("elapsed time == " + elaspedTime);
             timedOut = true;
             // Stop AI routine if it's still running
             if (aiAnswerRoutine != null)
@@ -736,4 +735,3 @@ public class BattleSystem : MonoBehaviour
 
 
 }
-

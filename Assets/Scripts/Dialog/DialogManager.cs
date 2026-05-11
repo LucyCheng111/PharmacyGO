@@ -63,10 +63,6 @@ public class DialogManager : MonoBehaviour
         }
 
         OnDialogFinished?.Invoke();
-        /*
-        dialogBox.SetActive(false);
-        IsShowing = false;
-        */
     }
 
     // Standardized Close dialog
@@ -131,7 +127,7 @@ public class DialogManager : MonoBehaviour
         // TypeDialog calls now wait until the call returns to before resuming other functions
         dialogText.text = "";
         foreach (var letter in line.ToCharArray())
-        {
+        {            
             fastDialog = Input.GetKey(KeyCode.LeftShift);
             dialogText.text += letter;
             if (fastDialog)
