@@ -2261,6 +2261,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   InteractPrompt: {fileID: 8171217269375927261}
+  level: 0
+  caseID: 0
   options:
   - Beta-1 agonist
   - Beta-2 agonist
@@ -3495,6 +3497,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   InteractPrompt: {fileID: 1307703907}
+  level: 3
+  caseID: 0
   options:
   - Bethanechol
   - Bimatoprost
@@ -4986,6 +4990,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   InteractPrompt: {fileID: 1182606875}
+  level: 1
+  caseID: 0
   options:
   - 'Concomitant use of an beta-1 adrenergic antagonist and alpha-1 adrenergic antagonist '
   - 'Concomitant use of an beta-3 adrenergic agonist and alpha-1 adrenergic agonist '
@@ -10248,6 +10254,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   InteractPrompt: {fileID: 1565805820}
+  level: 2
+  caseID: 0
   options:
   - 'The cooked spinach was the cause of death; Acetylcholine could have saved them '
   - The muscarine mushrooms were the cause of death; Atropine could have saved them
@@ -32633,6 +32641,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   InteractPrompt: {fileID: 1013482123}
+  level: 0
+  caseID: 0
   options:
   - Incorrect
   - Correct
