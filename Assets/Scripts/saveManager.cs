@@ -26,6 +26,7 @@ public class saveManager : MonoBehaviour
 
     void OnApplicationQuit()
     {
+        SaveGame();
         UnityEngine.Debug.Log("Application ending after " + Time.time + " seconds");
     }
 

@@ -33,6 +33,7 @@ public class LevelManager : MonoBehaviour
         {
             Instance = this;
             DontDestroyOnLoad(gameObject);
+            
             UnlockedLevel = PlayerPrefs.GetInt("UnlockedLevel", 1);
             Debug.Log($"[LevelManager] Awake �� UnlockedLevel = {UnlockedLevel}");
 
@@ -47,8 +48,8 @@ public class LevelManager : MonoBehaviour
     {
         if (UnlockedLevel < levelMap.Count)
         {
-            if (UnlockedLevel == 4)
-                UnlockedLevel = levelMap.Count;
+            if (UnlockedLevel >= 4)
+                UnlockedLevel = 4;
             else
                 UnlockedLevel++;
             PlayerPrefs.SetInt("UnlockedLevel", UnlockedLevel);
@@ -103,7 +104,7 @@ private void Update()
         // Press U to unlock all levels
         if (Input.GetKeyDown(KeyCode.U))
         {
-            UnlockedLevel = levelMap.Count;
+            UnlockedLevel = 4;
             Debug.Log("Unlocked level " + UnlockedLevel);
             PlayerPrefs.SetInt("UnlockedLevel", UnlockedLevel);
             PlayerPrefs.Save();

@@ -163,8 +163,12 @@ MonoBehaviour:
   - Yes
   - No
   minigameChoices: []
+  getProgressionItemDialog:
+    lines: []
   yesChoiceInt: 0
   cantaffordtravelDialog:
+    lines: []
+  TravelIsFreeDialog:
     lines: []
 --- !u!61 &34725265
 BoxCollider2D:
@@ -2818,8 +2822,12 @@ MonoBehaviour:
   - Yes
   - No
   minigameChoices: []
+  getProgressionItemDialog:
+    lines: []
   yesChoiceInt: 0
   cantaffordtravelDialog:
+    lines: []
+  TravelIsFreeDialog:
     lines: []
 --- !u!61 &89940643
 BoxCollider2D:
@@ -3158,8 +3166,12 @@ MonoBehaviour:
   - Yes
   - No
   minigameChoices: []
+  getProgressionItemDialog:
+    lines: []
   yesChoiceInt: 0
   cantaffordtravelDialog:
+    lines: []
+  TravelIsFreeDialog:
     lines: []
 --- !u!61 &221690878
 BoxCollider2D:
@@ -4949,8 +4961,12 @@ MonoBehaviour:
   - Yes
   - No
   minigameChoices: []
+  getProgressionItemDialog:
+    lines: []
   yesChoiceInt: 0
   cantaffordtravelDialog:
+    lines: []
+  TravelIsFreeDialog:
     lines: []
 --- !u!61 &423717244
 BoxCollider2D:
@@ -5235,8 +5251,12 @@ MonoBehaviour:
   - Yes
   - No
   minigameChoices: []
+  getProgressionItemDialog:
+    lines: []
   yesChoiceInt: 0
   cantaffordtravelDialog:
+    lines: []
+  TravelIsFreeDialog:
     lines: []
 --- !u!61 &523110811
 BoxCollider2D:
@@ -238094,8 +238114,12 @@ MonoBehaviour:
   - Yes
   - No
   minigameChoices: []
+  getProgressionItemDialog:
+    lines: []
   yesChoiceInt: 0
   cantaffordtravelDialog:
+    lines: []
+  TravelIsFreeDialog:
     lines: []
 --- !u!50 &940923217
 Rigidbody2D:
@@ -253164,8 +253188,12 @@ MonoBehaviour:
   - Yes
   - No
   minigameChoices: []
+  getProgressionItemDialog:
+    lines: []
   yesChoiceInt: 0
   cantaffordtravelDialog:
+    lines: []
+  TravelIsFreeDialog:
     lines: []
 --- !u!61 &1690238472
 BoxCollider2D:
@@ -253357,8 +253385,12 @@ MonoBehaviour:
   - Yes
   - No
   minigameChoices: []
+  getProgressionItemDialog:
+    lines: []
   yesChoiceInt: 0
   cantaffordtravelDialog:
+    lines: []
+  TravelIsFreeDialog:
     lines: []
 --- !u!61 &1776272238
 BoxCollider2D:
@@ -253779,8 +253811,12 @@ MonoBehaviour:
   - Yes
   - No
   minigameChoices: []
+  getProgressionItemDialog:
+    lines: []
   yesChoiceInt: 0
   cantaffordtravelDialog:
+    lines: []
+  TravelIsFreeDialog:
     lines: []
 --- !u!61 &1977847895
 BoxCollider2D:

@@ -9,15 +9,18 @@ public class SceneBarrier : MonoBehaviour
     {
         if (ProgressionState.Instance.HasItem(itemName))
         {
-            Unlock();
+            if(LevelManager.Instance.UnlockedLevel >= ProgressionState.Instance.ReturnLevelForItem(itemName))
+            {
+                Unlock();
+            }
         }
     }
 
     void Update()
     {
-        if (ProgressionState.Instance.HasItem(itemName))
+        //if (ProgressionState.Instance.HasItem(itemName))
         {
-            Unlock();
+            //Unlock();
         }
     }
 

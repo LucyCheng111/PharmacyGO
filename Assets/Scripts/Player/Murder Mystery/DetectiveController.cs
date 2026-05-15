@@ -5,6 +5,8 @@ public class DetectiveController : MonoBehaviour, Interactable
 {
     private bool isInteracting = false;
     [SerializeField] private GameObject InteractPrompt;
+    public int level;
+    public int caseID;
     MurderCase murderCase;
     public List<string> options = new List<string>(); //multiple choice of answers for murder 
     public int correctOption; //index in options thats correct
@@ -13,7 +15,7 @@ public class DetectiveController : MonoBehaviour, Interactable
 
     public void Interact(Transform initiator)
     {
-        murderCase = MurderMystery.Instance.murders[MurderMystery.Instance.currentLevel].cases[MurderMystery.Instance.currentCase];
+        murderCase = MurderMystery.Instance.murders[level].cases[caseID];
 
         if(murderCase.type == CaseType.LivePatient)
         {

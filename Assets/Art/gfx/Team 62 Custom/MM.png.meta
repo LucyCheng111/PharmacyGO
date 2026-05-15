@@ -315,7 +315,7 @@ TextureImporter:
         width: 6
         height: 12
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -337,7 +337,7 @@ TextureImporter:
         width: 6
         height: 7
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -346,6 +346,72 @@ TextureImporter:
       bones: []
       spriteID: e479ccff342f1144cbaf860a5a9dd650
       internalID: 1416253068
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MM_10
+      rect:
+        serializedVersion: 2
+        x: 39
+        y: 137
+        width: 6
+        height: 10
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 97d2c57412aa8d04f8c4a37f47618843
+      internalID: -583866613
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MM_11
+      rect:
+        serializedVersion: 2
+        x: 68
+        y: 110
+        width: 9
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 057837d77e0ecc24f80878f34935af8f
+      internalID: -1987650272
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MM_12
+      rect:
+        serializedVersion: 2
+        x: 57
+        y: 125
+        width: 33
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b69182f2506b2bf43aae7dbea848c880
+      internalID: -1703660473
       vertices: []
       indices: 
       edges: []
@@ -366,6 +432,9 @@ TextureImporter:
     nameFileIdTable:
       MM_0: 2911768768440112306
       MM_1: -7932670977616463682
+      MM_10: -583866613
+      MM_11: -1987650272
+      MM_12: -1703660473
       MM_2: -6195037959839164018
       MM_3: -4317183403262070557
       MM_4: -1454748907600262000
