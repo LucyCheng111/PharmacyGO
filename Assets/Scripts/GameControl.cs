@@ -26,7 +26,7 @@ public class GameController : MonoBehaviour
     {
         // Check if there already is an existing GameController
         // Especially when returning to the Sample Scene
-        if(Instance != null & Instance != this )
+        if(Instance != null && Instance != this )
         {
             Destroy( gameObject );
             return;
@@ -77,7 +77,8 @@ private void Start()
 
         DialogManager.Instance.OnDialogFinished += () =>
         {
-            if(state == GameState.Dialogue)
+            //ensure control is returned to the player after dialog and encounters
+            if(state == GameState.Dialogue || state==GameState.Encounter)
                 state = GameState.FreeRoam;
         };
 
@@ -127,7 +128,7 @@ private void Start()
         }  
     }
 
-    void EndBattle(bool playerWin)
+    public void EndBattle(bool playerWin)
     {
         StartCoroutine(EndBattleRoutine());
 

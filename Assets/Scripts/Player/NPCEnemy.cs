@@ -53,7 +53,8 @@ public class NPCEnemy : MonoBehaviour
         gameObject.SetActive(false);
         Debug.Log("NPC Enemy Deactivated");
         //enemyDefeated = true;
-
+        Debug.Log("STATE: " + GameController.Instance.state);
+        GameController.Instance.EndBattle(false); //playerWin parameter never used
     }
 
     private IEnumerator MoveToPlayer(Vector2 targetPosition)
@@ -85,15 +86,15 @@ public class NPCEnemy : MonoBehaviour
 
         bool finished = false;
         
-        void Handler(bool won)
+        void Handler()
         {
             finished = true;
         }
 
         //subscribe to the OnBattleOver event from the Battle System class
-        BattleSystem.Instance.OnBattleOver += Handler;
+        GameController.Instance.OnBattleFinished += Handler;
         yield return new WaitUntil(()=> finished);
-        BattleSystem.Instance.OnBattleOver -= Handler;
+        GameController.Instance.OnBattleFinished -= Handler;
     }
 
     public void MarkDefeated()
