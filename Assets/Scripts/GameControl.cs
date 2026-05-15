@@ -128,7 +128,7 @@ private void Start()
         }  
     }
 
-    void EndBattle(bool playerWin)
+    public void EndBattle(bool playerWin)
     {
         StartCoroutine(EndBattleRoutine());
 

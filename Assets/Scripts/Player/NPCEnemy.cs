@@ -53,7 +53,8 @@ public class NPCEnemy : MonoBehaviour
         gameObject.SetActive(false);
         Debug.Log("NPC Enemy Deactivated");
         //enemyDefeated = true;
-
+        Debug.Log("STATE: " + GameController.Instance.state);
+        GameController.Instance.EndBattle(false); //playerWin parameter never used
     }
 
     private IEnumerator MoveToPlayer(Vector2 targetPosition)
