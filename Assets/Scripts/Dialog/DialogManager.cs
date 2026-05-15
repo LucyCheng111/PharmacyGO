@@ -2,11 +2,12 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
 public class DialogManager : MonoBehaviour
-{
-
+{ 
+ 
     // Handles logic to display and type dialog
     // Also handles generating and handling choices
     [SerializeField] GameObject dialogBox;
@@ -16,6 +17,7 @@ public class DialogManager : MonoBehaviour
     
     public event Action OnShowDialog;
     public event Action OnDialogFinished;
+    bool fastDialog;
 
     public static DialogManager Instance { get; private set; }
     private void Awake()
@@ -61,10 +63,6 @@ public class DialogManager : MonoBehaviour
         }
 
         OnDialogFinished?.Invoke();
-        /*
-        dialogBox.SetActive(false);
-        IsShowing = false;
-        */
     }
 
     // Standardized Close dialog
@@ -129,9 +127,17 @@ public class DialogManager : MonoBehaviour
         // TypeDialog calls now wait until the call returns to before resuming other functions
         dialogText.text = "";
         foreach (var letter in line.ToCharArray())
-        {
+        {            
+            fastDialog = Input.GetKey(KeyCode.LeftShift);
             dialogText.text += letter;
-            yield return new WaitForSeconds(1f / letterPerSecond);
+            if (fastDialog)
+            {
+                yield return new WaitForSeconds(0.33f / letterPerSecond);
+            }
+            else
+            {
+                yield return new WaitForSeconds(1f / letterPerSecond);
+            }
         }
         
     }

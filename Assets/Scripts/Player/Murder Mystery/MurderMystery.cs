@@ -80,9 +80,11 @@ public class MurderMystery : MonoBehaviour
 
     void randomizeMurder()
     {
-        UnityEngine.Debug.Log(PlayerPrefs.GetString("SpawnPointID", ""));
+       
         string wherefrom = PlayerPrefs.GetString("SpawnPointID", "");
         currentLevel = convertSpawnPointIDtoLevel(wherefrom) - 1;
+
+        Debug.Log("LEVEL SHOULD BE: " + currentLevel);
 
         if(currentLevel > murders.Count)
         {

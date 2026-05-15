@@ -9,6 +9,7 @@ public class ProgressionState : MonoBehaviour
     public static ProgressionState Instance;
 
     private List<string> collectedItems = new List<string>();
+    public List<string> allItems = new List<string>();
 
     private void Awake()
     {
@@ -25,6 +26,21 @@ public class ProgressionState : MonoBehaviour
             Instance = this;
             DontDestroyOnLoad(gameObject);
         }
+
+        LoadSavedItems();
+    }
+
+    public void LoadSavedItems()
+    {
+        for (int i = 0; i < allItems.Count; i++)
+        {
+            int check = PlayerPrefs.GetInt("has" + allItems[i]);
+
+            if(check == 1)
+            {
+                CollectItem(allItems[i]);
+            }
+        }
     }
 
     public void CollectItem(string itemName)
@@ -34,6 +50,8 @@ public class ProgressionState : MonoBehaviour
         if (!collectedItems.Contains(itemName))
         {
             collectedItems.Add(itemName);
+
+            PlayerPrefs.SetInt("has" + itemName, 1);
         }
     }
 
@@ -58,5 +76,24 @@ public class ProgressionState : MonoBehaviour
         }
 
         return "";
+    }
+
+    //returns what item is needed to unlock the output level
+    public int ReturnLevelForItem(string itemname)
+    {
+        if(itemname == "ShepardsGlasses")
+        {
+            return 2;
+        }
+        else if(itemname == "MedicalSupplies")
+        {
+            return 3;
+        }
+        else if(itemname == "IDCard")
+        {
+            return 4;
+        }
+
+        return 0;
     }
 }

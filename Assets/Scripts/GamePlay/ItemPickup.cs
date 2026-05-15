@@ -13,7 +13,6 @@ public class ItemPickup : MonoBehaviour, Interactable
         if (ProgressionState.Instance.HasItem(itemName))
         {
             // If the scene is reloaded and the player has already retrieved the item
-
             gameObject.SetActive(false);
         }
     }
@@ -22,8 +21,6 @@ public class ItemPickup : MonoBehaviour, Interactable
         Debug.Log("Added item to inventory: " + itemName);
 
         ProgressionState.Instance.CollectItem(itemName);
-
-        LevelManager.Instance.UnlockNextLevel();
 
         gameObject.SetActive(false);
     }
