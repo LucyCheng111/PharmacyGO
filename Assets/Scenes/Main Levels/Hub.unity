@@ -168,6 +168,7 @@ Transform:
   - {fileID: 586198592}
   - {fileID: 381867032}
   - {fileID: 353014919}
+  - {fileID: 518756541}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &32543698
@@ -176902,6 +176903,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2fbdfb68c91c4fa4488a6a477564976f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  allItems:
+  - ShepardsGlasses
+  - MedicalSupplies
+  - IDCard
 --- !u!4 &264953344
 Transform:
   m_ObjectHideFlags: 0
@@ -177514,7 +177519,7 @@ Transform:
   m_GameObject: {fileID: 353014918}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -7.18, y: 4.7, z: 7.8811464}
+  m_LocalPosition: {x: -4.47, y: 3.89, z: 7.8811464}
   m_LocalScale: {x: 1.1886, y: 1.1886, z: 1.1886}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -177532,7 +177537,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fed96e364bf19804bbb7bd7c749f8fd7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnPointID: Lv2MMToHub
+  spawnPointID: Lv3MMToHub
 --- !u!1 &360236112
 GameObject:
   m_ObjectHideFlags: 0
@@ -178798,6 +178803,51 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 507947102}
   m_CullTransparentMesh: 1
+--- !u!1 &518756540
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 518756541}
+  - component: {fileID: 518756542}
+  m_Layer: 0
+  m_Name: 'SpawnPoint_Lv4MM '
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &518756541
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 518756540}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -28.31, y: -25.24, z: 7.8811464}
+  m_LocalScale: {x: 1.1886, y: 1.1886, z: 1.1886}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 19746298}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &518756542
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 518756540}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fed96e364bf19804bbb7bd7c749f8fd7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawnPointID: Lv4MMToHub
 --- !u!1 &527759780
 GameObject:
   m_ObjectHideFlags: 0
@@ -324401,19 +324451,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8197298919893151564, guid: 99e53342f5f448545b865bdebe7bd725, type: 3}
       propertyPath: showTravelChoice
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8197298919893151564, guid: 99e53342f5f448545b865bdebe7bd725, type: 3}
       propertyPath: dialog.lines.Array.size
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8197298919893151564, guid: 99e53342f5f448545b865bdebe7bd725, type: 3}
       propertyPath: 'dialog.lines.Array.data[0]'
-      value: Something troublesome is brewing...
+      value: I know a detective who could use your help.
       objectReference: {fileID: 0}
     - target: {fileID: 8197298919893151564, guid: 99e53342f5f448545b865bdebe7bd725, type: 3}
       propertyPath: 'dialog.lines.Array.data[1]'
-      value: Maybe you should come back near Exam 3
+      value: Want to go and see what his issue is?
       objectReference: {fileID: 0}
     - target: {fileID: 8197298919893151564, guid: 99e53342f5f448545b865bdebe7bd725, type: 3}
       propertyPath: 'dialog.lines.Array.data[2]'
@@ -334941,27 +334991,28 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8197298919893151564, guid: 99e53342f5f448545b865bdebe7bd725, type: 3}
       propertyPath: showTravelChoice
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8197298919893151564, guid: 99e53342f5f448545b865bdebe7bd725, type: 3}
       propertyPath: dialog.lines.Array.size
-      value: 5
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8197298919893151564, guid: 99e53342f5f448545b865bdebe7bd725, type: 3}
       propertyPath: 'dialog.lines.Array.data[0]'
-      value: I've had to sneeze for like 10 minutes but it just wont happen.
+      value: I can take you to the level 4 mystery level
       objectReference: {fileID: 0}
     - target: {fileID: 8197298919893151564, guid: 99e53342f5f448545b865bdebe7bd725, type: 3}
       propertyPath: 'dialog.lines.Array.data[1]'
-      value: Oh, who are you?
+      value: Want to go? it'll cost you 10 coins...
       objectReference: {fileID: 0}
     - target: {fileID: 8197298919893151564, guid: 99e53342f5f448545b865bdebe7bd725, type: 3}
       propertyPath: 'dialog.lines.Array.data[2]'
-      value: Mystery level? What are you talking about?
+      value: Maybe you should come back near Exam 4.
       objectReference: {fileID: 0}
     - target: {fileID: 8197298919893151564, guid: 99e53342f5f448545b865bdebe7bd725, type: 3}
       propertyPath: 'dialog.lines.Array.data[3]'
-      value: Maybe you should come back near Exam 4.
+      value: (This mystery level is still in development), but you should probably
+        get out of here before he sneezes, he's trying really hard.
       objectReference: {fileID: 0}
     - target: {fileID: 8197298919893151564, guid: 99e53342f5f448545b865bdebe7bd725, type: 3}
       propertyPath: 'dialog.lines.Array.data[4]'
