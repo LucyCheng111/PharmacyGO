@@ -53,20 +53,32 @@ public class DialogBox : MonoBehaviour
     private readonly Color AI_CHOICE_COLOR = new Color(1f, 0.65f, 0f);
     private const float MAX_OPTION_WIDTH = 150f;
     private const float MAX_OPTION_HEIGHT = 100f;
+    bool fastDialog = false;
 
     public void SetDialog(string dialog)
     {
         dialogText.text = dialog;
     }
 
-    public IEnumerator TypeDialog(string dialog)
+    public IEnumerator TypeDialog(string line)
     {
+        // TypeDialog calls now wait until the call returns to before resuming other functions
         dialogText.text = "";
-        foreach (var letter in dialog.ToCharArray())
-        {
+        foreach (var letter in line.ToCharArray())
+        {            
+            //press shift to speed up the dialouge that shows up in the boxes in the battle scenes
+            fastDialog = Input.GetKey(KeyCode.LeftShift);
             dialogText.text += letter;
-            yield return new WaitForSeconds(1f/letterPerSecond);
+            if (fastDialog)
+            {
+                yield return new WaitForSeconds(0.33f / letterPerSecond);
+            }
+            else
+            {
+                yield return new WaitForSeconds(1f / letterPerSecond);
+            }
         }
+        
     }
 
     public void EnableDialogText(bool enabled)

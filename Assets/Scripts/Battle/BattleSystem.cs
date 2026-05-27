@@ -106,6 +106,13 @@ public class BattleSystem : MonoBehaviour
 
     public void EnemyBattle(int maxQuestions)
     {
+
+        //attempt at the softlock fix
+        battleLocked=false;
+        timedOut=false;
+        rivalTimer=null;
+        aiTriedAnswers.Clear();
+
         battleType = BattleType.Enemy;
         maxBattleQuestions = maxQuestions;
         this.state = BattleState.START;
