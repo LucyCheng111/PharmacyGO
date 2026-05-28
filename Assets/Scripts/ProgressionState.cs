@@ -74,6 +74,10 @@ public class ProgressionState : MonoBehaviour
         {
             return "Dr. Shepards ID card";
         }
+        else if (itemname == "Postcard")
+        {
+            return "Dr. Shepards Postcard";
+        }
 
         return "";
     }
@@ -92,6 +96,10 @@ public class ProgressionState : MonoBehaviour
         else if(itemname == "IDCard")
         {
             return 4;
+        }
+        else if (itemname == "Postcard")
+        {
+            return 5;
         }
 
         return 0;
