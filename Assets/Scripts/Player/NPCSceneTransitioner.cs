@@ -7,7 +7,7 @@ using Unity.VisualScripting;
 public class NPCSceneTransitioner : MonoBehaviour
 {
     public int sceneBuildIndex; //for the destination level
-    public int levelNumber; //destination level
+    public int levelNumber; //destination level (-1 = murder mystery)
     public string targetSpawnPointID;
     private bool isTransitioning = false;       
     public int price = 0; //0 means it wont prompt for a price at all, as it is free
