@@ -232,10 +232,12 @@ public class CardMatchingMinigame : MonoBehaviour
             }
         }
     }
+
     public async Task CalculatePlay(string who)
     {
         bool wonRound = false;
-        if(questionCard.index == answerCard.index)  //cards match
+        if(questionCard.index == answerCard.index || answerCard.text.GetComponentInChildren<TextMeshProUGUI>().text
+         == questions[questionCard.index].options[questions[questionCard.index].answerIndex].text)  //cards match
         {
             wonRound = true;
 
@@ -382,12 +384,18 @@ public class CardMatchingMinigame : MonoBehaviour
         yield return new WaitUntil(() => pilot.gotQuestions);
         int count = Questioncards.Count;
         
-        
         for(int i = 0; i < count; i++) //get questions and answers from database
         {
             Question q = pilot.moduleManager.GetRandomQuestion(module, (int) (difficulty / 20));
-
-            questions[i] = q;
+            if(q.options[q.answerIndex].text.Contains("all") || q.options[q.answerIndex].text.Contains("All"))
+            {
+                i--; //redo this, do not add questions with the answer "all of the following" or alike
+            }
+            else
+            {
+                questions[i] = q;    
+            }
+            
         }
 
         List<int> remaining = new List<int>();
