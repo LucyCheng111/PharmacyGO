@@ -350777,15 +350777,24 @@ MonoBehaviour:
       - Ah I see you found my ID card!
       - Now we can finally enter the building.
       - But first, I want to stop by the post office and pick up my mail.
+      - My niece sent me a post card from her vacation.
       - It is quite a distance though, and I need to conserve my energy for my patients.
       - If only there was a young, energetic person who could do it for me...
       - ...
       - ...
       - ...
       - ...Ah yes you lad, how convenient of you to be here in my time of need!.
-      - I need to send my niece her birthday card, can you drop it off for me?
-      - The post office is in the town you passed by when first arriving here.
+      - The post office is in the south part of the town you passed by when first
+        arriving here.
       - You're the best!
+  - itemName: Postcard
+    dialog:
+      lines:
+      - My niece's postcard! You retrieved it!
+      - You're awesome, but you're a slacker...
+      - Your shift started hours ago, what have you been doing?
+      - What? I made you run chores for me? Nonsense!
+      - Get in there and get to work!
 --- !u!50 &8452920965594417273
 Rigidbody2D:
   serializedVersion: 5
