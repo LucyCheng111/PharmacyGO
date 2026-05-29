@@ -271,9 +271,9 @@ public class SlapjackMinigame : MonoBehaviour
 
         for(int i = 0; i < Questioncount; i++) //make new question cards and assign new questions
         {   
-            GameObject newcard_object = Instantiate(card_prefab,questionpile.transform.position , Quaternion.identity); //make new question card and assign values
+            GameObject newcard_object = Instantiate(card_prefab,questionpile.transform , false); //make new question card and assign values
             newcard_object.name = "Questioncard_" + i;
-            newcard_object.transform.SetParent(questionpile.transform, true);
+            newcard_object.transform.position = questionpile.transform.position;
 
             CardForSlapping newcard = newcard_object.GetComponent<CardForSlapping>();
             newcard.isQuestion = true;
@@ -307,9 +307,9 @@ public class SlapjackMinigame : MonoBehaviour
 
         for(int i = 0; i < cardcount; i++) //create answer cards and distribute them
         {   
-            GameObject newcard_object = Instantiate(card_prefab,centerpile.transform.position , Quaternion.identity); //make new question card and assign values
+            GameObject newcard_object = Instantiate(card_prefab,centerpile.transform, false); //make new question card and assign values
             //newcard_object.name = "othercard_" + i;
-            newcard_object.transform.SetParent(centerpile.transform, true);
+            newcard_object.transform.position = centerpile.transform.position;
 
             CardForSlapping newcard = newcard_object.GetComponent<CardForSlapping>();
 
