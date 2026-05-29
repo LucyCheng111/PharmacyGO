@@ -409,7 +409,6 @@ public class SlapjackMinigame : MonoBehaviour
     public void CardDrawn(bool isPlayer, CardForSlapping card) //called when a new answer card is moved to the center 
     {
         
-        //Debug.Log("CARD PLAYER: " + isPlayer);
         opponentDecidedNo = false;
         opponentActionCanceled = false;
         currentcentercard = card;
@@ -437,7 +436,6 @@ public class SlapjackMinigame : MonoBehaviour
     public IEnumerator PlayerSelectedCenter()
     {
         HaltOpponentAction();
-        Debug.Log("PLAYER SELECTED CENTER");
         if (currentcentercard.info == currentQuestion.options[currentQuestion.answerIndex].text)
         {
             whoselectedreader.GetComponent<TextMeshProUGUI> ().text = "Player Selected!";
@@ -510,7 +508,6 @@ public class SlapjackMinigame : MonoBehaviour
         {
             if(playerCards[i].gameObject.transform.position != playerpile.transform.position)
             {
-                Debug.Log("PLAYER CARD DISPLACED");
                 playerCards[i].gameObject.transform.position = playerpile.transform.position;
             }
         }
@@ -518,7 +515,6 @@ public class SlapjackMinigame : MonoBehaviour
         {
             if(opponentCards[i].gameObject.transform.position != opponentpile.transform.position)
             {
-                Debug.Log("OPPONENT CARD DISPLACED");
                 opponentCards[i].gameObject.transform.position = opponentpile.transform.position;
             }
         }
@@ -526,7 +522,6 @@ public class SlapjackMinigame : MonoBehaviour
         {
             if(centerCards[i].gameObject.transform.position != centerpile.transform.position)
             {
-                Debug.Log("CENTER CARD DISPLACED");
                 centerCards[i].gameObject.transform.position = centerpile.transform.position;
             }
         }
@@ -543,7 +538,6 @@ public class SlapjackMinigame : MonoBehaviour
         if(roll <= percent)
         {
             //select
-            //Debug.Log("OPPONENT ROLLED TO PRESS, " + "CHANCE: " + percent);
             currentcentercard.Reveal(true); //outline card
 
 
@@ -579,7 +573,6 @@ public class SlapjackMinigame : MonoBehaviour
         } 
         else
         {
-            //Debug.Log("OPPONENT ROLLED NO, " + "CHANCE: " + percent);
             opponentDecidedNo = true;
         }
         yield return null;
@@ -594,7 +587,6 @@ public class SlapjackMinigame : MonoBehaviour
         yield return new WaitUntil(() => cardisMoving == false && awaiting == SlapjackPlay.OpponentTurn);
         yield return new WaitForSeconds(correctnessreadingdelay); // have delay between player drawing a card and opponent drawing a card
         MoveCardsToCorrectPile();
-        Debug.Log("OPPONENT CONTINUES");
 
         if(opponentCards.Count == 0)
         {

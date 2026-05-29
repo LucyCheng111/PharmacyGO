@@ -40,7 +40,6 @@ public class MinigamePilot : MonoBehaviour
         CardForMatching matchcard = obj.GetComponent<CardForMatching>();
         CardForSlapping slapcard = obj.GetComponent<CardForSlapping>();
 
-        Debug.Log("BAD NAME: " + obj.gameObject.name);
         if (request.result == UnityWebRequest.Result.Success)
         {
             Texture2D texture = DownloadHandlerTexture.GetContent(request);
@@ -54,7 +53,6 @@ public class MinigamePilot : MonoBehaviour
             }
             else //readerboard for wordbank
             {
-                Debug.Log("NAME: " + obj.gameObject.name);
                 obj.GetComponent<RawImage>().texture = texture;
             }
         }

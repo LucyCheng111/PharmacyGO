@@ -495,8 +495,7 @@ public class WordBankMinigame : MonoBehaviour
         if (Physics.Raycast(raystart, transform.TransformDirection(Vector3.forward), out hit, Mathf.Infinity))
         {
             if(hit.transform.gameObject.GetComponent<SentenceSpacer>())
-            {
-                Debug.Log("OVER SPACER");   
+            { 
                 return hit.transform.gameObject;
             }
             else if(hit.transform == sentenceArea.transform )
@@ -506,7 +505,6 @@ public class WordBankMinigame : MonoBehaviour
             }
             else
             {
-                Debug.Log("NOT IN SENTENCE"); 
                 return null;
             }
         }
