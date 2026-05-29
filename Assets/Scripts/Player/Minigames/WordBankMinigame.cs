@@ -525,16 +525,7 @@ public class WordBankMinigame : MonoBehaviour
             }
             else
             {
-                Vector2 moveTo;
-                Canvas can = MainCanvas.Instance.gameObject.GetComponent<Canvas>();
-
-                RectTransformUtility.ScreenPointToLocalPointInRectangle(
-                    MainCanvas.Instance.transform as RectTransform, 
-                    Input.mousePosition, 
-                    can.worldCamera , 
-                    out moveTo);
-                WordInHand.anchoredPosition = moveTo;
-
+                WordInHand.transform.position = Input.mousePosition;
 
             }
         }
