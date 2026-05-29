@@ -385,10 +385,11 @@ public class WordBankMinigame : MonoBehaviour
             if(currentQuestion.imageLink != "")
             {
                 ImageDisplay.gameObject.SetActive(true);
-                StartCoroutine(pilot.DownloadImage(currentQuestion.imageLink, ImageDisplay.GetComponentInChildren<BoxCollider2D>(true).gameObject));
+                StartCoroutine(pilot.DownloadImage(currentQuestion.imageLink, ImageDisplay.gameObject));
             }
             else
             {
+                //Debug.Log("NOT, " + );
                 ImageDisplay.gameObject.SetActive(false);
             }
         }

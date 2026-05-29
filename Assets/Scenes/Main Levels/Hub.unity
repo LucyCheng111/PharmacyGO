@@ -176907,6 +176907,7 @@ MonoBehaviour:
   - ShepardsGlasses
   - MedicalSupplies
   - IDCard
+  - Postcard
 --- !u!4 &264953344
 Transform:
   m_ObjectHideFlags: 0
@@ -261582,6 +261583,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1820392072}
     m_Modifications:
+    - target: {fileID: 2686334892588053125, guid: c252e9b57effb6d49b0df765079fb9a7, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3174206043724567575, guid: c252e9b57effb6d49b0df765079fb9a7, type: 3}
       propertyPath: ImageDisplay
       value: 
@@ -261594,6 +261599,22 @@ PrefabInstance:
       propertyPath: placeholderObject
       value: 
       objectReference: {fileID: 8578645253295158001, guid: 53b63535a81d5af45baa1b76920c5749, type: 3}
+    - target: {fileID: 3753946750515435909, guid: c252e9b57effb6d49b0df765079fb9a7, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 2761.8477
+      objectReference: {fileID: 0}
+    - target: {fileID: 3753946750515435909, guid: c252e9b57effb6d49b0df765079fb9a7, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 1862.655
+      objectReference: {fileID: 0}
+    - target: {fileID: 3753946750515435909, guid: c252e9b57effb6d49b0df765079fb9a7, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -87.956055
+      objectReference: {fileID: 0}
+    - target: {fileID: 3753946750515435909, guid: c252e9b57effb6d49b0df765079fb9a7, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 34.96469
+      objectReference: {fileID: 0}
     - target: {fileID: 5993240195274942701, guid: c252e9b57effb6d49b0df765079fb9a7, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -261674,6 +261695,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6397581395307773876, guid: c252e9b57effb6d49b0df765079fb9a7, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 2775.0015
+      objectReference: {fileID: 0}
+    - target: {fileID: 6397581395307773876, guid: c252e9b57effb6d49b0df765079fb9a7, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 1879.0977
+      objectReference: {fileID: 0}
+    - target: {fileID: 6397581395307773876, guid: c252e9b57effb6d49b0df765079fb9a7, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -74.892456
+      objectReference: {fileID: 0}
+    - target: {fileID: 6397581395307773876, guid: c252e9b57effb6d49b0df765079fb9a7, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 46.608826
+      objectReference: {fileID: 0}
     - target: {fileID: 7690039836488619218, guid: c252e9b57effb6d49b0df765079fb9a7, type: 3}
       propertyPath: m_IsActive
       value: 1
@@ -261681,6 +261718,22 @@ PrefabInstance:
     - target: {fileID: 8009683466092053363, guid: c252e9b57effb6d49b0df765079fb9a7, type: 3}
       propertyPath: m_Name
       value: Minigames
+      objectReference: {fileID: 0}
+    - target: {fileID: 8453388848184868131, guid: c252e9b57effb6d49b0df765079fb9a7, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 2967.6646
+      objectReference: {fileID: 0}
+    - target: {fileID: 8453388848184868131, guid: c252e9b57effb6d49b0df765079fb9a7, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 1052.8848
+      objectReference: {fileID: 0}
+    - target: {fileID: 8453388848184868131, guid: c252e9b57effb6d49b0df765079fb9a7, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 933.1842
+      objectReference: {fileID: 0}
+    - target: {fileID: 8453388848184868131, guid: c252e9b57effb6d49b0df765079fb9a7, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -19.656982
       objectReference: {fileID: 0}
     - target: {fileID: 8971456928744567732, guid: c252e9b57effb6d49b0df765079fb9a7, type: 3}
       propertyPath: m_IsActive

@@ -92,9 +92,6 @@ public class PauseMenu : MonoBehaviour
     public void SetVolume(float sliderValue)
     {
         SaveVolume(sliderValue);
-
-
-        //random comment because git is being finnicky and not letting me merge without new commits
         
         // Prevents math error in Mathf.Log10()
         if (sliderValue <= 0)

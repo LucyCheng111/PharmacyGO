@@ -54,10 +54,12 @@ public class MainMenu : MonoBehaviour
         PlayerPrefs.DeleteKey("ScoreCount");
         PlayerPrefs.DeleteKey("AiRivalScore");
         PlayerPrefs.DeleteKey("SpawnPointID");
+        
 
         PlayerPrefs.DeleteKey("hasShepardsGlasses");
         PlayerPrefs.DeleteKey("hasMedicalSupplies");
         PlayerPrefs.DeleteKey("hasIDCard");
+        PlayerPrefs.DeleteKey("hasPostcard");
 
         PlayerPrefs.Save();
 
