@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 7612698496868358006}
   - component: {fileID: 7723673193822220407}
   - component: {fileID: 5943797642284066792}
-  - component: {fileID: 6440315291256267441}
   - component: {fileID: 3439430138916747593}
   m_Layer: 5
   m_Name: WordPlaceholder
@@ -36,7 +35,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -253.01205, y: 168.98883}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 140, y: 90}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7723673193822220407
@@ -77,25 +76,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &6440315291256267441
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8578645253295158001}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a74a81c7ed181134e991417a3dab0833, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  word: 
-  text: {fileID: 0}
-  lastLocation: {fileID: 0}
-  Facade: {fileID: 0}
-  indexInSentence: -1
-  indexInWords: 0
-  beingDragged: 0
 --- !u!61 &3439430138916747593
 BoxCollider2D:
   m_ObjectHideFlags: 0

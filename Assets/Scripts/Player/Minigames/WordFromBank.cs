@@ -25,7 +25,11 @@ public class WordFromBank : MonoBehaviour, IPointerDownHandler, IPointerUpHandle
     {
         lastLocation = this.transform;
         beingDragged = true;
-        GetComponentInParent<WordBankMinigame>().WordInHand = this.gameObject;
+        GetComponentInParent<WordBankMinigame>().WordInHand = this.gameObject.GetComponent<RectTransform>();
+        transform.SetParent(GetComponentInParent<WordBankMinigame>().GameBoard.transform, false);
+
+        GetComponent<RectTransform>().anchorMin = new Vector2(.5f,.5f);
+        GetComponent<RectTransform>().anchorMax = new Vector2(.5f,.5f);
     }
 
     //drop the word
@@ -34,5 +38,6 @@ public class WordFromBank : MonoBehaviour, IPointerDownHandler, IPointerUpHandle
         beingDragged = false;
         GetComponentInParent<WordBankMinigame>().WordInHand = null;
         GetComponentInParent<WordBankMinigame>().exchangeBoardandSentence(this.gameObject.transform);
+        
     }
 }

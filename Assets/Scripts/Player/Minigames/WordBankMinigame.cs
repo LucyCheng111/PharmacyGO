@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using System.Net;
-
+using System.Runtime.CompilerServices;
 public enum WordBankPlay  //only used to determine if you can pick up the words
 {
     Arrange,
@@ -16,8 +16,10 @@ public class WordBankMinigame : MonoBehaviour
     public MinigamePilot pilot; //separate script to only request from github once, reducing risk of 403
     public GameObject WordBank; //main object
     public GameObject GameBoard;
-    public GameObject sentenceArea;
-    public Transform sentenceOrigin; //starting point for sentence objects
+    public GameObject sentenceArea; //collider to detect when placing a word in the answer 
+
+    public GameObject sentenceWordArea; //grid layout group object for words 
+    public GameObject placeholderArea; //grid layout group object for placeholders 
     public List<Question> questions;
     public WordBankPlay awaiting = WordBankPlay.Arrange;
 
@@ -30,7 +32,7 @@ public class WordBankMinigame : MonoBehaviour
     public List<GameObject> placeholderObjects = new List<GameObject>(); //template squares to show how many words
     public GameObject placeholderObject; //prefab for above
     public GameObject WordObject; //physical word to move around prefab
-    public GameObject WordInHand; //object to lock to mouse/ finger position
+    public RectTransform WordInHand; //object to lock to mouse/ finger position
     public int minigameDifficulty = 0; //separate from question difficulty (below)
     //database info
     private int difficulty = 0; 
@@ -271,10 +273,7 @@ public class WordBankMinigame : MonoBehaviour
 
                 //make a placeholder in the sentence
                 int n = placeholderObjects.Count;
-                Vector2 position = new Vector2((sentenceOrigin.position.x + ((n * 140) % 840)) , 
-                (sentenceOrigin.position.y - ((n * 140) / 840) * 90)  );
-                GameObject placeholder = Instantiate(placeholderObject, position, Quaternion.identity);
-                placeholder.transform.SetParent(sentenceArea.transform, true);
+                GameObject placeholder = Instantiate(placeholderObject, placeholderArea.transform, false);
                 placeholderObjects.Add(placeholder);
             }
             else
@@ -339,7 +338,7 @@ public class WordBankMinigame : MonoBehaviour
         }
 
         Debug.Log("ANSWER IS: " + rightAnswer);
-        for(int i = 0; i < tempwords.Count; i++)
+        for(int i = 0; i < tempwords.Count; i++) 
         {
             GameObject newWordObject = Instantiate(WordObject, getRandomGameboardPosition() , Quaternion.identity);
             newWordObject.transform.SetParent(GameBoard.transform, false);
@@ -430,9 +429,7 @@ public class WordBankMinigame : MonoBehaviour
     {
         for(int i = 0; i < answerSentence.Count; i++)
         {
-            answerSentence[i].transform.SetParent(sentenceArea.transform, true);
-            answerSentence[i].gameObject.transform.position = new Vector2((sentenceOrigin.position.x + ((i * 140) % 840)) , 
-                (sentenceOrigin.position.y - ((i * 140) / 840) * 90)  );
+            answerSentence[i].transform.SetParent(sentenceWordArea.transform, true);
             answerSentence[i].indexInSentence = i; //index in sentence
             answerSentence[i].indexInWords = -1;
         }
@@ -465,6 +462,8 @@ public class WordBankMinigame : MonoBehaviour
             {
                 answerSentence.RemoveAt(word.gameObject.GetComponent<WordFromBank>().indexInSentence);
                 words.Add(word.gameObject.GetComponent<WordFromBank>());
+                word.transform.SetParent(GameBoard.transform, true);
+
             }
             // else already on game board, just place it down again
     
@@ -526,7 +525,17 @@ public class WordBankMinigame : MonoBehaviour
             }
             else
             {
-                WordInHand.transform.position = Input.mousePosition;
+                Vector2 moveTo;
+                Canvas can = MainCanvas.Instance.gameObject.GetComponent<Canvas>();
+
+                RectTransformUtility.ScreenPointToLocalPointInRectangle(
+                    MainCanvas.Instance.transform as RectTransform, 
+                    Input.mousePosition, 
+                    can.worldCamera , 
+                    out moveTo);
+                WordInHand.anchoredPosition = moveTo;
+
+
             }
         }
     }
