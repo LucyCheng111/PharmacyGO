@@ -1,4 +1,8 @@
 using UnityEngine;
+using UnityEngine.Rendering; // Required namespace for Volume and VolumeProfile
+using UnityEngine.Rendering.Universal;
+using System;
+using System.Collections;
 
 public class DoorSwitch : MonoBehaviour, Interactable
 {
@@ -8,9 +12,9 @@ public class DoorSwitch : MonoBehaviour, Interactable
     [SerializeField] private string itemName;
     [SerializeField] private GameObject InteractPrompt;
     [SerializeField] private Dialog flipDialog;
-
-
-    void Start()
+    [SerializeField] private GameObject VisualEffect;
+    
+     void Start()
     {
         if (ProgressionState.Instance.HasItem(itemName))
         {
@@ -31,6 +35,12 @@ public class DoorSwitch : MonoBehaviour, Interactable
         StartCoroutine(DialogManager.Instance.ShowDialog(flipDialog));
 
         InteractPrompt.SetActive(false);
+
+        if(VisualEffect != null)
+        {
+            VisualEffect.SetActive(!VisualEffect.activeSelf);
+        }
+
     }
 
     public void ShowPrompt()
@@ -42,4 +52,5 @@ public class DoorSwitch : MonoBehaviour, Interactable
     {
         InteractPrompt.SetActive(false);
     }
+
 }

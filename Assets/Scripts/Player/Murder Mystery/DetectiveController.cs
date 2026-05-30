@@ -109,7 +109,7 @@ public class DetectiveController : MonoBehaviour, Interactable
                     StartCoroutine(ShowLeaveMessage());
                 }
                 else
-                {
+                { 
                     StartCoroutine(ShowIncorrectMessage());
                 }
             }
