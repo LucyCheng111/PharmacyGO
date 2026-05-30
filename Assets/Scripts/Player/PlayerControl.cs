@@ -161,6 +161,18 @@ public class PlayerControl : MonoBehaviour
                 encountersEnabled = !encountersEnabled;
                 Debug.Log("Encounters enabled: " + encountersEnabled);
             }
+
+            //Give all progression items
+            if(Input.GetKeyDown(KeyCode.I)){
+                Debug.Log("All Progression Items Given");
+
+                ProgressionState.Instance.CollectItem("ShepardsGlasses");
+                ProgressionState.Instance.CollectItem("MedicalSupplies");
+                ProgressionState.Instance.CollectItem("IDCard");
+                ProgressionState.Instance.CollectItem("Postcard");
+            }
+
+            
 #endif
     }
 

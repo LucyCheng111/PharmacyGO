@@ -713,7 +713,9 @@ MonoBehaviour:
     - name: Who dunnit?
       type: 0
       patient: {fileID: 1653521954}
-      evidenceObjects: []
+      evidenceObjects:
+      - {fileID: 1271685383}
+      - {fileID: 1882573153}
       level: 2
       murderID: 1
       SpawnLocation: {fileID: 148904214}
@@ -11666,7 +11668,7 @@ SpriteRenderer:
   m_SortingLayer: 3
   m_SortingOrder: 1
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 0.9058824, g: 0.8235295, b: 0.6392157, a: 1}
+  m_Color: {r: 0.6784314, g: 0.75294125, b: 0.77647066, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -32243,7 +32245,7 @@ SpriteRenderer:
   m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: -2191934803728951609, guid: b320570c8fee7e4459bb41e0d9268366, type: 3}
-  m_Color: {r: 1, g: 0.9106805, b: 0.7028302, a: 1}
+  m_Color: {r: 0.7491545, g: 0.8307332, b: 0.8584906, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
