@@ -254,19 +254,26 @@ public class SlapjackMinigame : MonoBehaviour
         yield return new WaitUntil(() => pilot.gotQuestions);
         
         int Questioncount = 10;
-        
     
         for(int i = 0; i < Questioncount; i++) //get questions and answers from database
         {
             Question q = pilot.moduleManager.GetRandomQuestion(module, (int) (difficulty / 20));
-            questions.Add(q);
+            if(q.options[q.answerIndex].text.Contains("all") || q.options[q.answerIndex].text.Contains("All"))
+            {
+                i--; //redo this, do not add questions with the answer "all of the following" or alike
+            }
+            else
+            {
+                questions.Add(q);  
+            }
+            
         }
 
         for(int i = 0; i < Questioncount; i++) //make new question cards and assign new questions
         {   
-            GameObject newcard_object = Instantiate(card_prefab,questionpile.transform.position , Quaternion.identity); //make new question card and assign values
+            GameObject newcard_object = Instantiate(card_prefab,questionpile.transform , false); //make new question card and assign values
             newcard_object.name = "Questioncard_" + i;
-            newcard_object.transform.SetParent(questionpile.transform, true);
+            newcard_object.transform.position = questionpile.transform.position;
 
             CardForSlapping newcard = newcard_object.GetComponent<CardForSlapping>();
             newcard.isQuestion = true;
@@ -300,9 +307,9 @@ public class SlapjackMinigame : MonoBehaviour
 
         for(int i = 0; i < cardcount; i++) //create answer cards and distribute them
         {   
-            GameObject newcard_object = Instantiate(card_prefab,centerpile.transform.position , Quaternion.identity); //make new question card and assign values
+            GameObject newcard_object = Instantiate(card_prefab,centerpile.transform, false); //make new question card and assign values
             //newcard_object.name = "othercard_" + i;
-            newcard_object.transform.SetParent(centerpile.transform, true);
+            newcard_object.transform.position = centerpile.transform.position;
 
             CardForSlapping newcard = newcard_object.GetComponent<CardForSlapping>();
 
@@ -402,7 +409,6 @@ public class SlapjackMinigame : MonoBehaviour
     public void CardDrawn(bool isPlayer, CardForSlapping card) //called when a new answer card is moved to the center 
     {
         
-        //Debug.Log("CARD PLAYER: " + isPlayer);
         opponentDecidedNo = false;
         opponentActionCanceled = false;
         currentcentercard = card;
@@ -430,7 +436,6 @@ public class SlapjackMinigame : MonoBehaviour
     public IEnumerator PlayerSelectedCenter()
     {
         HaltOpponentAction();
-        Debug.Log("PLAYER SELECTED CENTER");
         if (currentcentercard.info == currentQuestion.options[currentQuestion.answerIndex].text)
         {
             whoselectedreader.GetComponent<TextMeshProUGUI> ().text = "Player Selected!";
@@ -503,7 +508,6 @@ public class SlapjackMinigame : MonoBehaviour
         {
             if(playerCards[i].gameObject.transform.position != playerpile.transform.position)
             {
-                Debug.Log("PLAYER CARD DISPLACED");
                 playerCards[i].gameObject.transform.position = playerpile.transform.position;
             }
         }
@@ -511,7 +515,6 @@ public class SlapjackMinigame : MonoBehaviour
         {
             if(opponentCards[i].gameObject.transform.position != opponentpile.transform.position)
             {
-                Debug.Log("OPPONENT CARD DISPLACED");
                 opponentCards[i].gameObject.transform.position = opponentpile.transform.position;
             }
         }
@@ -519,7 +522,6 @@ public class SlapjackMinigame : MonoBehaviour
         {
             if(centerCards[i].gameObject.transform.position != centerpile.transform.position)
             {
-                Debug.Log("CENTER CARD DISPLACED");
                 centerCards[i].gameObject.transform.position = centerpile.transform.position;
             }
         }
@@ -536,7 +538,6 @@ public class SlapjackMinigame : MonoBehaviour
         if(roll <= percent)
         {
             //select
-            //Debug.Log("OPPONENT ROLLED TO PRESS, " + "CHANCE: " + percent);
             currentcentercard.Reveal(true); //outline card
 
 
@@ -572,7 +573,6 @@ public class SlapjackMinigame : MonoBehaviour
         } 
         else
         {
-            //Debug.Log("OPPONENT ROLLED NO, " + "CHANCE: " + percent);
             opponentDecidedNo = true;
         }
         yield return null;
@@ -587,7 +587,6 @@ public class SlapjackMinigame : MonoBehaviour
         yield return new WaitUntil(() => cardisMoving == false && awaiting == SlapjackPlay.OpponentTurn);
         yield return new WaitForSeconds(correctnessreadingdelay); // have delay between player drawing a card and opponent drawing a card
         MoveCardsToCorrectPile();
-        Debug.Log("OPPONENT CONTINUES");
 
         if(opponentCards.Count == 0)
         {

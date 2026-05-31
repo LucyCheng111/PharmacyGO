@@ -132,7 +132,7 @@ public class DialogManager : MonoBehaviour
             dialogText.text += letter;
             if (fastDialog)
             {
-                yield return new WaitForSeconds(0.33f / letterPerSecond);
+                yield return new WaitForSeconds(0.01f / letterPerSecond);
             }
             else
             {

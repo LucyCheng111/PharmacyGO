@@ -72,11 +72,11 @@ public class NPCController : MonoBehaviour, Interactable
             {
                 if (ProgressionState.Instance.HasItem(sceneTransitioner.NecessaryProgressionItemName))
                 {
-                    int indexOfLevel = PlayerPrefs.GetInt("UnlockedLevel");
-
-                    if(sceneTransitioner.levelNumber == -1 && convertSpawnPointIDtoLevel(sceneTransitioner.targetSpawnPointID) < LevelManager.Instance.GetLevelNumberFromIndex(indexOfLevel))
+                    int indexOfLevel = PlayerPrefs.GetInt("UnlockedLevel", 1);
+                    Debug.Log("SPAWN: " + convertSpawnPointIDtoLevel(sceneTransitioner.targetSpawnPointID) + " LEVEL: " + indexOfLevel);
+                    if(sceneTransitioner.levelNumber == -1 && convertSpawnPointIDtoLevel(sceneTransitioner.targetSpawnPointID) < indexOfLevel)
                     {
-                        Debug.Log("TEST: " + LevelManager.Instance.GetLevelNumberFromIndex(indexOfLevel));
+                        Debug.Log("SPAWN: " + convertSpawnPointIDtoLevel(sceneTransitioner.targetSpawnPointID) + " LEVEL: " + indexOfLevel);
                         //player has gotten past this MM level
                         willCharge = false;
                         StartCoroutine(DialogManager.Instance.ShowDialog(TravelIsFreeDialog, travelChoices, OnTravelChoiceSelected));

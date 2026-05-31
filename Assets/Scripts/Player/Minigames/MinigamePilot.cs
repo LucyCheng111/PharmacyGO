@@ -1,7 +1,9 @@
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.Networking;
 using System.Collections;
 using System.Collections.Generic;
+using System.Reflection;
 
 public enum MinigameType
 {
@@ -30,26 +32,29 @@ public class MinigamePilot : MonoBehaviour
         gotQuestions = true;
 
     }
-    public IEnumerator DownloadImage(string url, GameObject card)
+    public IEnumerator DownloadImage(string url, GameObject obj)
     {
         // Use UnityWebRequestTexture to download raw image bytes directly
         UnityWebRequest request = UnityWebRequestTexture.GetTexture(url);
         yield return request.SendWebRequest();
-        CardForMatching matchcard = card.GetComponent<CardForMatching>();
-        CardForSlapping slapcard = card.GetComponent<CardForSlapping>();
+        CardForMatching matchcard = obj.GetComponent<CardForMatching>();
+        CardForSlapping slapcard = obj.GetComponent<CardForSlapping>();
 
         if (request.result == UnityWebRequest.Result.Success)
         {
             Texture2D texture = DownloadHandlerTexture.GetContent(request);
-            if (matchcard)
+            if (matchcard != null)
             {
                 matchcard.image.texture = texture;
             }
-            if (slapcard)
+            else if (slapcard != null)
             {
                 slapcard.image.texture = texture;
             }
-            
+            else //readerboard for wordbank
+            {
+                obj.GetComponent<RawImage>().texture = texture;
+            }
         }
         else
         {
