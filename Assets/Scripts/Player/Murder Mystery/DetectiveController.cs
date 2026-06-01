@@ -134,11 +134,36 @@ public class DetectiveController : MonoBehaviour, Interactable
             autoClose: false
         ));
 
-         yield return StartCoroutine(DialogManager.Instance.ShowDialogText(
-            "You unlocked Level " + (murderCase.level + 1) + "!",
-            waitForInput: true,
-            autoClose: true
-        ));
+        //show unique dialogue when you complete the last murder mystery level
+        if((murderCase.level + 1) >= 5)
+        {
+            yield return StartCoroutine(DialogManager.Instance.ShowDialogText(
+                "You have completed all of our challenges for you! Congratulations!",
+                waitForInput: true,
+                autoClose: false
+            ));
+
+            yield return StartCoroutine(DialogManager.Instance.ShowDialogText(
+                "Dr. Shepard is thrilled to see how far you have come! You should be proud of yourself.",
+                waitForInput: true,
+                autoClose: false
+            ));
+
+            yield return StartCoroutine(DialogManager.Instance.ShowDialogText(
+                "You unlocked the bonus Organ Levels!",
+                waitForInput: true,
+                autoClose: true
+            ));
+        }
+        else
+        {
+            yield return StartCoroutine(DialogManager.Instance.ShowDialogText(
+                "You unlocked Level " + (murderCase.level + 1) + "!",
+                waitForInput: true,
+                autoClose: true
+            ));
+        }
+
 
         LevelManager.Instance.UnlockNextLevel();
 
