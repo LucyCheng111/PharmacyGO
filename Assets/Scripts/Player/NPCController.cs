@@ -164,7 +164,9 @@ public class NPCController : MonoBehaviour, Interactable
     public int convertSpawnPointIDtoLevel(string input)
     {
         //got this from https://discussions.unity.com/t/extract-number-from-string/4361
-        return Convert.ToInt32(Regex.Replace(input, "[^0-9]", ""));
+        string digits = Regex.Replace(input, "[^0-9]", "");
+        if (string.IsNullOrEmpty(digits)) return 0;
+        return Convert.ToInt32(digits);
     }
 }
 
